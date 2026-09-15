@@ -853,6 +853,47 @@ a { color: inherit; }
 }
 .outcome-tag .dot { width: 7px; height: 7px; border-radius: 50%; background: #0A8C7D; display: inline-block; margin-right: 10px; }
 
+/* Learnings grid (dark-native numbered reflections) */
+
+.learnings-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid var(--line-dark);
+}
+.learnings-item {
+  padding: 32px 24px;
+  border-right: 1px solid var(--line-dark);
+}
+.learnings-item:last-child { border-right: none; }
+.learnings-num {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--cyan);
+  margin-bottom: 20px;
+  letter-spacing: 0.05em;
+}
+.learnings-title {
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+.learnings-desc {
+  font-size: 14px;
+  line-height: 1.55;
+  color: rgba(255,255,255,0.6);
+}
+
+@media (max-width: 900px) {
+  .learnings-grid { grid-template-columns: 1fr 1fr; }
+  .learnings-item:nth-child(2) { border-right: none; }
+}
+@media (max-width: 560px) {
+  .learnings-grid { grid-template-columns: 1fr; }
+  .learnings-item { border-right: none; border-bottom: 1px solid var(--line-dark); }
+}
+
 /* Metric strip (measurable outcomes) */
 
 .metric-strip {
