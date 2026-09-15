@@ -308,6 +308,62 @@ img { max-width: 100%; display: block; }
   margin-top: 8px;
 }
 
+.behance-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 22px 28px;
+  margin-top: 12px;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+.behance-banner:hover {
+  border-color: var(--ink);
+  background: #fafafa;
+}
+.behance-banner-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.behance-mark {
+  flex: 0 0 auto;
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: var(--ink);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 15px;
+}
+.behance-banner-text {
+  font-size: 15px;
+  font-weight: 700;
+}
+.behance-banner-sub {
+  font-size: 13px;
+  color: var(--ink-mute);
+  margin-top: 2px;
+}
+.behance-banner-arrow {
+  font-size: 20px;
+  color: var(--ink-mute);
+  flex: 0 0 auto;
+  transition: transform 0.2s ease;
+}
+.behance-banner:hover .behance-banner-arrow {
+  transform: translateX(4px);
+  color: var(--ink);
+}
+
+@media (max-width: 480px) {
+  .behance-banner { flex-wrap: wrap; }
+}
+
 /* Footer */
 
 .home-footer {
