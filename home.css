@@ -368,24 +368,16 @@ img { max-width: 100%; display: block; }
 
 .home-footer {
   position: relative;
-  min-height: 320px;
+  min-height: 420px;
   display: flex;
   align-items: flex-end;
   background:
-    radial-gradient(ellipse 900px 500px at 20% 0%, rgba(53,239,221,0.10), transparent 60%),
-    radial-gradient(ellipse 700px 500px at 100% 100%, rgba(111,182,255,0.08), transparent 60%),
-    linear-gradient(180deg, #001217 0%, #001a1f 60%, #00272e 100%);
+    linear-gradient(180deg, rgba(0,8,10,0.1) 0%, rgba(0,8,10,0.55) 65%, rgba(0,8,10,0.88) 100%),
+    url('assets/footer-arch.jpeg');
+  background-size: cover;
+  background-position: center 35%;
   color: #fff;
   overflow: hidden;
-}
-
-.home-footer::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
-  background-size: 26px 26px;
-  opacity: 0.5;
 }
 
 .footer-content {
