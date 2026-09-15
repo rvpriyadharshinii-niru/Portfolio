@@ -388,14 +388,25 @@ img { max-width: 100%; display: block; }
   opacity: 0.5;
 }
 
-.footer-inner {
+.footer-content {
   position: relative;
   z-index: 1;
   width: 100%;
   display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 28px var(--pad) 32px;
+}
+
+.footer-row {
+  display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 28px var(--pad);
+}
+
+.footer-row--bottom {
+  padding-top: 16px;
+  border-top: 1px solid rgba(255,255,255,0.15);
 }
 
 .footer-mark {
@@ -415,6 +426,29 @@ img { max-width: 100%; display: block; }
   font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.1em;
+}
+
+.footer-links {
+  display: flex;
+  gap: 28px;
+}
+.footer-links a {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.7);
+  transition: color 0.2s ease;
+}
+.footer-links a:hover { color: #fff; }
+
+.footer-copy {
+  font-size: 12px;
+  color: rgba(255,255,255,0.45);
+  letter-spacing: 0.04em;
+}
+
+@media (max-width: 480px) {
+  .footer-row--bottom { flex-direction: column; align-items: flex-start; gap: 12px; }
 }
 
 .mt-lg { margin-top: 40px; }
