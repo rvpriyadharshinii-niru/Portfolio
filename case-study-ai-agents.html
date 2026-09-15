@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Designing AI Agents through the evolution of Conversational AI — Case Study</title>
+<meta name="description" content="A UX case study on platform migration, rule-based conversational AI, LLM-powered agents, and the systems needed to make enterprise AI manageable. Uniphore, 2024–2026.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <a href="index.html" class="back-link">&larr; Portfolio</a>
+  <span class="proj-tag">Designing AI Agents · Uniphore</span>
+</header>
+
+<!-- ============================================================
+     SECTION 01 — HERO
+     ============================================================ -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-meta">
+      <span>Uniphore</span>
+      <span>Conversational AI</span>
+      <span>Product Designer</span>
+      <span class="accent">2024–2026</span>
+    </div>
+    <h1>Designing AI Agents through the evolution of Conversational&nbsp;AI</h1>
+    <p class="hero-sub">How I worked across platform migration, rule-based conversational AI, LLM-powered agents, and the systems needed to make enterprise AI manageable.</p>
+
+    <div class="evo-strip reveal">
+      <div class="evo-panel">
+        <div class="evo-shot">
+          <img src="assets/x-console.png" alt="X-Console self-serve experience screen">
+        </div>
+        <div class="evo-label">X-CONSOLE</div>
+      </div>
+      <div class="evo-arrow">&rarr;</div>
+      <div class="evo-panel">
+        <div class="evo-shot">
+          <img src="assets/x-platform.jpeg" alt="X-Platform Agent creation screen">
+        </div>
+        <div class="evo-label">X-PLATFORM / NG</div>
+      </div>
+      <div class="evo-arrow">&rarr;</div>
+      <div class="evo-panel">
+        <div class="evo-shot">
+          <img src="assets/bais-baic-current.jpeg" alt="Current BAIS / BAIC Agent Studio screen">
+        </div>
+        <div class="evo-label">AI AGENTS / BAIS</div>
+      </div>
+    </div>
+    <div class="evo-caption">Product + AI Evolution</div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 02 — PLATFORM BACKGROUND
+     ============================================================ -->
+<section class="section section--dark">
+  <div class="wrap">
+    <div class="section-intro">
+      <p class="section-kicker">Platform background</p>
+      <h2 class="section-heading">The work started with a platform problem</h2>
+      <p class="section-copy">Uniphore's contact-center capabilities had grown across multiple products and product environments. Self-service, agent assistance, conversation capture and analytics were all part of the same customer ecosystem, but had evolved through different product experiences.</p>
+      <p class="section-copy">The broader goal was to bring these capabilities onto a common platform foundation.</p>
+    </div>
+
+    <div class="arch-diagram reveal">
+      <div class="node"><span class="node-label">Capability</span>Agent Assist + Self-Serve</div>
+      <div class="node"><span class="node-label">Capability</span>Capture + Analyze</div>
+
+      <div class="arch-arrow-cell" style="grid-column: 1;"><div class="arrow-v"></div></div>
+      <div class="arch-arrow-cell" style="grid-column: 2;"><div class="arrow-v"></div></div>
+
+      <div class="node node--accent">X-CONSOLE</div>
+      <div class="node node--accent">OTHER PRODUCTS</div>
+
+      <div class="arch-merge-arrow"><div class="arrow-v"></div></div>
+
+      <div class="node node--accent" style="grid-column: span 2; width:100%;">
+        X-CONSOLE + OTHER PRODUCTS
+      </div>
+
+      <div class="arch-merge-arrow"><div class="arrow-v"></div></div>
+
+      <div class="node node--accent" style="grid-column: span 2; width:100%; min-width:280px;">
+        X-PLATFORM
+        <div class="node-sub">Shared foundation</div>
+      </div>
+
+      <div class="arch-merge-arrow"><div class="arrow-v"></div></div>
+
+      <div class="node node--accent" style="grid-column: span 2; width:100%; min-width:280px;">
+        BAIS / BAIC
+        <div class="node-sub">Evolved platform architecture</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 03 — THE ACTUAL PROBLEM
+     ============================================================ -->
+<section class="section section--light">
+  <div class="wrap">
+    <div class="big-statement-wrap reveal">
+      <p class="big-statement">The products were connected by purpose,<br><span class="accent">not by experience.</span></p>
+    </div>
+    <div class="max-prose center mt-lg">
+      <p class="section-copy" style="margin-left:auto;margin-right:auto;">As the ecosystem grew, users had to work across products that had evolved independently. Navigation, terminology, configuration patterns and administrative workflows were not always consistent.</p>
+      <p class="section-copy" style="margin-left:auto;margin-right:auto;">A task that felt related from a customer's perspective could require understanding a different structure, interaction model or configuration approach depending on where it lived.</p>
+    </div>
+  </div>
+
+  <div class="wrap mt-lg">
+    <div class="problem-strip reveal">
+      <div class="problem-item">
+        <div class="problem-num">01</div>
+        <div class="problem-title">FRAGMENTED NAVIGATION</div>
+        <div class="problem-desc">Related capabilities existed within different structures.</div>
+      </div>
+      <div class="problem-item">
+        <div class="problem-num">02</div>
+        <div class="problem-title">INCONSISTENT CONFIGURATION</div>
+        <div class="problem-desc">Similar setup tasks followed different interaction patterns.</div>
+      </div>
+      <div class="problem-item">
+        <div class="problem-num">03</div>
+        <div class="problem-title">CAPABILITY MIGRATION</div>
+        <div class="problem-desc">Existing functionality couldn't simply disappear.</div>
+      </div>
+      <div class="problem-item">
+        <div class="problem-num">04</div>
+        <div class="problem-title">GROWING COMPLEXITY</div>
+        <div class="problem-desc">New capabilities made disconnected experiences harder to maintain.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap mt-lg">
+    <p class="big-statement reveal" style="font-size:clamp(22px,3vw,34px);">Unification wasn't just moving screens.<br><span class="mute">It meant deciding what should stay, change, or be redesigned.</span></p>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 04 — UNDERSTANDING THE EXISTING SYSTEM
+     ============================================================ -->
+<section class="section section--light">
+  <div class="wrap">
+    <div class="section-intro">
+      <p class="section-kicker">Discovery &amp; audit</p>
+      <h2 class="section-heading">Before designing the new experience, I needed to understand what already existed.</h2>
+      <p class="section-copy">A platform migration couldn't begin with new screens.</p>
+      <p class="section-copy">I mapped capabilities from the existing products against the new platform to understand what already existed, what needed to move, what required review, where gaps existed, and what should be redesigned.</p>
+      <p class="section-copy">The mapping became a working reference between the existing experience and the evolving platform.</p>
+    </div>
+
+    <div class="reveal">
+      <div class="placeholder placeholder--panorama">
+        <svg class="placeholder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 8h10M7 12h10M7 16h6"/></svg>
+        <div class="placeholder-tag">IMAGE NEEDED</div>
+        <div class="placeholder-name">X-CONSOLE FEATURE MAPPING / MIGRATION AUDIT</div>
+        <div class="placeholder-desc"><strong>Attach:</strong> The real feature mapping / audit document showing capabilities and migration status.</div>
+        <div class="placeholder-purpose">Purpose: Show the actual working artifact used to understand what should migrate, be reviewed, redesigned or identified as a gap.</div>
+      </div>
+
+      <div class="annotation-row mt-md">
+        <div class="annotation-card">
+          <div class="a-tag">MIGRATE</div>
+          <div class="a-desc">Existing capability retained.</div>
+        </div>
+        <div class="annotation-card">
+          <div class="a-tag">REVIEW</div>
+          <div class="a-desc">Behaviour needed validation.</div>
+        </div>
+        <div class="annotation-card">
+          <div class="a-tag">REDESIGN</div>
+          <div class="a-desc">Existing capability, new interaction model.</div>
+        </div>
+        <div class="annotation-card">
+          <div class="a-tag">GAP</div>
+          <div class="a-desc">Missing in the new platform.</div>
+        </div>
+      </div>
+    </div>
+
+    <p class="big-statement mt-lg reveal" style="font-size:clamp(22px,3vw,34px);">We weren't migrating screens.<br><span class="accent">We were migrating capabilities.</span></p>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 05 — COMPETITIVE RESEARCH
+     ============================================================ -->
+<section class="section section--dark">
+  <div class="wrap">
+    <div class="section-intro">
+      <p class="section-kicker">Competitive research</p>
+      <h2 class="section-heading">Looking beyond our own products</h2>
+      <p class="section-copy">The internal audit told me what the platform needed to preserve.</p>
+      <p class="section-copy">I also contributed to competitive research across AI, ML and enterprise platforms to understand how other complex products handled configuration, workflows, administration, data and emerging AI experiences.</p>
+      <p class="section-copy">The goal wasn't to copy individual interfaces. It was to understand recurring patterns — and where complex platforms repeatedly became difficult to use.</p>
+    </div>
+
+    <div class="reveal">
+      <div class="shot shot--full">
+        <img src="assets/competitor-research.jpeg" alt="Competitive research board covering Kore.ai, Cognigy, Voiceflow, Bland, Elevenlabs, Retell, OpenAI, Cresta, Lindy.ai, Synthflow, UiPath, n8n, Sierra, Decagon and Parloa">
+      </div>
+      <div class="tag-row">
+        <span>Navigation</span><span>Configuration</span><span>Workflow builders</span><span>Data &amp; analytics</span><span>Administration</span><span>AI creation patterns</span>
+      </div>
+    </div>
+
+    <div class="shot shot--full mt-lg reveal">
+      <img src="assets/competitor-research-2.jpeg" alt="Second competitive research board covering Databricks, Snowflake, Microsoft Fabric, Google BigQuery, Mistral AI, Vertex AI, Azure, C3.AI, DataRobot, Hugging Face, 8 Flow.ai, Druid.ai, ServiceNow, Aisera and Camunda">
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 06 — DESIGN FOCUS
+     ============================================================ -->
+<section class="section section--dark">
+  <div class="wrap">
+    <div class="big-statement-wrap reveal">
+      <p class="big-statement">Research gave us patterns.<br><span class="accent">Migration gave us constraints.</span></p>
+    </div>
+    <div class="max-prose center mt-md">
+      <p class="section-copy" style="margin-left:auto;margin-right:auto;">The design work sat between the two: creating a more coherent platform experience while preserving the capabilities existing customers already depended on.</p>
+    </div>
+
+    <div class="focus-split mt-lg reveal">
+      <div class="focus-block">
+        <div class="focus-block-num">01</div>
+        <div class="focus-block-title">Platform &amp; Administration</div>
+        <ul class="focus-list">
+          <li>Users</li>
+          <li>Roles</li>
+          <li>Permissions</li>
+          <li>Account configuration</li>
+          <li>Migration</li>
+          <li>Shared platform patterns</li>
+        </ul>
+      </div>
+      <div class="focus-block dominant">
+        <div class="focus-block-num" style="color:var(--cyan);">02</div>
+        <div class="focus-block-title">AI Agents</div>
+        <ul class="focus-list">
+          <li>Agent creation</li>
+          <li>Configuration</li>
+          <li>Flow Builder</li>
+          <li>Training</li>
+          <li>Testing</li>
+          <li>Versioning</li>
+          <li>LLM-powered experiences</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 07 — EXISTING AI MODEL
+     ============================================================ -->
+<section class="section section--light">
+  <div class="wrap">
+    <div class="section-intro">
+      <p class="section-kicker">Rule-based foundation</p>
+      <h2 class="section-heading">AI Agent creation wasn't new.</h2>
+      <p class="section-copy">Before the newer generation of AI Agents, Self-Serve already supported conversational automation using a more explicit NLU and rule-based model.</p>
+      <p class="section-copy">Users defined what the system should recognize and how it should respond through intents, training phrases, entities, rules and flows.</p>
+      <p class="section-copy">As these capabilities moved into the newer platform, the experience changed — but many of the underlying concepts initially remained familiar.</p>
+    </div>
+
+    <div class="reveal">
+      <div class="placeholder-group placeholder-group--duo">
+        <div class="shot shot--wide">
+          <img src="assets/x-console.png" alt="Legacy X-Console Self-Serve screen showing Intents, Entities, State and Assisted Training">
+        </div>
+        <div class="shot shot--wide">
+          <img src="assets/self-serve-create-task.jpeg" alt="X-Platform Self-Serve Create Task screen showing task type toggle between LLM and Rule">
+        </div>
+      </div>
+      <div class="placeholder-purpose center mt-md" style="margin-left:auto;margin-right:auto;">Purpose: Show continuity of NLU capabilities across the platform migration.</div>
+
+      <div class="annotation-row mt-md">
+        <div class="annotation-card"><div class="a-desc" style="font-weight:700;color:var(--ink);">INTENTS &harr; INTENTS</div></div>
+        <div class="annotation-card"><div class="a-desc" style="font-weight:700;color:var(--ink);">ENTITIES &harr; ENTITIES</div></div>
+        <div class="annotation-card"><div class="a-desc" style="font-weight:700;color:var(--ink);">TRAINING &harr; TRAINING</div></div>
+        <div class="annotation-card"><div class="a-desc" style="font-weight:700;color:var(--ink);">VERSION HISTORY &harr; VERSIONING</div></div>
+      </div>
+    </div>
+
+    <p class="big-statement mt-lg reveal" style="font-size:clamp(22px,3vw,34px);">The platform had changed.<br><span class="accent">The intelligence model hadn't — yet.</span></p>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 08 — HOW RULE-BASED AI WORKED
+     ============================================================ -->
+<section class="section section--dark">
+  <div class="wrap">
+    <div class="section-intro">
+      <p class="section-kicker">Mechanics</p>
+      <h2 class="section-heading">How a rule-based Agent worked</h2>
+      <p class="section-copy">A rule-based Agent relied on explicit definitions.</p>
+      <p class="section-copy">The designer or builder taught the system what a user might say, what information to extract, and what should happen next.</p>
+    </div>
+
+    <div class="flow-vertical reveal">
+      <div class="node" style="font-style:italic;">&ldquo;I want to pay my EMI&rdquo;</div>
+      <div class="arrow-v"></div>
+      <div class="node node--accent"><span class="node-label">Intent</span>Make Payment</div>
+      <div class="arrow-v"></div>
+      <div class="node node--accent"><span class="node-label">Entity</span>Payment Date</div>
+      <div class="arrow-v"></div>
+      <div class="node"><span class="node-label">Rule / Trigger</span></div>
+      <div class="arrow-v"></div>
+      <div class="node"><span class="node-label">Flow</span></div>
+      <div class="arrow-v"></div>
+      <div class="node node--accent"><span class="node-label">Action / Response</span></div>
+    </div>
+
+    <div class="reveal mt-lg">
+      <div class="placeholder placeholder--panorama">
+        <div class="placeholder-tag">IMAGE NEEDED</div>
+        <div class="placeholder-name">NLU UI DETAILS</div>
+        <div class="placeholder-desc"><strong>Attach:</strong> Small real UI crops showing Intent, Training phrase, Entity, and Flow. Four full screenshots are not required — small details are enough.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 09 — WHY RULES WORKED
+     ============================================================ -->
+<section class="section section--light">
+  <div class="wrap">
+    <div class="section-intro">
+      <p class="section-kicker">Strengths</p>
+      <h2 class="section-heading">The advantage was control.</h2>
+      <p class="section-copy">For structured enterprise processes, explicit rules provided something valuable: predictability.</p>
+      <p class="section-copy">Teams could define exactly what should happen, control branching behaviour, validate inputs and design fallbacks for known scenarios.</p>
+      <p class="section-copy">For repeatable or compliance-sensitive workflows, that control mattered.</p>
+    </div>
+
+    <div class="flow-horizontal reveal">
+      <div class="node">Known Input</div>
+      <div class="arrow-h"></div>
+      <div class="node">Known Rule</div>
+      <div class="arrow-h"></div>
+      <div class="node">Known Path</div>
+      <div class="arrow-h"></div>
+      <div class="node node--accent">Predictable Outcome</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 10 — THE SCALING PROBLEM
+     ============================================================ -->
+<section class="section section--dark section--tight">
+  <div class="wrap">
+    <div class="section-intro" style="margin-bottom:32px;">
+      <p class="section-kicker">Scaling limits</p>
+      <h2 class="section-heading" style="font-size:clamp(22px,2.8vw,30px);">But conversational variation created configuration overhead.</h2>
+      <p class="section-copy">As use cases became broader, builders had to account for more ways users might express the same need — more training phrases, intents, entities, rules and fallback conditions to maintain.</p>
+    </div>
+
+    <div class="expand-diagram reveal">
+      <div class="expand-row expand-row--1"><div class="node node--accent">User Need</div></div>
+      <div class="arrow-v"></div>
+      <div class="expand-row expand-row--2">
+        <div class="node">&ldquo;Pay my bill&rdquo;</div><div class="node">&ldquo;I need to make a payment&rdquo;</div><div class="node">&ldquo;Can I clear my EMI?&rdquo;</div>
+      </div>
+      <div class="arrow-v"></div>
+      <div class="expand-row expand-row--3">
+        <div class="node">Intent A</div><div class="node">Intent B</div><div class="node">Intent C</div>
+      </div>
+      <div class="arrow-v"></div>
+      <div class="expand-row expand-row--4">
+        <div class="node">Entity</div><div class="node">Entity</div><div class="node">Entity</div><div class="node">Entity</div>
+      </div>
+      <div class="arrow-v"></div>
+      <div class="expand-row expand-row--5">
+        <div class="node">Rule</div><div class="node">Rule</div><div class="node">Rule</div><div class="node">Rule</div><div class="node">Rule</div>
+      </div>
+      <div class="arrow-v"></div>
+      <div class="expand-row expand-row--5">
+        <div class="node">Path</div><div class="node">Path</div><div class="node">Path</div><div class="node">Path</div><div class="node">Path</div><div class="node">Path</div>
+      </div>
+    </div>
+
+    <p class="big-statement mt-md reveal" style="font-size:clamp(18px,2.4vw,26px);">More conversational freedom <span class="accent">&rarr; more configuration to anticipate it.</span></p>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 11 — FLOW BUILDER
+     ============================================================ -->
+<section class="section section--light section--tight">
+  <div class="wrap">
+    <div class="section-intro" style="margin-bottom:32px;">
+      <p class="section-kicker">Flow builder</p>
+      <h2 class="section-heading" style="font-size:clamp(24px,3vw,34px);">Flow Builder became a design problem of its own.</h2>
+      <p class="section-copy">As workflows grew, the challenge wasn't simply providing nodes and connectors — builders needed to understand where they were in a flow, how branches connected, and how increasingly complex automation could remain understandable.</p>
+      <p class="section-copy">I explored multiple Flow Builder approaches while studying how other workflow and automation products handled similar complexity.</p>
+    </div>
+
+    <div class="reveal">
+      <div class="shot shot--wide">
+        <img src="assets/competitor-research-2.jpeg" alt="Competitor research board including Camunda, Druid.ai and 8 Flow.ai workflow-building patterns">
+      </div>
+    </div>
+
+    <div class="reveal mt-md">
+      <div class="shot shot--wide">
+        <img src="assets/flow-builder-iteration-01.png" alt="Flow Builder design iteration showing multiple flows including Basic Inbound Flow Response, Greeting Subflow, OpenTicket Subflow and RegisteredUser">
+      </div>
+      <div class="iter-note">Design decision represented by this iteration: <em>[to be added]</em></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 12 — LLM SHIFT
+     ============================================================ -->
+<section class="section section--dark section--tight">
+  <div class="wrap">
+    <div class="section-intro" style="margin-bottom:32px;">
+      <p class="section-kicker">The LLM shift</p>
+      <h2 class="section-heading" style="font-size:clamp(24px,3vw,34px);margin-bottom:14px;">Then the way we could build an Agent started to change.</h2>
+      <p class="section-copy">Instead of defining every possible utterance and mapping every conversational path, builders could increasingly describe what an Agent should accomplish, give it instructions and knowledge, connect capabilities, and define boundaries.</p>
+    </div>
+
+    <div class="comparison comparison--compact reveal">
+      <div class="comparison-col muted">
+        <div class="comparison-head">Rule / NLU</div>
+        <div class="comparison-row">Intent</div>
+        <div class="comparison-row">Training phrases</div>
+        <div class="comparison-row">Entity</div>
+        <div class="comparison-row">Rules</div>
+        <div class="comparison-row">Explicit flow</div>
+        <div class="comparison-row">Fallback</div>
+      </div>
+      <div class="comparison-col highlight">
+        <div class="comparison-head">LLM-powered</div>
+        <div class="comparison-row">Objective</div>
+        <div class="comparison-row">Instructions</div>
+        <div class="comparison-row">Knowledge / context</div>
+        <div class="comparison-row">Tasks / Skills</div>
+        <div class="comparison-row">Tools / orchestration</div>
+        <div class="comparison-row">Guardrails</div>
+      </div>
+    </div>
+
+    <p class="big-statement mt-md reveal" style="font-size:clamp(20px,2.6vw,30px);">Teach what to recognize <span class="accent">&rarr; describe what to achieve.</span></p>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 13 — MENTAL MODEL
+     ============================================================ -->
+<section class="section section--light section--tight">
+  <div class="wrap">
+    <div class="section-intro" style="margin-bottom:32px;">
+      <p class="section-kicker">Mental model</p>
+      <h2 class="section-heading" style="font-size:clamp(22px,2.8vw,30px);">This changed the mental model more than the interface.</h2>
+    </div>
+
+    <div class="comparison comparison--compact reveal">
+      <div class="comparison-col muted">
+        <div class="comparison-head">Before<span class="comparison-sub">Human defines everything</span></div>
+        <div class="comparison-row">Defines phrases</div>
+        <div class="comparison-row">Defines intent</div>
+        <div class="comparison-row">Defines entities</div>
+        <div class="comparison-row">Defines rule</div>
+        <div class="comparison-row">Defines path</div>
+        <div class="comparison-row">Defines fallback</div>
+      </div>
+      <div class="comparison-col highlight">
+        <div class="comparison-head">Now<span class="comparison-sub">Human directs, AI interprets</span></div>
+        <div class="comparison-row">Defines purpose</div>
+        <div class="comparison-row">Gives instructions</div>
+        <div class="comparison-row">Provides knowledge</div>
+        <div class="comparison-row">Connects capabilities</div>
+        <div class="comparison-row">Sets boundaries</div>
+        <div class="comparison-row" style="color:var(--cyan);font-style:italic;">AI interprets, reasons, selects, responds</div>
+      </div>
+    </div>
+
+    <p class="big-statement mt-md reveal" style="font-size:clamp(18px,2.4vw,26px);">Not only configuration — <span class="accent">but controlled autonomy.</span></p>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 14 — HYBRID MODEL
+     ============================================================ -->
+<section class="section section--dark">
+  <div class="wrap">
+    <div class="section-intro">
+      <p class="section-kicker">Hybrid model</p>
+      <h2 class="section-heading">We still needed both.</h2>
+      <p class="section-copy">LLM reasoning didn't eliminate the value of deterministic workflows.</p>
+      <p class="section-copy">Some tasks benefit from flexibility and contextual reasoning. Others require precise sequences, validation and predictable outcomes.</p>
+      <p class="section-copy">That led naturally toward a hybrid model.</p>
+    </div>
+
+    <div class="branch-diagram reveal">
+      <div class="node node--accent" style="margin-bottom:10px;">AI Agent</div>
+      <div class="branch-connector">
+        <svg viewBox="0 0 400 40" preserveAspectRatio="none">
+          <path d="M200,0 L200,14 L80,14 L80,40" stroke="rgba(53,239,221,0.5)" stroke-width="1.5" fill="none"/>
+          <path d="M200,0 L200,14 L320,14 L320,40" stroke="rgba(53,239,221,0.5)" stroke-width="1.5" fill="none"/>
+        </svg>
+      </div>
+      <div class="branch-split">
+        <div class="branch-col">
+          <div class="node" style="width:100%;margin-bottom:16px;">LLM Reasoning</div>
+          <div class="node-sub" style="text-align:center;line-height:2;">Understand<br>Interpret<br>Decide<br>Respond</div>
+        </div>
+        <div class="branch-col">
+          <div class="node" style="width:100%;margin-bottom:16px;">Deterministic Flow</div>
+          <div class="node-sub" style="text-align:center;line-height:2;">Validate<br>Execute sequence<br>Enforce rule<br>Complete action</div>
+        </div>
+      </div>
+      <div class="branch-connector">
+        <svg viewBox="0 0 400 40" preserveAspectRatio="none">
+          <path d="M80,0 L80,26 L200,26 L200,40" stroke="rgba(53,239,221,0.5)" stroke-width="1.5" fill="none"/>
+          <path d="M320,0 L320,26 L200,26 L200,40" stroke="rgba(53,239,221,0.5)" stroke-width="1.5" fill="none"/>
+        </svg>
+      </div>
+      <div class="node node--accent" style="margin-top:0;">Outcome</div>
+    </div>
+
+    <p class="big-statement mt-lg reveal" style="font-size:clamp(22px,3vw,34px);">The question wasn't &ldquo;LLM or rules?&rdquo;<br><span class="accent">It was where autonomy was useful — and where predictability was necessary.</span></p>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 15 — AGENT LIFECYCLE
+     ============================================================ -->
+<section class="section section--light">
+  <div class="wrap">
+    <div class="section-intro">
+      <p class="section-kicker">Agent lifecycle</p>
+      <h2 class="section-heading">As Agents became more capable, creation was only part of the experience.</h2>
+      <p class="section-copy">Building an Agent was no longer the whole problem.</p>
+      <p class="section-copy">Enterprise teams also needed ways to ground behaviour, evaluate it, manage changes, deploy safely, understand production behaviour and continuously improve it.</p>
+      <p class="section-copy">The Agent experience was becoming a lifecycle.</p>
+    </div>
+
+    <div class="lifecycle-wrap reveal">
+    <div class="lifecycle">
+      <div class="lifecycle-step"><div class="lifecycle-dot">01</div><div class="lifecycle-label">Discover</div></div>
+      <div class="lifecycle-connector"></div>
+      <div class="lifecycle-step"><div class="lifecycle-dot">02</div><div class="lifecycle-label">Build</div></div>
+      <div class="lifecycle-connector"></div>
+      <div class="lifecycle-step"><div class="lifecycle-dot">03</div><div class="lifecycle-label">Ground</div></div>
+      <div class="lifecycle-connector"></div>
+      <div class="lifecycle-step"><div class="lifecycle-dot">04</div><div class="lifecycle-label">Test</div></div>
+      <div class="lifecycle-connector"></div>
+      <div class="lifecycle-step"><div class="lifecycle-dot">05</div><div class="lifecycle-label">Version</div></div>
+      <div class="lifecycle-connector"></div>
+      <div class="lifecycle-step"><div class="lifecycle-dot">06</div><div class="lifecycle-label">Deploy</div></div>
+      <div class="lifecycle-connector"></div>
+      <div class="lifecycle-step"><div class="lifecycle-dot">07</div><div class="lifecycle-label">Supervise</div></div>
+      <div class="lifecycle-connector"></div>
+      <div class="lifecycle-step"><div class="lifecycle-dot">08</div><div class="lifecycle-label">Improve</div></div>
+      <div class="lifecycle-loop"><div class="lifecycle-loop-icon">&#8635;</div></div>
+    </div>
+    </div>
+    <p class="placeholder-purpose center" style="margin-left:auto;margin-right:auto;">This is an evolving lifecycle — not necessarily capabilities introduced in a single release.</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 16 — PROCESS DISCOVERY
+     ============================================================ -->
+<section class="section section--dark">
+  <div class="wrap">
+    <div class="section-intro">
+      <p class="section-kicker">Process discovery</p>
+      <h2 class="section-heading">Starting from real conversations</h2>
+      <p class="section-copy">One evolution was moving the starting point closer to actual customer behaviour.</p>
+      <p class="section-copy">Instead of always beginning with a blank configuration, existing conversations could help identify recurring work and potential automation opportunities.</p>
+    </div>
+
+    <div class="flow-horizontal reveal">
+      <div class="node">Real Conversations</div>
+      <div class="arrow-h"></div>
+      <div class="node">Recurring Patterns</div>
+      <div class="arrow-h"></div>
+      <div class="node">Process / Task</div>
+      <div class="arrow-h"></div>
+      <div class="node node--accent">AI Agent</div>
+    </div>
+
+    <div class="annotation-row mt-lg reveal">
+      <div class="annotation-card">
+        <div class="a-tag">COPILOT</div>
+        <div class="a-desc">Describe what you want to automate.</div>
+      </div>
+      <div class="annotation-card">
+        <div class="a-tag">FROM CONVERSATIONS</div>
+        <div class="a-desc">Discover opportunities from existing interactions.</div>
+      </div>
+      <div class="annotation-card">
+        <div class="a-tag">BY FORM</div>
+        <div class="a-desc">Configure the Agent directly.</div>
+      </div>
+      <div class="annotation-card">
+        <div class="a-tag">WITH A FLOW</div>
+        <div class="a-desc">Begin from a deterministic workflow.</div>
+      </div>
+    </div>
+
+    <div class="placeholder-group placeholder-group--duo mt-lg reveal">
+      <div class="shot shot--wide">
+        <img src="assets/agent-studio-create-agent-modal.jpeg" alt="Create Agent modal in Agent Studio showing Build with Flow, Build with Instruction, Discover from Conversations and Build with AI Assistant options">
+      </div>
+      <div class="shot shot--wide">
+        <img src="assets/agent-studio-copilot-creation.jpeg" alt="Copilot-style Agent creation conversation capturing agent name and purpose before generating the first message">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 17 — TESTING EVOLUTION
+     ============================================================ -->
+<section class="section section--light section--tight">
+  <div class="wrap">
+    <div class="section-intro" style="margin-bottom:32px;">
+      <p class="section-kicker">Testing evolution</p>
+      <h2 class="section-heading" style="font-size:clamp(22px,2.8vw,30px);">Testing had to evolve with the Agent.</h2>
+      <p class="section-copy">With NLU systems, testing centred around recognition — did it detect the right intent and entities. With more autonomous Agents, that wasn't enough: testing needed to evaluate whether the Agent understood the task, followed instructions, used the right tools and reached the right outcome.</p>
+    </div>
+
+    <div class="comparison comparison--compact reveal">
+      <div class="comparison-col muted">
+        <div class="comparison-head">Then</div>
+        <div class="comparison-row">Utterance</div>
+        <div class="comparison-row">Intent</div>
+        <div class="comparison-row">Entity</div>
+        <div class="comparison-row">Confidence</div>
+        <div class="comparison-row">Pass / Fail</div>
+      </div>
+      <div class="comparison-col highlight">
+        <div class="comparison-head">Now</div>
+        <div class="comparison-row">Scenario</div>
+        <div class="comparison-row">Agent behaviour</div>
+        <div class="comparison-row">Tool / knowledge</div>
+        <div class="comparison-row">Outcome</div>
+        <div class="comparison-row">Evaluation</div>
+      </div>
+    </div>
+
+    <p class="big-statement mt-md reveal" style="font-size:clamp(18px,2.4vw,26px);">From &ldquo;Did it understand me?&rdquo; <span class="accent">to &ldquo;Did it do the right thing?&rdquo;</span></p>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 18 — VERSIONING
+     ============================================================ -->
+<section class="section section--dark">
+  <div class="wrap">
+    <div class="section-intro">
+      <p class="section-kicker">Versioning</p>
+      <h2 class="section-heading">More autonomy also made safe change more important.</h2>
+      <p class="section-copy">When Agent behaviour depends on instructions, knowledge, tools, flows and model behaviour, even small changes can affect outcomes.</p>
+      <p class="section-copy">Version history therefore wasn't simply a technical record. It became part of making AI behaviour manageable.</p>
+    </div>
+
+    <div class="reveal">
+      <div class="placeholder placeholder--wide">
+        <div class="placeholder-tag">IMAGE NEEDED</div>
+        <div class="placeholder-name">VERSION HISTORY</div>
+        <div class="placeholder-desc"><strong>Attach:</strong> Actual Version History / quick-view / commit UI.</div>
+        <div class="placeholder-purpose">Purpose: Show how Agent changes can be inspected and managed.</div>
+      </div>
+
+      <div class="annotation-row annotation-row--five mt-md">
+        <div class="annotation-card"><div class="a-desc">What changed?</div></div>
+        <div class="annotation-card"><div class="a-desc">Who changed it?</div></div>
+        <div class="annotation-card"><div class="a-desc">Which version is active?</div></div>
+        <div class="annotation-card"><div class="a-desc">Can I inspect an earlier state?</div></div>
+        <div class="annotation-card"><div class="a-desc">Can I recover safely?</div></div>
+      </div>
+    </div>
+
+    <p class="big-statement mt-lg reveal" style="font-size:clamp(22px,3vw,34px);">AI behaviour needed to be changeable<br><span class="accent">without becoming untraceable.</span></p>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 19 — ADMINISTRATION
+     ============================================================ -->
+<section class="section section--light">
+  <div class="wrap">
+    <div class="section-intro">
+      <p class="section-kicker">Administration</p>
+      <h2 class="section-heading">AI Agents also needed a strong administrative foundation.</h2>
+      <p class="section-copy">More capable Agents introduced another question: who is allowed to do what?</p>
+      <p class="section-copy">Agent creation, configuration, publishing and platform administration couldn't be treated as unrestricted actions.</p>
+      <p class="section-copy">My platform work also covered users, roles, permissions, account configuration and administrative experiences that supported this broader ecosystem.</p>
+    </div>
+
+    <div class="grid-2 reveal">
+      <div class="placeholder placeholder--wide">
+        <div class="placeholder-tag">IMAGE NEEDED</div>
+        <div class="placeholder-name">ADMINISTRATION UI COLLAGE</div>
+        <div class="placeholder-desc"><strong>Attach:</strong> Actual screens for Users, Roles, Permissions, Account / organization configuration, and restricted / disabled states.</div>
+      </div>
+
+      <div class="flow-vertical">
+        <div class="node">Users</div>
+        <div class="arrow-v"></div>
+        <div class="node">Roles</div>
+        <div class="arrow-v"></div>
+        <div class="node">Permissions</div>
+        <div class="arrow-v"></div>
+        <div class="node node--accent">Capabilities</div>
+        <div class="node-sub mt-md">View &middot; Create &middot; Edit &middot; Publish &middot; Manage</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 20 — BAIS / BAIC CONTEXT
+     ============================================================ -->
+<section class="section section--dark section--tight">
+  <div class="wrap">
+    <div class="section-intro">
+      <p class="section-kicker">Platform context</p>
+      <h2 class="section-heading" style="font-size:clamp(24px,3vw,34px);">The architecture was evolving again.</h2>
+      <p class="section-copy">The broader platform continued to evolve toward BAIC / BAIS and more unified, composable AI experiences.</p>
+      <p class="section-copy">That introduced shared foundations around Agents, models, knowledge, data, governance and enterprise administration, while the product experience increasingly moved toward common navigation and reusable platform patterns.</p>
+      <p class="section-copy">For my work, this meant that AI Agents were no longer an isolated builder. They were becoming part of a larger enterprise AI ecosystem.</p>
+    </div>
+
+    <div class="flow-vertical reveal" style="max-width:420px;margin:0 auto;">
+      <div class="node" style="width:100%;">X-Platform<div class="node-sub">Shared foundation</div></div>
+      <div class="arrow-v"></div>
+      <div class="node node--accent" style="width:100%;">BAIS / BAIC<div class="node-sub">Evolved platform architecture</div></div>
+      <div class="arrow-v"></div>
+      <div class="node" style="width:100%;font-size:13px;">Agents &middot; Knowledge &middot; Models<br>Data &middot; Tools &middot; Governance</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 21 — LATEST AGENT EXPERIENCE
+     ============================================================ -->
+<section class="section section--dark">
+  <div class="wrap">
+    <div class="section-intro">
+      <p class="section-kicker">The current workspace</p>
+      <h2 class="section-heading">From an Agent builder to an Agent workspace</h2>
+      <p class="section-copy">The newer experience brought more of the Agent lifecycle into a connected workspace.</p>
+      <p class="section-copy">Users could discover or create Agents, configure behaviour, connect skills and tools, define guardrails, test outcomes, manage versions and move toward deployment and supervision.</p>
+    </div>
+
+    <div class="showcase-block reveal">
+      <div class="showcase-head"><span class="showcase-index">01</span><span class="showcase-title">Agent Studio</span></div>
+      <div class="shot shot--full">
+        <img src="assets/bais-baic-current.jpeg" alt="Latest Agent Studio UI showing configured agents such as Home Loans, Personal Loans, Credit Cards and Fraud & Disputes">
+      </div>
+      <div class="tag-row"><span>Agent types</span><span>Templates</span><span>Status</span><span>Model</span><span>Skills</span></div>
+    </div>
+
+    <div class="grid-2 reveal">
+      <div class="showcase-block">
+        <div class="showcase-head"><span class="showcase-index">02</span><span class="showcase-title">Agent Configuration</span></div>
+        <div class="shot shot--wide">
+          <img src="assets/agent-studio-copilot-configured.jpeg" alt="Configured Agent instructions tab showing first message and global prompt after Copilot-assisted creation">
+        </div>
+      </div>
+      <div class="showcase-block">
+        <div class="showcase-head"><span class="showcase-index">03</span><span class="showcase-title">Flow / Orchestration</span></div>
+        <div class="shot shot--wide">
+          <img src="assets/agent-studio-flow-orchestration.jpeg" alt="Flow Builder canvas for an Auto Loans agent showing Loan Assessment, Offer Generation, Consent Agent and Human Hand-off nodes">
+        </div>
+      </div>
+    </div>
+
+    <div class="showcase-block reveal">
+      <div class="showcase-head"><span class="showcase-index">04</span><span class="showcase-title">Testing</span></div>
+      <div class="shot shot--wide">
+        <img src="assets/agent-studio-evaluation.jpeg" alt="Evaluation screen listing metrics such as Average Latency, Barge In Handling and Expected Outcome">
+      </div>
+    </div>
+
+    <div class="placeholder-group placeholder-group--duo reveal">
+      <div class="showcase-block">
+        <div class="showcase-head"><span class="showcase-index">05</span><span class="showcase-title">Versioning</span></div>
+        <div class="placeholder placeholder--crop">
+          <div class="placeholder-tag">IMAGE NEEDED</div>
+          <div class="placeholder-name">VERSIONING</div>
+          <div class="placeholder-desc"><strong>Attach:</strong> Latest version management UI.</div>
+        </div>
+      </div>
+      <div class="showcase-block">
+        <div class="showcase-head"><span class="showcase-index">06</span><span class="showcase-title">Permissions / Restricted States</span></div>
+        <div class="placeholder placeholder--crop">
+          <div class="placeholder-tag">IMAGE NEEDED</div>
+          <div class="placeholder-name">PERMISSIONS / RESTRICTED STATES</div>
+          <div class="placeholder-desc"><strong>Attach:</strong> Latest permission / disabled-state UI.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 23 — FROM PLATFORM CHANGE TO MEASURABLE CUSTOMER IMPACT
+     ============================================================ -->
+<section class="section section--dark">
+  <div class="wrap">
+    <div class="section-intro">
+      <p class="section-kicker">Platform &amp; product evolution</p>
+      <h2 class="section-heading">From platform change to measurable customer impact</h2>
+      <p class="section-copy">The work evolved across several generations — from migrating existing conversational-AI capabilities into a shared platform, to making self-service increasingly configurable, and finally toward more autonomous, governed AI Agents.</p>
+      <p class="section-copy">The impact wasn't one isolated UI improvement. It was the product becoming easier to configure, scale and operate while the AI itself became more capable.</p>
+    </div>
+
+    <div class="comparison comparison--triple reveal">
+      <div class="comparison-col muted">
+        <div class="comparison-head">X-Console<span class="comparison-sub">Foundation</span></div>
+        <div class="comparison-row">Intent + entity configuration</div>
+        <div class="comparison-row">Rule-based conversational flows</div>
+        <div class="comparison-row">Existing enterprise capabilities</div>
+      </div>
+      <div class="comparison-col">
+        <div class="comparison-head">X-Platform / U-Self Serve<span class="comparison-sub">Scale + Self-Service</span></div>
+        <div class="comparison-row">Shared platform foundation</div>
+        <div class="comparison-row">No-code / configurable workflows</div>
+        <div class="comparison-row">Centralized administration</div>
+        <div class="comparison-row">Faster iteration</div>
+      </div>
+      <div class="comparison-col highlight">
+        <div class="comparison-head">BAIS / BAIC<span class="comparison-sub">Agentic AI</span></div>
+        <div class="comparison-row">LLM-powered Agents</div>
+        <div class="comparison-row">Knowledge + tools + skills</div>
+        <div class="comparison-row">Testing + evaluation</div>
+        <div class="comparison-row">Versioning + governance</div>
+        <div class="comparison-row">Enterprise Agent lifecycle</div>
+      </div>
+      <div class="comparison-arrow-badge" style="left:33.333%;">&rarr;</div>
+      <div class="comparison-arrow-badge" style="left:66.666%;">&rarr;</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 24 — REAL OUTCOMES
+     ============================================================ -->
+<section class="section section--light">
+  <div class="wrap">
+    <div class="section-intro">
+      <p class="section-kicker">Real outcomes</p>
+      <h2 class="section-heading">The platform evolution translated into real outcomes</h2>
+      <p class="section-copy">Across U-Self Serve and broader X-Platform deployments, internal reporting shows measurable improvements in how enterprise customers could configure and operate conversational AI.</p>
+    </div>
+
+    <div class="metric-strip reveal">
+      <div class="metric-block">
+        <div class="metric-number">3&ndash;5&times;</div>
+        <div class="metric-label">Faster configuration change cycles</div>
+        <div class="metric-copy">Self-service configurability and no-code tooling reduced dependency on IT for ongoing changes.</div>
+      </div>
+      <div class="metric-block">
+        <div class="metric-number">2&ndash;4 wks</div>
+        <div class="metric-label">To launch some pilots</div>
+        <div class="metric-copy">The platform supported faster rollout of new customer implementations and configurations.</div>
+      </div>
+      <div class="metric-block">
+        <div class="metric-number">31&ndash;45%</div>
+        <div class="metric-label">Self-service containment in reported LLM deployments</div>
+        <div class="metric-copy">A meaningful share of customer interactions could be resolved without requiring a human agent.</div>
+      </div>
+    </div>
+
+    <p class="metric-note">Broader product outcomes from enterprise deployments; not attributed solely to my design work.</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 24B — LEARNINGS
+     ============================================================ -->
+<section class="section section--dark">
+  <div class="wrap">
+    <div class="section-intro">
+      <p class="section-kicker">Learnings</p>
+      <h2 class="section-heading">Looking back, here's what stayed true.</h2>
+      <p class="section-copy">Across rule-based systems, platform migration and increasingly autonomous Agents, the technology kept changing. A few things about designing it didn't.</p>
+    </div>
+
+    <div class="learnings-grid reveal">
+      <div class="learnings-item">
+        <div class="learnings-num">01</div>
+        <div class="learnings-title">Control is a feature, not a fallback</div>
+        <div class="learnings-desc">Predictability isn't something enterprise users tolerate — for compliance-heavy workflows, it's often the actual requirement. Autonomy had to earn its place next to it, not replace it.</div>
+      </div>
+      <div class="learnings-item">
+        <div class="learnings-num">02</div>
+        <div class="learnings-title">The harder redesign is the mental model</div>
+        <div class="learnings-desc">Moving screens is the easy part of a migration. Changing how someone thinks about what they're operating — from defining rules to describing intent — takes much longer to get right.</div>
+      </div>
+      <div class="learnings-item">
+        <div class="learnings-num">03</div>
+        <div class="learnings-title">What you preserve is a design decision</div>
+        <div class="learnings-desc">Deciding what stayed, what got redesigned and what became a gap shaped the new platform as much as anything built from scratch.</div>
+      </div>
+      <div class="learnings-item">
+        <div class="learnings-num">04</div>
+        <div class="learnings-title">As autonomy grows, trust becomes the interface</div>
+        <div class="learnings-desc">Testing, versioning and permissions stopped being back-office details. For an Agent that can act on its own, they became the main way people could still say yes to it.</div>
+      </div>
+    </div>
+
+    <p class="big-statement mt-lg reveal" style="font-size:clamp(20px,2.6vw,28px);">None of this made the interface simpler.<br><span class="accent">It made it more honest about what the AI was actually doing.</span></p>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 25 — MY CONTRIBUTION
+     ============================================================ -->
+<section class="section section--dark">
+  <div class="wrap">
+    <div class="section-intro">
+      <p class="section-kicker">My contribution</p>
+      <h2 class="section-heading">My contribution was in making that evolution usable.</h2>
+      <p class="section-copy">As the technology changed, my design work changed with it.</p>
+      <p class="section-copy">I helped preserve existing customer capabilities through platform migration, worked on the configuration and administration foundation around them, designed rule-based and LLM-powered Agent experiences, explored how complex flows could remain manageable, and extended the experience into testing, versioning, permissions and implementation quality.</p>
+    </div>
+
+    <div class="journey reveal">
+      <div class="journey-step journey-step--1">
+        <div class="journey-dot">01</div>
+        <div class="journey-keyword">Preserve</div>
+        <div class="journey-desc">Existing capabilities during migration</div>
+      </div>
+      <div class="journey-connector"></div>
+      <div class="journey-step journey-step--2">
+        <div class="journey-dot">02</div>
+        <div class="journey-keyword">Simplify</div>
+        <div class="journey-desc">Configuration and platform administration</div>
+      </div>
+      <div class="journey-connector"></div>
+      <div class="journey-step journey-step--3">
+        <div class="journey-dot">03</div>
+        <div class="journey-keyword">Enable</div>
+        <div class="journey-desc">Business users to build and manage AI Agents</div>
+      </div>
+      <div class="journey-connector"></div>
+      <div class="journey-step journey-step--4">
+        <div class="journey-dot">04</div>
+        <div class="journey-keyword">Control</div>
+        <div class="journey-desc">Testing, versions, permissions and deployment</div>
+      </div>
+      <div class="journey-connector"></div>
+      <div class="journey-step journey-step--5">
+        <div class="journey-dot">05</div>
+        <div class="journey-keyword">Scale</div>
+        <div class="journey-desc">Enterprise AI with greater autonomy</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 26 — THE DESIGN PROBLEM CHANGED
+     ============================================================ -->
+<section class="section section--light section--tight">
+  <div class="wrap">
+    <div class="section-intro">
+      <p class="section-kicker">The design problem changed</p>
+      <h2 class="section-heading">And the definition of &ldquo;good UX&rdquo; changed with the AI.</h2>
+      <p class="section-copy">Earlier, success meant helping users configure a predictable system correctly.</p>
+      <p class="section-copy">As Agents became more autonomous, the design problem expanded.</p>
+      <p class="section-copy">Users still needed to create AI — but they also needed to understand it, test it, control who could change it, trace what changed, deploy it safely and improve it after launch.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 27 — FINAL CONCEPTUAL DIAGRAM
+     ============================================================ -->
+<section class="section section--dark">
+  <div class="wrap">
+    <div class="axis-wrap reveal">
+      <div class="axis-label">AI BECAME MORE CAPABLE &uarr;</div>
+      <div class="axis-row">
+        <div class="axis-node">
+          <div class="node">Configure</div>
+        </div>
+        <div class="axis-arrow">&#8599;</div>
+        <div class="axis-node" style="margin-bottom:14px;">
+          <div class="node">Understand</div>
+        </div>
+        <div class="axis-arrow">&#8599;</div>
+        <div class="axis-node" style="margin-bottom:30px;">
+          <div class="node">Test</div>
+        </div>
+        <div class="axis-arrow">&#8599;</div>
+        <div class="axis-node" style="margin-bottom:46px;">
+          <div class="node">Govern</div>
+        </div>
+        <div class="axis-arrow">&#8599;</div>
+        <div class="axis-node" style="margin-bottom:62px;">
+          <div class="node">Control</div>
+        </div>
+        <div class="axis-arrow">&#8599;</div>
+        <div class="axis-node" style="margin-bottom:80px;">
+          <div class="node node--accent">Deploy with trust</div>
+        </div>
+      </div>
+      <p class="axis-takeaway">As AI autonomy increases, the UX responsibility expands from configuration toward trust, governance and control.</p>
+    </div>
+  </div>
+</section>
+
+<div class="closing reveal">
+  <div class="closing-line1 closing-line1--quote">&ldquo;The goal was no longer just to make AI easier to build.&rdquo;</div>
+  <div class="closing-line2 closing-line2--sentence">It was to make increasingly autonomous AI manageable at enterprise scale.</div>
+  <p class="closing-final closing-final--wide">Across the evolution — from X-Console to X-Platform and toward BAIS/BAIC — the interface moved from configuring conversational logic to helping people build, test, govern and trust AI Agents.</p>
+</div>
+
+<footer class="site-footer">
+  <div>Priyadharshinii R. &middot; Product Designer</div>
+  <div class="footer-next">
+    <span class="label">Next</span>
+    <a href="index.html">Back to portfolio &rarr;</a>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
