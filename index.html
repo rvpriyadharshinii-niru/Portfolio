@@ -410,19 +410,15 @@
     </div>
 
     <div class="reveal">
-      <div class="placeholder placeholder--wide">
-        <div class="placeholder-tag">IMAGE NEEDED</div>
-        <div class="placeholder-name">FLOW BUILDER RESEARCH</div>
-        <div class="placeholder-desc"><strong>Attach:</strong> Relevant competitor research showing workflow-building patterns.</div>
+      <div class="shot shot--wide">
+        <img src="assets/competitor-research-2.jpeg" alt="Competitor research board including Camunda, Druid.ai and 8 Flow.ai workflow-building patterns">
       </div>
     </div>
 
     <div class="placeholder-group placeholder-group--trio mt-lg reveal">
       <div>
-        <div class="placeholder placeholder--tall">
-          <div class="placeholder-tag">IMAGE NEEDED</div>
-          <div class="placeholder-name">FLOW BUILDER — ITERATION 01</div>
-          <div class="placeholder-desc"><strong>Attach:</strong> First Flow Builder design iteration.</div>
+        <div class="shot shot--wide">
+          <img src="assets/flow-builder-iteration-01.png" alt="Flow Builder design iteration showing multiple flows including Basic Inbound Flow Response, Greeting Subflow, OpenTicket Subflow and RegisteredUser">
         </div>
         <div class="iter-note">Design decision represented by this iteration: <em>[to be added]</em></div>
       </div>
@@ -449,16 +445,15 @@
 <!-- ============================================================
      SECTION 12 — LLM SHIFT
      ============================================================ -->
-<section class="section section--dark">
+<section class="section section--dark section--tight">
   <div class="wrap">
-    <div class="section-intro">
+    <div class="section-intro" style="margin-bottom:32px;">
       <p class="section-kicker">The LLM shift</p>
-      <h2 class="section-heading">Then the way we could build an Agent started to change.</h2>
-      <p class="section-copy">LLMs changed the relationship between the builder and the system.</p>
-      <p class="section-copy">Instead of defining every possible utterance and explicitly mapping every conversational path, builders could increasingly describe what an Agent should accomplish, give it instructions and knowledge, connect capabilities, and define boundaries.</p>
+      <h2 class="section-heading" style="font-size:clamp(24px,3vw,34px);margin-bottom:14px;">Then the way we could build an Agent started to change.</h2>
+      <p class="section-copy">Instead of defining every possible utterance and mapping every conversational path, builders could increasingly describe what an Agent should accomplish, give it instructions and knowledge, connect capabilities, and define boundaries.</p>
     </div>
 
-    <div class="comparison reveal">
+    <div class="comparison comparison--compact reveal">
       <div class="comparison-col muted">
         <div class="comparison-head">Rule / NLU</div>
         <div class="comparison-row">Intent</div>
@@ -479,50 +474,42 @@
       </div>
     </div>
 
-    <p class="big-statement mt-lg reveal" style="font-size:clamp(24px,3.4vw,40px);">Teach what to recognize<br><span class="accent">&rarr; describe what to achieve.</span></p>
+    <p class="big-statement mt-md reveal" style="font-size:clamp(20px,2.6vw,30px);">Teach what to recognize <span class="accent">&rarr; describe what to achieve.</span></p>
   </div>
 </section>
 
 <!-- ============================================================
      SECTION 13 — MENTAL MODEL
      ============================================================ -->
-<section class="section section--light">
+<section class="section section--light section--tight">
   <div class="wrap">
-    <div class="section-intro">
+    <div class="section-intro" style="margin-bottom:32px;">
       <p class="section-kicker">Mental model</p>
-      <h2 class="section-heading">This changed the mental model more than the interface.</h2>
+      <h2 class="section-heading" style="font-size:clamp(22px,2.8vw,30px);">This changed the mental model more than the interface.</h2>
     </div>
 
-    <div class="comparison reveal">
+    <div class="comparison comparison--compact reveal">
       <div class="comparison-col muted">
-        <div class="comparison-head">Before</div>
-        <div class="flow-vertical" style="gap:0;">
-          <div class="node" style="min-width:0;width:100%;margin-bottom:10px;">Human</div>
-          <div class="node" style="min-width:0;width:100%;margin-bottom:10px;font-weight:500;">defines phrases</div>
-          <div class="node" style="min-width:0;width:100%;margin-bottom:10px;font-weight:500;">defines intent</div>
-          <div class="node" style="min-width:0;width:100%;margin-bottom:10px;font-weight:500;">defines entities</div>
-          <div class="node" style="min-width:0;width:100%;margin-bottom:10px;font-weight:500;">defines rule</div>
-          <div class="node" style="min-width:0;width:100%;margin-bottom:10px;font-weight:500;">defines path</div>
-          <div class="node" style="min-width:0;width:100%;">defines fallback</div>
-        </div>
+        <div class="comparison-head">Before<span class="comparison-sub">Human defines everything</span></div>
+        <div class="comparison-row">Defines phrases</div>
+        <div class="comparison-row">Defines intent</div>
+        <div class="comparison-row">Defines entities</div>
+        <div class="comparison-row">Defines rule</div>
+        <div class="comparison-row">Defines path</div>
+        <div class="comparison-row">Defines fallback</div>
       </div>
       <div class="comparison-col highlight">
-        <div class="comparison-head">Now</div>
-        <div class="flow-vertical" style="gap:0;">
-          <div class="node" style="min-width:0;width:100%;margin-bottom:10px;">Human</div>
-          <div class="node node--accent" style="min-width:0;width:100%;margin-bottom:10px;font-weight:500;">defines purpose</div>
-          <div class="node node--accent" style="min-width:0;width:100%;margin-bottom:10px;font-weight:500;">gives instructions</div>
-          <div class="node node--accent" style="min-width:0;width:100%;margin-bottom:10px;font-weight:500;">provides knowledge</div>
-          <div class="node node--accent" style="min-width:0;width:100%;margin-bottom:10px;font-weight:500;">connects capabilities</div>
-          <div class="node node--accent" style="min-width:0;width:100%;margin-bottom:16px;font-weight:500;">sets boundaries</div>
-          <div style="text-align:center;font-size:20px;color:var(--cyan);opacity:0.6;margin-bottom:16px;">&updownarrow;</div>
-          <div class="node" style="min-width:0;width:100%;margin-bottom:10px;">AI</div>
-          <div class="node-sub" style="text-align:center;">interprets &middot; reasons &middot; selects &middot; responds</div>
-        </div>
+        <div class="comparison-head">Now<span class="comparison-sub">Human directs, AI interprets</span></div>
+        <div class="comparison-row">Defines purpose</div>
+        <div class="comparison-row">Gives instructions</div>
+        <div class="comparison-row">Provides knowledge</div>
+        <div class="comparison-row">Connects capabilities</div>
+        <div class="comparison-row">Sets boundaries</div>
+        <div class="comparison-row" style="color:var(--cyan);font-style:italic;">AI interprets, reasons, selects, responds</div>
       </div>
     </div>
 
-    <p class="big-statement mt-lg reveal" style="font-size:clamp(22px,3vw,34px);">Not only configuration —<br><span class="accent">but controlled autonomy.</span></p>
+    <p class="big-statement mt-md reveal" style="font-size:clamp(18px,2.4vw,26px);">Not only configuration — <span class="accent">but controlled autonomy.</span></p>
   </div>
 </section>
 

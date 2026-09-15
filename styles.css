@@ -437,6 +437,7 @@ a { color: inherit; }
 .placeholder-group {
   display: grid;
   gap: 20px;
+  align-items: start;
 }
 .placeholder-group--duo { grid-template-columns: 1fr 1fr; }
 .placeholder-group--trio { grid-template-columns: repeat(3, 1fr); }
@@ -687,6 +688,10 @@ a { color: inherit; }
 .section--light .comparison-col:not(:last-child) { border-right-color: var(--line-light); }
 
 .comparison--triple { grid-template-columns: repeat(3, 1fr); position: relative; }
+
+.comparison--compact .comparison-col { padding: 18px clamp(20px, 3vw, 32px); }
+.comparison--compact .comparison-head { margin-bottom: 12px; padding-bottom: 10px; }
+.comparison--compact .comparison-row { padding: 8px 0; font-size: 14px; }
 .comparison-sub {
   display: block;
   font-size: 11.5px;
