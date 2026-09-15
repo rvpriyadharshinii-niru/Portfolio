@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ERP Suite 3.0: Rebuilding a Legacy ERP for Scale — Case Study</title>
+<meta name="description" content="Redesigning a legacy enterprise ERP — from a fragile MVP built for 150 products to a scalable platform supporting 15,000+ — through object-oriented components and bulk-first workflows. Hikeon Technologies, 2022–2023.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <a href="index.html" class="back-link">&larr; Portfolio</a>
+  <span class="proj-tag">ERP Suite 3.0 · Hikeon Technologies</span>
+</header>
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-meta">
+      <span>Hikeon Technologies</span>
+      <span>Restaurantware</span>
+      <span>B2B ERP</span>
+      <span class="accent">2022–2023</span>
+    </div>
+    <h1>ERP Suite 3.0: Rebuilding a Legacy ERP for Scale</h1>
+    <p class="hero-sub">From a fragile MVP built for 150 products to a scalable platform supporting 15,000+ — through object-oriented components, bulk-first workflows and a system of reusable primitives.</p>
+
+    <div class="reveal mt-lg">
+      <div class="shot shot--full">
+        <img src="assets/erp-hero-overview.png" alt="ERP Suite 3.0 container management screen and mobile product specification overlay">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     THE CHALLENGE
+     ============================================================ -->
+<section class="section section--dark">
+  <div class="wrap">
+    <div class="section-intro">
+      <p class="section-kicker">The challenge</p>
+      <h2 class="section-heading">Built for 150 products. Forced to support 7,000+.</h2>
+      <p class="section-copy">ERP 2.0 was originally built as an MVP using an Adobe website builder with heavy customisation. As the business scaled past 7,000 products, the system became slow, fragile, and operationally expensive.</p>
+      <p class="section-copy">The software frequently broke, UX was inconsistent, and every change required significant admin effort. With no designers involved from the start, the system could no longer support business growth. The challenge was to reimagine the ERP from scratch — not as a patch, but as a scalable product platform.</p>
+    </div>
+
+    <p class="big-statement reveal" style="font-size:clamp(20px,2.8vw,30px);">Rewriting. Refactoring. Redesigning.<br><span class="accent">ERP 2.0 &rarr; ERP Suite 3.0.</span></p>
+
+    <div class="annotation-row mt-lg reveal">
+      <div class="annotation-card">
+        <div class="a-tag">PRODUCTS &amp; VARIANTS</div>
+      </div>
+      <div class="annotation-card">
+        <div class="a-tag">ORDERS &amp; RETURNS</div>
+      </div>
+      <div class="annotation-card">
+        <div class="a-tag">VENDORS &amp; PURCHASING</div>
+      </div>
+      <div class="annotation-card">
+        <div class="a-tag">CONTAINERS, DELIVERY &amp; INVENTORY</div>
+      </div>
+    </div>
+    <p class="placeholder-purpose center mt-md" style="margin-left:auto;margin-right:auto;">ERP Suite 3.0 is a custom cloud ERP used as the single source of truth across these areas — powering the entire backend of Restaurantware's US e-commerce operations.</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     ROLE + DISCOVERY
+     ============================================================ -->
+<section class="section section--light">
+  <div class="wrap">
+    <div class="grid-2 reveal">
+      <div>
+        <p class="section-kicker">My role</p>
+        <h2 class="section-heading" style="font-size:clamp(22px,2.8vw,30px);">One of the first two designers hired to rebuild the ERP.</h2>
+        <ul style="margin-top:20px;padding-left:18px;color:var(--ink-soft);font-size:15px;line-height:1.9;">
+          <li>Led UX for multiple core modules end-to-end</li>
+          <li>Created the design system for ERP 3.0</li>
+          <li>Designed object-oriented UI components used across the product</li>
+          <li>Worked closely with engineering during Vue.js-based implementation</li>
+        </ul>
+      </div>
+      <div>
+        <p class="section-kicker">Discovery</p>
+        <h2 class="section-heading" style="font-size:clamp(22px,2.8vw,30px);">Legacy audit, heuristic evaluation, shadowing admin workflows.</h2>
+        <p class="section-copy">The real bottleneck wasn't feature complexity. It was <strong>repetitive admin effort caused by poor system primitives</strong> — admins were forced to repeat the same actions hundreds of times across product variants.</p>
+      </div>
+    </div>
+
+    <div class="reveal mt-lg">
+      <div class="shot shot--full">
+        <img src="assets/erp-pain-points.png" alt="Eleven documented pain points from the legacy system audit, including built for MVP scale but forced to support 7,000+ products, no safe bulk actions, and frequent system breakdowns">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     DESIGN STRATEGY
+     ============================================================ -->
+<section class="section section--dark">
+  <div class="wrap">
+    <div class="section-intro">
+      <p class="section-kicker">Design strategy</p>
+      <h2 class="section-heading">Every core problem mapped to a specific design decision.</h2>
+    </div>
+
+    <div class="comparison reveal">
+      <div class="comparison-col muted">
+        <div class="comparison-head">Core problem</div>
+        <div class="comparison-row">High admin effort</div>
+        <div class="comparison-row">Variant explosion</div>
+        <div class="comparison-row">Context switching</div>
+        <div class="comparison-row">Inconsistent UX</div>
+        <div class="comparison-row">Slow operations</div>
+      </div>
+      <div class="comparison-col highlight">
+        <div class="comparison-head">Design decision</div>
+        <div class="comparison-row">Bulk-first and object-oriented tools</div>
+        <div class="comparison-row">One product &rarr; editable variants</div>
+        <div class="comparison-row">Overlays instead of page navigation</div>
+        <div class="comparison-row">Centralised design system</div>
+        <div class="comparison-row">High-density data grids</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     QUICK EDIT
+     ============================================================ -->
+<section class="section section--light">
+  <div class="wrap">
+    <div class="section-intro">
+      <p class="section-kicker">Key innovation</p>
+      <h2 class="section-heading">Quick Edit</h2>
+      <p class="section-copy">Products move through 6 lifecycle stages and carry 200+ attributes, often with 100+ variants. Earlier, each variant had to be edited individually. Quick Edit lets admins edit an attribute across every variant at once, or selectively override individual variants — without leaving the current screen.</p>
+    </div>
+
+    <div class="metric-strip reveal" style="max-width:520px;margin:0 auto;">
+      <div class="metric-block">
+        <div class="metric-number">2000h</div>
+        <div class="metric-label">Before</div>
+      </div>
+      <div class="metric-block">
+        <div class="metric-number">300h</div>
+        <div class="metric-label">After Quick Edit</div>
+      </div>
+    </div>
+    <p class="big-statement mt-md reveal" style="font-size:clamp(18px,2.4vw,26px);">A ~85% reduction <span class="accent">in admin hours spent editing product variants.</span></p>
+
+    <div class="reveal mt-lg">
+      <div class="shot shot--full">
+        <img src="assets/erp-quick-edit.png" alt="Quick Edit modal showing bulk editing of a color adjective attribute and a pack size attribute across all product variants">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     OBJECT-ORIENTED COMPONENTS
+     ============================================================ -->
+<section class="section section--dark">
+  <div class="wrap">
+    <div class="section-intro">
+      <p class="section-kicker">System components</p>
+      <h2 class="section-heading">Object-oriented UI components became the foundation of the product.</h2>
+    </div>
+
+    <div class="placeholder-group placeholder-group--trio reveal">
+      <div>
+        <div class="shot shot--wide">
+          <img src="assets/erp-quick-view-overlay.png" alt="Quick View side overlay showing category details without leaving the table">
+        </div>
+        <div class="iter-note" style="color:rgba(255,255,255,0.6);border-color:var(--line-dark);">Quick View Side Overlay — view item details without leaving the table.</div>
+      </div>
+      <div>
+        <div class="shot" style="aspect-ratio:1091/183;">
+          <img src="assets/erp-bulk-action-overlay.png" alt="Bulk action bottom overlay showing multiple categories selected with a save action">
+        </div>
+        <div class="iter-note" style="color:rgba(255,255,255,0.6);border-color:var(--line-dark);">Bulk Action Bottom Overlay — perform actions on multiple items safely.</div>
+      </div>
+      <div>
+        <div class="shot shot--wide">
+          <img src="assets/erp-config-modal.png" alt="Full-screen configuration modal for selecting and arranging table columns">
+        </div>
+        <div class="iter-note" style="color:rgba(255,255,255,0.6);border-color:var(--line-dark);">Full-Screen Configuration Modal — customise columns and filters, save and share views.</div>
+      </div>
+    </div>
+
+    <p class="section-copy center mt-lg" style="max-width:640px;margin-left:auto;margin-right:auto;">Most ERP actions happen in tables, so we also designed power-user-friendly, high-density data grids — sorting, filtering, column control, saved views per role, and configurations that could be shared across teams.</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     RETURNS MANAGEMENT
+     ============================================================ -->
+<section class="section section--light">
+  <div class="wrap">
+    <div class="section-intro">
+      <p class="section-kicker">Module highlight</p>
+      <h2 class="section-heading">Returns Management</h2>
+      <p class="section-copy">Redesigned the return flow to support complete or partial returns of a genuine product, complete or partial replacement of an order, and fraud prevention against fake returns. The full conditional logic — partial receipt, flagged items, CS intervention — was mapped before any screen was drawn.</p>
+    </div>
+
+    <div class="reveal">
+      <div class="shot shot--full">
+        <img src="assets/erp-returns-flow-logic.png" alt="Return flow logic diagram mapping partial receipt, flagged items, CS approval and refund or credit memo outcomes">
+      </div>
+    </div>
+
+    <div class="placeholder-group placeholder-group--duo mt-lg reveal">
+      <div class="shot shot--crop">
+        <img src="assets/erp-returns-before-1.png" alt="Legacy ERP 2.0 returns screen listing created and received returns">
+      </div>
+      <div class="shot shot--crop">
+        <img src="assets/erp-returns-before-2.png" alt="Legacy ERP 2.0 draft products list with dense unfiltered table">
+      </div>
+    </div>
+    <p class="placeholder-purpose center mt-md" style="margin-left:auto;margin-right:auto;">Before — ERP 2.0</p>
+
+    <div class="reveal mt-lg">
+      <div class="shot shot--full">
+        <img src="assets/erp-returns-after.png" alt="Redesigned Create Return flow with damaged product selection and an order summary side panel">
+      </div>
+    </div>
+    <p class="placeholder-purpose center mt-md" style="margin-left:auto;margin-right:auto;">After — ERP Suite 3.0</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     DASHBOARD + TASK CENTER
+     ============================================================ -->
+<section class="section section--dark">
+  <div class="wrap">
+    <div class="section-intro">
+      <p class="section-kicker">Module highlight</p>
+      <h2 class="section-heading">Sales Summary Dashboard &amp; Task Center</h2>
+      <p class="section-copy">A new role-based, widget-driven dashboard with drag-and-drop widgets, custom metrics and real-time previews — and an internal task management system, inspired by tools like Asana but built for ERP approval workflows.</p>
+    </div>
+
+    <div class="placeholder-group placeholder-group--duo reveal">
+      <div class="shot shot--wide">
+        <img src="assets/erp-dashboard-builder.png" alt="Sales summary dashboard builder in edit mode with a widget library panel">
+      </div>
+      <div class="shot shot--wide">
+        <img src="assets/erp-dashboard-kpi.png" alt="Sales summary KPI dashboard showing total revenue, total orders, gross profit and order breakdown by distributor">
+      </div>
+    </div>
+
+    <div class="reveal mt-lg">
+      <div class="shot shot--full">
+        <img src="assets/erp-task-center.png" alt="Task Center across desktop, order-approval and mobile views showing to-do and upcoming tasks">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     IMPACT
+     ============================================================ -->
+<section class="section section--light">
+  <div class="wrap">
+    <div class="section-intro">
+      <p class="section-kicker">Impact</p>
+      <h2 class="section-heading">Rebuilding the primitives paid off at scale.</h2>
+    </div>
+
+    <div class="metric-strip reveal">
+      <div class="metric-block">
+        <div class="metric-number">~85%</div>
+        <div class="metric-label">Admin workload reduction</div>
+        <div class="metric-copy">From ~2000 hours to ~300 hours of variant-editing effort.</div>
+      </div>
+      <div class="metric-block">
+        <div class="metric-number">15,000+</div>
+        <div class="metric-label">Products now supported</div>
+        <div class="metric-copy">Up from the ~150 products the original MVP was built for.</div>
+      </div>
+    </div>
+
+    <div class="outcome-grid reveal mt-lg" style="justify-content:center;">
+      <div class="outcome-tag"><span class="dot"></span>Fewer breakages under scale</div>
+      <div class="outcome-tag"><span class="dot"></span>Shared design language across modules</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CONSTRAINTS + REFLECTION
+     ============================================================ -->
+<section class="section section--dark">
+  <div class="wrap">
+    <div class="section-intro">
+      <p class="section-kicker">Constraints &amp; reflection</p>
+      <h2 class="section-heading">Rebuilt incrementally, module by module.</h2>
+      <p class="section-copy">The business kept operating on ERP 2.0 throughout, so the rebuild had to happen incrementally — requiring careful prioritisation and backwards compatibility during rollout.</p>
+    </div>
+
+    <div class="comparison reveal">
+      <div class="comparison-col highlight">
+        <div class="comparison-head">What worked</div>
+        <div class="comparison-row" style="display:block;padding-top:16px;padding-bottom:16px;">Designing the ERP as a platform of primitives, not a collection of screens.</div>
+      </div>
+      <div class="comparison-col muted">
+        <div class="comparison-head">What I'd do differently</div>
+        <div class="comparison-row" style="display:block;padding-top:16px;padding-bottom:16px;">Introduce automation and rule-based defaults earlier to reduce manual decisions further.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     DESIGN SYSTEM
+     ============================================================ -->
+<section class="section section--light">
+  <div class="wrap">
+    <div class="section-intro">
+      <p class="section-kicker">Design system</p>
+      <h2 class="section-heading">A set of object-oriented components, not a collection of one-off screens.</h2>
+      <p class="section-copy">Every input, select and attachment pattern was built as a variant of the same base component — keeping the product consistent as new modules were added.</p>
+    </div>
+
+    <div class="reveal">
+      <div class="shot shot--full">
+        <img src="assets/erp-design-system.png" alt="ERP Suite 3.0 design system showing a base input component and its variants: single select, multi value input, input with unit selector, and more">
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="closing reveal">
+  <div class="closing-line1">Rebuilt legacy enterprise systems.</div>
+  <div class="closing-line2">Designed object-oriented UX at scale.</div>
+  <p class="closing-final">Thinking in systems, not screens, is what let this scale from 150 products to 15,000+ — and delivered outsized operational impact early in my career.</p>
+</div>
+
+<footer class="site-footer">
+  <div>Priyadharshinii R. &middot; Product Designer</div>
+  <div class="footer-next">
+    <span class="label">Next</span>
+    <a href="index.html">Back to portfolio &rarr;</a>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
