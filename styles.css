@@ -463,8 +463,9 @@ a { color: inherit; }
   grid-template-columns: repeat(4, 1fr);
   gap: 14px;
 }
-@media (max-width: 860px) { .annotation-row { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 480px) { .annotation-row { grid-template-columns: 1fr; } }
+.annotation-row--five { grid-template-columns: repeat(5, 1fr); }
+@media (max-width: 860px) { .annotation-row, .annotation-row--five { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px) { .annotation-row, .annotation-row--five { grid-template-columns: 1fr; } }
 
 .annotation-card {
   border-left: 2px solid var(--cyan);
