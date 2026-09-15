@@ -359,13 +359,12 @@
 <!-- ============================================================
      SECTION 10 — THE SCALING PROBLEM
      ============================================================ -->
-<section class="section section--dark">
+<section class="section section--dark section--tight">
   <div class="wrap">
-    <div class="section-intro">
+    <div class="section-intro" style="margin-bottom:32px;">
       <p class="section-kicker">Scaling limits</p>
-      <h2 class="section-heading">But conversational variation created configuration overhead.</h2>
-      <p class="section-copy">As use cases became broader, builders had to account for more ways users might express the same need.</p>
-      <p class="section-copy">More variations could mean more training phrases, intents, entities, rules, branches and fallback conditions to maintain.</p>
+      <h2 class="section-heading" style="font-size:clamp(22px,2.8vw,30px);">But conversational variation created configuration overhead.</h2>
+      <p class="section-copy">As use cases became broader, builders had to account for more ways users might express the same need — more training phrases, intents, entities, rules and fallback conditions to maintain.</p>
     </div>
 
     <div class="expand-diagram reveal">
@@ -392,20 +391,19 @@
       </div>
     </div>
 
-    <p class="big-statement mt-lg reveal" style="font-size:clamp(22px,3vw,34px);">More conversational freedom<br><span class="accent">&rarr; more configuration to anticipate it.</span></p>
+    <p class="big-statement mt-md reveal" style="font-size:clamp(18px,2.4vw,26px);">More conversational freedom <span class="accent">&rarr; more configuration to anticipate it.</span></p>
   </div>
 </section>
 
 <!-- ============================================================
      SECTION 11 — FLOW BUILDER
      ============================================================ -->
-<section class="section section--light">
+<section class="section section--light section--tight">
   <div class="wrap">
-    <div class="section-intro">
+    <div class="section-intro" style="margin-bottom:32px;">
       <p class="section-kicker">Flow builder</p>
-      <h2 class="section-heading">Flow Builder became a design problem of its own.</h2>
-      <p class="section-copy">As workflows grew, the challenge wasn't simply providing nodes and connectors.</p>
-      <p class="section-copy">Builders needed to understand where they were in a flow, how branches connected, what happened when something failed, and how increasingly complex automation could remain understandable.</p>
+      <h2 class="section-heading" style="font-size:clamp(24px,3vw,34px);">Flow Builder became a design problem of its own.</h2>
+      <p class="section-copy">As workflows grew, the challenge wasn't simply providing nodes and connectors — builders needed to understand where they were in a flow, how branches connected, and how increasingly complex automation could remain understandable.</p>
       <p class="section-copy">I explored multiple Flow Builder approaches while studying how other workflow and automation products handled similar complexity.</p>
     </div>
 
@@ -415,29 +413,11 @@
       </div>
     </div>
 
-    <div class="placeholder-group placeholder-group--trio mt-lg reveal">
-      <div>
-        <div class="shot shot--wide">
-          <img src="assets/flow-builder-iteration-01.png" alt="Flow Builder design iteration showing multiple flows including Basic Inbound Flow Response, Greeting Subflow, OpenTicket Subflow and RegisteredUser">
-        </div>
-        <div class="iter-note">Design decision represented by this iteration: <em>[to be added]</em></div>
+    <div class="reveal mt-md">
+      <div class="shot shot--wide">
+        <img src="assets/flow-builder-iteration-01.png" alt="Flow Builder design iteration showing multiple flows including Basic Inbound Flow Response, Greeting Subflow, OpenTicket Subflow and RegisteredUser">
       </div>
-      <div>
-        <div class="placeholder placeholder--tall">
-          <div class="placeholder-tag">IMAGE NEEDED</div>
-          <div class="placeholder-name">FLOW BUILDER — ITERATION 02</div>
-          <div class="placeholder-desc"><strong>Attach:</strong> Second design iteration.</div>
-        </div>
-        <div class="iter-note">Design decision represented by this iteration: <em>[to be added]</em></div>
-      </div>
-      <div>
-        <div class="placeholder placeholder--tall">
-          <div class="placeholder-tag">IMAGE NEEDED</div>
-          <div class="placeholder-name">FLOW BUILDER — ITERATION 03</div>
-          <div class="placeholder-desc"><strong>Attach:</strong> Later Flow Builder iteration.</div>
-        </div>
-        <div class="iter-note">Design decision represented by this iteration: <em>[to be added]</em></div>
-      </div>
+      <div class="iter-note">Design decision represented by this iteration: <em>[to be added]</em></div>
     </div>
   </div>
 </section>
@@ -649,40 +629,34 @@
 <!-- ============================================================
      SECTION 17 — TESTING EVOLUTION
      ============================================================ -->
-<section class="section section--light">
+<section class="section section--light section--tight">
   <div class="wrap">
-    <div class="section-intro">
+    <div class="section-intro" style="margin-bottom:32px;">
       <p class="section-kicker">Testing evolution</p>
-      <h2 class="section-heading">Testing had to evolve with the Agent.</h2>
-      <p class="section-copy">With NLU systems, testing often centred around recognition: &ldquo;Did the system detect the correct intent and extract the expected entities?&rdquo;</p>
-      <p class="section-copy">With more autonomous Agents, that wasn't enough.</p>
-      <p class="section-copy">Testing increasingly needed to evaluate whether the Agent understood the task, followed its instructions, used the right knowledge or tools, respected its boundaries and achieved the expected outcome.</p>
+      <h2 class="section-heading" style="font-size:clamp(22px,2.8vw,30px);">Testing had to evolve with the Agent.</h2>
+      <p class="section-copy">With NLU systems, testing centred around recognition — did it detect the right intent and entities. With more autonomous Agents, that wasn't enough: testing needed to evaluate whether the Agent understood the task, followed instructions, used the right tools and reached the right outcome.</p>
     </div>
 
-    <div class="comparison reveal">
+    <div class="comparison comparison--compact reveal">
       <div class="comparison-col muted">
         <div class="comparison-head">Then</div>
-        <div class="flow-vertical" style="gap:0;">
-          <div class="node" style="width:100%;margin-bottom:10px;">Utterance</div>
-          <div class="node" style="width:100%;margin-bottom:10px;">Intent</div>
-          <div class="node" style="width:100%;margin-bottom:10px;">Entity</div>
-          <div class="node" style="width:100%;margin-bottom:10px;">Confidence</div>
-          <div class="node" style="width:100%;">Pass / Fail</div>
-        </div>
+        <div class="comparison-row">Utterance</div>
+        <div class="comparison-row">Intent</div>
+        <div class="comparison-row">Entity</div>
+        <div class="comparison-row">Confidence</div>
+        <div class="comparison-row">Pass / Fail</div>
       </div>
       <div class="comparison-col highlight">
         <div class="comparison-head">Now</div>
-        <div class="flow-vertical" style="gap:0;">
-          <div class="node node--accent" style="width:100%;margin-bottom:10px;">Scenario</div>
-          <div class="node node--accent" style="width:100%;margin-bottom:10px;">Agent behaviour</div>
-          <div class="node node--accent" style="width:100%;margin-bottom:10px;">Tool / knowledge</div>
-          <div class="node node--accent" style="width:100%;margin-bottom:10px;">Outcome</div>
-          <div class="node node--accent" style="width:100%;">Evaluation</div>
-        </div>
+        <div class="comparison-row">Scenario</div>
+        <div class="comparison-row">Agent behaviour</div>
+        <div class="comparison-row">Tool / knowledge</div>
+        <div class="comparison-row">Outcome</div>
+        <div class="comparison-row">Evaluation</div>
       </div>
     </div>
 
-    <p class="big-statement mt-lg reveal" style="font-size:clamp(22px,3vw,34px);">From &ldquo;Did it understand me?&rdquo;<br><span class="accent">to &ldquo;Did it do the right thing?&rdquo;</span></p>
+    <p class="big-statement mt-md reveal" style="font-size:clamp(18px,2.4vw,26px);">From &ldquo;Did it understand me?&rdquo; <span class="accent">to &ldquo;Did it do the right thing?&rdquo;</span></p>
   </div>
 </section>
 

@@ -779,7 +779,8 @@ a { color: inherit; }
 /* Expanding system diagram (section 10) */
 
 .expand-diagram { display: flex; flex-direction: column; align-items: center; gap: 0; width: 100%; }
-.expand-row { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; padding: 14px 0; }
+.expand-diagram .arrow-v { height: 20px; }
+.expand-row { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; padding: 8px 0; }
 .expand-row .node { padding: 10px 18px; font-size: 13px; min-width: auto; }
 .expand-row--1 .node { opacity: 1; }
 .expand-row--2 .node, .expand-row--3 .node { opacity: 0.85; }
