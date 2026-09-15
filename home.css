@@ -137,6 +137,40 @@ img { max-width: 100%; display: block; }
   .hero-photo { max-width: 320px; margin: 0 auto; }
 }
 
+/* About detail */
+
+.about-detail {
+  padding: 0 var(--pad) clamp(56px, 7vw, 96px);
+}
+
+.about-inner {
+  max-width: 700px;
+}
+
+.about-heading {
+  font-size: clamp(22px, 2.6vw, 28px);
+  font-weight: 800;
+  margin: 0 0 12px;
+}
+
+.about-lede {
+  font-size: clamp(17px, 1.8vw, 20px);
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1.5;
+  margin: 0 0 28px;
+}
+
+.prose {
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--ink-soft);
+  margin: 0 0 20px;
+}
+.prose:last-child { margin-bottom: 0; }
+.prose strong { color: var(--ink); font-weight: 700; }
+.prose em { color: var(--ink); }
+
 /* Timeline */
 
 .timeline {
