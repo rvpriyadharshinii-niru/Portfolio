@@ -395,6 +395,45 @@ a { color: inherit; }
   .placeholder--full, .placeholder--panorama { aspect-ratio: 4/3; }
 }
 
+/* Filled screenshot (real evidence, replaces a placeholder) */
+
+.shot {
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--line-dark);
+  background: #EDF2F2;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+}
+.section--light .shot { border-color: var(--line-light); }
+
+.shot img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.shot--full { aspect-ratio: 21/9; }
+.shot--panorama { aspect-ratio: 3/1; }
+.shot--crop { aspect-ratio: 4/3; }
+.shot--tall { aspect-ratio: 3/4; }
+.shot--wide { aspect-ratio: 16/9; }
+.shot--square { aspect-ratio: 1/1; }
+
+@media (max-width: 640px) {
+  .shot--full, .shot--panorama { aspect-ratio: 4/3; }
+}
+
+.evo-shot {
+  width: 100%;
+  aspect-ratio: 4/3;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #EDF2F2;
+  border: 1px solid rgba(53,239,221,0.3);
+}
+.evo-shot img { width: 100%; height: 100%; object-fit: contain; display: block; }
+
 .placeholder-group {
   display: grid;
   gap: 20px;
