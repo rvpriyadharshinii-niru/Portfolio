@@ -1502,3 +1502,137 @@ a { color: inherit; }
 .center { text-align: center; }
 .max-prose { max-width: 720px; }
 .max-prose.center { margin-left: auto; margin-right: auto; }
+
+/* ============================================================
+   BOLDER SECTION COMPONENTS — piloted on the Admin case study.
+   Opt-in classes only; nothing here changes existing shared
+   components, so other case studies are unaffected until/unless
+   this treatment is rolled out to them too.
+   ============================================================ */
+
+/* Mega statement — a huge, magazine-style centered declaration,
+   for the one or two claims per case study that deserve to dominate
+   the screen rather than sit as a normal section-heading. */
+.mega-wrap { max-width: 1140px; margin: 0 auto; text-align: center; }
+.mega-kicker {
+  font-size: 12.5px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--cyan); margin: 0 0 28px;
+}
+.section--light .mega-kicker { color: var(--accent-light); }
+.mega-statement {
+  font-size: clamp(34px, 6vw, 76px);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+.mega-statement .accent { color: var(--cyan); }
+.section--light .mega-statement .accent { color: var(--accent-light); }
+.mega-sub {
+  margin: 32px auto 0;
+  max-width: 640px;
+  font-size: clamp(15px, 1.6vw, 18px);
+  line-height: 1.75;
+  color: rgba(255,255,255,0.65);
+}
+.section--light .mega-sub { color: var(--ink-mute); }
+.mega-sub + .mega-sub { margin-top: 16px; }
+
+/* Insight strip — horizontally arranged, richer cards replacing a
+   plain row of one-word annotation tags with an actual sentence. */
+.insight-strip {
+  display: flex;
+  gap: 18px;
+  overflow-x: auto;
+  padding: 6px 2px 14px;
+  scrollbar-width: thin;
+  margin-top: 24px;
+}
+.insight-card {
+  flex: 0 0 auto;
+  width: min(280px, 78vw);
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--line-dark);
+  border-radius: 20px;
+  padding: 26px 24px;
+}
+.section--light .insight-card {
+  background: #fff;
+  border-color: var(--line-light);
+  box-shadow: 0 14px 34px rgba(8,25,28,0.07);
+}
+.insight-card-label {
+  font-size: 11px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--cyan); margin-bottom: 14px;
+}
+.section--light .insight-card-label { color: var(--accent-light); }
+.insight-card-text { font-size: 16.5px; font-weight: 700; line-height: 1.4; }
+
+/* Solution card — a big rounded callout pairing one bold statement
+   with a smaller supporting line, instead of a plain centered quote. */
+.solution-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--line-dark);
+  border-radius: 26px;
+  padding: clamp(30px, 4.5vw, 52px);
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: clamp(24px, 4vw, 48px);
+  align-items: center;
+}
+.section--light .solution-card {
+  background: #F6F5F1;
+  border-color: transparent;
+}
+.solution-card-label {
+  font-size: 11.5px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--cyan); margin-bottom: 16px;
+}
+.section--light .solution-card-label { color: var(--accent-light); }
+.solution-card-statement {
+  font-size: clamp(22px, 3vw, 34px);
+  font-weight: 800;
+  line-height: 1.28;
+}
+.solution-card-statement .accent { color: var(--cyan); }
+.section--light .solution-card-statement .accent { color: var(--accent-light); }
+.solution-card-support {
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.6);
+}
+.section--light .solution-card-support { color: var(--ink-mute); }
+@media (max-width: 760px) {
+  .solution-card { grid-template-columns: 1fr; }
+}
+
+/* Category color accents — small colored dots reused across the IA
+   grid and the system-summary rows so the six administrative areas
+   read as distinct, not six identical gray rows. */
+:root {
+  --cat-org: #35EFDD;
+  --cat-access: #6FB6FF;
+  --cat-integrations: #B79CFF;
+  --cat-usage: #FFC168;
+  --cat-observability: #FF8FA3;
+  --cat-settings: #7FE7A6;
+}
+.cat-dot {
+  display: inline-block;
+  width: 9px; height: 9px;
+  border-radius: 50%;
+  margin-right: 9px;
+  flex: 0 0 auto;
+  vertical-align: middle;
+}
+.cat-dot--org { background: var(--cat-org); }
+.cat-dot--access { background: var(--cat-access); }
+.cat-dot--integrations { background: var(--cat-integrations); }
+.cat-dot--usage { background: var(--cat-usage); }
+.cat-dot--observability { background: var(--cat-observability); }
+.cat-dot--settings { background: var(--cat-settings); }
+
+.ia-col-title { display: flex; align-items: center; }
+
+/* Rounder, deeper-shadow shot variant for hero-style collages. */
+.shot--round { border-radius: 22px; }

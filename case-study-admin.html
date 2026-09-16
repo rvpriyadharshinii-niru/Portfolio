@@ -29,16 +29,16 @@
     <p class="hero-sub">Structuring organization, access, integrations, usage and platform operations into one manageable administration experience.</p>
 
     <div class="collage-grid reveal mt-lg">
-      <div class="shot shot--wide">
+      <div class="shot shot--wide shot--round">
         <img src="assets/admin-org-structure.jpeg" alt="Org Structure screen showing workspaces, admins, credits used and utilization for a sub-organization">
       </div>
-      <div class="shot shot--wide">
+      <div class="shot shot--wide shot--round">
         <img src="assets/admin-credits.jpeg" alt="Credits dashboard showing total inferences, daily burn, allocation and usage by skill">
       </div>
-      <div class="shot shot--wide">
+      <div class="shot shot--wide shot--round">
         <img src="assets/admin-health.jpeg" alt="Health screen showing identity providers, provisioning, connectors and model providers status">
       </div>
-      <div class="shot shot--wide">
+      <div class="shot shot--wide shot--round">
         <img src="assets/admin-users.jpeg" alt="Users table showing role, status, workspaces, auth method and last login">
       </div>
     </div>
@@ -50,14 +50,14 @@
      ============================================================ -->
 <section class="section section--dark">
   <div class="wrap">
-    <div class="section-intro">
-      <p class="section-kicker">Background</p>
-      <h2 class="section-heading">As the platform grew, administration became a product of its own.</h2>
-      <p class="section-copy">An enterprise AI platform isn't only about building AI experiences. Someone also has to manage the organization behind them — users, permissions, workspaces, integrations, usage, security and system health.</p>
-      <p class="section-copy">The Administration experience needed to bring these responsibilities into a structure that could scale without becoming one large settings menu.</p>
+    <div class="mega-wrap reveal">
+      <p class="mega-kicker">Background</p>
+      <h2 class="mega-statement">As the platform grew,<br>administration became <span class="accent">a product of its own.</span></h2>
+      <p class="mega-sub">An enterprise AI platform isn't only about building AI experiences. Someone also has to manage the organization behind them — users, permissions, workspaces, integrations, usage, security and system health.</p>
+      <p class="mega-sub">The Administration experience needed to bring these responsibilities into a structure that could scale without becoming one large settings menu.</p>
     </div>
 
-    <div class="flow-vertical reveal">
+    <div class="flow-vertical reveal mt-lg">
       <div class="node">AI Platform</div>
       <div class="arrow-v"></div>
       <div class="node node--accent">Administration</div>
@@ -86,7 +86,7 @@
 
     <div class="ia-grid reveal mt-lg">
       <div class="ia-col">
-        <div class="ia-col-title">Organization</div>
+        <div class="ia-col-title"><span class="cat-dot cat-dot--org"></span>Organization</div>
         <ul>
           <li>Organizational hierarchy</li>
           <li>Sub-organizations</li>
@@ -95,7 +95,7 @@
         </ul>
       </div>
       <div class="ia-col">
-        <div class="ia-col-title">Users &amp; Access</div>
+        <div class="ia-col-title"><span class="cat-dot cat-dot--access"></span>Users &amp; Access</div>
         <ul>
           <li>Users</li>
           <li>Roles</li>
@@ -103,14 +103,14 @@
         </ul>
       </div>
       <div class="ia-col">
-        <div class="ia-col-title">Integrations</div>
+        <div class="ia-col-title"><span class="cat-dot cat-dot--integrations"></span>Integrations</div>
         <ul>
           <li>Connectors</li>
           <li>API tokens</li>
         </ul>
       </div>
       <div class="ia-col">
-        <div class="ia-col-title">Credits &amp; Usage</div>
+        <div class="ia-col-title"><span class="cat-dot cat-dot--usage"></span>Credits &amp; Usage</div>
         <ul>
           <li>Allocation</li>
           <li>Consumption</li>
@@ -118,7 +118,7 @@
         </ul>
       </div>
       <div class="ia-col">
-        <div class="ia-col-title">Observability</div>
+        <div class="ia-col-title"><span class="cat-dot cat-dot--observability"></span>Observability</div>
         <ul>
           <li>Audit logs</li>
           <li>Sign-ins</li>
@@ -127,7 +127,7 @@
         </ul>
       </div>
       <div class="ia-col">
-        <div class="ia-col-title">Settings</div>
+        <div class="ia-col-title"><span class="cat-dot cat-dot--settings"></span>Settings</div>
         <ul>
           <li>Account</li>
           <li>Provisioning</li>
@@ -137,7 +137,13 @@
       </div>
     </div>
 
-    <p class="big-statement mt-lg reveal" style="font-size:clamp(18px,2.4vw,26px);">&ldquo;Group by the administrator's responsibility, <span class="accent">not by the underlying system.&rdquo;</span></p>
+    <div class="solution-card mt-lg reveal">
+      <div>
+        <div class="solution-card-label">Design principle</div>
+        <div class="solution-card-statement">Group by the administrator's <span class="accent">responsibility</span> — not by the underlying system.</div>
+      </div>
+      <p class="solution-card-support">A flat list of settings pages mirrors how the system is built. Grouping by responsibility mirrors how an administrator actually thinks about their job — which is what the navigation needed to match.</p>
+    </div>
   </div>
 </section>
 
@@ -156,11 +162,23 @@
       <div class="shot shot--full">
         <img src="assets/admin-suborgs.jpeg" alt="Sub-organizations list showing Claims Management, Sales and IT with workspace count, user count, status and created date">
       </div>
-      <div class="annotation-row mt-md">
-        <div class="annotation-card"><div class="a-tag">SEARCH &amp; DISCOVERY</div></div>
-        <div class="annotation-card"><div class="a-tag">WORKSPACE COUNT</div></div>
-        <div class="annotation-card"><div class="a-tag">USER COUNT &amp; STATUS</div></div>
-        <div class="annotation-card"><div class="a-tag">ORG SWITCHING / CONTEXT</div></div>
+      <div class="insight-strip">
+        <div class="insight-card">
+          <div class="insight-card-label">Search &amp; discovery</div>
+          <div class="insight-card-text">Find the right sub-organization by name instead of scrolling a flat list.</div>
+        </div>
+        <div class="insight-card">
+          <div class="insight-card-label">Workspace count</div>
+          <div class="insight-card-text">See how many workspaces exist here before opening it.</div>
+        </div>
+        <div class="insight-card">
+          <div class="insight-card-label">User count &amp; status</div>
+          <div class="insight-card-text">Gauge how active a sub-organization is at a glance.</div>
+        </div>
+        <div class="insight-card">
+          <div class="insight-card-label">Org switching / context</div>
+          <div class="insight-card-text">Move between sub-organizations without losing your place.</div>
+        </div>
       </div>
     </div>
 
@@ -198,12 +216,27 @@
       <div class="shot shot--full">
         <img src="assets/admin-governance-hitl.jpeg" alt="HITL Queue showing pending approvals with agent, risk level, reason and approve/reject actions">
       </div>
-      <div class="annotation-row mt-md">
-        <div class="annotation-card"><div class="a-tag">PENDING APPROVALS</div></div>
-        <div class="annotation-card"><div class="a-tag">RISK LEVEL</div></div>
-        <div class="annotation-card"><div class="a-tag">AGENT RESPONSIBLE</div></div>
-        <div class="annotation-card"><div class="a-tag">REASON / CONTEXT</div></div>
-        <div class="annotation-card"><div class="a-tag">APPROVE / REJECT</div></div>
+      <div class="insight-strip">
+        <div class="insight-card">
+          <div class="insight-card-label">Pending approvals</div>
+          <div class="insight-card-text">Every action waiting on a human decision, in one queue.</div>
+        </div>
+        <div class="insight-card">
+          <div class="insight-card-label">Risk level</div>
+          <div class="insight-card-text">Not every action carries the same stakes — risk is surfaced up front.</div>
+        </div>
+        <div class="insight-card">
+          <div class="insight-card-label">Agent responsible</div>
+          <div class="insight-card-text">Know which Agent is asking, not just what it's asking for.</div>
+        </div>
+        <div class="insight-card">
+          <div class="insight-card-label">Reason / context</div>
+          <div class="insight-card-text">The context behind the request, not just the request itself.</div>
+        </div>
+        <div class="insight-card">
+          <div class="insight-card-label">Approve / reject</div>
+          <div class="insight-card-text">A decision an administrator can make with confidence, in place.</div>
+        </div>
       </div>
     </div>
   </div>
@@ -306,7 +339,13 @@
       </div>
     </div>
 
-    <p class="big-statement mt-lg reveal" style="font-size:clamp(18px,2.4vw,26px);">Start with the health of the account, <span class="accent">then let administrators investigate where consumption is coming from.</span></p>
+    <div class="solution-card mt-lg reveal">
+      <div>
+        <div class="solution-card-label">Design principle</div>
+        <div class="solution-card-statement">Start with the <span class="accent">health of the account</span> — then let administrators investigate.</div>
+      </div>
+      <p class="solution-card-support">Total inferences and daily burn answer "is this normal?" first. Usage by skill and model-level detail are one level down, for administrators who need to know why.</p>
+    </div>
   </div>
 </section>
 
@@ -426,7 +465,7 @@
     <div class="reveal">
       <div class="system-row" style="border-bottom:1px solid var(--line-light);">
         <div class="system-row-label">
-          <span class="num">01</span>
+          <span class="num"><span class="cat-dot cat-dot--org"></span>01</span>
           <span class="name" style="color:var(--ink);">Organization</span>
           <div class="purpose" style="color:var(--ink-mute);">Structure the enterprise</div>
         </div>
@@ -438,7 +477,7 @@
       </div>
       <div class="system-row" style="border-bottom:1px solid var(--line-light);">
         <div class="system-row-label">
-          <span class="num" style="color:#0A8C7D;">02</span>
+          <span class="num"><span class="cat-dot cat-dot--access"></span>02</span>
           <span class="name" style="color:var(--ink);">Users &amp; Access</span>
           <div class="purpose" style="color:var(--ink-mute);">Control participation</div>
         </div>
@@ -450,7 +489,7 @@
       </div>
       <div class="system-row" style="border-bottom:1px solid var(--line-light);">
         <div class="system-row-label">
-          <span class="num" style="color:#0A8C7D;">03</span>
+          <span class="num"><span class="cat-dot cat-dot--integrations"></span>03</span>
           <span class="name" style="color:var(--ink);">Integrations</span>
           <div class="purpose" style="color:var(--ink-mute);">Connect the ecosystem</div>
         </div>
@@ -461,7 +500,7 @@
       </div>
       <div class="system-row" style="border-bottom:1px solid var(--line-light);">
         <div class="system-row-label">
-          <span class="num" style="color:#0A8C7D;">04</span>
+          <span class="num"><span class="cat-dot cat-dot--usage"></span>04</span>
           <span class="name" style="color:var(--ink);">Credits &amp; Usage</span>
           <div class="purpose" style="color:var(--ink-mute);">Understand consumption</div>
         </div>
@@ -473,7 +512,7 @@
       </div>
       <div class="system-row" style="border-bottom:1px solid var(--line-light);">
         <div class="system-row-label">
-          <span class="num" style="color:#0A8C7D;">05</span>
+          <span class="num"><span class="cat-dot cat-dot--observability"></span>05</span>
           <span class="name" style="color:var(--ink);">Observability</span>
           <div class="purpose" style="color:var(--ink-mute);">Understand system behaviour</div>
         </div>
@@ -486,7 +525,7 @@
       </div>
       <div class="system-row">
         <div class="system-row-label">
-          <span class="num" style="color:#0A8C7D;">06</span>
+          <span class="num"><span class="cat-dot cat-dot--settings"></span>06</span>
           <span class="name" style="color:var(--ink);">Settings</span>
           <div class="purpose" style="color:var(--ink-mute);">Configure the foundation</div>
         </div>
