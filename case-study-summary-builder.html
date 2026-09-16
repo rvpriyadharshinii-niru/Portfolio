@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Making GenAI Summaries Configurable for Enterprise Teams — Case Study</title>
+<meta name="description" content="Designing Summary Builder and Question Manager to help teams control what AI captures from customer conversations. Uniphore, 2025.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <a href="index.html" class="back-link">&larr; Portfolio</a>
+  <span class="proj-tag">GenAI Summary Builder · Uniphore</span>
+</header>
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-meta">
+      <span>Uniphore</span>
+      <span>GenAI / Contact Center</span>
+      <span>Product Designer</span>
+      <span class="accent">2025</span>
+    </div>
+    <h1>Making GenAI summaries configurable for enterprise teams</h1>
+    <p class="hero-sub">Designing Summary Builder and Question Manager to help teams control what AI captures from customer conversations — without requiring them to build the AI themselves.</p>
+
+    <div class="reveal mt-lg">
+      <div class="placeholder placeholder--full">
+        <div class="placeholder-tag">IMAGE NEEDED</div>
+        <div class="placeholder-name">SUMMARY BUILDER — HERO SCREEN</div>
+        <div class="placeholder-desc"><strong>Attach:</strong> One strong Summary Builder screen. Optionally layer a Question Manager screen behind or beside it to show they're connected parts of the same experience.</div>
+        <div class="placeholder-purpose">Purpose: Establish the product at a glance before any explanation.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     THE REAL PROBLEM
+     ============================================================ -->
+<section class="section section--dark">
+  <div class="wrap">
+    <div class="section-intro">
+      <p class="section-kicker">The real problem</p>
+      <h2 class="section-heading">A customer conversation doesn't end when the call ends.</h2>
+      <p class="section-copy">After a customer-service conversation, agents often need to document what happened — why the customer called, what was discussed, what actions were taken and what needs to happen next.</p>
+      <p class="section-copy">GenAI could generate this summary automatically. But there was another problem: different businesses need very different summaries.</p>
+    </div>
+
+    <div class="flow-vertical reveal">
+      <div class="flow-horizontal" style="gap:16px;">
+        <div class="node">Customer</div>
+        <div style="color:var(--cyan);font-size:20px;opacity:0.6;">&updownarrow;</div>
+        <div class="node">Agent</div>
+      </div>
+      <div class="node-sub" style="margin-top:8px;">Conversation</div>
+      <div class="arrow-v"></div>
+      <div class="node node--accent" style="font-size:22px;font-weight:800;">?</div>
+      <div class="arrow-v"></div>
+      <div class="node">Call Summary</div>
+    </div>
+
+    <div class="tag-row reveal mt-lg">
+      <span>Call reason</span>
+      <span>Actions taken</span>
+      <span>Resolution</span>
+      <span>Follow-up</span>
+      <span>Important customer information</span>
+    </div>
+    <p class="placeholder-purpose center mt-md" style="margin-left:auto;margin-right:auto;">Conceptual examples of the kind of information a summary may need — not fixed product fields unless shown in the product screenshots below.</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     ONE SUMMARY DOESN'T FIT EVERY BUSINESS
+     ============================================================ -->
+<section class="section section--light">
+  <div class="wrap">
+    <div class="section-intro">
+      <p class="section-kicker">Why configuration was needed</p>
+      <h2 class="section-heading">The AI could generate a summary. The business still needed to define what &ldquo;good&rdquo; looked like.</h2>
+      <p class="section-copy">An insurance company may care about claim details. A telecom company may care about the customer's issue and troubleshooting steps. Another organization may need completely different information.</p>
+      <p class="section-copy">So the product couldn't simply provide one AI-generated summary format. Enterprise teams needed control over what the AI should capture and how the output should be structured.</p>
+    </div>
+
+    <div class="flow-vertical reveal">
+      <div class="node">Conversation</div>
+      <div class="arrow-v"></div>
+      <div class="node">GenAI</div>
+      <div class="arrow-v"></div>
+      <div class="node node--accent">What should be captured?</div>
+      <div class="arrow-v"></div>
+      <div class="node">Business-specific Summary</div>
+    </div>
+
+    <p class="big-statement mt-lg reveal" style="font-size:clamp(20px,2.8vw,30px);">GenAI generated the summary.<br><span class="accent">The product made that generation manageable.</span></p>
+  </div>
+</section>
+
+<!-- ============================================================
+     SUMMARY BUILDER
+     ============================================================ -->
+<section class="section section--dark">
+  <div class="wrap">
+    <div class="section-intro">
+      <p class="section-kicker">Summary Builder</p>
+      <h2 class="section-heading">Giving teams a way to configure the summary</h2>
+      <p class="section-copy">Summary Builder gives administrators and business users a structured way to define how an AI-generated conversation summary should work. Instead of changing the underlying AI system, users configure the behaviour through the product.</p>
+    </div>
+
+    <div class="reveal">
+      <div class="placeholder placeholder--full">
+        <div class="placeholder-tag">IMAGE NEEDED</div>
+        <div class="placeholder-name">SUMMARY BUILDER — FULL CONFIGURATION SCREEN</div>
+        <div class="placeholder-desc"><strong>Attach:</strong> The main Summary Builder configuration screen, showing as much of the real UI as possible.</div>
+        <div class="placeholder-purpose">Purpose: Show the actual configuration surface described below.</div>
+      </div>
+    </div>
+
+    <div class="ia-grid ia-grid--four reveal mt-lg">
+      <div class="ia-col">
+        <div class="ia-col-title">Basic Setup</div>
+        <ul>
+          <li>Name</li>
+          <li>Description</li>
+          <li>Account</li>
+          <li>Version</li>
+        </ul>
+      </div>
+      <div class="ia-col">
+        <div class="ia-col-title">AI Configuration</div>
+        <ul>
+          <li>Model</li>
+          <li>Questions</li>
+          <li>Context</li>
+        </ul>
+      </div>
+      <div class="ia-col">
+        <div class="ia-col-title">Output</div>
+        <ul>
+          <li>Language</li>
+          <li>Size</li>
+          <li>Format</li>
+        </ul>
+      </div>
+      <div class="ia-col">
+        <div class="ia-col-title">Lifecycle</div>
+        <ul>
+          <li>Draft</li>
+          <li>Test</li>
+          <li>Publish</li>
+        </ul>
+      </div>
+    </div>
+    <p class="placeholder-purpose center mt-md" style="margin-left:auto;margin-right:auto;">The Summary Builder designs contain configuration for models, questions, language, prompts, entities, summary structure and draft/test/publish actions.</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     SIMPLE FIRST, CONTROL WHEN NEEDED
+     ============================================================ -->
+<section class="section section--light">
+  <div class="wrap">
+    <div class="section-intro">
+      <p class="section-kicker">Simple first, control when needed</p>
+      <h2 class="section-heading">Not every user needs to configure the AI at the same depth.</h2>
+      <p class="section-copy">Most users should be able to configure a summary through structured product controls. But advanced users may need more direct control over how the model is instructed. This led to an Advanced Mode.</p>
+    </div>
+
+    <div class="comparison reveal">
+      <div class="comparison-col highlight">
+        <div class="comparison-head">Standard Configuration</div>
+        <div class="comparison-row">Structured fields</div>
+        <div class="comparison-row">Questions</div>
+        <div class="comparison-row">Model</div>
+        <div class="comparison-row">Language</div>
+        <div class="comparison-row">Summary format</div>
+      </div>
+      <div class="comparison-col muted">
+        <div class="comparison-head">Advanced Mode</div>
+        <div class="comparison-row">System prompt</div>
+        <div class="comparison-row">User prompt</div>
+        <div class="comparison-row">Guidelines</div>
+        <div class="comparison-row">One-shot example</div>
+        <div class="comparison-row">Additional context</div>
+      </div>
+    </div>
+    <p class="placeholder-purpose center mt-md" style="margin-left:auto;margin-right:auto;">Need more control? &rarr; Advanced Mode</p>
+
+    <div class="reveal mt-lg">
+      <div class="placeholder placeholder--wide">
+        <div class="placeholder-tag">IMAGE NEEDED</div>
+        <div class="placeholder-name">ADVANCED MODE — SCREEN</div>
+        <div class="placeholder-desc"><strong>Attach:</strong> The Advanced Mode screen from Summary Builder.</div>
+      </div>
+    </div>
+
+    <p class="big-statement mt-lg reveal" style="font-size:clamp(18px,2.4vw,26px);">Power when needed, <span class="accent">without making every user a prompt engineer.</span></p>
+  </div>
+</section>
+
+<!-- ============================================================
+     PROMPT EXPERIENCE
+     ============================================================ -->
+<section class="section section--dark">
+  <div class="wrap">
+    <div class="section-intro">
+      <p class="section-kicker">The prompt experience</p>
+      <h2 class="section-heading">Making AI configuration feel like product configuration</h2>
+      <p class="section-copy">Advanced Mode exposes more of the instructions given to the model. Instead of expecting users to manually construct everything from scratch, the interface provides separate areas for different kinds of instructions and allows supported variables or information to be inserted into the prompt.</p>
+    </div>
+
+    <div class="reveal">
+      <div class="placeholder placeholder--wide">
+        <div class="placeholder-tag">IMAGE NEEDED</div>
+        <div class="placeholder-name">ADVANCED MODE — PROMPT DETAIL</div>
+        <div class="placeholder-desc"><strong>Attach:</strong> A closer view of the Advanced Mode prompt fields (system prompt, user prompt, guidelines, one-shot example).</div>
+      </div>
+      <div class="annotation-row mt-md" style="grid-template-columns:repeat(4,1fr);">
+        <div class="annotation-card">
+          <div class="a-tag">SYSTEM PROMPT</div>
+          <div class="a-desc">Defines the model's overall behaviour.</div>
+        </div>
+        <div class="annotation-card">
+          <div class="a-tag">USER PROMPT</div>
+          <div class="a-desc">Defines the task/context given to the model.</div>
+        </div>
+        <div class="annotation-card">
+          <div class="a-tag">GUIDELINES</div>
+          <div class="a-desc">Additional rules for how the summary should be generated.</div>
+        </div>
+        <div class="annotation-card">
+          <div class="a-tag">ONE-SHOT EXAMPLE</div>
+          <div class="a-desc">Shows the model an example of the kind of output expected.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     TRANSITION — THE NEXT QUESTION
+     ============================================================ -->
+<section class="section section--light">
+  <div class="wrap">
+    <div class="section-intro section-intro--center">
+      <p class="section-kicker">Then came the next question</p>
+      <h2 class="section-heading">But what exactly should the AI look for in the conversation?</h2>
+      <p class="section-copy" style="margin-left:auto;margin-right:auto;">A summary isn't just a block of generated text. Businesses often need specific pieces of information extracted from the conversation. Those questions become reusable building blocks for the summary.</p>
+    </div>
+
+    <div class="flow-vertical reveal">
+      <div class="node">Conversation</div>
+      <div class="arrow-v"></div>
+      <div class="node" style="font-style:italic;">&ldquo;What was the customer calling about?&rdquo;</div>
+      <div class="node" style="font-style:italic;margin-top:10px;">&ldquo;What action did the agent take?&rdquo;</div>
+      <div class="node" style="font-style:italic;margin-top:10px;">&ldquo;Was the issue resolved?&rdquo;</div>
+      <div class="arrow-v"></div>
+      <div class="node node--accent">Structured Summary</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     QUESTION MANAGER
+     ============================================================ -->
+<section class="section section--dark">
+  <div class="wrap">
+    <div class="section-intro">
+      <p class="section-kicker">Question Manager</p>
+      <h2 class="section-heading">Turning summary requirements into reusable questions</h2>
+      <p class="section-copy">Question Manager gives teams a central place to create and manage the questions used by Summary Builder. Instead of repeatedly defining the same information inside every summary template, questions can be managed as reusable building blocks.</p>
+    </div>
+
+    <div class="reveal">
+      <div class="placeholder placeholder--full">
+        <div class="placeholder-tag">IMAGE NEEDED</div>
+        <div class="placeholder-name">QUESTION MANAGER / QUESTION BANK — SCREEN</div>
+        <div class="placeholder-desc"><strong>Attach:</strong> The Question Manager / Question Bank screen.</div>
+        <div class="placeholder-purpose">Purpose: Show viewing, searching, creating, editing and status-tracking of questions.</div>
+      </div>
+    </div>
+
+    <div class="tag-row reveal mt-md">
+      <span>View questions</span>
+      <span>Search / select</span>
+      <span>Create custom questions</span>
+      <span>Edit</span>
+      <span>Delete</span>
+      <span>Status</span>
+      <span>Standard &amp; custom questions</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     STANDARD + CUSTOM
+     ============================================================ -->
+<section class="section section--light">
+  <div class="wrap">
+    <div class="section-intro">
+      <p class="section-kicker">Standard + custom</p>
+      <h2 class="section-heading">Reuse what is common. Customize what is specific.</h2>
+      <p class="section-copy">Some questions can be useful across many customers or templates. Others are specific to a particular business or use case. The experience therefore supports both standard and custom questions.</p>
+    </div>
+
+    <div class="branch-diagram reveal">
+      <div class="node node--accent" style="margin-bottom:10px;">Question Bank</div>
+      <div class="branch-connector">
+        <svg viewBox="0 0 400 40" preserveAspectRatio="none">
+          <path d="M200,0 L200,14 L80,14 L80,40" stroke="rgba(53,239,221,0.5)" stroke-width="1.5" fill="none"/>
+          <path d="M200,0 L200,14 L320,14 L320,40" stroke="rgba(53,239,221,0.5)" stroke-width="1.5" fill="none"/>
+        </svg>
+      </div>
+      <div class="branch-split">
+        <div class="branch-col">
+          <div class="node" style="width:100%;margin-bottom:10px;">Standard Questions</div>
+          <div class="node-sub" style="text-align:center;">Reusable / common</div>
+        </div>
+        <div class="branch-col">
+          <div class="node" style="width:100%;margin-bottom:10px;">Custom Questions</div>
+          <div class="node-sub" style="text-align:center;">Business-specific</div>
+        </div>
+      </div>
+      <div class="branch-connector">
+        <svg viewBox="0 0 400 40" preserveAspectRatio="none">
+          <path d="M80,0 L80,26 L200,26 L200,40" stroke="rgba(53,239,221,0.5)" stroke-width="1.5" fill="none"/>
+          <path d="M320,0 L320,26 L200,26 L200,40" stroke="rgba(53,239,221,0.5)" stroke-width="1.5" fill="none"/>
+        </svg>
+      </div>
+      <div class="node node--accent">Summary Template</div>
+    </div>
+
+    <div class="reveal mt-lg">
+      <div class="placeholder placeholder--wide">
+        <div class="placeholder-tag">IMAGE NEEDED</div>
+        <div class="placeholder-name">QUESTION SELECTION UI (OPTIONAL)</div>
+        <div class="placeholder-desc"><strong>Attach:</strong> The real question-selection UI inside Summary Builder, if available.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     TEST BEFORE USING IT
+     ============================================================ -->
+<section class="section section--dark">
+  <div class="wrap">
+    <div class="section-intro">
+      <p class="section-kicker">Testing</p>
+      <h2 class="section-heading">Configuration wasn't enough. Users needed confidence that it worked.</h2>
+      <p class="section-copy">Because the output is generated by AI, simply saving a question or template doesn't guarantee that it will behave as expected. Users need a way to test the configuration using realistic conversation data before publishing it.</p>
+      <p class="section-copy">With AI, the same kind of configuration doesn't always behave like a fixed rule. Testing gives users a way to check the result before putting it into use.</p>
+    </div>
+
+    <div class="reveal">
+      <div class="placeholder placeholder--full">
+        <div class="placeholder-tag">IMAGE NEEDED</div>
+        <div class="placeholder-name">TEST QUESTION / TEST TEMPLATE — SCREEN</div>
+        <div class="placeholder-desc"><strong>Attach:</strong> The Test Question or Test Template experience.</div>
+      </div>
+    </div>
+
+    <div class="flow-vertical reveal mt-lg">
+      <div class="node">Configure</div>
+      <div class="arrow-v"></div>
+      <div class="node">Add Sample Transcript</div>
+      <div class="arrow-v"></div>
+      <div class="node">Run Test</div>
+      <div class="arrow-v"></div>
+      <div class="node node--accent">Review AI Output</div>
+      <div class="arrow-v"></div>
+      <div class="node">Adjust if Needed</div>
+      <div class="arrow-v"></div>
+      <div class="node">Publish</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     TRACE / DEBUG
+     ============================================================ -->
+<section class="section section--light section--tight">
+  <div class="wrap">
+    <div class="section-intro">
+      <p class="section-kicker">Trace / debug</p>
+      <h2 class="section-heading" style="font-size:clamp(22px,3vw,30px);">When the result isn't right, users need somewhere to look.</h2>
+      <p class="section-copy">Testing tells the user whether a question works. Tracing helps provide more visibility when they need to understand or troubleshoot the behaviour.</p>
+    </div>
+
+    <div class="reveal">
+      <div class="placeholder placeholder--wide">
+        <div class="placeholder-tag">IMAGE NEEDED</div>
+        <div class="placeholder-name">TRACE QUESTION — SCREEN</div>
+        <div class="placeholder-desc"><strong>Attach:</strong> The Trace Question screen, if available.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CONNECT THE TWO PRODUCTS
+     ============================================================ -->
+<section class="section section--dark">
+  <div class="wrap">
+    <div class="section-intro">
+      <p class="section-kicker">One workflow</p>
+      <h2 class="section-heading">Summary Builder and Question Manager were really one workflow.</h2>
+    </div>
+
+    <div class="flow-vertical reveal">
+      <div class="node" style="width:100%;max-width:320px;">
+        <span class="node-label">Question Manager</span>
+        Create &middot; Manage &middot; Test &middot; Reuse
+      </div>
+      <div class="arrow-v"></div>
+      <div class="node node--accent">Question Bank</div>
+      <div class="arrow-v"></div>
+      <div class="node" style="width:100%;max-width:320px;">
+        <span class="node-label">Summary Builder</span>
+        Select questions &middot; Configure model &middot; Define structure &middot; Add context
+      </div>
+      <div class="arrow-v"></div>
+      <div class="node">Test</div>
+      <div class="arrow-v"></div>
+      <div class="node">Publish</div>
+      <div class="arrow-v"></div>
+      <div class="node node--accent">GenAI Summary</div>
+    </div>
+
+    <p class="section-copy center mt-lg" style="max-width:680px;margin-left:auto;margin-right:auto;">Question Manager controls the reusable information the business wants to capture. Summary Builder brings those questions together with model, structure and output configuration to define the final summary experience.</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     MY CONTRIBUTION
+     ============================================================ -->
+<section class="section section--dark">
+  <div class="wrap">
+    <div class="section-intro">
+      <p class="section-kicker">My contribution</p>
+      <h2 class="section-heading">My contribution</h2>
+      <p class="section-copy">I worked on the UX for the GenAI Summary Builder and Question Manager experiences. My role was designing how enterprise users configure, test and manage these capabilities — not developing the LLM, GenAI model or backend summary-generation service.</p>
+    </div>
+
+    <ul style="list-style:none;padding:0;margin:0;max-width:720px;display:flex;flex-direction:column;gap:14px;" class="reveal">
+      <li style="font-size:15px;color:rgba(255,255,255,0.75);padding-left:20px;position:relative;"><span style="position:absolute;left:0;color:var(--cyan);">&rarr;</span>Summary template creation and configuration</li>
+      <li style="font-size:15px;color:rgba(255,255,255,0.75);padding-left:20px;position:relative;"><span style="position:absolute;left:0;color:var(--cyan);">&rarr;</span>Model and question selection</li>
+      <li style="font-size:15px;color:rgba(255,255,255,0.75);padding-left:20px;position:relative;"><span style="position:absolute;left:0;color:var(--cyan);">&rarr;</span>Basic and advanced configuration experiences</li>
+      <li style="font-size:15px;color:rgba(255,255,255,0.75);padding-left:20px;position:relative;"><span style="position:absolute;left:0;color:var(--cyan);">&rarr;</span>Prompt configuration</li>
+      <li style="font-size:15px;color:rgba(255,255,255,0.75);padding-left:20px;position:relative;"><span style="position:absolute;left:0;color:var(--cyan);">&rarr;</span>Summary structure and language controls</li>
+      <li style="font-size:15px;color:rgba(255,255,255,0.75);padding-left:20px;position:relative;"><span style="position:absolute;left:0;color:var(--cyan);">&rarr;</span>Template testing and publishing</li>
+      <li style="font-size:15px;color:rgba(255,255,255,0.75);padding-left:20px;position:relative;"><span style="position:absolute;left:0;color:var(--cyan);">&rarr;</span>Question Bank management</li>
+      <li style="font-size:15px;color:rgba(255,255,255,0.75);padding-left:20px;position:relative;"><span style="position:absolute;left:0;color:var(--cyan);">&rarr;</span>Custom question creation</li>
+      <li style="font-size:15px;color:rgba(255,255,255,0.75);padding-left:20px;position:relative;"><span style="position:absolute;left:0;color:var(--cyan);">&rarr;</span>Question testing and status</li>
+      <li style="font-size:15px;color:rgba(255,255,255,0.75);padding-left:20px;position:relative;"><span style="position:absolute;left:0;color:var(--cyan);">&rarr;</span>Trace / debugging experiences</li>
+      <li style="font-size:15px;color:rgba(255,255,255,0.75);padding-left:20px;position:relative;"><span style="position:absolute;left:0;color:var(--cyan);">&rarr;</span>Role / access considerations around the experience</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============================================================
+     IMPACT
+     ============================================================ -->
+<section class="section section--light">
+  <div class="wrap">
+    <div class="section-intro">
+      <p class="section-kicker">Impact</p>
+      <h2 class="section-heading">From manual documentation to configurable AI assistance</h2>
+      <p class="section-copy">The broader product capability was designed to reduce the manual effort involved in documenting customer conversations by generating summaries automatically. The configuration experience allowed enterprise teams to adapt those summaries to their own requirements instead of relying on one fixed output.</p>
+      <p class="section-copy">Question Manager further allowed the information being captured to become reusable, testable and business-specific.</p>
+    </div>
+
+    <div class="metric-strip reveal" style="max-width:640px;margin:0 auto;">
+      <div class="metric-block">
+        <div class="metric-number">~30%</div>
+        <div class="metric-label">Reduction in After-Call Work</div>
+        <div class="metric-copy">Reported across broader product deployments.</div>
+      </div>
+      <div class="metric-block">
+        <div class="metric-number">~850ms</div>
+        <div class="metric-label">Average generation latency</div>
+        <div class="metric-copy">Measured for tested workloads.</div>
+      </div>
+    </div>
+    <p class="metric-note">Broader product/deployment outcomes; not attributed solely to UX.</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     CLOSING
+     ============================================================ -->
+<div class="closing reveal">
+  <div class="closing-line1 closing-line1--quote">&ldquo;The AI generated the summary.&rdquo;</div>
+  <div class="closing-line2 closing-line2--sentence">The product gave teams control over what that summary should mean.</div>
+  <p class="closing-final closing-final--wide">By combining configurable templates, reusable questions, advanced controls and testing, Summary Builder turned a GenAI capability into something enterprise teams could actually configure and manage.</p>
+</div>
+
+<section class="section section--dark section--tight">
+  <div class="wrap">
+    <div class="flow-vertical reveal">
+      <div class="node">Conversation</div>
+      <div class="arrow-v"></div>
+      <div class="node">GenAI</div>
+      <div class="arrow-v"></div>
+      <div class="node">Questions + Configuration</div>
+      <div class="arrow-v"></div>
+      <div class="node">Test</div>
+      <div class="arrow-v"></div>
+      <div class="node">Structured Summary</div>
+      <div class="arrow-v"></div>
+      <div class="node node--accent">Less Manual Documentation</div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div>Priyadharshinii R. &middot; Product Designer</div>
+  <div class="footer-next">
+    <span class="label">Next</span>
+    <a href="index.html">Back to portfolio &rarr;</a>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

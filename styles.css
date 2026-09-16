@@ -662,11 +662,13 @@ a { color: inherit; }
 }
 .section--light .ia-col li::before { color: #0A8C7D; }
 
+.ia-grid--four { grid-template-columns: repeat(4, 1fr); }
+
 @media (max-width: 900px) {
-  .ia-grid { grid-template-columns: repeat(3, 1fr); }
+  .ia-grid, .ia-grid--four { grid-template-columns: repeat(3, 1fr); }
 }
 @media (max-width: 560px) {
-  .ia-grid { grid-template-columns: repeat(2, 1fr); }
+  .ia-grid, .ia-grid--four { grid-template-columns: repeat(2, 1fr); }
 }
 
 /* System summary rows (final architecture recap) */
