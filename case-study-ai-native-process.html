@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Designing Beyond Figma — AI-Native Design Process</title>
+<meta name="description" content="How I used Claude Code, our design system and GitHub to move from requirements to working product experiences on BAIS. Uniphore.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <a href="index.html" class="back-link">&larr; Portfolio</a>
+  <span class="proj-tag">AI-Native Design Process · Uniphore</span>
+</header>
+
+<!-- ============================================================
+     SECTION 1 — INTRO
+     ============================================================ -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-meta">
+      <span>Uniphore</span>
+      <span>Design Process</span>
+      <span>Product Designer</span>
+      <span class="accent">2025–2026</span>
+    </div>
+    <h1>Designing beyond Figma</h1>
+    <p class="hero-sub">How I used Claude Code, our design system and GitHub to move from requirements to working product experiences.</p>
+    <p class="hero-sub" style="font-size:15px;opacity:0.6;max-width:640px;margin-bottom:56px;">While working on newer BAIS experiences such as AI Agents and Administration, our design process increasingly moved beyond static screens. Instead of designing the entire experience in Figma and handing it over, we started using AI-assisted coding as part of the design process itself.</p>
+
+    <div class="collage-grid reveal">
+      <div class="shot shot--wide shot--round">
+        <img src="assets/admin-org-structure.jpeg" alt="BAIS Administration — Org Structure screen">
+      </div>
+      <div class="shot shot--wide shot--round">
+        <img src="assets/admin-credits.jpeg" alt="BAIS Administration — Credits dashboard">
+      </div>
+      <div class="shot shot--wide shot--round">
+        <img src="assets/bais-baic-current.jpeg" alt="BAIS AI Agents — Agents dashboard">
+      </div>
+      <div class="shot shot--wide shot--round">
+        <img src="assets/agent-studio-flow-orchestration.jpeg" alt="BAIS AI Agents — Flow Builder canvas">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 2 — WE DIDN'T START WITH A PROMPT
+     ============================================================ -->
+<section class="section section--dark">
+  <div class="wrap">
+    <div class="section-intro">
+      <p class="section-kicker">Where it started</p>
+      <h2 class="section-heading">Claude wasn't the starting point.<br>The product problem was.</h2>
+      <p class="section-copy">Before starting a new experience, we first structured the product and UX requirements. For larger projects, this included a tailored UX requirements document — a UXRD — describing the experience we were trying to create.</p>
+      <p class="section-copy">A UXRD could include things such as product context, users and personas, the jobs they need to accomplish, key journeys, product requirements, UX requirements, important states, constraints and expected behaviour.</p>
+    </div>
+
+    <div class="flow-vertical reveal">
+      <div class="flow-horizontal" style="gap:14px;flex-wrap:wrap;justify-content:center;">
+        <div class="node">Product Requirements</div>
+        <div style="color:var(--cyan);font-size:20px;opacity:0.6;">+</div>
+        <div class="node">UX Requirements</div>
+        <div style="color:var(--cyan);font-size:20px;opacity:0.6;">+</div>
+        <div class="node">Existing Product Context</div>
+        <div style="color:var(--cyan);font-size:20px;opacity:0.6;">+</div>
+        <div class="node">Design System</div>
+      </div>
+      <div class="arrow-v"></div>
+      <div class="node node--accent">Claude Code</div>
+    </div>
+
+    <div class="tag-row reveal mt-lg">
+      <span>Product context</span>
+      <span>Users / personas</span>
+      <span>Jobs to be done</span>
+      <span>Key journeys</span>
+      <span>Product requirements</span>
+      <span>UX requirements</span>
+      <span>Important states</span>
+      <span>Constraints</span>
+      <span>Expected behaviour</span>
+    </div>
+    <p class="placeholder-purpose center mt-md" style="margin-left:auto;margin-right:auto;">What a UXRD could cover — the point was giving Claude structured product context rather than asking it to invent the UX.</p>
+
+    <p class="big-statement mt-lg reveal" style="font-size:clamp(20px,2.8vw,30px);">&ldquo;AI accelerated the execution.<br><span class="accent">It didn't replace the product thinking.&rdquo;</span></p>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 3 — CLAUDE ALREADY KNEW OUR DESIGN LANGUAGE
+     ============================================================ -->
+<section class="section section--light">
+  <div class="wrap">
+    <div class="section-intro">
+      <p class="section-kicker">Design system as context</p>
+      <h2 class="section-heading">The next challenge was consistency.</h2>
+      <p class="section-copy">Generating an interface with AI is easy. Generating something that actually belongs inside an existing enterprise product is much harder.</p>
+      <p class="section-copy">We already had an established design system with reusable components documented in Storybook, connected to our codebase and GitHub workflow — so Claude could work with the components and patterns that already existed, instead of inventing new ones.</p>
+    </div>
+
+    <div class="flow-vertical reveal">
+      <div class="node">Design System</div>
+      <div class="arrow-v"></div>
+      <div class="node">Storybook</div>
+      <div class="arrow-v"></div>
+      <div class="node">Code / Components</div>
+      <div class="arrow-v"></div>
+      <div class="node">GitHub</div>
+      <div class="arrow-v"></div>
+      <div class="node node--accent">Claude Code</div>
+    </div>
+
+    <div class="comparison comparison--compact reveal mt-lg" style="max-width:640px;margin-left:auto;margin-right:auto;">
+      <div class="comparison-col muted">
+        <div class="comparison-row" style="display:block;padding:14px 0;">&ldquo;Create a blue button.&rdquo;</div>
+        <div class="comparison-row" style="display:block;padding:14px 0;">&ldquo;Design a table.&rdquo;</div>
+      </div>
+      <div class="comparison-col highlight">
+        <div class="comparison-row" style="display:block;padding:14px 0;">&ldquo;Use the existing Button component.&rdquo;</div>
+        <div class="comparison-row" style="display:block;padding:14px 0;">&ldquo;Work from the table patterns already available.&rdquo;</div>
+      </div>
+    </div>
+
+    <div class="flow-vertical reveal mt-lg">
+      <div class="node" style="opacity:0.5;">Claude doesn't invent a new UI language</div>
+      <div class="arrow-v"></div>
+      <div class="node node--accent">Claude builds using existing product components</div>
+    </div>
+
+    <p class="big-statement mt-lg reveal" style="font-size:clamp(20px,2.8vw,30px);">&ldquo;The design system <span class="accent">became context for the AI.</span>&rdquo;</p>
+
+    <div class="reveal mt-lg">
+      <div class="placeholder placeholder--wide">
+        <div class="placeholder-tag">IMAGE NEEDED</div>
+        <div class="placeholder-name">STORYBOOK / DESIGN SYSTEM</div>
+        <div class="placeholder-desc"><strong>Attach:</strong> A screenshot of the Storybook / design-system component library.</div>
+        <div class="placeholder-purpose">Purpose: Show the component system Claude could reference while building the product.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 4 — FROM REQUIREMENT TO WORKING EXPERIENCE
+     ============================================================ -->
+<section class="section section--dark">
+  <div class="wrap">
+    <div class="section-intro">
+      <p class="section-kicker">Building the experience</p>
+      <h2 class="section-heading">Then we started designing in the product itself.</h2>
+      <p class="section-copy">Once the requirements and design-system context were available, I used Claude Code inside our development environment — tools like VS Code / Antigravity, with the project environment already set up — to start building the experience directly, rather than creating an isolated visual prototype.</p>
+      <p class="section-copy">I could describe the experience, build it, run it, interact with it, and immediately continue designing.</p>
+    </div>
+
+    <div class="flow-vertical reveal">
+      <div class="node">UXRD</div>
+      <div class="arrow-v"></div>
+      <div class="node">Claude Code</div>
+      <div class="arrow-v"></div>
+      <div class="node">Existing Design-System Components</div>
+      <div class="arrow-v"></div>
+      <div class="node">Working Frontend</div>
+      <div class="arrow-v"></div>
+      <div class="node node--accent">Run + Interact</div>
+    </div>
+
+    <div class="reveal mt-lg">
+      <div class="shot shot--full">
+        <img src="assets/admin-connectors.jpeg" alt="A working BAIS Administration prototype screen, built and run directly during the design process">
+      </div>
+    </div>
+
+    <p class="big-statement mt-lg reveal" style="font-size:clamp(20px,2.8vw,30px);">&ldquo;The prototype became <span class="accent">part of the design process</span> — not just the final deliverable.&rdquo;</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 5 — THE FIRST OUTPUT WAS NEVER THE FINAL DESIGN
+     ============================================================ -->
+<section class="section section--light">
+  <div class="wrap">
+    <div class="section-intro">
+      <p class="section-kicker">Iteration loop</p>
+      <h2 class="section-heading">Build &rarr; use &rarr; notice &rarr; change.</h2>
+      <p class="section-copy">The biggest advantage wasn't simply generating screens faster. Once the experience was functional, I could actually use it — and that exposed problems that are sometimes difficult to notice in static screens.</p>
+    </div>
+
+    <div class="tag-row reveal">
+      <span>Interaction behaviour</span>
+      <span>Missing states</span>
+      <span>Information hierarchy</span>
+      <span>Navigation</span>
+      <span>Responsive behaviour</span>
+      <span>Component behaviour</span>
+      <span>Longer end-to-end flows</span>
+    </div>
+
+    <p class="section-copy center mt-lg" style="max-width:680px;margin-left:auto;margin-right:auto;">Claude could quickly make many of those changes. But not every design problem was solved through prompting. Sometimes I went back into Figma. Sometimes I manually adjusted the design. Sometimes I changed the implementation directly. Sometimes Claude handled the iteration.</p>
+
+    <div class="flow-vertical reveal mt-lg">
+      <div class="node">Design</div>
+      <div class="arrow-v"></div>
+      <div class="node">Build</div>
+      <div class="arrow-v"></div>
+      <div class="node">Use</div>
+    </div>
+
+    <div class="branch-diagram reveal mt-md">
+      <div class="node node--accent" style="margin-bottom:10px;">Something Feels Wrong</div>
+      <div class="branch-connector">
+        <svg viewBox="0 0 400 40" preserveAspectRatio="none">
+          <path d="M200,0 L200,14 L100,14 L100,40" stroke="currentColor" stroke-width="1.5" fill="none"/>
+          <path d="M200,0 L200,14 L300,14 L300,40" stroke="currentColor" stroke-width="1.5" fill="none"/>
+        </svg>
+      </div>
+      <div class="branch-split">
+        <div class="branch-col">
+          <div class="node" style="width:100%;">Claude Iteration</div>
+        </div>
+        <div class="branch-col">
+          <div class="node" style="width:100%;">Manual Design</div>
+        </div>
+      </div>
+      <div class="branch-connector">
+        <svg viewBox="0 0 400 40" preserveAspectRatio="none">
+          <path d="M100,0 L100,26 L200,26 L200,40" stroke="currentColor" stroke-width="1.5" fill="none"/>
+          <path d="M300,0 L300,26 L200,26 L200,40" stroke="currentColor" stroke-width="1.5" fill="none"/>
+        </svg>
+      </div>
+      <div class="node node--accent">Test Again</div>
+    </div>
+
+    <p class="big-statement mt-lg reveal" style="font-size:clamp(20px,2.8vw,30px);">&ldquo;AI increased the speed of iteration.<br><span class="accent">Design judgement still decided what changed.&rdquo;</span></p>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 6 — FIGMA STILL HAD A ROLE
+     ============================================================ -->
+<section class="section section--dark">
+  <div class="wrap">
+    <div class="section-intro">
+      <p class="section-kicker">Figma's role</p>
+      <h2 class="section-heading">Code didn't replace Figma.</h2>
+      <p class="section-copy">The workflow wasn't &ldquo;Figma vs. Claude.&rdquo; We used whichever surface helped us make the next design decision fastest. For certain explorations, Figma was still faster. For interaction-heavy experiences, Claude Code let us work directly with a functioning interface. For reviews, prototype screens could be brought back into Figma so PMs, designers and other stakeholders could review the experience in a familiar, collaborative environment.</p>
+    </div>
+
+    <div class="comparison reveal" style="position:relative;">
+      <div class="comparison-col">
+        <div class="comparison-head">Figma</div>
+        <div class="comparison-row">Fast visual exploration</div>
+        <div class="comparison-row">Annotations</div>
+        <div class="comparison-row">Team review</div>
+      </div>
+      <div class="comparison-col highlight">
+        <div class="comparison-head">Claude Code</div>
+        <div class="comparison-row">Functional behaviour</div>
+        <div class="comparison-row">Real components</div>
+        <div class="comparison-row">Interaction</div>
+        <div class="comparison-row">Responsive experience</div>
+      </div>
+      <div class="comparison-arrow-badge" style="left:50%;">&harr;</div>
+    </div>
+
+    <p class="big-statement mt-lg reveal" style="font-size:clamp(20px,2.8vw,30px);">&ldquo;Figma and code became <span class="accent">two surfaces of the same design process.&rdquo;</span></p>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 7 — FEEDBACK BECAME PART OF THE LOOP
+     ============================================================ -->
+<section class="section section--light">
+  <div class="wrap">
+    <div class="section-intro">
+      <p class="section-kicker">Feedback loop</p>
+      <h2 class="section-heading">Then we connected feedback back into the build.</h2>
+      <p class="section-copy">Once prototype screens were brought into Figma, the team could review them normally and leave comments. We created a workflow that allowed Claude to read the relevant Figma feedback — so feedback could move back into the implementation loop without manually translating every small comment into another long instruction.</p>
+    </div>
+
+    <div class="flow-vertical flow-vertical--pill reveal">
+      <div class="node">Working Prototype</div>
+      <div class="arrow-v"></div>
+      <div class="node">Figma</div>
+      <div class="arrow-v"></div>
+      <div class="node">PM / Designer / Team Comments</div>
+      <div class="arrow-v"></div>
+      <div class="node node--accent">Claude Reads Feedback</div>
+      <div class="arrow-v"></div>
+      <div class="node">Implement Changes</div>
+      <div class="arrow-v"></div>
+      <div class="node">Review Again</div>
+    </div>
+
+    <div class="reveal mt-lg">
+      <div class="placeholder placeholder--wide">
+        <div class="placeholder-tag">IMAGE NEEDED</div>
+        <div class="placeholder-name">FIGMA REVIEW WITH COMMENTS</div>
+        <div class="placeholder-desc"><strong>Attach:</strong> A screenshot of prototype screens in Figma with real review comments.</div>
+        <div class="placeholder-purpose">Purpose: Show how product/design feedback entered the AI-assisted iteration loop.</div>
+      </div>
+    </div>
+
+    <p class="section-copy center mt-lg" style="max-width:640px;margin-left:auto;margin-right:auto;">Claude could help interpret and implement feedback, but I still reviewed the result and decided whether the change actually solved the UX problem — not every comment was automatically accepted and shipped.</p>
+
+    <p class="big-statement mt-lg reveal" style="font-size:clamp(20px,2.8vw,30px);">&ldquo;Automation shortened the feedback loop.<br><span class="accent">It didn't remove the designer from it.&rdquo;</span></p>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 8 — GITHUB MADE THE WORK COLLABORATIVE
+     ============================================================ -->
+<section class="section section--dark">
+  <div class="wrap">
+    <div class="section-intro">
+      <p class="section-kicker">Working across GitHub</p>
+      <h2 class="section-heading">The prototype wasn't trapped on my machine.</h2>
+      <p class="section-copy">We maintained the work through GitHub. Designers could work through branches, push their latest changes, and let another designer or collaborator pull the current version and continue from there — so the prototype behaved more like a shared product artifact than a disposable one.</p>
+    </div>
+
+    <div class="flow-vertical reveal">
+      <div class="node">Designer A</div>
+      <div class="arrow-v"></div>
+      <div class="node">Branch</div>
+      <div class="arrow-v"></div>
+      <div class="node node--accent">GitHub</div>
+      <div class="node-sub mt-md">Latest shared version</div>
+      <div class="arrow-v"></div>
+      <div class="node">Branch</div>
+      <div class="arrow-v"></div>
+      <div class="node">Designer B / Collaborator</div>
+    </div>
+
+    <div class="system-row-chain reveal mt-lg" style="justify-content:center;">
+      <span class="chip">Change</span><span class="sep">&rarr;</span>
+      <span class="chip">Review</span><span class="sep">&rarr;</span>
+      <span class="chip">Push</span><span class="sep">&rarr;</span>
+      <span class="chip">Pull</span><span class="sep">&rarr;</span>
+      <span class="chip">Continue</span>
+    </div>
+
+    <p class="big-statement mt-lg reveal" style="font-size:clamp(20px,2.8vw,30px);">&ldquo;The working prototype <span class="accent">became collaborative and versioned.&rdquo;</span></p>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 9 — SHOW THE REAL EXAMPLE
+     ============================================================ -->
+<section class="section section--light">
+  <div class="wrap">
+    <div class="section-intro">
+      <p class="section-kicker">The real example</p>
+      <h2 class="section-heading">What this looked like on BAIS</h2>
+      <p class="section-copy">Administration is the clearest example of this workflow end to end.</p>
+    </div>
+
+    <div class="showcase-block reveal">
+      <div class="showcase-head"><span class="showcase-index">01</span><span class="showcase-title">UX Requirements / Initial Structure</span></div>
+      <div class="placeholder placeholder--wide">
+        <div class="placeholder-tag">IMAGE NEEDED</div>
+        <div class="placeholder-name">UXRD / STRUCTURE NOTES</div>
+        <div class="placeholder-desc"><strong>Attach:</strong> A screenshot or excerpt of the UXRD / structure notes used to start this experience.</div>
+        <div class="placeholder-purpose">Purpose: Show the requirements Claude was actually given, not a blank prompt.</div>
+      </div>
+    </div>
+
+    <div class="showcase-block reveal">
+      <div class="showcase-head"><span class="showcase-index">02</span><span class="showcase-title">Design-System Components / Storybook</span></div>
+      <div class="placeholder placeholder--wide">
+        <div class="placeholder-tag">IMAGE NEEDED</div>
+        <div class="placeholder-name">STORYBOOK / DESIGN SYSTEM</div>
+        <div class="placeholder-desc"><strong>Attach:</strong> The Storybook / component library used for this experience.</div>
+        <div class="placeholder-purpose">Purpose: Ground the build in existing components, not a one-off UI.</div>
+      </div>
+    </div>
+
+    <div class="showcase-block reveal">
+      <div class="showcase-head"><span class="showcase-index">03</span><span class="showcase-title">Early Claude-Generated Implementation</span></div>
+      <div class="placeholder placeholder--wide">
+        <div class="placeholder-tag">IMAGE NEEDED</div>
+        <div class="placeholder-name">EARLY BUILD</div>
+        <div class="placeholder-desc"><strong>Attach:</strong> An early, rougher version of the Administration experience.</div>
+        <div class="placeholder-purpose">Purpose: Show the starting point before iteration, not the polished result.</div>
+      </div>
+    </div>
+
+    <div class="showcase-block reveal">
+      <div class="showcase-head"><span class="showcase-index">04</span><span class="showcase-title">Iteration</span></div>
+      <div class="placeholder placeholder--wide">
+        <div class="placeholder-tag">IMAGE NEEDED</div>
+        <div class="placeholder-name">BEFORE / AFTER ITERATION</div>
+        <div class="placeholder-desc"><strong>Attach:</strong> A before/after pair showing a change made after using the prototype.</div>
+        <div class="placeholder-purpose">Purpose: Show that using the build surfaced real changes.</div>
+      </div>
+    </div>
+
+    <div class="showcase-block reveal">
+      <div class="showcase-head"><span class="showcase-index">05</span><span class="showcase-title">Figma / Team Feedback</span></div>
+      <div class="placeholder placeholder--wide">
+        <div class="placeholder-tag">IMAGE NEEDED</div>
+        <div class="placeholder-name">FIGMA REVIEW — ADMINISTRATION</div>
+        <div class="placeholder-desc"><strong>Attach:</strong> Figma review comments specific to the Administration prototype.</div>
+        <div class="placeholder-purpose">Purpose: Show the review step that fed back into the build.</div>
+      </div>
+    </div>
+
+    <div class="showcase-block reveal">
+      <div class="showcase-head"><span class="showcase-index">06</span><span class="showcase-title">Updated Working Admin Experience</span></div>
+      <div class="shot shot--full">
+        <img src="assets/admin-health.jpeg" alt="Updated, working BAIS Administration experience — Health screen">
+      </div>
+    </div>
+
+    <div class="section-intro mt-lg" style="margin-bottom:24px;">
+      <p class="section-kicker">A second example</p>
+      <h2 class="section-heading" style="font-size:clamp(20px,2.6vw,28px);">The same workflow scaled to AI Agents.</h2>
+    </div>
+    <div class="showcase-block reveal">
+      <div class="showcase-head"><span class="showcase-index">+</span><span class="showcase-title">AI Agents — Flow / Orchestration</span></div>
+      <div class="shot shot--wide">
+        <img src="assets/agent-studio-evaluation.jpeg" alt="AI Agents — Evaluation screen built with the same AI-native workflow">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 10 — THE FULL WORKFLOW
+     ============================================================ -->
+<section class="section section--dark">
+  <div class="wrap">
+    <div class="section-intro">
+      <p class="section-kicker">The full workflow</p>
+      <h2 class="section-heading">My AI-native design workflow</h2>
+    </div>
+
+    <div class="lifecycle-wrap reveal">
+      <div class="lifecycle">
+        <div class="lifecycle-step"><div class="lifecycle-dot">01</div><div class="lifecycle-label">Product Problem</div></div>
+        <div class="lifecycle-connector"></div>
+        <div class="lifecycle-step"><div class="lifecycle-dot">02</div><div class="lifecycle-label">UXRD</div></div>
+        <div class="lifecycle-connector"></div>
+        <div class="lifecycle-step"><div class="lifecycle-dot">03</div><div class="lifecycle-label">Design System</div></div>
+        <div class="lifecycle-connector"></div>
+        <div class="lifecycle-step"><div class="lifecycle-dot">04</div><div class="lifecycle-label">Claude Code</div></div>
+        <div class="lifecycle-connector"></div>
+        <div class="lifecycle-step"><div class="lifecycle-dot">05</div><div class="lifecycle-label">Functional Prototype</div></div>
+        <div class="lifecycle-connector"></div>
+        <div class="lifecycle-step"><div class="lifecycle-dot">06</div><div class="lifecycle-label">Design Review</div></div>
+        <div class="lifecycle-connector"></div>
+        <div class="lifecycle-step"><div class="lifecycle-dot">07</div><div class="lifecycle-label">Figma</div></div>
+        <div class="lifecycle-connector"></div>
+        <div class="lifecycle-step"><div class="lifecycle-dot">08</div><div class="lifecycle-label">Claude + Manual Iteration</div></div>
+        <div class="lifecycle-connector"></div>
+        <div class="lifecycle-step"><div class="lifecycle-dot">09</div><div class="lifecycle-label">GitHub</div></div>
+        <div class="lifecycle-loop"><div class="lifecycle-loop-icon">&#8635;</div></div>
+      </div>
+    </div>
+    <p class="placeholder-purpose center" style="margin-left:auto;margin-right:auto;">Repeat — this is a loop, not a one-way handoff.</p>
+
+    <p class="section-copy center mt-lg" style="margin-left:auto;margin-right:auto;max-width:600px;opacity:0.55;font-size:13px;">Tools used along the way — secondary to the process itself:</p>
+    <div class="tag-row reveal" style="opacity:0.7;">
+      <span>UXRD / Requirements</span>
+      <span>Storybook</span>
+      <span>Claude Code</span>
+      <span>VS Code / Antigravity</span>
+      <span>Figma</span>
+      <span>GitHub</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 11 — WHAT ACTUALLY CHANGED FOR ME AS A DESIGNER
+     ============================================================ -->
+<section class="section section--light">
+  <div class="wrap">
+    <div class="section-intro">
+      <p class="section-kicker">What changed for me</p>
+      <h2 class="section-heading">The output changed.<br>My responsibility didn't.</h2>
+    </div>
+
+    <div class="comparison reveal">
+      <div class="comparison-col muted">
+        <div class="comparison-head">Before</div>
+        <div class="comparison-row">Understand the problem</div>
+        <div class="comparison-row">Design</div>
+        <div class="comparison-row">Prototype</div>
+        <div class="comparison-row">Handoff</div>
+      </div>
+      <div class="comparison-col highlight">
+        <div class="comparison-head">AI-Native Workflow</div>
+        <div class="comparison-row">Understand the problem</div>
+        <div class="comparison-row">Structure requirements</div>
+        <div class="comparison-row">Design</div>
+        <div class="comparison-row">Build</div>
+        <div class="comparison-row">Use</div>
+        <div class="comparison-row">Review</div>
+        <div class="comparison-row">Change</div>
+        <div class="comparison-row">Ship-ready prototype &#8635;</div>
+      </div>
+    </div>
+
+    <p class="section-copy center mt-lg" style="max-width:680px;margin-left:auto;margin-right:auto;">Claude reduced the distance between an idea and something I could actually use. But deciding what to build, how the experience should behave, whether an AI-generated solution made sense, and when something needed manual design judgement still remained my responsibility.</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     CLOSING
+     ============================================================ -->
+<div class="closing closing--manifest reveal">
+  <div class="closing-manifest-inner">
+    <div class="closing-eyebrow">AI didn't remove design from the process</div>
+    <div class="closing-manifest-statement">It removed some of the <span class="accent">distance between designing and building.</span></div>
+    <div class="closing-manifest-chips">
+      <span>Understand</span>
+      <span>Structure</span>
+      <span>Design</span>
+      <span>Build</span>
+      <span>Use</span>
+      <span>Review</span>
+      <span>Iterate</span>
+      <span>Share</span>
+    </div>
+    <p class="closing-final">Not a designer who makes Figma, hands it to engineering, and waits — but one who can understand, structure, design, build with AI, use, review, iterate and share. AI-generated output still needs human product and design judgement to become a real experience.</p>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div>Priyadharshinii R. &middot; Product Designer</div>
+  <div class="footer-next">
+    <span class="label">Next</span>
+    <a href="index.html">Back to portfolio &rarr;</a>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
