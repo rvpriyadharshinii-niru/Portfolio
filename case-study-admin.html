@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Designing Administration for an Enterprise AI Platform — Case Study</title>
+<meta name="description" content="Structuring organization, access, integrations, usage and platform operations into one manageable administration experience. Uniphore, 2025–2026.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <a href="index.html" class="back-link">&larr; Portfolio</a>
+  <span class="proj-tag">Administration · Uniphore</span>
+</header>
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-meta">
+      <span>Uniphore</span>
+      <span>Enterprise AI / Administration</span>
+      <span>Product Designer</span>
+      <span class="accent">2025–2026</span>
+    </div>
+    <h1>Designing Administration for an Enterprise AI Platform</h1>
+    <p class="hero-sub">Structuring organization, access, integrations, usage and platform operations into one manageable administration experience.</p>
+
+    <div class="collage-grid reveal mt-lg">
+      <div class="shot shot--wide">
+        <img src="assets/admin-org-structure.jpeg" alt="Org Structure screen showing workspaces, admins, credits used and utilization for a sub-organization">
+      </div>
+      <div class="shot shot--wide">
+        <img src="assets/admin-credits.jpeg" alt="Credits dashboard showing total inferences, daily burn, allocation and usage by skill">
+      </div>
+      <div class="shot shot--wide">
+        <img src="assets/admin-health.jpeg" alt="Health screen showing identity providers, provisioning, connectors and model providers status">
+      </div>
+      <div class="shot shot--wide">
+        <img src="assets/admin-users.jpeg" alt="Users table showing role, status, workspaces, auth method and last login">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     BACKGROUND
+     ============================================================ -->
+<section class="section section--dark">
+  <div class="wrap">
+    <div class="section-intro">
+      <p class="section-kicker">Background</p>
+      <h2 class="section-heading">As the platform grew, administration became a product of its own.</h2>
+      <p class="section-copy">An enterprise AI platform isn't only about building AI experiences. Someone also has to manage the organization behind them — users, permissions, workspaces, integrations, usage, security and system health.</p>
+      <p class="section-copy">The Administration experience needed to bring these responsibilities into a structure that could scale without becoming one large settings menu.</p>
+    </div>
+
+    <div class="flow-vertical reveal">
+      <div class="node">AI Platform</div>
+      <div class="arrow-v"></div>
+      <div class="node node--accent">Administration</div>
+      <div class="arrow-v"></div>
+      <div class="node" style="font-size:13px;max-width:640px;">Organization &middot; Access &middot; Integrations &middot; Usage &middot; Observability &middot; Settings</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     INFORMATION ARCHITECTURE
+     ============================================================ -->
+<section class="section section--light">
+  <div class="wrap">
+    <div class="section-intro">
+      <p class="section-kicker">Information architecture</p>
+      <h2 class="section-heading">The first problem was deciding where everything belongs.</h2>
+      <p class="section-copy">Administration contains very different kinds of tasks. The navigation needed to represent clear administrative responsibilities — not expose a long flat list of technical configuration pages.</p>
+    </div>
+
+    <div class="reveal">
+      <div class="shot" style="max-width:280px;margin:0 auto;">
+        <img src="assets/admin-sidebar-nav.png" alt="Administration side navigation showing Organization, Users & Access, Integrations, Credits & Usage, Observability and Settings">
+      </div>
+    </div>
+
+    <div class="ia-grid reveal mt-lg">
+      <div class="ia-col">
+        <div class="ia-col-title">Organization</div>
+        <ul>
+          <li>Organizational hierarchy</li>
+          <li>Sub-organizations</li>
+          <li>Workspaces</li>
+          <li>Governance</li>
+        </ul>
+      </div>
+      <div class="ia-col">
+        <div class="ia-col-title">Users &amp; Access</div>
+        <ul>
+          <li>Users</li>
+          <li>Roles</li>
+          <li>Permissions / access</li>
+        </ul>
+      </div>
+      <div class="ia-col">
+        <div class="ia-col-title">Integrations</div>
+        <ul>
+          <li>Connectors</li>
+          <li>API tokens</li>
+        </ul>
+      </div>
+      <div class="ia-col">
+        <div class="ia-col-title">Credits &amp; Usage</div>
+        <ul>
+          <li>Allocation</li>
+          <li>Consumption</li>
+          <li>Model / skill usage</li>
+        </ul>
+      </div>
+      <div class="ia-col">
+        <div class="ia-col-title">Observability</div>
+        <ul>
+          <li>Audit logs</li>
+          <li>Sign-ins</li>
+          <li>System events</li>
+          <li>Health</li>
+        </ul>
+      </div>
+      <div class="ia-col">
+        <div class="ia-col-title">Settings</div>
+        <ul>
+          <li>Account</li>
+          <li>Provisioning</li>
+          <li>Applications</li>
+          <li>Data &amp; security</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="big-statement mt-lg reveal" style="font-size:clamp(18px,2.4vw,26px);">&ldquo;Group by the administrator's responsibility, <span class="accent">not by the underlying system.&rdquo;</span></p>
+  </div>
+</section>
+
+<!-- ============================================================
+     ORGANIZATION
+     ============================================================ -->
+<section class="section section--dark">
+  <div class="wrap">
+    <div class="section-intro">
+      <p class="section-kicker">Organization</p>
+      <h2 class="section-heading">Understanding the organization before managing the system</h2>
+      <p class="section-copy">For enterprise customers, administration can exist across organizational levels. The Organization area gives administrators a starting point for understanding the sub-organizations they can manage and moving into the relevant context.</p>
+    </div>
+
+    <div class="reveal">
+      <div class="shot shot--full">
+        <img src="assets/admin-suborgs.jpeg" alt="Sub-organizations list showing Claims Management, Sales and IT with workspace count, user count, status and created date">
+      </div>
+      <div class="annotation-row mt-md">
+        <div class="annotation-card"><div class="a-tag">SEARCH &amp; DISCOVERY</div></div>
+        <div class="annotation-card"><div class="a-tag">WORKSPACE COUNT</div></div>
+        <div class="annotation-card"><div class="a-tag">USER COUNT &amp; STATUS</div></div>
+        <div class="annotation-card"><div class="a-tag">ORG SWITCHING / CONTEXT</div></div>
+      </div>
+    </div>
+
+    <div class="reveal mt-lg">
+      <p class="section-copy" style="max-width:720px;">Once inside a sub-organization, the experience surfaces the most important context first — workspaces, administrators, credits used, utilization, users and sub-organization details. A workspace selector in the header keeps that context as administrators move across areas.</p>
+      <div class="shot shot--full mt-md">
+        <img src="assets/admin-org-structure.jpeg" alt="Org Structure screen for Claims Management showing workspaces, admins, credits used and utilization">
+      </div>
+    </div>
+
+    <div class="flow-horizontal reveal mt-lg">
+      <div class="node">Organization</div>
+      <div class="arrow-h"></div>
+      <div class="node">Sub-organization</div>
+      <div class="arrow-h"></div>
+      <div class="node">Workspace</div>
+      <div class="arrow-h"></div>
+      <div class="node node--accent">Users / Resources</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     GOVERNANCE
+     ============================================================ -->
+<section class="section section--light">
+  <div class="wrap">
+    <div class="section-intro">
+      <p class="section-kicker">Governance</p>
+      <h2 class="section-heading">Administration also means governing what AI is allowed to do.</h2>
+      <p class="section-copy">As AI systems take actions, some may require human review. Governance sits within the organizational context rather than as a separate experience — the Human-in-the-Loop queue surfaces high-risk actions that require administrator approval or rejection.</p>
+    </div>
+
+    <div class="reveal">
+      <div class="shot shot--full">
+        <img src="assets/admin-governance-hitl.jpeg" alt="HITL Queue showing pending approvals with agent, risk level, reason and approve/reject actions">
+      </div>
+      <div class="annotation-row mt-md">
+        <div class="annotation-card"><div class="a-tag">PENDING APPROVALS</div></div>
+        <div class="annotation-card"><div class="a-tag">RISK LEVEL</div></div>
+        <div class="annotation-card"><div class="a-tag">AGENT RESPONSIBLE</div></div>
+        <div class="annotation-card"><div class="a-tag">REASON / CONTEXT</div></div>
+        <div class="annotation-card"><div class="a-tag">APPROVE / REJECT</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     USERS & ACCESS
+     ============================================================ -->
+<section class="section section--dark">
+  <div class="wrap">
+    <div class="section-intro">
+      <p class="section-kicker">Users &amp; access</p>
+      <h2 class="section-heading">Who can enter the platform — and what can they do?</h2>
+      <p class="section-copy">Users answers &ldquo;who has access?&rdquo; Roles answers &ldquo;what are they allowed to do?&rdquo; Keeping identity and authorization as separate, related surfaces makes access easier to understand as organizations grow.</p>
+    </div>
+
+    <div class="reveal">
+      <div class="shot shot--full">
+        <img src="assets/admin-users.jpeg" alt="Users table with identity, assigned role, status, workspace access, authentication method, MFA and last login">
+      </div>
+      <div class="annotation-row mt-md" style="grid-template-columns:repeat(4,1fr);">
+        <div class="annotation-card"><div class="a-tag">IDENTITY &amp; ROLE</div></div>
+        <div class="annotation-card"><div class="a-tag">STATUS &amp; WORKSPACE ACCESS</div></div>
+        <div class="annotation-card"><div class="a-tag">AUTH METHOD &amp; MFA</div></div>
+        <div class="annotation-card"><div class="a-tag">LAST LOGIN</div></div>
+      </div>
+    </div>
+
+    <div class="reveal mt-lg">
+      <div class="shot shot--full">
+        <img src="assets/admin-roles.jpeg" alt="Roles table showing system vs custom roles, purpose, member count and last updated">
+      </div>
+      <div class="annotation-row mt-md" style="grid-template-columns:repeat(4,1fr);">
+        <div class="annotation-card"><div class="a-tag">SYSTEM VS CUSTOM</div></div>
+        <div class="annotation-card"><div class="a-tag">ROLE PURPOSE</div></div>
+        <div class="annotation-card"><div class="a-tag">MEMBER COUNT</div></div>
+        <div class="annotation-card"><div class="a-tag">WORKSPACE SCOPE</div></div>
+      </div>
+    </div>
+
+    <div class="flow-horizontal reveal mt-lg">
+      <div class="node">User</div>
+      <div class="arrow-h"></div>
+      <div class="node">Role</div>
+      <div class="arrow-h"></div>
+      <div class="node">Permissions</div>
+      <div class="arrow-h"></div>
+      <div class="node node--accent">Platform Capabilities</div>
+    </div>
+    <p class="section-copy center mt-md" style="margin-left:auto;margin-right:auto;">Separating identity from authorization makes access easier to understand and manage as organizations grow.</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     INTEGRATIONS
+     ============================================================ -->
+<section class="section section--light">
+  <div class="wrap">
+    <div class="section-intro">
+      <p class="section-kicker">Integrations</p>
+      <h2 class="section-heading">Connecting the platform to the enterprise ecosystem</h2>
+      <p class="section-copy">AI systems rarely operate independently. Administrators need visibility into the external systems the platform depends on. Connectors organizes integrations by operational state — In Use, Available, Requested, Catalog — and each active integration surfaces its health and the actions administrators are most likely to need.</p>
+    </div>
+
+    <div class="reveal">
+      <div class="shot shot--full">
+        <img src="assets/admin-connectors.jpeg" alt="Connectors screen showing In Use, Available and Requested integrations with Salesforce configuration, test and re-sync actions">
+      </div>
+    </div>
+
+    <div class="reveal mt-lg">
+      <p class="section-copy" style="max-width:720px;">Connectors manage integrations as products or services. API Tokens manage programmatic access to the platform itself — a related but distinct concern.</p>
+      <div class="shot shot--full mt-md">
+        <img src="assets/admin-api-tokens.jpeg" alt="API Tokens table showing name, owner, creation date, last used and status">
+      </div>
+      <div class="annotation-row mt-md" style="grid-template-columns:repeat(4,1fr);">
+        <div class="annotation-card"><div class="a-tag">NAME &amp; OWNER</div></div>
+        <div class="annotation-card"><div class="a-tag">CREATED / LAST USED</div></div>
+        <div class="annotation-card"><div class="a-tag">STATUS</div></div>
+        <div class="annotation-card"><div class="a-tag">GENERATE / REVOKE</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CREDITS & USAGE
+     ============================================================ -->
+<section class="section section--dark">
+  <div class="wrap">
+    <div class="section-intro">
+      <p class="section-kicker">Credits &amp; usage</p>
+      <h2 class="section-heading">Making AI consumption visible</h2>
+      <p class="section-copy">AI introduces a new administrative concern: consumption. Administrators need to understand not only whether the system is working, but how platform capacity is being consumed — total inferences, daily burn, allocation, usage by skill, usage trend and model-level consumption, all in one place.</p>
+    </div>
+
+    <div class="reveal">
+      <div class="shot shot--full">
+        <img src="assets/admin-credits.jpeg" alt="Credits dashboard showing total inferences, average daily burn, total credits, credits used, credit usage by skill, usage trend and inference calls by model type">
+      </div>
+    </div>
+
+    <p class="big-statement mt-lg reveal" style="font-size:clamp(18px,2.4vw,26px);">Start with the health of the account, <span class="accent">then let administrators investigate where consumption is coming from.</span></p>
+  </div>
+</section>
+
+<!-- ============================================================
+     OBSERVABILITY
+     ============================================================ -->
+<section class="section section--light">
+  <div class="wrap">
+    <div class="section-intro">
+      <p class="section-kicker">Observability</p>
+      <h2 class="section-heading">From configuration to operational awareness</h2>
+      <p class="section-copy">Audit Logs, Sign-ins, System Events and Health look similar at first glance, but they answer four different administrator questions.</p>
+    </div>
+
+    <div class="branch-diagram reveal">
+      <div class="node node--accent" style="margin-bottom:10px;">Observability</div>
+      <div class="branch-connector">
+        <svg viewBox="0 0 400 40" preserveAspectRatio="none">
+          <path d="M200,0 L200,20 L50,20 L50,40" stroke="rgba(10,140,125,0.4)" stroke-width="1.5" fill="none"/>
+          <path d="M200,0 L200,20 L150,20 L150,40" stroke="rgba(10,140,125,0.4)" stroke-width="1.5" fill="none"/>
+          <path d="M200,0 L200,20 L250,20 L250,40" stroke="rgba(10,140,125,0.4)" stroke-width="1.5" fill="none"/>
+          <path d="M200,0 L200,20 L350,20 L350,40" stroke="rgba(10,140,125,0.4)" stroke-width="1.5" fill="none"/>
+        </svg>
+      </div>
+      <div class="branch-split branch-split--four">
+        <div class="branch-col">
+          <div class="node" style="width:100%;margin-bottom:12px;">Audit Logs</div>
+          <div class="node-sub" style="text-align:center;">&ldquo;What changed, and who did it?&rdquo;</div>
+        </div>
+        <div class="branch-col">
+          <div class="node" style="width:100%;margin-bottom:12px;">Sign-ins</div>
+          <div class="node-sub" style="text-align:center;">&ldquo;Who is accessing the platform?&rdquo;</div>
+        </div>
+        <div class="branch-col">
+          <div class="node" style="width:100%;margin-bottom:12px;">System Events</div>
+          <div class="node-sub" style="text-align:center;">&ldquo;What is happening across services?&rdquo;</div>
+        </div>
+        <div class="branch-col">
+          <div class="node" style="width:100%;margin-bottom:12px;">Health</div>
+          <div class="node-sub" style="text-align:center;">&ldquo;Are dependencies operating correctly?&rdquo;</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="placeholder-group placeholder-group--duo mt-lg reveal">
+      <div class="shot shot--wide">
+        <img src="assets/admin-audit-logs.jpeg" alt="Audit Logs showing timestamp, operation, summary, status, latency and user">
+      </div>
+      <div class="shot shot--wide">
+        <img src="assets/admin-signins.jpeg" alt="Sign-ins showing successful, failed and risky authentication events with provider, location and device">
+      </div>
+    </div>
+    <div class="placeholder-group placeholder-group--duo mt-md reveal">
+      <div class="shot shot--wide">
+        <img src="assets/admin-system-events.jpeg" alt="System Events showing source, event, and severity across platform services">
+      </div>
+      <div class="shot shot--wide">
+        <img src="assets/admin-health.jpeg" alt="Health screen showing identity providers, provisioning, connectors and model providers as healthy, degraded or down">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SETTINGS
+     ============================================================ -->
+<section class="section section--dark">
+  <div class="wrap">
+    <div class="section-intro">
+      <p class="section-kicker">Settings</p>
+      <h2 class="section-heading">Keeping cross-cutting configuration separate from daily administration</h2>
+      <p class="section-copy">Settings contains platform-level configuration that affects multiple areas rather than everyday operational management — grouped into Account, Provisioning, Applications, and Data &amp; Security.</p>
+    </div>
+
+    <div class="placeholder-group placeholder-group--duo reveal">
+      <div>
+        <div class="shot shot--wide">
+          <img src="assets/admin-settings-account.jpeg" alt="Settings Account tab showing sub-organization profile">
+        </div>
+        <div class="iter-note" style="color:rgba(255,255,255,0.6);border-color:var(--line-dark);">Account &mdash; organization profile, workspaces and account-level information.</div>
+      </div>
+      <div>
+        <div class="shot shot--wide">
+          <img src="assets/admin-provisioning-top.png" alt="Provisioning tab showing SCIM, AD Sync and Manual Provisioning identity source options">
+        </div>
+        <div class="iter-note" style="color:rgba(255,255,255,0.6);border-color:var(--line-dark);">Provisioning &mdash; how users and organizational structure sync with the platform, via SCIM, AD Sync or manual invites. SCIM: automated user and group provisioning from an identity provider.</div>
+      </div>
+    </div>
+
+    <div class="placeholder-group placeholder-group--duo mt-md reveal">
+      <div>
+        <div class="shot shot--wide">
+          <img src="assets/admin-settings-applications.jpeg" alt="Settings Applications tab showing enabled AI applications">
+        </div>
+        <div class="iter-note" style="color:rgba(255,255,255,0.6);border-color:var(--line-dark);">Applications &mdash; which AI applications are enabled and configured for the organization.</div>
+      </div>
+      <div>
+        <div class="shot shot--wide">
+          <img src="assets/admin-settings-data-security.jpeg" alt="Settings Data & Security tab showing data residency, retention and encryption">
+        </div>
+        <div class="iter-note" style="color:rgba(255,255,255,0.6);border-color:var(--line-dark);">Data &amp; Security &mdash; data residency, retention, encryption and compliance-related configuration.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     THE SYSTEM BEHIND THE SCREENS
+     ============================================================ -->
+<section class="section section--light">
+  <div class="wrap">
+    <div class="section-intro">
+      <p class="section-kicker">The system behind the screens</p>
+      <h2 class="section-heading">Different tasks. One administrative mental model.</h2>
+    </div>
+
+    <div class="reveal">
+      <div class="system-row" style="border-bottom:1px solid var(--line-light);">
+        <div class="system-row-label">
+          <span class="num">01</span>
+          <span class="name" style="color:var(--ink);">Organization</span>
+          <div class="purpose" style="color:var(--ink-mute);">Structure the enterprise</div>
+        </div>
+        <div class="system-row-chain">
+          <span class="chip" style="border-color:var(--line-light);">Sub-orgs</span><span class="sep" style="color:#0A8C7D;">&rarr;</span>
+          <span class="chip" style="border-color:var(--line-light);">Workspaces</span><span class="sep" style="color:#0A8C7D;">&rarr;</span>
+          <span class="chip" style="border-color:var(--line-light);">Governance</span>
+        </div>
+      </div>
+      <div class="system-row" style="border-bottom:1px solid var(--line-light);">
+        <div class="system-row-label">
+          <span class="num" style="color:#0A8C7D;">02</span>
+          <span class="name" style="color:var(--ink);">Users &amp; Access</span>
+          <div class="purpose" style="color:var(--ink-mute);">Control participation</div>
+        </div>
+        <div class="system-row-chain">
+          <span class="chip" style="border-color:var(--line-light);">Users</span><span class="sep" style="color:#0A8C7D;">&rarr;</span>
+          <span class="chip" style="border-color:var(--line-light);">Roles</span><span class="sep" style="color:#0A8C7D;">&rarr;</span>
+          <span class="chip" style="border-color:var(--line-light);">Permissions</span>
+        </div>
+      </div>
+      <div class="system-row" style="border-bottom:1px solid var(--line-light);">
+        <div class="system-row-label">
+          <span class="num" style="color:#0A8C7D;">03</span>
+          <span class="name" style="color:var(--ink);">Integrations</span>
+          <div class="purpose" style="color:var(--ink-mute);">Connect the ecosystem</div>
+        </div>
+        <div class="system-row-chain">
+          <span class="chip" style="border-color:var(--line-light);">Connectors</span><span class="sep" style="color:#0A8C7D;">&rarr;</span>
+          <span class="chip" style="border-color:var(--line-light);">API Tokens</span>
+        </div>
+      </div>
+      <div class="system-row" style="border-bottom:1px solid var(--line-light);">
+        <div class="system-row-label">
+          <span class="num" style="color:#0A8C7D;">04</span>
+          <span class="name" style="color:var(--ink);">Credits &amp; Usage</span>
+          <div class="purpose" style="color:var(--ink-mute);">Understand consumption</div>
+        </div>
+        <div class="system-row-chain">
+          <span class="chip" style="border-color:var(--line-light);">Allocation</span><span class="sep" style="color:#0A8C7D;">&rarr;</span>
+          <span class="chip" style="border-color:var(--line-light);">Usage</span><span class="sep" style="color:#0A8C7D;">&rarr;</span>
+          <span class="chip" style="border-color:var(--line-light);">Models</span>
+        </div>
+      </div>
+      <div class="system-row" style="border-bottom:1px solid var(--line-light);">
+        <div class="system-row-label">
+          <span class="num" style="color:#0A8C7D;">05</span>
+          <span class="name" style="color:var(--ink);">Observability</span>
+          <div class="purpose" style="color:var(--ink-mute);">Understand system behaviour</div>
+        </div>
+        <div class="system-row-chain">
+          <span class="chip" style="border-color:var(--line-light);">Audit</span><span class="sep" style="color:#0A8C7D;">&rarr;</span>
+          <span class="chip" style="border-color:var(--line-light);">Access</span><span class="sep" style="color:#0A8C7D;">&rarr;</span>
+          <span class="chip" style="border-color:var(--line-light);">Events</span><span class="sep" style="color:#0A8C7D;">&rarr;</span>
+          <span class="chip" style="border-color:var(--line-light);">Health</span>
+        </div>
+      </div>
+      <div class="system-row">
+        <div class="system-row-label">
+          <span class="num" style="color:#0A8C7D;">06</span>
+          <span class="name" style="color:var(--ink);">Settings</span>
+          <div class="purpose" style="color:var(--ink-mute);">Configure the foundation</div>
+        </div>
+        <div class="system-row-chain">
+          <span class="chip" style="border-color:var(--line-light);">Account</span><span class="sep" style="color:#0A8C7D;">&rarr;</span>
+          <span class="chip" style="border-color:var(--line-light);">Provisioning</span><span class="sep" style="color:#0A8C7D;">&rarr;</span>
+          <span class="chip" style="border-color:var(--line-light);">Applications</span><span class="sep" style="color:#0A8C7D;">&rarr;</span>
+          <span class="chip" style="border-color:var(--line-light);">Security</span>
+        </div>
+      </div>
+    </div>
+
+    <p class="section-copy center mt-lg" style="max-width:680px;margin-left:auto;margin-right:auto;">The goal wasn't simply to place configuration screens under an &ldquo;Admin&rdquo; label. It was to give administrators a predictable way to understand where different responsibilities belong.</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     MY CONTRIBUTION
+     ============================================================ -->
+<section class="section section--dark">
+  <div class="wrap">
+    <div class="section-intro">
+      <p class="section-kicker">My contribution</p>
+      <h2 class="section-heading">My contribution</h2>
+      <p class="section-copy">I contributed to structuring and designing the latest Administration experience, working within the broader platform and design-system direction.</p>
+    </div>
+
+    <ul style="list-style:none;padding:0;margin:0;max-width:720px;display:flex;flex-direction:column;gap:14px;" class="reveal">
+      <li style="font-size:15px;color:rgba(255,255,255,0.75);padding-left:20px;position:relative;">
+        <span style="position:absolute;left:0;color:var(--cyan);">&rarr;</span>Organizing the Administration information architecture and side navigation
+      </li>
+      <li style="font-size:15px;color:rgba(255,255,255,0.75);padding-left:20px;position:relative;">
+        <span style="position:absolute;left:0;color:var(--cyan);">&rarr;</span>Categorizing platform capabilities into clear administrative responsibilities
+      </li>
+      <li style="font-size:15px;color:rgba(255,255,255,0.75);padding-left:20px;position:relative;">
+        <span style="position:absolute;left:0;color:var(--cyan);">&rarr;</span>Designing enterprise management experiences across organization, users, roles and access
+      </li>
+      <li style="font-size:15px;color:rgba(255,255,255,0.75);padding-left:20px;position:relative;">
+        <span style="position:absolute;left:0;color:var(--cyan);">&rarr;</span>Designing integration and API-management experiences
+      </li>
+      <li style="font-size:15px;color:rgba(255,255,255,0.75);padding-left:20px;position:relative;">
+        <span style="position:absolute;left:0;color:var(--cyan);">&rarr;</span>Designing usage and operational monitoring experiences
+      </li>
+      <li style="font-size:15px;color:rgba(255,255,255,0.75);padding-left:20px;position:relative;">
+        <span style="position:absolute;left:0;color:var(--cyan);">&rarr;</span>Structuring complex platform settings such as provisioning and data/security
+      </li>
+      <li style="font-size:15px;color:rgba(255,255,255,0.75);padding-left:20px;position:relative;">
+        <span style="position:absolute;left:0;color:var(--cyan);">&rarr;</span>Applying consistent enterprise patterns across tables, filters, statuses, navigation and configuration
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============================================================
+     CLOSING
+     ============================================================ -->
+<div class="closing reveal">
+  <div class="closing-line1">Enterprise administration is mostly invisible</div>
+  <div class="closing-line2">when it works well.</div>
+  <p class="closing-final">The goal was to make a technically complex platform feel understandable: where organizations are structured, where access is controlled, where systems connect, where consumption is monitored, and where administrators go when something goes wrong.</p>
+</div>
+
+<section class="section section--light section--tight">
+  <div class="wrap">
+    <div class="collage-grid reveal">
+      <div class="shot shot--wide">
+        <img src="assets/admin-org-structure.jpeg" alt="Org Structure screen">
+      </div>
+      <div class="shot shot--wide">
+        <img src="assets/admin-credits.jpeg" alt="Credits dashboard">
+      </div>
+      <div class="shot shot--wide">
+        <img src="assets/admin-governance-hitl.jpeg" alt="Governance HITL Queue">
+      </div>
+      <div class="shot shot--wide">
+        <img src="assets/admin-health.jpeg" alt="Health screen">
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div>Priyadharshinii R. &middot; Product Designer</div>
+  <div class="footer-next">
+    <span class="label">Next</span>
+    <a href="index.html">Back to portfolio &rarr;</a>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
