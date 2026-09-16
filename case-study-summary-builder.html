@@ -7,7 +7,7 @@
 <meta name="description" content="Designing Summary Builder and Question Manager to help teams control what AI captures from customer conversations. Uniphore, 2025.">
 <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="theme-purple">
 
 <header class="site-header">
   <a href="index.html" class="back-link">&larr; Portfolio</a>
@@ -48,7 +48,7 @@
       <p class="section-copy">GenAI could generate this summary automatically. But there was another problem: different businesses need very different summaries.</p>
     </div>
 
-    <div class="flow-vertical reveal">
+    <div class="flow-vertical flow-vertical--pill reveal">
       <div class="flow-horizontal" style="gap:16px;">
         <div class="node">Customer</div>
         <div style="color:var(--cyan);font-size:20px;opacity:0.6;">&updownarrow;</div>
@@ -84,7 +84,7 @@
       <p class="section-copy">So the product couldn't simply provide one AI-generated summary format. Enterprise teams needed control over what the AI should capture and how the output should be structured.</p>
     </div>
 
-    <div class="flow-vertical reveal">
+    <div class="flow-vertical flow-vertical--pill reveal">
       <div class="node">Conversation</div>
       <div class="arrow-v"></div>
       <div class="node">GenAI</div>
@@ -250,7 +250,7 @@
       <p class="section-copy" style="margin-left:auto;margin-right:auto;">A summary isn't just a block of generated text. Businesses often need specific pieces of information extracted from the conversation. Those questions become reusable building blocks for the summary.</p>
     </div>
 
-    <div class="flow-vertical reveal">
+    <div class="flow-vertical flow-vertical--pill reveal">
       <div class="node">Conversation</div>
       <div class="arrow-v"></div>
       <div class="node" style="font-style:italic;">&ldquo;What was the customer calling about?&rdquo;</div>
@@ -321,8 +321,8 @@
       <div class="node node--accent" style="margin-bottom:10px;">Question Bank</div>
       <div class="branch-connector">
         <svg viewBox="0 0 400 40" preserveAspectRatio="none">
-          <path d="M200,0 L200,14 L80,14 L80,40" stroke="rgba(53,239,221,0.5)" stroke-width="1.5" fill="none"/>
-          <path d="M200,0 L200,14 L320,14 L320,40" stroke="rgba(53,239,221,0.5)" stroke-width="1.5" fill="none"/>
+          <path d="M200,0 L200,14 L80,14 L80,40" stroke="currentColor" stroke-width="1.5" fill="none"/>
+          <path d="M200,0 L200,14 L320,14 L320,40" stroke="currentColor" stroke-width="1.5" fill="none"/>
         </svg>
       </div>
       <div class="branch-split">
@@ -337,8 +337,8 @@
       </div>
       <div class="branch-connector">
         <svg viewBox="0 0 400 40" preserveAspectRatio="none">
-          <path d="M80,0 L80,26 L200,26 L200,40" stroke="rgba(53,239,221,0.5)" stroke-width="1.5" fill="none"/>
-          <path d="M320,0 L320,26 L200,26 L200,40" stroke="rgba(53,239,221,0.5)" stroke-width="1.5" fill="none"/>
+          <path d="M80,0 L80,26 L200,26 L200,40" stroke="currentColor" stroke-width="1.5" fill="none"/>
+          <path d="M320,0 L320,26 L200,26 L200,40" stroke="currentColor" stroke-width="1.5" fill="none"/>
         </svg>
       </div>
       <div class="node node--accent">Summary Template</div>
@@ -374,7 +374,7 @@
       </div>
     </div>
 
-    <div class="flow-vertical reveal mt-lg">
+    <div class="flow-vertical flow-vertical--pill reveal mt-lg">
       <div class="node">Configure</div>
       <div class="arrow-v"></div>
       <div class="node">Add Sample Transcript</div>
@@ -421,7 +421,7 @@
       <h2 class="section-heading">Summary Builder and Question Manager were really one workflow.</h2>
     </div>
 
-    <div class="flow-vertical reveal">
+    <div class="flow-vertical flow-vertical--pill reveal">
       <div class="node" style="width:100%;max-width:320px;">
         <span class="node-label">Question Manager</span>
         Create &middot; Manage &middot; Test &middot; Reuse
@@ -503,15 +503,17 @@
 <!-- ============================================================
      CLOSING
      ============================================================ -->
-<div class="closing reveal">
-  <div class="closing-line1 closing-line1--quote">&ldquo;The AI generated the summary.&rdquo;</div>
-  <div class="closing-line2 closing-line2--sentence">The product gave teams control over what that summary should mean.</div>
+<div class="closing closing--bubble reveal">
+  <div class="closing-bubble-badge">&#10077;</div>
+  <div class="closing-bubble">
+    <div class="closing-bubble-line">&ldquo;The AI generated the summary.&rdquo;<br>The product gave teams <span class="accent">control over what that summary should mean.</span></div>
+  </div>
   <p class="closing-final closing-final--wide">By combining configurable templates, reusable questions, advanced controls and testing, Summary Builder turned a GenAI capability into something enterprise teams could actually configure and manage.</p>
 </div>
 
 <section class="section section--dark section--tight">
   <div class="wrap">
-    <div class="flow-vertical reveal">
+    <div class="flow-vertical flow-vertical--pill reveal">
       <div class="node">Conversation</div>
       <div class="arrow-v"></div>
       <div class="node">GenAI</div>

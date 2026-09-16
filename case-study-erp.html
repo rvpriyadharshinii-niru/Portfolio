@@ -7,7 +7,7 @@
 <meta name="description" content="Redesigning a legacy enterprise ERP — from a fragile MVP built for 150 products to a scalable platform supporting 15,000+ — through object-oriented components and bulk-first workflows. Hikeon Technologies, 2022–2023.">
 <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="theme-green">
 
 <header class="site-header">
   <a href="index.html" class="back-link">&larr; Portfolio</a>
@@ -109,22 +109,46 @@
       <h2 class="section-heading">Every core problem mapped to a specific design decision.</h2>
     </div>
 
-    <div class="comparison reveal">
-      <div class="comparison-col muted">
-        <div class="comparison-head">Core problem</div>
-        <div class="comparison-row">High admin effort</div>
-        <div class="comparison-row">Variant explosion</div>
-        <div class="comparison-row">Context switching</div>
-        <div class="comparison-row">Inconsistent UX</div>
-        <div class="comparison-row">Slow operations</div>
+    <div class="spec-map reveal">
+      <div class="spec-row">
+        <div class="spec-num">01</div>
+        <div class="spec-body">
+          <div class="spec-problem">High admin effort</div>
+          <div class="spec-arrow">&rarr;</div>
+          <div class="spec-decision">Bulk-first and object-oriented tools</div>
+        </div>
       </div>
-      <div class="comparison-col highlight">
-        <div class="comparison-head">Design decision</div>
-        <div class="comparison-row">Bulk-first and object-oriented tools</div>
-        <div class="comparison-row">One product &rarr; editable variants</div>
-        <div class="comparison-row">Overlays instead of page navigation</div>
-        <div class="comparison-row">Centralised design system</div>
-        <div class="comparison-row">High-density data grids</div>
+      <div class="spec-row">
+        <div class="spec-num">02</div>
+        <div class="spec-body">
+          <div class="spec-problem">Variant explosion</div>
+          <div class="spec-arrow">&rarr;</div>
+          <div class="spec-decision">One product &rarr; editable variants</div>
+        </div>
+      </div>
+      <div class="spec-row">
+        <div class="spec-num">03</div>
+        <div class="spec-body">
+          <div class="spec-problem">Context switching</div>
+          <div class="spec-arrow">&rarr;</div>
+          <div class="spec-decision">Overlays instead of page navigation</div>
+        </div>
+      </div>
+      <div class="spec-row">
+        <div class="spec-num">04</div>
+        <div class="spec-body">
+          <div class="spec-problem">Inconsistent UX</div>
+          <div class="spec-arrow">&rarr;</div>
+          <div class="spec-decision">Centralised design system</div>
+        </div>
+      </div>
+      <div class="spec-row">
+        <div class="spec-num">05</div>
+        <div class="spec-body">
+          <div class="spec-problem">Slow operations</div>
+          <div class="spec-arrow">&rarr;</div>
+          <div class="spec-decision">High-density data grids</div>
+        </div>
       </div>
     </div>
   </div>
@@ -141,7 +165,7 @@
       <p class="section-copy">Products move through 6 lifecycle stages and carry 200+ attributes, often with 100+ variants. Earlier, each variant had to be edited individually. Quick Edit lets admins edit an attribute across every variant at once, or selectively override individual variants — without leaving the current screen.</p>
     </div>
 
-    <div class="metric-strip reveal" style="max-width:520px;margin:0 auto;">
+    <div class="metric-strip metric-strip--plate reveal" style="max-width:520px;margin:0 auto;">
       <div class="metric-block">
         <div class="metric-number">2000h</div>
         <div class="metric-label">Before</div>
@@ -270,7 +294,7 @@
       <h2 class="section-heading">Rebuilding the primitives paid off at scale.</h2>
     </div>
 
-    <div class="metric-strip reveal">
+    <div class="metric-strip metric-strip--plate reveal">
       <div class="metric-block">
         <div class="metric-number">~85%</div>
         <div class="metric-label">Admin workload reduction</div>
@@ -333,10 +357,18 @@
   </div>
 </section>
 
-<div class="closing reveal">
-  <div class="closing-line1">Rebuilt legacy enterprise systems.</div>
-  <div class="closing-line2">Designed object-oriented UX at scale.</div>
-  <p class="closing-final">Thinking in systems, not screens, is what let this scale from 150 products to 15,000+ — and delivered outsized operational impact early in my career.</p>
+<div class="closing closing--scale reveal">
+  <div class="closing-scale-grid">
+    <div class="closing-scale-stat">
+      <span class="from">150</span><span class="scale-arrow">&rarr;</span><span class="to">15,000+</span>
+      <span class="scale-label">Products supported</span>
+    </div>
+    <div class="closing-scale-text">
+      <div class="closing-line1">Rebuilt legacy enterprise systems.</div>
+      <div class="closing-line2">Designed object-oriented UX at scale.</div>
+      <p class="closing-final">Thinking in systems, not screens, is what let this scale from 150 products to 15,000+ — and delivered outsized operational impact early in my career.</p>
+    </div>
+  </div>
 </div>
 
 <footer class="site-footer">
