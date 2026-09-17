@@ -20,38 +20,62 @@ clarissepsicat.com/valoi and a Framer portfolio by Harismita Govindaraj):
 
 - `.split-layout` (`display:flex`) holds `.split-left` (flex: auto) and
   `.split-right` (flex: 0 0 380px, `position: sticky; top:0; height:100vh`).
-- `.split-left` is a stack of full-height `.project-tile` elements (88vh
-  each), one per case study in order, each a plain `<a>` wrapping an `<img>`
-  (the existing `project-thumb-*.png` assets) with a small white
-  `.tile-label` card overlaid top-left (title + tags). After the 5 case
-  studies, the 3 Behance projects continue the same stack as shorter
-  (`project-tile--behance`, 60vh) tiles linking out to Behance.
-- `.split-right` is the identity sidebar: top row is an "About" pill
-  (→ `resume.html`) and a "PV" monogram; center is name + a short one-line
-  bio (the old 2-paragraph About copy was cut down further — the longer
-  version lives only on `resume.html` now) + social icons + an "Email"
-  pill; bottom is "more ↓" + the vinyl-player illustration (unchanged from
-  before, still spins on hover and reveals the Behance/"other work" card,
-  repositioned to pop upward instead of sideways since it now lives in a
-  narrow sidebar).
+- `.split-left` is a stack of full-height (88vh) `.project-tile` elements,
+  one per visible case study. **Most tiles are a "cover" design, not a
+  screenshot** — `.tile-cover` is a colored pattern background (per-project
+  variant: `--teal`, `--teal-alt`, `--purple`, `--green`, matching each case
+  study's own theme) with just the project name (`.tile-cover-name`) and a
+  small monospace tag line (`.tile-cover-tag`) — deliberately no product
+  screenshot, per explicit request ("thumbnail with projectname alone...
+  some kind of pattern design... lets not show the screen for all"). Exactly
+  **one** tile (currently the featured "Claude Code Is My Design Partner")
+  additionally carries a small inset real screenshot via
+  `.tile-cover-shot` (capped at 340px / 60% width) — the one deliberate
+  exception, kept intentionally small rather than full-bleed.
+- Behance projects are **not** shown as tiles in `.split-left` anymore
+  (they were removed entirely, along with `.project-tile--behance`). A
+  dedicated **"Behance" pill** now sits next to "About" in
+  `.split-right-top` (both wrapped in `.split-pill-row`), linking out to
+  the Behance profile directly.
+- `.split-right` is the identity sidebar: top row is the About/Behance
+  pill row + a "PV" monogram; center is name + a short one-line bio (the
+  longer About copy lives only on `resume.html`) + social icons + an
+  "Email" pill; bottom is "more ↓" + the vinyl-player illustration (spins
+  on hover, reveals a Behance/"other work" card popping upward, since it
+  sits in a narrow sidebar).
 - A floating `✉ Email` pill (`position: fixed`, bottom-left) sits over
-  `.split-left` at all scroll positions, matching the reference's
-  persistent contact CTA.
+  `.split-left` at all scroll positions.
 - Below 980px, `.split-layout` stacks vertically with `.split-right` first
   (`order: -1`, `position: static`) so identity/bio show before the tile
-  stack, and tile heights shrink (70vh / 46vh for Behance).
+  stack, and tile heights shrink (70vh).
 - The old homepage sections (`.hero-intro`, `.timeline`, `.projects`,
   `.behance-grid`-as-grid, `.home-footer`) are gone from `index.html`, but
   their CSS in home.css was left in place rather than deleted, since
   `resume.html` still shares home.css and uses `.home-header` / `.home-nav`
   / `.brand*` / `.home-footer` / `.footer-*` / `.prose` for its own page —
-  don't delete those rules without checking resume.html first.
+  don't delete those rules without checking resume.html first. Likewise
+  `.tile-label`/`.tile-title`/`.tile-tags`/`.project-tile--behance` from
+  the first split-layout pass are now unused dead CSS (superseded by
+  `.tile-cover*`) but were left in place rather than deleted.
 - `resume.html`'s nav previously linked to `index.html#work` /
   `index.html#about`; those anchors no longer exist (the homepage is one
   unified view now), so both links now just point to plain `index.html`.
 
 The profile photo (`assets/profile-priyadharshini.webp`) is still unused,
 replaced by the vinyl illustration as described above.
+
+## Homepage tiles — Admin and Summary Builder hidden (2026-09-17)
+
+Same pattern as the earlier "hide a card" requests: the **Admin** and
+**Summary Builder** tiles are commented out in `index.html`'s
+`.split-left` (search "HIDDEN FOR NOW"), not deleted — both case study
+pages are still fully live, just unlinked from the homepage tile stack.
+Currently visible, in order: Claude Code Is My Design Partner (the one
+tile with a real screenshot inset), AI Agents, ERP. **When the user asks
+to bring them back**, uncomment those two `<a class="project-tile">`
+blocks back into their original position (Admin was first, before the
+AI-native-process tile; Summary Builder was between AI-native-process and
+AI Agents) and remove this section of CLAUDE.md.
 
 ## Image placeholders — currently removed, on purpose
 

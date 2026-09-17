@@ -579,27 +579,69 @@ body.split-body { overflow-x: hidden; }
 
 .project-tile--behance { height: 60vh; }
 
-.tile-label {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  background: #fff;
-  padding: 14px 20px;
-  border-radius: 4px;
-  max-width: 280px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+/* Tile cover — name-and-pattern "poster" treatment used for most
+   project tiles, so the tile reads as a title card rather than a
+   giant screenshot. One tile (the featured project) also carries a
+   small inset real screenshot via .tile-cover-shot. */
+.tile-cover {
+  width: 100%;
+  height: 100%;
+  padding: clamp(28px, 4vw, 56px);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 10px;
 }
-.tile-title {
-  font-size: 14.5px;
-  font-weight: 700;
-  line-height: 1.35;
-  margin-bottom: 6px;
+.tile-cover-name {
+  font-size: clamp(26px, 3.6vw, 48px);
+  font-weight: 800;
+  line-height: 1.18;
+  letter-spacing: -0.01em;
+  color: #fff;
+  max-width: 620px;
 }
-.tile-tags {
+.tile-cover-tag {
   font-family: 'Courier New', ui-monospace, monospace;
-  font-size: 11.5px;
-  color: var(--ink-mute);
+  font-size: 12.5px;
+  color: rgba(255,255,255,0.55);
 }
+.tile-cover-shot {
+  align-self: flex-start;
+  max-width: min(340px, 60%);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+  margin-bottom: 8px;
+}
+.tile-cover-shot img { width: 100%; display: block; }
+
+.tile-cover--teal {
+  background:
+    radial-gradient(circle at 18% 18%, rgba(53,239,221,0.22), transparent 55%),
+    repeating-linear-gradient(45deg, rgba(255,255,255,0.045) 0 2px, transparent 2px 22px),
+    linear-gradient(160deg, #001217, #003b3f);
+}
+.tile-cover--teal-alt {
+  background:
+    radial-gradient(circle at 82% 24%, rgba(53,239,221,0.2), transparent 55%),
+    repeating-linear-gradient(-45deg, rgba(255,255,255,0.045) 0 2px, transparent 2px 22px),
+    linear-gradient(160deg, #00181c, #012e33);
+}
+.tile-cover--purple {
+  background:
+    radial-gradient(circle at 75% 20%, rgba(182,133,255,0.28), transparent 55%),
+    repeating-linear-gradient(45deg, rgba(255,255,255,0.045) 0 2px, transparent 2px 22px),
+    linear-gradient(160deg, #140a24, #2a1548);
+}
+.tile-cover--green {
+  background:
+    linear-gradient(rgba(94,227,154,0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(94,227,154,0.08) 1px, transparent 1px),
+    linear-gradient(160deg, #061a11, #103823);
+  background-size: 34px 34px, 34px 34px, auto;
+}
+
+.project-tile:hover .tile-cover-name { text-decoration: underline; text-underline-offset: 6px; }
 
 .email-pill {
   position: fixed;
@@ -633,6 +675,10 @@ body.split-body { overflow-x: hidden; }
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+.split-pill-row {
+  display: flex;
+  gap: 8px;
 }
 .split-pill {
   display: inline-block;
