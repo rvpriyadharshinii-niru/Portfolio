@@ -148,67 +148,47 @@ img { max-width: 100%; display: block; }
   .hero-photo--small { max-width: 180px; margin: 0 auto; }
 }
 
-/* Vinyl player — replaces the profile photo; spins and reveals a
-   card of links (Behance, other work) on hover. */
-.vinyl-wrap {
-  position: relative;
-  max-width: 220px;
-  margin: 6px auto 0 0;
-}
-.vinyl-player { display: block; width: 100%; }
-.vinyl-disc { transform-origin: 104px 114px; }
-.vinyl-wrap:hover .vinyl-disc {
-  animation: vinyl-spin 3s linear infinite;
-}
-@keyframes vinyl-spin {
-  to { transform: rotate(360deg); }
-}
-
-.vinyl-card {
-  position: absolute;
-  top: 50%;
-  left: calc(100% + 18px);
-  transform: translateY(-50%) translateX(-8px);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.25s ease, transform 0.25s ease;
-  background: #fff;
+/* Status chip + elsewhere link — sits at the foot of the identity
+   sidebar (see .split-right-bottom in the split-layout rules further
+   down). A real, always-visible signal instead of a decorative
+   illustration, and a plain link instead of a hover-only reveal that
+   never worked on touch devices. */
+.status-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-family: 'Courier New', ui-monospace, monospace;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  color: var(--ink-soft);
   border: 1px solid var(--line);
-  border-radius: 14px;
-  padding: 16px 18px;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.12);
-  width: 170px;
-  z-index: 5;
+  border-radius: 100px;
+  padding: 9px 18px;
 }
-.vinyl-wrap:hover .vinyl-card {
-  opacity: 1;
-  transform: translateY(-50%) translateX(0);
-  pointer-events: auto;
+.status-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex: 0 0 auto;
+  animation: status-pulse 2.2s ease-in-out infinite;
 }
-.vinyl-card a {
-  display: block;
+@keyframes status-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(10,140,125,0.35); }
+  50% { box-shadow: 0 0 0 5px rgba(10,140,125,0); }
+}
+.elsewhere-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   font-size: 13px;
   font-weight: 700;
   color: var(--ink);
-  margin-bottom: 10px;
+  margin-top: 16px;
+  padding-bottom: 2px;
+  border-bottom: 1px solid var(--ink);
+  transition: color 0.2s ease, border-color 0.2s ease, gap 0.2s ease;
 }
-.vinyl-card a:hover { color: var(--accent); }
-.vinyl-card-empty {
-  display: block;
-  font-size: 11.5px;
-  color: var(--ink-mute);
-  font-style: italic;
-}
-
-@media (max-width: 820px) {
-  .vinyl-wrap { max-width: 180px; margin: 0 auto; }
-  .vinyl-card {
-    left: 50%;
-    top: calc(100% + 14px);
-    transform: translateX(-50%) translateY(-8px);
-  }
-  .vinyl-wrap:hover .vinyl-card { transform: translateX(-50%) translateY(0); }
-}
+.elsewhere-link:hover { color: var(--accent); border-color: var(--accent); gap: 10px; }
 
 /* About detail */
 
@@ -739,23 +719,12 @@ body.split-body { overflow-x: hidden; }
 .split-icon:hover { border-color: var(--ink); color: var(--ink); }
 .split-pill--dark { margin-left: 4px; }
 
-.split-right-bottom { text-align: center; }
-.more-hint {
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: 15px;
-  color: var(--ink-mute);
-  margin-bottom: 10px;
+.split-right-bottom {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.split-right-bottom .vinyl-wrap { margin: 0 auto; }
-.split-right-bottom .vinyl-card {
-  left: auto;
-  right: 0;
-  top: auto;
-  bottom: calc(100% + 14px);
-  transform: translateY(8px);
-}
-.split-right-bottom .vinyl-wrap:hover .vinyl-card { transform: translateY(0); }
 
 @media (max-width: 980px) {
   .split-layout { flex-direction: column; }
@@ -768,7 +737,6 @@ body.split-body { overflow-x: hidden; }
     padding: 20px var(--pad) 32px;
     gap: 28px;
   }
-  .split-right-bottom { display: flex; flex-direction: column; align-items: center; }
   .project-tile { height: 70vh; }
   .project-tile--behance { height: 46vh; }
   .email-pill { bottom: 16px; left: 16px; }

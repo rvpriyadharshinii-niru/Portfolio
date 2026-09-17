@@ -61,8 +61,29 @@ clarissepsicat.com/valoi and a Framer portfolio by Harismita Govindaraj):
   `index.html#about`; those anchors no longer exist (the homepage is one
   unified view now), so both links now just point to plain `index.html`.
 
-The profile photo (`assets/profile-priyadharshini.webp`) is still unused,
-replaced by the vinyl illustration as described above.
+The profile photo (`assets/profile-priyadharshini.webp`) is still unused.
+
+### Sidebar footer — vinyl illustration replaced (2026-09-17)
+
+The hand-drawn SVG vinyl-player illustration (spun on hover, revealed a
+Behance/"other work" card) was removed per repeated explicit feedback
+("i dont ike the recoder...vinyl...give it better", then "it's looking so
+bad...enhance this...u don't have to follow reference on this one" — full
+creative freedom given). It had two real problems beyond just looking
+unpolished: the reveal only worked on `:hover`, so the Behance link inside
+it was unreachable on touch/mobile, and the "more ↓" text above it wasn't
+a link or bound to any behavior — pure dead affordance.
+
+Replaced both with `.split-right-bottom` now containing: a `.status-chip`
+("● Open to new opportunities", pulsing dot animation) and a plain
+`.elsewhere-link` ("More work on Behance ↗") pointing straight at the
+Behance profile — both always visible, no hover required, work identically
+on touch and desktop. All `.vinyl-*` CSS and the `.more-hint` rule were
+deleted from `home.css` entirely (not commented out/hidden) since this was
+a disliked design being replaced, not a feature being hidden — unlike the
+project-tile hide/show pattern elsewhere in this file. If the user ever
+wants a different graphic here again, treat it as a fresh design request,
+not a restoration.
 
 ## Homepage tiles — Admin restored, two still hidden, ERP shown first (2026-09-17)
 
