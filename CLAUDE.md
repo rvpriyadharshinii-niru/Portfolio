@@ -105,6 +105,21 @@ the HTML instances were removed). Match the surrounding section's existing
 placeholder style (`placeholder--full`, `--wide`, `--panorama`, `--crop`,
 etc.) rather than inventing a new one.
 
+## Admin case study — hero starts with text only (2026-09-17)
+
+`case-study-admin.html`'s hero used to open with a `.collage-grid` of four
+screenshots (org-structure, credits, health, users) right under the title —
+the user felt starting a case study with images before any text was wrong
+("I don't think that's necessary start with textual ..then show images in
+the place accordingly"). Removed that hero collage entirely; the hero is
+now just the meta tags, `<h1>`, and `.hero-sub` — no images. Nothing was
+lost: all four of those exact screenshots already recur later in their own
+contextual sections (Organization, Users & Access, Credits & Usage,
+Observability), so the case study still shows them, just in place rather
+than up front. `case-study-ai-native-process.html` has the same
+`.collage-grid` hero pattern and wasn't touched — only apply the same fix
+there if asked.
+
 Removed placeholder instances (for reference, in case content needs to be
 reconstructed):
 - **AI Agents**: X-Console feature mapping/migration audit (Discovery &
