@@ -6,10 +6,24 @@ Static site: `index.html` (homepage) + `resume.html` + five case studies
 sharing `styles.css` (case study design system, with per-project themes via
 `body.theme-purple` / `body.theme-green`) and `home.css` (homepage/resume
 only). `case-study-ai-native-process.html` is a process/meta case study
-("I use Claude Code in design.") rather than a product one — built to be
-shown in interviews, using real BAIS Admin/Agent Studio screenshots plus a
+("Claude Code is my design partner.") rather than a product one — built to
+be shown in interviews, using real BAIS Admin/Agent Studio screenshots plus a
 sample PRD the user provided, with a couple of slots filled by honestly-
 captioned stand-ins from other projects (see its own placeholder note below).
+
+## Homepage cards — three temporarily hidden (2026-09-17)
+
+The user asked to hide three homepage project cards for a few hours —
+**Claude Code Is My Design Partner**, **Summary Builder**
+(`case-study-summary-builder.html`), and **AI Agents**
+(`case-study-ai-agents.html`) — leaving only Admin and ERP visible, and said
+they'd ask to bring them back later with another prompt. They're commented
+out in `index.html`'s `.projects-grid` (search for "TEMPORARILY HIDDEN"),
+not deleted — the case study pages themselves are untouched and still fully
+live, just not linked from the homepage grid. **When the user asks to bring
+them back**, just uncomment those three `<a class="project-card">` blocks
+back into place (restore original card order: AI-native process, Admin,
+Summary Builder, AI Agents, ERP) and remove this section of CLAUDE.md.
 
 ## Image placeholders — currently removed, on purpose
 
