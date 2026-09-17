@@ -148,6 +148,18 @@ img { max-width: 100%; display: block; }
   .hero-photo--small { max-width: 180px; margin: 0 auto; }
 }
 
+/* Sidebar illustration — a real hand-drawn-style portrait the user
+   generated and supplied, sitting above the status chip/link at the
+   foot of the identity sidebar (replaces the empty space left by the
+   removed vinyl illustration). */
+.sidebar-illustration {
+  width: 100%;
+  max-width: 190px;
+  border-radius: 20px;
+  margin: 0 auto 20px;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.12);
+}
+
 /* Status chip + elsewhere link — sits at the foot of the identity
    sidebar (see .split-right-bottom in the split-layout rules further
    down). A real, always-visible signal instead of a decorative

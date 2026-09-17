@@ -81,9 +81,29 @@ Behance profile — both always visible, no hover required, work identically
 on touch and desktop. All `.vinyl-*` CSS and the `.more-hint` rule were
 deleted from `home.css` entirely (not commented out/hidden) since this was
 a disliked design being replaced, not a feature being hidden — unlike the
-project-tile hide/show pattern elsewhere in this file. If the user ever
-wants a different graphic here again, treat it as a fresh design request,
-not a restoration.
+project-tile hide/show pattern elsewhere in this file.
+
+**Update, same day**: the user generated a real illustrated portrait of
+themselves (a "textured indie illustration" style, per a JSON style-prompt
+sheet they shared) and asked for it to go in that same spot, above the
+status chip/link (not instead of them). It's now `.sidebar-illustration`
+(`assets/illustration-priyadharshini.png`), a rounded 190px image with a
+soft shadow, sitting at the top of `.split-right-bottom`. **Getting the
+file was the hard part**: three separate images pasted inline earlier in
+this session (two tile-background references, then this illustration
+itself, twice) never reached a filesystem path this session could read —
+confirmed each time via the uploads directory. What finally worked: the
+user uploaded the PNG to **Google Drive**, and it was fetched with
+`mcp__Google_Drive__list_recent_files` (sorted by recency, found instantly
+as the newest file) + `mcp__Google_Drive__download_file_content` (returns
+base64; the response is large enough to exceed the tool's inline output
+limit, so it lands as a saved tool-result file — decode client-side, e.g.
+`python3 -c "import json,base64; d=json.load(open(path)); open(out,'wb').write(base64.b64decode(d['content']))"`,
+rather than trying to read the tool result directly). **If the user wants
+to swap in more of their own photos/art in the future and pasting inline
+doesn't produce a readable file, ask them to upload to Google Drive and
+repeat this exact flow** rather than re-litigating the paste-vs-attach
+question from scratch.
 
 ## Homepage tiles — per-project display type; two reference photos pending (2026-09-17)
 
