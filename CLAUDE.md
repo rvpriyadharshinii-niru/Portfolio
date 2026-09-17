@@ -11,19 +11,18 @@ be shown in interviews, using real BAIS Admin/Agent Studio screenshots plus a
 sample PRD the user provided, with a couple of slots filled by honestly-
 captioned stand-ins from other projects (see its own placeholder note below).
 
-## Homepage cards — three temporarily hidden (2026-09-17)
+## Homepage — vinyl player, no profile photo
 
-The user asked to hide three homepage project cards for a few hours —
-**Claude Code Is My Design Partner**, **Summary Builder**
-(`case-study-summary-builder.html`), and **AI Agents**
-(`case-study-ai-agents.html`) — leaving only Admin and ERP visible, and said
-they'd ask to bring them back later with another prompt. They're commented
-out in `index.html`'s `.projects-grid` (search for "TEMPORARILY HIDDEN"),
-not deleted — the case study pages themselves are untouched and still fully
-live, just not linked from the homepage grid. **When the user asks to bring
-them back**, just uncomment those three `<a class="project-card">` blocks
-back into place (restore original card order: AI-native process, Admin,
-Summary Builder, AI Agents, ERP) and remove this section of CLAUDE.md.
+The homepage About section no longer shows a profile photo. In its place is
+a hand-built SVG "vinyl player" illustration (`.vinyl-wrap` in index.html,
+styled in home.css) that spins on hover and reveals a card of links
+(currently just Behance; "Other work — coming soon" as a placeholder second
+line). This replaced `assets/profile-priyadharshini.webp` per explicit
+request — the user is planning a larger homepage restructure (a big-tile
+work showcase on the left, a static sidebar on the right, modeled on a
+reference Framer portfolio) that hasn't been specified in full yet; expect
+a follow-up prompt with more detail before attempting that larger layout
+change.
 
 ## Image placeholders — currently removed, on purpose
 
