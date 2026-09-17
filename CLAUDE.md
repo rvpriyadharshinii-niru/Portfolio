@@ -11,18 +11,47 @@ be shown in interviews, using real BAIS Admin/Agent Studio screenshots plus a
 sample PRD the user provided, with a couple of slots filled by honestly-
 captioned stand-ins from other projects (see its own placeholder note below).
 
-## Homepage — vinyl player, no profile photo
+## Homepage — split layout (rebuilt from a reference Framer portfolio)
 
-The homepage About section no longer shows a profile photo. In its place is
-a hand-built SVG "vinyl player" illustration (`.vinyl-wrap` in index.html,
-styled in home.css) that spins on hover and reveals a card of links
-(currently just Behance; "Other work — coming soon" as a placeholder second
-line). This replaced `assets/profile-priyadharshini.webp` per explicit
-request — the user is planning a larger homepage restructure (a big-tile
-work showcase on the left, a static sidebar on the right, modeled on a
-reference Framer portfolio) that hasn't been specified in full yet; expect
-a follow-up prompt with more detail before attempting that larger layout
-change.
+`index.html` is no longer a single scrolling page of sections (hero → about
+→ timeline → project grid → footer). It's now a two-column split, modeled
+directly on a reference portfolio the user shared (screenshots of
+clarissepsicat.com/valoi and a Framer portfolio by Harismita Govindaraj):
+
+- `.split-layout` (`display:flex`) holds `.split-left` (flex: auto) and
+  `.split-right` (flex: 0 0 380px, `position: sticky; top:0; height:100vh`).
+- `.split-left` is a stack of full-height `.project-tile` elements (88vh
+  each), one per case study in order, each a plain `<a>` wrapping an `<img>`
+  (the existing `project-thumb-*.png` assets) with a small white
+  `.tile-label` card overlaid top-left (title + tags). After the 5 case
+  studies, the 3 Behance projects continue the same stack as shorter
+  (`project-tile--behance`, 60vh) tiles linking out to Behance.
+- `.split-right` is the identity sidebar: top row is an "About" pill
+  (→ `resume.html`) and a "PV" monogram; center is name + a short one-line
+  bio (the old 2-paragraph About copy was cut down further — the longer
+  version lives only on `resume.html` now) + social icons + an "Email"
+  pill; bottom is "more ↓" + the vinyl-player illustration (unchanged from
+  before, still spins on hover and reveals the Behance/"other work" card,
+  repositioned to pop upward instead of sideways since it now lives in a
+  narrow sidebar).
+- A floating `✉ Email` pill (`position: fixed`, bottom-left) sits over
+  `.split-left` at all scroll positions, matching the reference's
+  persistent contact CTA.
+- Below 980px, `.split-layout` stacks vertically with `.split-right` first
+  (`order: -1`, `position: static`) so identity/bio show before the tile
+  stack, and tile heights shrink (70vh / 46vh for Behance).
+- The old homepage sections (`.hero-intro`, `.timeline`, `.projects`,
+  `.behance-grid`-as-grid, `.home-footer`) are gone from `index.html`, but
+  their CSS in home.css was left in place rather than deleted, since
+  `resume.html` still shares home.css and uses `.home-header` / `.home-nav`
+  / `.brand*` / `.home-footer` / `.footer-*` / `.prose` for its own page —
+  don't delete those rules without checking resume.html first.
+- `resume.html`'s nav previously linked to `index.html#work` /
+  `index.html#about`; those anchors no longer exist (the homepage is one
+  unified view now), so both links now just point to plain `index.html`.
+
+The profile photo (`assets/profile-priyadharshini.webp`) is still unused,
+replaced by the vinyl illustration as described above.
 
 ## Image placeholders — currently removed, on purpose
 
