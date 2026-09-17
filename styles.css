@@ -1720,6 +1720,11 @@ a { color: inherit; }
 .persona-card-desc { font-size: 14px; line-height: 1.6; color: rgba(255,255,255,0.6); }
 .section--light .persona-card-desc { color: var(--ink-mute); }
 
+/* Muted tag variant — for a "before" state (e.g. Today, in a
+   Today/Tomorrow comparison) sitting next to the normal accented tag. */
+.persona-card-tag--muted { color: rgba(255,255,255,0.45); border-color: var(--line-dark); }
+.section--light .persona-card-tag--muted { color: var(--ink-mute); border-color: var(--line-light); }
+
 /* Compare table — Admin task vs Platform Admin vs App Admin, so
    persona scope is reference-able at a glance before the detailed
    screens. Collapses to labeled stacked rows on mobile. */
@@ -1779,6 +1784,33 @@ a { color: inherit; }
 .section--light .persona-note { color: var(--ink-mute); border-color: var(--accent-light); }
 .persona-note strong { color: var(--cyan); }
 .section--light .persona-note strong { color: var(--accent-light); }
+
+/* Promise grid — the closing "what this gives customers" numbered
+   cards, one mental model / right tool for the right person /
+   coherent at scale. */
+.promise-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+@media (max-width: 860px) { .promise-grid { grid-template-columns: 1fr; } }
+.promise-card {
+  border: 1px solid var(--line-dark);
+  border-radius: 20px;
+  padding: 28px 26px;
+}
+.section--light .promise-card { border-color: var(--line-light); }
+.promise-card-num {
+  display: block;
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--cyan);
+  margin-bottom: 14px;
+}
+.section--light .promise-card-num { color: var(--accent-light); }
+.promise-card-title { font-size: 17px; font-weight: 800; margin-bottom: 8px; }
+.promise-card-desc { font-size: 13.5px; line-height: 1.6; color: rgba(255,255,255,0.6); }
+.section--light .promise-card-desc { color: var(--ink-mute); }
 
 /* Rounder, deeper-shadow shot variant for hero-style collages. */
 .shot--round { border-radius: 22px; }

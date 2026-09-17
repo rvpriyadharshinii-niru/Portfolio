@@ -105,6 +105,22 @@ the HTML instances were removed). Match the surrounding section's existing
 placeholder style (`placeholder--full`, `--wide`, `--panorama`, `--crop`,
 etc.) rather than inventing a new one.
 
+## Admin case study — "one mental model" framing added (2026-09-17)
+
+Follow-up to the Personas addition below, using more of the same BAIC PDF:
+added a Today/Tomorrow comparison ("Each team builds its own admin" vs
+"One mental model. Right scope at every level.") to the end of the
+**Background** section, reusing `.persona-grid`/`.persona-card` with a new
+muted tag variant (`.persona-card-tag--muted`, for the "Today"/problem
+side) so it doesn't compete visually with the Personas section's own
+teal-tagged cards further down the page. Also added a new **THE PROMISE**
+section (dark, right before "My contribution") with three numbered
+`.promise-card`s — One mental model / The right tool for the right person /
+Coherent as it scales — from the PDF's closing "what this gives customers"
+slide. New CSS: `.persona-card-tag--muted` and `.promise-grid`/
+`.promise-card`/`.promise-card-num`. Same PDF as below; it still isn't in
+the repo, so ask the user for it again if this content needs revisiting.
+
 ## Admin case study — Personas section added (2026-09-17)
 
 The user attached a PDF ("BAIC platform — Administration, by design") laying
