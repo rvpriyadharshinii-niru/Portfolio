@@ -1636,3 +1636,81 @@ a { color: inherit; }
 
 /* Rounder, deeper-shadow shot variant for hero-style collages. */
 .shot--round { border-radius: 22px; }
+
+/* ============================================================
+   EDITORIAL — a sleek, always-white, borderless-shot presentation
+   style for a case study's closing chapter, independent of whatever
+   dark/light or theme-color pattern the rest of the page uses.
+   Piloted on ERP's Design System section.
+   ============================================================ */
+.editorial {
+  background: #ffffff;
+  color: #17181a;
+  padding: clamp(72px, 10vw, 140px) var(--pad);
+}
+.editorial-label {
+  font-size: 14px;
+  color: #9a9a9a;
+  margin: 0 0 18px;
+}
+.editorial-heading {
+  font-size: clamp(30px, 4.2vw, 48px);
+  font-weight: 800;
+  line-height: 1.18;
+  letter-spacing: -0.01em;
+  color: #111214;
+  margin: 0 0 22px;
+  max-width: 760px;
+}
+.editorial-copy {
+  font-size: clamp(16px, 1.6vw, 18px);
+  line-height: 1.7;
+  color: #55585c;
+  max-width: 620px;
+  margin: 0;
+}
+
+.editorial-tint {
+  background: #EFF8F1;
+  border-radius: 28px;
+  padding: clamp(32px, 5vw, 64px);
+  margin-top: clamp(44px, 6vw, 76px);
+}
+.editorial-tint-grid {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: clamp(32px, 5vw, 64px);
+  align-items: center;
+}
+.editorial-principle-title-main {
+  font-size: clamp(22px, 2.6vw, 30px);
+  font-weight: 800;
+  color: #111214;
+  margin: 0 0 28px;
+}
+.editorial-principle { margin-bottom: 24px; }
+.editorial-principle:last-child { margin-bottom: 0; }
+.editorial-principle-title { font-weight: 700; font-size: 16px; color: #111214; margin-bottom: 6px; }
+.editorial-principle-desc { font-size: 14.5px; color: #6b6f73; line-height: 1.6; }
+
+.editorial-card {
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 24px 60px rgba(15, 40, 25, 0.14);
+  overflow: hidden;
+}
+.editorial-card img { width: 100%; display: block; }
+
+.editorial-shot {
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(15, 40, 25, 0.10);
+  margin-top: clamp(40px, 6vw, 64px);
+}
+.editorial-shot img { width: 100%; display: block; }
+.editorial-shot-label { font-weight: 700; font-size: 16px; color: #111214; margin: 22px 0 6px; }
+.editorial-shot-desc { font-size: 14px; color: #6b6f73; line-height: 1.6; max-width: 560px; }
+
+@media (max-width: 760px) {
+  .editorial-tint-grid { grid-template-columns: 1fr; }
+}
