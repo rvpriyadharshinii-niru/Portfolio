@@ -64,18 +64,27 @@ clarissepsicat.com/valoi and a Framer portfolio by Harismita Govindaraj):
 The profile photo (`assets/profile-priyadharshini.webp`) is still unused,
 replaced by the vinyl illustration as described above.
 
-## Homepage tiles — Admin and Summary Builder hidden (2026-09-17)
+## Homepage tiles — three hidden, ERP shown first (2026-09-17)
 
-Same pattern as the earlier "hide a card" requests: the **Admin** and
-**Summary Builder** tiles are commented out in `index.html`'s
-`.split-left` (search "HIDDEN FOR NOW"), not deleted — both case study
-pages are still fully live, just unlinked from the homepage tile stack.
-Currently visible, in order: Claude Code Is My Design Partner (the one
-tile with a real screenshot inset), AI Agents, ERP. **When the user asks
-to bring them back**, uncomment those two `<a class="project-tile">`
-blocks back into their original position (Admin was first, before the
-AI-native-process tile; Summary Builder was between AI-native-process and
-AI Agents) and remove this section of CLAUDE.md.
+Same pattern as the earlier "hide a card" requests: **Admin**,
+**Summary Builder**, and **Claude Code Is My Design Partner** (the
+AI-native-process case study) are all commented out in `index.html`'s
+`.split-left` (search "HIDDEN FOR NOW"), not deleted — all three case
+study pages are still fully live, just unlinked from the homepage tile
+stack. With Claude Code Is My Design Partner hidden, **no visible tile
+currently has a real screenshot inset** (`.tile-cover-shot`) — that markup
+still exists but is inside the hidden AI-native-process tile; nobody
+asked for another tile to pick up the screenshot treatment, so don't add
+one without being asked.
+
+Currently visible, in order: **ERP** (moved to first, per explicit
+request), then **AI Agents**. Original order before any of this was
+Admin, AI-native-process, Summary Builder, AI Agents, ERP. **When the
+user asks to bring hidden tiles back**, restore that original relative
+order unless they specify a different one (they've reordered ERP to the
+front at least once already, so confirm rather than assuming) — and
+remove this section of CLAUDE.md once all tiles are back to how they
+want them.
 
 ## Image placeholders — currently removed, on purpose
 
