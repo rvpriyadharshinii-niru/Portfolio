@@ -97,17 +97,20 @@ Serif italic), `.tile-cover-name--agents` (Space Grotesk bold). Fonts
 added to the Google Fonts `@import` at the top of `home.css`.
 
 The user also shared two reference **photos** to use as real tile
-backgrounds — a dark abstract purple/blue/pink smoke-wave shot for Admin,
-and a dark teal ribbon/circuit swirl for AI Agents — both pasted inline in
-chat rather than attached as file uploads, so **neither image was ever
-saved to a path this session could read** (confirmed by checking the
-uploads directory; unlike PDFs/screenshots shared earlier in this project,
-which did get a saved path). Built `.tile-cover--indigo` (Admin) and
-`.tile-cover--circuit` (AI Agents) as CSS-gradient approximations of each
-photo's mood/palette as a stand-in, replacing their old `--teal`/
-`--teal-alt` pattern variants. **If the user asks why their photo didn't
-show up, or wants the real images in**: they need to send the file as a
-proper attachment (not a pasted/dragged inline image) so it gets a
+backgrounds — a dark abstract purple/blue/pink smoke-wave shot for
+**Summary Builder** (first said "admin", immediately corrected to
+"summary builder"), and a dark teal ribbon/circuit swirl for **AI
+Agents** — both pasted inline in chat rather than attached as file
+uploads, so **neither image was ever saved to a path this session could
+read** (confirmed by checking the uploads directory; unlike PDFs/
+screenshots shared earlier in this project, which did get a saved path).
+Built `.tile-cover--indigo` (now on Summary Builder, replacing its old
+`--purple` variant) and `.tile-cover--circuit` (AI Agents, replacing its
+old `--teal-alt`) as CSS-gradient approximations of each photo's mood/
+palette as a stand-in. Admin is back on its original `--teal` variant —
+it was never supposed to change. **If the user asks why their photo
+didn't show up, or wants the real images in**: they need to send the file
+as a proper attachment (not a pasted/dragged inline image) so it gets a
 filesystem path; once available, save it to `assets/`, reference it as a
 real `<img>` or background-image on the tile (per the "for one project we
 can show [a real screenshot], but small" precedent already set for the

@@ -657,11 +657,11 @@ body.split-body { overflow-x: hidden; }
   background-size: 34px 34px, 34px 34px, auto;
 }
 /* Placeholder approximations of reference photos the user shared
-   (a dark abstract purple/blue/pink smoke-wave shot for Admin, a
-   dark teal ribbon/circuit swirl for AI Agents). Neither reference
-   image is saved anywhere this session can read, so these are CSS
-   stand-ins matching each one's mood/palette until the real files
-   are attached as proper uploads — see CLAUDE.md. */
+   (a dark abstract purple/blue/pink smoke-wave shot for Summary
+   Builder, a dark teal ribbon/circuit swirl for AI Agents). Neither
+   reference image is saved anywhere this session can read, so these
+   are CSS stand-ins matching each one's mood/palette until the real
+   files are attached as proper uploads — see CLAUDE.md. */
 .tile-cover--indigo {
   background:
     radial-gradient(120% 60% at 88% -8%, rgba(199,120,255,0.4), transparent 60%),
