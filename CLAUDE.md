@@ -85,28 +85,21 @@ project-tile hide/show pattern elsewhere in this file. If the user ever
 wants a different graphic here again, treat it as a fresh design request,
 not a restoration.
 
-## Homepage tiles — Admin restored, two still hidden, ERP shown first (2026-09-17)
+## Homepage tiles — all five visible again, ERP shown first (2026-09-17)
 
-**Summary Builder** and **Claude Code Is My Design Partner** (the
-AI-native-process case study) remain commented out in `index.html`'s
-`.split-left` (search "HIDDEN FOR NOW"), not deleted — both case study
-pages are still fully live, just unlinked from the homepage tile stack.
-**Admin** was hidden earlier in the same day but the user immediately
-asked for it back ("Don't hide admin bring it back") — it's uncommented
-again and visible. With Claude Code Is My Design Partner hidden, **no
-visible tile currently has a real screenshot inset** (`.tile-cover-shot`)
-— that markup still exists but is inside the hidden AI-native-process
-tile; nobody asked for another tile to pick up the screenshot treatment,
-so don't add one without being asked.
-
-Currently visible, in order: **ERP** (moved to first, per explicit
-request), then **Admin** (restored right after ERP), then **AI Agents**.
-Original order before any of this was Admin, AI-native-process, Summary
-Builder, AI Agents, ERP. **When the user asks to bring the remaining
-hidden tiles back**, restore that original relative order unless they
-specify a different one (they've reordered ERP to the front at least
-once already, so confirm rather than assuming) — and remove this section
-of CLAUDE.md once all tiles are back to how they want them.
+All five case studies are now uncommented and visible in `index.html`'s
+`.split-left`. After a round of hiding/restoring individual tiles earlier
+the same day, the user asked to bring back whatever was still hidden
+(Summary Builder and Claude Code Is My Design Partner). Restored them in
+the original relative order (Admin, AI-native-process, Summary Builder,
+AI Agents) around the one deliberate reorder that's still standing — ERP
+moved to show first, per an earlier explicit request that was never
+countermanded. Current order: **ERP, Admin, Claude Code Is My Design
+Partner, Summary Builder, AI Agents**. The "Claude Code Is My Design
+Partner" tile is the one carrying the small real-screenshot inset
+(`.tile-cover-shot`) — it's visible again now too. If tiles get
+hidden/reordered again, use the same "comment out, don't delete" pattern
+and give this section a fresh writeup rather than reviving this one.
 
 ## Image placeholders — currently removed, on purpose
 
