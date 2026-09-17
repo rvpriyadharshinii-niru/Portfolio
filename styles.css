@@ -81,6 +81,58 @@ body.theme-green .hero {
   background-size: 34px 34px, 34px 34px, auto;
 }
 
+/* Every ERP screenshot: no border/fill box, natural aspect ratio (no
+   forced-crop letterboxing), shadow only — matches the sleek reference. */
+body.theme-green .shot {
+  border: none;
+  background: transparent;
+  box-shadow: 0 20px 50px rgba(15, 40, 20, 0.14);
+}
+body.theme-green .shot--full,
+body.theme-green .shot--wide,
+body.theme-green .shot--crop,
+body.theme-green .shot--panorama,
+body.theme-green .shot--tall,
+body.theme-green .shot--square {
+  aspect-ratio: auto;
+}
+body.theme-green .shot img { height: auto; }
+
+/* Pain-point cards — a deliberate warm-red accent for "problem" content,
+   contrasting with ERP's green "solution" accent elsewhere. */
+.pain-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.pain-card {
+  background: #FDF1F1;
+  border: 1px solid #F6CBCB;
+  border-radius: 14px;
+  padding: 20px 22px;
+}
+.pain-card-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.pain-card-icon { font-size: 14px; }
+.pain-card-label {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #D5433D;
+}
+.pain-card-text {
+  font-size: 14.5px;
+  line-height: 1.5;
+  color: #6B2E2E;
+}
+.pain-card-text strong { color: #C22E2E; font-weight: 700; }
+@media (max-width: 900px) { .pain-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .pain-grid { grid-template-columns: 1fr; } }
+
 * { box-sizing: border-box; }
 
 html { scroll-behavior: smooth; }
