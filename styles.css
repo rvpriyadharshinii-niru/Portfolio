@@ -1686,6 +1686,100 @@ a { color: inherit; }
 
 .ia-col-title { display: flex; align-items: center; }
 
+/* Persona cards — Platform Admin vs App Admin framing, introduced
+   before the screen-by-screen walkthrough so readers know whose
+   view they're looking at once the real screens start. */
+.persona-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+@media (max-width: 760px) { .persona-grid { grid-template-columns: 1fr; } }
+.persona-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--line-dark);
+  border-radius: 20px;
+  padding: 28px 26px;
+}
+.section--light .persona-card {
+  background: #fff;
+  border-color: var(--line-light);
+  box-shadow: 0 14px 34px rgba(8,25,28,0.07);
+}
+.persona-card-tag {
+  display: inline-block;
+  font-size: 11px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--cyan);
+  border: 1px solid rgba(var(--cyan-rgb), 0.4);
+  border-radius: 100px;
+  padding: 5px 12px;
+  margin-bottom: 16px;
+}
+.section--light .persona-card-tag { color: var(--accent-light); border-color: rgba(var(--accent-light-rgb), 0.4); }
+.persona-card-title { font-size: 20px; font-weight: 800; margin-bottom: 8px; }
+.persona-card-desc { font-size: 14px; line-height: 1.6; color: rgba(255,255,255,0.6); }
+.section--light .persona-card-desc { color: var(--ink-mute); }
+
+/* Compare table — Admin task vs Platform Admin vs App Admin, so
+   persona scope is reference-able at a glance before the detailed
+   screens. Collapses to labeled stacked rows on mobile. */
+.compare-table {
+  border-top: 1px solid var(--line-dark);
+  border-radius: 14px;
+  overflow: hidden;
+}
+.section--light .compare-table { border-color: var(--line-light); }
+.compare-row {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr 1.4fr;
+  gap: 20px;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--line-dark);
+  font-size: 13.5px;
+  line-height: 1.55;
+}
+.section--light .compare-row { border-color: var(--line-light); }
+.compare-row:last-child { border-bottom: none; }
+.compare-row > div:first-child { font-weight: 700; }
+.compare-row--head {
+  background: rgba(255,255,255,0.03);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+}
+.section--light .compare-row--head { background: rgba(8,25,28,0.03); color: var(--ink-mute); }
+.compare-cell--muted { opacity: 0.45; font-style: italic; }
+.compare-tag {
+  display: none;
+  font-size: 10.5px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--cyan);
+  margin-bottom: 3px;
+}
+.section--light .compare-tag { color: var(--accent-light); }
+@media (max-width: 760px) {
+  .compare-row { grid-template-columns: 1fr; gap: 10px; }
+  .compare-row--head { display: none; }
+  .compare-tag { display: block; }
+}
+
+/* Persona note — ties a real screen back to which altitude sees it,
+   reused across Organization/Governance/Users/Integrations/Credits/
+   Observability/Settings once the personas framework above has
+   introduced Platform Admin vs App Admin. */
+.persona-note {
+  margin-top: 14px;
+  border-left: 2px solid var(--cyan);
+  padding: 10px 0 10px 16px;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.6);
+}
+.section--light .persona-note { color: var(--ink-mute); border-color: var(--accent-light); }
+.persona-note strong { color: var(--cyan); }
+.section--light .persona-note strong { color: var(--accent-light); }
+
 /* Rounder, deeper-shadow shot variant for hero-style collages. */
 .shot--round { border-radius: 22px; }
 

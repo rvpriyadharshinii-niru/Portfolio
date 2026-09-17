@@ -133,6 +133,77 @@
 </section>
 
 <!-- ============================================================
+     PERSONAS
+     ============================================================ -->
+<section class="section section--light">
+  <div class="wrap">
+    <div class="section-intro">
+      <p class="section-kicker">Who this is for</p>
+      <h2 class="section-heading">Before the screens: two people share this experience, at two different altitudes.</h2>
+      <p class="section-copy">Every section that follows belongs to one of two administrators. Designing for both meant giving each the right scope — not the same screen with fewer options switched off.</p>
+    </div>
+
+    <div class="persona-grid reveal">
+      <div class="persona-card">
+        <span class="persona-card-tag">Platform Admin</span>
+        <div class="persona-card-title">Manages the platform.</div>
+        <p class="persona-card-desc">Owns identity, security and tenant-wide governance. Connects SSO, defines the org hierarchy, and designates who administers each application.</p>
+      </div>
+      <div class="persona-card">
+        <span class="persona-card-tag">App Admin</span>
+        <div class="persona-card-title">Runs an application.</div>
+        <p class="persona-card-desc">Designated by the Platform Admin. Configures how one application uses what the platform has already approved and enabled — nothing more, nothing less.</p>
+      </div>
+    </div>
+
+    <div class="compare-table reveal mt-lg">
+      <div class="compare-row compare-row--head">
+        <div>Admin task</div>
+        <div>Platform Admin</div>
+        <div>App Admin</div>
+      </div>
+      <div class="compare-row">
+        <div>Set up the organization</div>
+        <div><span class="compare-tag">Platform Admin</span>Connect SSO, define org hierarchy, designate app admins</div>
+        <div class="compare-cell--muted"><span class="compare-tag">App Admin</span>Not at app level</div>
+      </div>
+      <div class="compare-row">
+        <div>Manage users and access</div>
+        <div><span class="compare-tag">Platform Admin</span>Sync users via SSO, set platform-wide roles</div>
+        <div><span class="compare-tag">App Admin</span>Grant app access, assign app-specific roles</div>
+      </div>
+      <div class="compare-row">
+        <div>Configure tools and apps</div>
+        <div><span class="compare-tag">Platform Admin</span>Approve integrations &amp; apps, manage integration credentials</div>
+        <div><span class="compare-tag">App Admin</span>Configure this app and how it uses approved integrations</div>
+      </div>
+    </div>
+
+    <div class="flow-horizontal reveal mt-lg">
+      <div class="node">
+        <span class="node-label">Platform</span>
+        Identity &amp; Governance
+      </div>
+      <div class="arrow-h"></div>
+      <div class="node node--accent">
+        <span class="node-label">App</span>
+        Configuration &amp; Behavior
+      </div>
+    </div>
+
+    <div class="solution-card mt-lg reveal">
+      <div>
+        <div class="solution-card-label">Design principle</div>
+        <div class="solution-card-statement">Set up <span class="accent">once.</span> Configure <span class="accent">per app.</span></div>
+      </div>
+      <p class="solution-card-support">The platform connects identity, approves integrations and apps, and sets tenant-wide policy. Each app then configures how it uses what the platform has already enabled — credentials live once, behavior is per app. Two apps can share the same Salesforce connection and still do completely different things with it: one reading customer-support cases, the other reading sales-pipeline data, off the same credential.</p>
+    </div>
+
+    <p class="section-copy center mt-lg" style="max-width:680px;margin-left:auto;margin-right:auto;">The sections below follow this same split. Where a section exists at both altitudes, it keeps the same name and the same vocabulary — only the scope changes.</p>
+  </div>
+</section>
+
+<!-- ============================================================
      ORGANIZATION
      ============================================================ -->
 <section class="section section--dark">
@@ -172,6 +243,7 @@
       <div class="shot shot--full mt-md">
         <img src="assets/admin-org-structure.jpeg" alt="Org Structure screen for Claims Management showing workspaces, admins, credits used and utilization">
       </div>
+      <div class="persona-note"><strong>Platform Admin only.</strong> Organization is platform-scoped — apps inherit the tenant structure but don't define it themselves.</div>
     </div>
 
     <div class="flow-horizontal reveal mt-lg">
@@ -223,6 +295,7 @@
           <div class="insight-card-text">A decision an administrator can make with confidence, in place.</div>
         </div>
       </div>
+      <div class="persona-note"><strong>Platform Admin only.</strong> Governance policy is set once, tenant-wide — apps don't maintain their own separate approval queues.</div>
     </div>
   </div>
 </section>
@@ -260,6 +333,7 @@
         <div class="annotation-card"><div class="a-tag">MEMBER COUNT</div></div>
         <div class="annotation-card"><div class="a-tag">WORKSPACE SCOPE</div></div>
       </div>
+      <div class="persona-note"><strong>Both altitudes, same vocabulary.</strong> Platform Admin sees every user across the tenant; App Admin sees only the users who have access to this application.</div>
     </div>
 
     <div class="flow-horizontal reveal mt-lg">
@@ -303,6 +377,7 @@
         <div class="annotation-card"><div class="a-tag">STATUS</div></div>
         <div class="annotation-card"><div class="a-tag">GENERATE / REVOKE</div></div>
       </div>
+      <div class="persona-note"><strong>Platform approves, app configures.</strong> The Platform Admin curates and connects the integration catalog; each App Admin decides how their application uses what's already approved.</div>
     </div>
   </div>
 </section>
@@ -322,6 +397,7 @@
       <div class="shot shot--full">
         <img src="assets/admin-credits.jpeg" alt="Credits dashboard showing total inferences, average daily burn, total credits, credits used, credit usage by skill, usage trend and inference calls by model type">
       </div>
+      <div class="persona-note"><strong>Both altitudes, different scope.</strong> Platform Admin sees the full account bill across every app; App Admin sees only this app's consumption and manages its own budget.</div>
     </div>
 
     <div class="solution-card mt-lg reveal">
@@ -391,6 +467,7 @@
         <img src="assets/admin-health.jpeg" alt="Health screen showing identity providers, provisioning, connectors and model providers as healthy, degraded or down">
       </div>
     </div>
+    <div class="persona-note mt-md"><strong>Same data, different filter.</strong> Audit logs, sign-ins, system events and health all exist at both altitudes — tenant-wide for the Platform Admin, scoped to one app for the App Admin.</div>
   </div>
 </section>
 
@@ -434,6 +511,7 @@
         <div class="iter-note" style="color:rgba(255,255,255,0.6);border-color:var(--line-dark);">Data &amp; Security &mdash; data residency, retention, encryption and compliance-related configuration.</div>
       </div>
     </div>
+    <div class="persona-note mt-lg"><strong>Platform shapes the tenant, app shapes itself.</strong> Account, Provisioning and Data &amp; Security apply tenant-wide; an App Admin's settings — credit limits, security overrides — apply only to their own application.</div>
   </div>
 </section>
 

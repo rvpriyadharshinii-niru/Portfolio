@@ -105,6 +105,36 @@ the HTML instances were removed). Match the surrounding section's existing
 placeholder style (`placeholder--full`, `--wide`, `--panorama`, `--crop`,
 etc.) rather than inventing a new one.
 
+## Admin case study — Personas section added (2026-09-17)
+
+The user attached a PDF ("BAIC platform — Administration, by design") laying
+out a Platform Admin / App Admin persona framework and asked for it to be
+used "fully" to make the Admin case study richer, with personas explained
+**before** the screen-by-screen walkthrough starts. Added a new `PERSONAS`
+section in `case-study-admin.html` right after Information Architecture and
+before Organization, containing: two `.persona-card`s (Platform Admin /
+App Admin), a `.compare-table` mapping three admin tasks (set up org,
+manage users/access, configure tools/apps) across both personas, a
+Platform→App flow diagram, and a "Set up once, configure per app"
+`.solution-card` with the PDF's Salesforce shared-credential example
+folded into its copy. Then added a one-line `.persona-note` callout after
+the real screenshot(s) in each of the following sections — Organization,
+Governance, Users & Access, Integrations, Credits & Usage, Observability,
+Settings — tying each back to which persona/altitude it belongs to, using
+the PDF's own per-section captions (e.g. "Platform sees the full bill, App
+sees its own consumption"). New CSS added to `styles.css`: `.persona-grid`/
+`.persona-card`/`.persona-card-tag` (card pair), `.compare-table`/
+`.compare-row`/`.compare-tag` (the task-comparison table, collapses to
+labeled stacked rows below 760px), and `.persona-note` (the inline callout,
+reuses the `.annotation-card` left-border-accent look). None of the PDF's
+own mockup screenshots (light-theme BAIC/CSAI admin UI) were used as
+images — they're a different visual style from the real dark Uniphore
+product screenshots already on the page, so the PDF's content was turned
+into text/diagrams in the existing design system instead of pasted in as
+pictures. The PDF source file isn't in the repo; if this section needs
+updating later and the framework details are unclear, ask the user for the
+PDF again rather than guessing.
+
 ## Admin case study — hero starts with text only (2026-09-17)
 
 `case-study-admin.html`'s hero used to open with a `.collage-grid` of four
