@@ -29,18 +29,16 @@
     <p class="hero-sub">How I used Claude Code, our design system and GitHub to move from requirements to working product experiences.</p>
     <p class="hero-sub" style="font-size:15px;opacity:0.6;max-width:640px;margin-bottom:56px;">While working on newer BAIS experiences such as AI Agents and Administration, our design process increasingly moved beyond static screens. Instead of designing the entire experience in Figma and handing it over, we started using AI-assisted coding as part of the design process itself.</p>
 
-    <div class="collage-grid reveal">
+    <!-- OPTION 2: collage reduced from four screens to two — one per
+         example used later in this page (Administration, AI Agents) —
+         instead of four detailed enterprise screens up front. See
+         CLAUDE.md. -->
+    <div class="collage-grid reveal" style="max-width:640px;margin:0 auto;">
       <div class="shot shot--wide shot--round">
         <img src="assets/admin-org-structure.jpeg" alt="BAIS Administration — Org Structure screen">
       </div>
       <div class="shot shot--wide shot--round">
-        <img src="assets/admin-credits.jpeg" alt="BAIS Administration — Credits dashboard">
-      </div>
-      <div class="shot shot--wide shot--round">
         <img src="assets/bais-baic-current.jpeg" alt="BAIS AI Agents — Agents dashboard">
-      </div>
-      <div class="shot shot--wide shot--round">
-        <img src="assets/agent-studio-flow-orchestration.jpeg" alt="BAIS AI Agents — Flow Builder canvas">
       </div>
     </div>
   </div>
@@ -347,10 +345,10 @@
 
     <div class="showcase-block reveal">
       <div class="showcase-head"><span class="showcase-index">01</span><span class="showcase-title">UX Requirements / Initial Structure</span></div>
-      <div class="placeholder-group placeholder-group--duo">
-        <div class="shot shot--crop">
-          <img src="assets/prd-cover.png" alt="Product requirements document cover — Customer Service AI">
-        </div>
+      <!-- OPTION 2: PRD cover screenshot dropped — the structure page
+           alone makes the point; a document cover adds an image without
+           adding information. See CLAUDE.md. -->
+      <div class="reveal" style="max-width:420px;margin:0 auto;">
         <div class="shot shot--crop">
           <img src="assets/prd-structure.png" alt="Product requirements document showing personas and goals — the structure Claude was given">
         </div>
@@ -358,37 +356,34 @@
       <div class="iter-note" style="text-align:center;">A representative requirements document, in the same structure used to brief Claude — not the literal Administration UXRD.</div>
     </div>
 
-    <div class="showcase-block reveal">
-      <div class="showcase-head"><span class="showcase-index">02</span><span class="showcase-title">Design-System Components / Storybook</span></div>
-      <div class="shot" style="max-width:280px;margin:0 auto;">
-        <img src="assets/admin-sidebar-nav.png" alt="Administration side navigation, built from shared design-system components">
-      </div>
-      <div class="iter-note" style="text-align:center;">Illustrative — shared components in the shipped product, not the Storybook library itself.</div>
-    </div>
+    <!-- OPTION 2: item 02 (Design-System Components / Storybook) dropped
+         entirely — it reused the exact same admin-sidebar-nav.png shown
+         a few sections up, so it added an image without adding a new
+         example. Showcase renumbered 01, 02, 03, 04 below. See CLAUDE.md. -->
 
     <div class="showcase-block reveal">
-      <div class="showcase-head"><span class="showcase-index">03</span><span class="showcase-title">Early Claude-Generated Implementation</span></div>
+      <div class="showcase-head"><span class="showcase-index">02</span><span class="showcase-title">Early Claude-Generated Implementation</span></div>
       <div class="shot shot--wide">
         <img src="assets/sb-build-summary.png" alt="An earlier-stage AI-generated interface, before it was refined into the final experience">
       </div>
       <div class="iter-note" style="text-align:center;">Illustrative — a different project's early-stage screen, standing in for what a first-pass build looks like before iteration.</div>
     </div>
 
+    <!-- OPTION 2: Roles table screenshot dropped — one representative
+         "earlier point" screen (Users) makes the iteration point without
+         a second near-identical table screenshot. See CLAUDE.md. -->
     <div class="showcase-block reveal">
-      <div class="showcase-head"><span class="showcase-index">04</span><span class="showcase-title">Iteration</span></div>
-      <div class="placeholder-group placeholder-group--duo">
+      <div class="showcase-head"><span class="showcase-index">03</span><span class="showcase-title">Iteration</span></div>
+      <div class="reveal" style="max-width:420px;margin:0 auto;">
         <div class="shot shot--wide">
           <img src="assets/admin-users.jpeg" alt="Administration Users table, an earlier point in the experience">
         </div>
-        <div class="shot shot--wide">
-          <img src="assets/admin-roles.jpeg" alt="Administration Roles table, refined after using the working prototype">
-        </div>
       </div>
-      <div class="iter-note" style="text-align:center;">Illustrative — representative Administration screens, not the literal before/after pair for one change.</div>
+      <div class="iter-note" style="text-align:center;">Illustrative — a representative Administration screen, not the literal before/after pair for one change.</div>
     </div>
 
     <div class="showcase-block reveal">
-      <div class="showcase-head"><span class="showcase-index">05</span><span class="showcase-title">Updated Working Admin Experience</span></div>
+      <div class="showcase-head"><span class="showcase-index">04</span><span class="showcase-title">Updated Working Admin Experience</span></div>
       <div class="shot shot--full">
         <img src="assets/admin-health.jpeg" alt="Updated, working BAIS Administration experience — Health screen">
       </div>

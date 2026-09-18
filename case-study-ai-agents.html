@@ -203,9 +203,11 @@
       </div>
     </div>
 
-    <div class="shot shot--full mt-lg reveal">
-      <img src="assets/competitor-research-2.jpeg" alt="Second competitive research board covering Databricks, Snowflake, Microsoft Fabric, Google BigQuery, Mistral AI, Vertex AI, Azure, C3.AI, DataRobot, Hugging Face, 8 Flow.ai, Druid.ai, ServiceNow, Aisera and Camunda">
-    </div>
+    <!-- OPTION 2: second competitive research board dropped — one board
+         plus the tag row already covers the point; also reused fewer
+         images overall since this asset repeated later in Flow Builder.
+         See CLAUDE.md. -->
+    <p class="section-copy mt-lg reveal" style="max-width:640px;">A second board covered data/AI-infrastructure players — Databricks, Snowflake, Microsoft Fabric, BigQuery, Mistral AI, Vertex AI, Azure, C3.AI, DataRobot, Hugging Face — plus workflow tools like Camunda, Druid.ai and 8 Flow.ai.</p>
   </div>
 </section>
 
@@ -264,14 +266,12 @@
       <p class="section-copy">As these capabilities moved into the newer platform, the experience changed — but many of the underlying concepts initially remained familiar.</p>
     </div>
 
-    <div class="reveal">
-      <div class="placeholder-group placeholder-group--duo">
-        <div class="shot shot--wide">
-          <img src="assets/x-console.png" alt="Legacy X-Console Self-Serve screen showing Intents, Entities, State and Assisted Training">
-        </div>
-        <div class="shot shot--wide">
-          <img src="assets/self-serve-create-task.jpeg" alt="X-Platform Self-Serve Create Task screen showing task type toggle between LLM and Rule">
-        </div>
+    <!-- OPTION 2: legacy X-Console screenshot dropped here — the same
+         screen already appears in the hero evolution strip above, so
+         showing it twice added nothing. See CLAUDE.md. -->
+    <div class="reveal" style="max-width:420px;margin-left:auto;margin-right:auto;">
+      <div class="shot shot--wide">
+        <img src="assets/self-serve-create-task.jpeg" alt="X-Platform Self-Serve Create Task screen showing task type toggle between LLM and Rule">
       </div>
       <div class="placeholder-purpose center mt-md" style="margin-left:auto;margin-right:auto;">Purpose: Show continuity of NLU capabilities across the platform migration.</div>
 
@@ -391,13 +391,10 @@
       <p class="section-copy">I explored multiple Flow Builder approaches while studying how other workflow and automation products handled similar complexity.</p>
     </div>
 
-    <div class="reveal">
-      <div class="shot shot--wide">
-        <img src="assets/competitor-research-2.jpeg" alt="Competitor research board including Camunda, Druid.ai and 8 Flow.ai workflow-building patterns">
-      </div>
-    </div>
-
-    <div class="reveal mt-md">
+    <!-- OPTION 2: competitor research board dropped here — it's the same
+         asset shown (in full) back in Competitive Research; this section
+         only needs the actual design iteration below. See CLAUDE.md. -->
+    <div class="reveal" style="max-width:420px;margin-left:auto;margin-right:auto;">
       <div class="shot shot--wide">
         <img src="assets/flow-builder-iteration-01.png" alt="Flow Builder design iteration showing multiple flows including Basic Inbound Flow Response, Greeting Subflow, OpenTicket Subflow and RegisteredUser">
       </div>
@@ -599,12 +596,13 @@
       </div>
     </div>
 
-    <div class="placeholder-group placeholder-group--duo mt-lg reveal">
+    <!-- OPTION 2: Copilot-creation conversation screenshot dropped — it
+         would show a specific captured agent name/purpose; the modal
+         screenshot already covers all four creation paths listed above.
+         See CLAUDE.md. -->
+    <div class="reveal mt-lg" style="max-width:420px;margin-left:auto;margin-right:auto;">
       <div class="shot shot--wide">
         <img src="assets/agent-studio-create-agent-modal.jpeg" alt="Create Agent modal in Agent Studio showing Build with Flow, Build with Instruction, Discover from Conversations and Build with AI Assistant options">
-      </div>
-      <div class="shot shot--wide">
-        <img src="assets/agent-studio-copilot-creation.jpeg" alt="Copilot-style Agent creation conversation capturing agent name and purpose before generating the first message">
       </div>
     </div>
   </div>
@@ -739,26 +737,15 @@
       <div class="tag-row"><span>Agent types</span><span>Templates</span><span>Status</span><span>Model</span><span>Skills</span></div>
     </div>
 
-    <div class="grid-2 reveal">
-      <div class="showcase-block">
-        <div class="showcase-head"><span class="showcase-index">02</span><span class="showcase-title">Agent Configuration</span></div>
-        <div class="shot shot--wide">
-          <img src="assets/agent-studio-copilot-configured.jpeg" alt="Configured Agent instructions tab showing first message and global prompt after Copilot-assisted creation">
-        </div>
-      </div>
-      <div class="showcase-block">
-        <div class="showcase-head"><span class="showcase-index">03</span><span class="showcase-title">Flow / Orchestration</span></div>
-        <div class="shot shot--wide">
-          <img src="assets/agent-studio-flow-orchestration.jpeg" alt="Flow Builder canvas for an Auto Loans agent showing Loan Assessment, Offer Generation, Consent Agent and Human Hand-off nodes">
-        </div>
-      </div>
-    </div>
-
-    <div class="showcase-block reveal">
-      <div class="showcase-head"><span class="showcase-index">04</span><span class="showcase-title">Testing</span></div>
-      <div class="shot shot--wide">
-        <img src="assets/agent-studio-evaluation.jpeg" alt="Evaluation screen listing metrics such as Average Latency, Barge In Handling and Expected Outcome">
-      </div>
+    <!-- OPTION 2: Agent Configuration, Flow/Orchestration and Testing
+         screenshots dropped — those screens show specific configured
+         agent instructions, flow node data and eval metrics; Agent
+         Studio above already establishes the workspace is real.
+         See CLAUDE.md. -->
+    <div class="annotation-row mt-lg reveal" style="grid-template-columns:repeat(3,1fr);">
+      <div class="annotation-card"><div class="a-tag">02 &middot; AGENT CONFIGURATION</div><div class="a-desc">Instructions tab — first message and global prompt, set up via Copilot-assisted creation.</div></div>
+      <div class="annotation-card"><div class="a-tag">03 &middot; FLOW / ORCHESTRATION</div><div class="a-desc">Flow Builder canvas — assessment, offer generation, consent and human hand-off nodes.</div></div>
+      <div class="annotation-card"><div class="a-tag">04 &middot; TESTING</div><div class="a-desc">Evaluation metrics — average latency, barge-in handling, expected outcome.</div></div>
     </div>
 
   </div>

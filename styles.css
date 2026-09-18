@@ -503,6 +503,14 @@ a { color: inherit; }
   border: 1px solid var(--line-dark);
   background: #EDF2F2;
   box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+  /* OPTION 2 variant: cap every real screenshot to a small, non-
+     legible thumbnail instead of a full-bleed detail shot. This is a
+     confidentiality choice, not a bug — the surrounding copy/diagrams
+     carry the explanation, the screenshot just proves the screen is
+     real. See CLAUDE.md. */
+  max-width: 420px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .section--light .shot { border-color: var(--line-light); }
 

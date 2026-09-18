@@ -253,9 +253,7 @@
 
     <div class="reveal mt-lg">
       <p class="section-copy" style="max-width:720px;">Once inside a sub-organization, the experience surfaces the most important context first — workspaces, administrators, credits used, utilization, users and sub-organization details. A workspace selector in the header keeps that context as administrators move across areas.</p>
-      <div class="shot shot--full mt-md">
-        <img src="assets/admin-org-structure.jpeg" alt="Org Structure screen for Claims Management showing workspaces, admins, credits used and utilization">
-      </div>
+      <!-- OPTION 2: second Organization screenshot (admin-org-structure.jpeg) dropped — the paragraph above already describes it, and Sub-Organizations above carries the section's one screenshot. See CLAUDE.md. -->
       <div class="persona-note"><strong>Platform Admin only.</strong> Organization is platform-scoped — apps inherit the tenant structure but don't define it themselves.</div>
     </div>
 
@@ -334,20 +332,13 @@
         <div class="annotation-card"><div class="a-tag">AUTH METHOD &amp; MFA</div></div>
         <div class="annotation-card"><div class="a-tag">LAST LOGIN</div></div>
       </div>
-    </div>
-
-    <div class="reveal mt-lg">
-      <div class="shot shot--full">
-        <img src="assets/admin-roles.jpeg" alt="Roles table showing system vs custom roles, purpose, member count and last updated">
-      </div>
-      <div class="annotation-row mt-md" style="grid-template-columns:repeat(4,1fr);">
-        <div class="annotation-card"><div class="a-tag">SYSTEM VS CUSTOM</div></div>
-        <div class="annotation-card"><div class="a-tag">ROLE PURPOSE</div></div>
-        <div class="annotation-card"><div class="a-tag">MEMBER COUNT</div></div>
-        <div class="annotation-card"><div class="a-tag">WORKSPACE SCOPE</div></div>
-      </div>
       <div class="persona-note"><strong>Both altitudes, same vocabulary.</strong> Platform Admin sees every user across the tenant; App Admin sees only the users who have access to this application.</div>
     </div>
+
+    <!-- OPTION 2: Roles screenshot (admin-roles.jpeg) dropped — its own
+         table (system vs custom, purpose, member count, workspace scope)
+         is summarized by the flow diagram right below. See CLAUDE.md. -->
+    <p class="section-copy reveal mt-lg" style="max-width:720px;">Roles group permissions into a named, reusable set — system roles ship with the platform; custom roles are scoped per workspace and track how many members and which workspaces they apply to.</p>
 
     <div class="flow-horizontal reveal mt-lg">
       <div class="node">User</div>
@@ -380,16 +371,8 @@
     </div>
 
     <div class="reveal mt-lg">
-      <p class="section-copy" style="max-width:720px;">Connectors manage integrations as products or services. API Tokens manage programmatic access to the platform itself — a related but distinct concern.</p>
-      <div class="shot shot--full mt-md">
-        <img src="assets/admin-api-tokens.jpeg" alt="API Tokens table showing name, owner, creation date, last used and status">
-      </div>
-      <div class="annotation-row mt-md" style="grid-template-columns:repeat(4,1fr);">
-        <div class="annotation-card"><div class="a-tag">NAME &amp; OWNER</div></div>
-        <div class="annotation-card"><div class="a-tag">CREATED / LAST USED</div></div>
-        <div class="annotation-card"><div class="a-tag">STATUS</div></div>
-        <div class="annotation-card"><div class="a-tag">GENERATE / REVOKE</div></div>
-      </div>
+      <p class="section-copy" style="max-width:720px;">Connectors manage integrations as products or services. API Tokens manage programmatic access to the platform itself — a related but distinct concern, tracked by name, owner, creation date, last use and status, with generate/revoke actions.</p>
+      <!-- OPTION 2: API Tokens screenshot (admin-api-tokens.jpeg) dropped — a token list is one of the more sensitive-looking screens to show; the paragraph above covers what it contains. See CLAUDE.md. -->
       <div class="persona-note"><strong>Platform approves, app configures.</strong> The Platform Admin curates and connects the integration catalog; each App Admin decides how their application uses what's already approved.</div>
     </div>
   </div>
@@ -464,18 +447,12 @@
       </div>
     </div>
 
-    <div class="placeholder-group placeholder-group--duo mt-lg reveal">
-      <div class="shot shot--wide">
-        <img src="assets/admin-audit-logs.jpeg" alt="Audit Logs showing timestamp, operation, summary, status, latency and user">
-      </div>
-      <div class="shot shot--wide">
-        <img src="assets/admin-signins.jpeg" alt="Sign-ins showing successful, failed and risky authentication events with provider, location and device">
-      </div>
-    </div>
-    <div class="placeholder-group placeholder-group--duo mt-md reveal">
-      <div class="shot shot--wide">
-        <img src="assets/admin-system-events.jpeg" alt="System Events showing source, event, and severity across platform services">
-      </div>
+    <!-- OPTION 2: Audit Logs, Sign-ins and System Events screenshots dropped —
+         these are exactly the screens most likely to show real user/event
+         data, and the branch diagram above already explains what each
+         answers. Health is kept as the one representative shot (aggregate
+         system status, no individual-level data). See CLAUDE.md. -->
+    <div class="reveal mt-lg">
       <div class="shot shot--wide">
         <img src="assets/admin-health.jpeg" alt="Health screen showing identity providers, provisioning, connectors and model providers as healthy, degraded or down">
       </div>
@@ -495,6 +472,11 @@
       <p class="section-copy">Settings contains platform-level configuration that affects multiple areas rather than everyday operational management — grouped into Account, Provisioning, Applications, and Data &amp; Security.</p>
     </div>
 
+    <!-- OPTION 2: Provisioning, Applications and Data & Security screenshots
+         dropped — security/provisioning screens are exactly the kind of
+         confidential-looking detail this variant avoids showing. Account
+         is kept as the one representative shot; the other three settings
+         groups are described in plain text instead. See CLAUDE.md. -->
     <div class="placeholder-group placeholder-group--duo reveal">
       <div>
         <div class="shot shot--wide">
@@ -503,26 +485,13 @@
         <div class="iter-note" style="color:rgba(255,255,255,0.6);border-color:var(--line-dark);">Account &mdash; organization profile, workspaces and account-level information.</div>
       </div>
       <div>
-        <div class="shot shot--wide">
-          <img src="assets/admin-provisioning-top.png" alt="Provisioning tab showing SCIM, AD Sync and Manual Provisioning identity source options">
-        </div>
         <div class="iter-note" style="color:rgba(255,255,255,0.6);border-color:var(--line-dark);">Provisioning &mdash; how users and organizational structure sync with the platform, via SCIM, AD Sync or manual invites. SCIM: automated user and group provisioning from an identity provider.</div>
       </div>
     </div>
 
-    <div class="placeholder-group placeholder-group--duo mt-md reveal">
-      <div>
-        <div class="shot shot--wide">
-          <img src="assets/admin-settings-applications.jpeg" alt="Settings Applications tab showing enabled AI applications">
-        </div>
-        <div class="iter-note" style="color:rgba(255,255,255,0.6);border-color:var(--line-dark);">Applications &mdash; which AI applications are enabled and configured for the organization.</div>
-      </div>
-      <div>
-        <div class="shot shot--wide">
-          <img src="assets/admin-settings-data-security.jpeg" alt="Settings Data & Security tab showing data residency, retention and encryption">
-        </div>
-        <div class="iter-note" style="color:rgba(255,255,255,0.6);border-color:var(--line-dark);">Data &amp; Security &mdash; data residency, retention, encryption and compliance-related configuration.</div>
-      </div>
+    <div class="annotation-row mt-md" style="grid-template-columns:repeat(2,1fr);">
+      <div class="annotation-card"><div class="a-tag">APPLICATIONS</div><div class="a-desc">Which AI applications are enabled and configured for the organization.</div></div>
+      <div class="annotation-card"><div class="a-tag">DATA &amp; SECURITY</div><div class="a-desc">Data residency, retention, encryption and compliance-related configuration.</div></div>
     </div>
     <div class="persona-note mt-lg"><strong>Platform shapes the tenant, app shapes itself.</strong> Account, Provisioning and Data &amp; Security apply tenant-wide; an App Admin's settings — credit limits, security overrides — apply only to their own application.</div>
   </div>

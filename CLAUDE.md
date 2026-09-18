@@ -1,5 +1,66 @@
 # Portfolio site — working notes
 
+## Branch note: `option-2` is a reduced-imagery variant
+
+This branch is a deliberate visual variant, not a bug-fix branch. The user
+asked for a version with **far fewer screenshots, and the ones that remain
+kept small/illegible** — modeled on a reference ("prob[ably a] website")
+where "images were less but the content was clear." Two changes, both
+`option-2`-only (not on `claude/vibrant-meitner-p9fqum`):
+
+1. **Global thumbnail cap** — `.shot` in `styles.css` now has
+   `max-width: 420px; margin: 0 auto;` (was full-bleed / `width:100%` of
+   the wrap). This alone shrinks every remaining real screenshot across
+   every case study to a small, non-legible size — the point is proving a
+   screen is real without showing its actual on-screen data/text clearly.
+2. **Fewer screenshots, per case study** (all marked inline with
+   `<!-- OPTION 2: ... -->` comments explaining what was dropped and why —
+   search for `OPTION 2` in each file to find every instance):
+   - `case-study-admin.html`: 17 → 8. Dropped the second image in every
+     section that had two (Org Structure, Roles, API Tokens), cut
+     Observability's four screenshots to one (Health — the least
+     "sensitive-looking," since Audit Logs/Sign-ins/System Events show
+     real user/event-level data), and cut Settings' four to one (Account),
+     converting the rest to plain text/annotation-row tags.
+   - `case-study-erp.html`: 14 → 9. Dropped the hero screenshot entirely,
+     cut the object-oriented-components trio to one, dropped one of the
+     Returns "before" pair, and dropped the KPI dashboard screenshot
+     specifically (real revenue/profit figures) while keeping the
+     dashboard *builder* (no live figures).
+   - `case-study-ai-agents.html`: 15 → 8. Kept the hero evolution strip
+     (already small/compact). Removed a literal duplicate asset
+     (`competitor-research-2.jpeg` was used twice — cut both, keeping
+     only the first competitor board), removed another duplicate
+     (`x-console.png`, already shown in the hero strip), cut the
+     Process-Discovery duo and the closing 4-item showcase grid down to
+     one image each, converting the rest to `annotation-row` tags.
+   - `case-study-summary-builder.html`: 8 → 3. This one was already very
+     diagram/flow-forward, so cuts were straightforward: dropped the hero
+     shot, the template-list shot (Lifecycle column already names the
+     states), the Advanced-Mode *detail* shot (a duplicate crop of the
+     Advanced-Mode shot right above it), and the Question-Manager duo
+     (converted to plain annotation cards).
+   - `case-study-ai-native-process.html`: 14 → 9. This page is *about*
+     showing real process screenshots, so treated more conservatively —
+     halved the hero collage from 4 to 2 (one Administration, one AI
+     Agents, matching the "two examples" the page itself walks through),
+     dropped the PRD cover (kept structure), removed showcase item 02
+     entirely since it was a **duplicate** of the design-system image
+     already shown a few sections up (showcase renumbered 01–04 + "+"),
+     and cut the Iteration duo to one image.
+   - `index.html`/`home.css`: untouched by this reduction (the homepage
+     already uses CSS `.tile-cover` patterns/photos, not dense product
+     screenshots).
+   Total across the five case studies: 68 → 37 images (~46% fewer),
+   on top of every remaining one now being thumbnail-sized.
+
+If asked to apply this same treatment to `claude/vibrant-meitner-p9fqum`
+(the main branch), don't just merge — that branch's CLAUDE.md sections
+below (Personas, "one mental model," hero-text-only, etc.) evolved after
+this branch forked, so changes should be re-applied deliberately with the
+same care, checking each section still makes sense post-cut.
+
+
 Static site: `index.html` (homepage) + `resume.html` + five case studies
 (`case-study-ai-agents.html`, `case-study-admin.html`, `case-study-erp.html`,
 `case-study-summary-builder.html`, `case-study-ai-native-process.html`),

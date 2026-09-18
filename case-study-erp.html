@@ -27,12 +27,6 @@
     </div>
     <h1>ERP Suite 3.0: Rebuilding a Legacy ERP for Scale</h1>
     <p class="hero-sub">From a fragile MVP built for 150 products to a scalable platform supporting 15,000+ — through object-oriented components, bulk-first workflows and a system of reusable primitives.</p>
-
-    <div class="reveal mt-lg">
-      <div class="shot shot--full">
-        <img src="assets/erp-hero-overview.png" alt="ERP Suite 3.0 container management screen and mobile product specification overlay">
-      </div>
-    </div>
   </div>
 </section>
 
@@ -240,25 +234,19 @@
       <h2 class="section-heading">Object-oriented UI components became the foundation of the product.</h2>
     </div>
 
-    <div class="placeholder-group placeholder-group--trio reveal">
-      <div>
-        <div class="shot shot--wide">
-          <img src="assets/erp-quick-view-overlay.png" alt="Quick View side overlay showing category details without leaving the table">
-        </div>
-        <div class="iter-note">Quick View Side Overlay — view item details without leaving the table.</div>
+    <!-- OPTION 2: Quick View and Bulk Action overlay screenshots dropped —
+         kept one representative component (the config modal, which shows
+         table structure rather than any product/customer data) and moved
+         the other two to plain text. See CLAUDE.md. -->
+    <div class="annotation-row mt-lg reveal" style="grid-template-columns:repeat(2,1fr);">
+      <div class="annotation-card"><div class="a-tag">QUICK VIEW SIDE OVERLAY</div><div class="a-desc">View item details without leaving the table.</div></div>
+      <div class="annotation-card"><div class="a-tag">BULK ACTION BOTTOM OVERLAY</div><div class="a-desc">Perform actions on multiple items safely.</div></div>
+    </div>
+    <div class="reveal mt-lg">
+      <div class="shot shot--wide">
+        <img src="assets/erp-config-modal.png" alt="Full-screen configuration modal for selecting and arranging table columns">
       </div>
-      <div>
-        <div class="shot" style="aspect-ratio:1091/183;">
-          <img src="assets/erp-bulk-action-overlay.png" alt="Bulk action bottom overlay showing multiple categories selected with a save action">
-        </div>
-        <div class="iter-note">Bulk Action Bottom Overlay — perform actions on multiple items safely.</div>
-      </div>
-      <div>
-        <div class="shot shot--wide">
-          <img src="assets/erp-config-modal.png" alt="Full-screen configuration modal for selecting and arranging table columns">
-        </div>
-        <div class="iter-note">Full-Screen Configuration Modal — customise columns and filters, save and share views.</div>
-      </div>
+      <div class="iter-note">Full-Screen Configuration Modal — customise columns and filters, save and share views.</div>
     </div>
 
     <p class="section-copy center mt-lg" style="max-width:640px;margin-left:auto;margin-right:auto;">Most ERP actions happen in tables, so we also designed power-user-friendly, high-density data grids — sorting, filtering, column control, saved views per role, and configurations that could be shared across teams.</p>
@@ -282,12 +270,12 @@
       </div>
     </div>
 
-    <div class="placeholder-group placeholder-group--duo mt-lg reveal">
+    <!-- OPTION 2: second "before" screenshot (erp-returns-before-2.png,
+         a dense unfiltered draft-products table) dropped — one before
+         shot is enough to set up the after comparison. See CLAUDE.md. -->
+    <div class="reveal mt-lg" style="max-width:420px;margin-left:auto;margin-right:auto;">
       <div class="shot shot--crop">
         <img src="assets/erp-returns-before-1.png" alt="Legacy ERP 2.0 returns screen listing created and received returns">
-      </div>
-      <div class="shot shot--crop">
-        <img src="assets/erp-returns-before-2.png" alt="Legacy ERP 2.0 draft products list with dense unfiltered table">
       </div>
     </div>
     <p class="placeholder-purpose center mt-md" style="margin-left:auto;margin-right:auto;">Before — ERP 2.0</p>
@@ -312,13 +300,15 @@
       <p class="section-copy">A new role-based, widget-driven dashboard with drag-and-drop widgets, custom metrics and real-time previews — and an internal task management system, inspired by tools like Asana but built for ERP approval workflows.</p>
     </div>
 
-    <div class="placeholder-group placeholder-group--duo reveal">
+    <!-- OPTION 2: KPI dashboard screenshot dropped — real revenue/order/
+         profit figures are exactly the kind of business data this variant
+         avoids showing. The builder screen (editing mode, widget library,
+         no live figures) is kept. See CLAUDE.md. -->
+    <div class="reveal" style="max-width:420px;margin-left:auto;margin-right:auto;">
       <div class="shot shot--wide">
         <img src="assets/erp-dashboard-builder.png" alt="Sales summary dashboard builder in edit mode with a widget library panel">
       </div>
-      <div class="shot shot--wide">
-        <img src="assets/erp-dashboard-kpi.png" alt="Sales summary KPI dashboard showing total revenue, total orders, gross profit and order breakdown by distributor">
-      </div>
+      <div class="iter-note">Dashboard Builder — drag-and-drop widgets, custom metrics and real-time previews; the KPI dashboard itself (revenue, orders, profit) isn't shown here.</div>
     </div>
 
     <div class="reveal mt-lg">

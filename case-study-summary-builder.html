@@ -27,12 +27,6 @@
     </div>
     <h1>Making GenAI summaries configurable for enterprise teams</h1>
     <p class="hero-sub">Designing Summary Builder and Question Manager to help teams control what AI captures from customer conversations — without requiring them to build the AI themselves.</p>
-
-    <div class="reveal mt-lg">
-      <div class="shot shot--full">
-        <img src="assets/sb-list-view.png" alt="Summary Builder list view showing a published Summary Template">
-      </div>
-    </div>
   </div>
 </section>
 
@@ -152,12 +146,10 @@
     </div>
     <p class="placeholder-purpose center mt-md" style="margin-left:auto;margin-right:auto;">The Summary Builder designs contain configuration for models, questions, language, prompts, entities, summary structure and draft/test/publish actions.</p>
 
-    <div class="reveal mt-lg">
-      <div class="shot shot--wide" style="max-width:760px;margin:0 auto;">
-        <img src="assets/sb-list-status.png" alt="Summary Builder list showing templates in Published, Failed and Draft states">
-      </div>
-      <div class="iter-note" style="text-align:center;border:none;">Every summary template moves through a visible lifecycle &mdash; draft, published, or failed &mdash; so teams always know what's live.</div>
-    </div>
+    <!-- OPTION 2: template-list screenshot dropped — the Lifecycle
+         column above already names the states; text carries the rest.
+         See CLAUDE.md. -->
+    <p class="iter-note reveal mt-lg" style="text-align:center;border:none;max-width:520px;margin-left:auto;margin-right:auto;">Every summary template moves through a visible lifecycle &mdash; draft, published, or failed &mdash; so teams always know what's live.</p>
   </div>
 </section>
 
@@ -213,10 +205,10 @@
       <p class="section-copy">Advanced Mode exposes more of the instructions given to the model. Instead of expecting users to manually construct everything from scratch, the interface provides separate areas for different kinds of instructions and allows supported variables or information to be inserted into the prompt.</p>
     </div>
 
+    <!-- OPTION 2: Advanced Mode detail screenshot dropped — it's a
+         closer crop of the same panel shown one section up; the
+         annotation row below already names each field. See CLAUDE.md. -->
     <div class="reveal">
-      <div class="shot shot--tall" style="max-width:520px;margin:0 auto;">
-        <img src="assets/sb-advanced-mode-detail.png" alt="Advanced Mode prompt configuration fields: system prompt, user prompt, guidelines and one-shot example">
-      </div>
       <div class="annotation-row mt-md">
         <div class="annotation-card">
           <div class="a-tag">SYSTEM PROMPT</div>
@@ -289,19 +281,12 @@
       <span>Standard &amp; custom questions</span>
     </div>
 
-    <div class="placeholder-group placeholder-group--duo mt-lg reveal">
-      <div>
-        <div class="shot shot--wide">
-          <img src="assets/qm-question-detail.png" alt="Question detail panel for a Custom question, showing label, question text, prompt and a sample one-shot answer">
-        </div>
-        <div class="iter-note" style="color:rgba(255,255,255,0.6);border-color:var(--line-dark);">Every question &mdash; standard or custom &mdash; is defined once, with its own label, text, prompt and sample answer.</div>
-      </div>
-      <div>
-        <div class="shot shot--wide">
-          <img src="assets/qm-templates-used.png" alt="Question detail panel showing which Summary Templates currently use this question">
-        </div>
-        <div class="iter-note" style="color:rgba(255,255,255,0.6);border-color:var(--line-dark);">A question also shows every template that reuses it &mdash; the reusability the section opened with.</div>
-      </div>
+    <!-- OPTION 2: question-detail and templates-used screenshots dropped
+         — both are close-ups of specific question content; the two
+         notes below carry the same points as plain text. See CLAUDE.md. -->
+    <div class="annotation-row mt-lg reveal" style="grid-template-columns:repeat(2,1fr);">
+      <div class="annotation-card"><div class="a-desc">Every question &mdash; standard or custom &mdash; is defined once, with its own label, text, prompt and sample answer.</div></div>
+      <div class="annotation-card"><div class="a-desc">A question also shows every template that reuses it &mdash; the reusability this section opened with.</div></div>
     </div>
   </div>
 </section>
