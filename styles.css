@@ -1892,3 +1892,15 @@ a { color: inherit; }
 @media (max-width: 760px) {
   .editorial-tint-grid { grid-template-columns: 1fr; }
 }
+
+/* Print — case studies were built for endless-scroll viewports, so
+   .hero/.closing's min-height:100vh/90vh and scroll-triggered .reveal
+   (invisible until an IntersectionObserver fires) would otherwise print
+   as mostly blank pages. Force both to their natural content height and
+   force reveal content visible regardless of scroll history. */
+@media print {
+  .reveal { opacity: 1 !important; transform: none !important; }
+  .site-header { position: static; }
+  .hero { min-height: 0; padding-top: 60px; padding-bottom: 40px; }
+  .closing { min-height: 0; padding-top: 60px; padding-bottom: 60px; }
+}

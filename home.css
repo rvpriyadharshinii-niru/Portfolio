@@ -809,3 +809,29 @@ body.split-body { overflow-x: hidden; }
   .project-tile--behance { height: 46vh; }
   .email-pill { bottom: 16px; left: 16px; }
 }
+
+/* Print — the split-layout was built for a full-viewport sticky
+   sidebar next to 88vh scrolling tiles, which prints as near-blank
+   pages otherwise. Stack sidebar above the tiles, shrink tiles to
+   their content height, and drop the floating email pill (the
+   sidebar already has its own Email button). */
+@media print {
+  .split-layout { display: block; }
+  .split-right {
+    position: static;
+    height: auto;
+    border-left: none;
+    border-bottom: 2px solid var(--line);
+    padding: 24px var(--pad) 32px;
+    margin-bottom: 24px;
+  }
+  .split-right-bottom { margin-top: 20px; }
+  .project-tile {
+    height: auto;
+    min-height: 0;
+    page-break-inside: avoid;
+  }
+  .tile-cover { padding: 32px; gap: 8px; }
+  .tile-cover-shot { display: none; }
+  .email-pill { display: none; }
+}
