@@ -289,3 +289,24 @@ correctly and is now `assets/erp-restaurantware-hero.jpg`.
   attachment, which now works — see the illustration flow above for what
   a working attachment looks like vs. a chat-pasted one that doesn't save),
   swap it in as an `<img>` inside `.client-mark` in place of the text.
+
+## ERP — real Restaurantware logo + factual company copy (2026-09-19)
+
+Follow-up to the client-card above: the user sent the real Restaurantware
+logo (a direct attachment — cropped from a mostly-whitespace 1414x2000
+PNG down to just the logo mark via PIL bbox-detection, saved as
+`assets/restaurantware-logo.png`) plus real facts pasted from
+restaurantware.com/pages/about-us (fetching that URL directly is blocked
+by this environment's network egress proxy, same as other external
+domains — the user pasted the text instead). `.client-mark` in
+`case-study-erp.html` now renders that logo as an `<img>` (28px tall,
+width auto) instead of a text wordmark chip; `.client-mark` CSS in
+styles.css updated accordingly (no more border/padding/pill styling —
+just sizes the image). The paragraph was rewritten using their real
+numbers: founded/operating since 2010, 17,000+ products, 250+ new
+products launching every quarter — replacing the earlier inferred
+"thousands of SKUs, dozens of categories" language. Not copied verbatim
+from their site (that copy also mentions a 98.6% in-stock rate and
+same-day shipping before 3pm CST, which weren't relevant to the
+ERP-scaling narrative here, so were left out) — paraphrased and scoped to
+what's relevant to why their systems needed to scale.

@@ -98,14 +98,14 @@ body.theme-green .shot--square {
 }
 body.theme-green .shot img { height: auto; }
 
-/* Client intro — a small wordmark chip + one paragraph introducing the
+/* Client intro — a real client logo + one paragraph introducing the
    actual client company, for case studies where the reader needs company
    context (who they are, how big their catalog is) before the product
    problem makes sense. */
 .client-card {
   display: flex;
-  align-items: flex-start;
-  gap: 20px;
+  align-items: center;
+  gap: 28px;
   padding: 22px 26px;
   border: 1px solid var(--line-light);
   border-radius: 16px;
@@ -113,14 +113,12 @@ body.theme-green .shot img { height: auto; }
 }
 .client-mark {
   flex: 0 0 auto;
-  font-weight: 800;
-  font-size: 13px;
-  letter-spacing: 0.01em;
-  color: var(--accent-light);
-  border: 1.5px solid var(--accent-light);
-  border-radius: 100px;
-  padding: 8px 16px;
-  white-space: nowrap;
+  display: block;
+}
+.client-mark img {
+  height: 28px;
+  width: auto;
+  display: block;
 }
 .client-card-copy {
   font-size: 14.5px;
@@ -129,7 +127,7 @@ body.theme-green .shot img { height: auto; }
   margin: 0;
 }
 @media (max-width: 620px) {
-  .client-card { flex-direction: column; gap: 12px; }
+  .client-card { flex-direction: column; align-items: flex-start; gap: 14px; }
 }
 
 /* Pain-point cards — a deliberate warm-red accent for "problem" content,
