@@ -345,3 +345,18 @@ it.
 
 The homepage tile still points at `case-study-erp.html` (the hub) —
 correct, no change needed there.
+
+## ERP sub-case-study cards — big cover thumbnails (2026-09-19)
+
+Follow-up to the hub split above: the three `.subcase-card` links looked
+too small/easy to miss ("those three links make it big thumbnail so its
+easily visible"). Added a `.subcase-card-cover` — a large 4:3 gradient
+thumbnail with a bold white "01"/"02"/"03" numeral — above the tag/title/
+description in each card, so the cards now read as prominent visual tiles
+rather than compact bordered text blocks. Each card gets its own pattern
+variant via `nth-child` (diagonal stripes for card 1, mirrored diagonal
+stripes for card 2, dot-grid for card 3), all built from the theme's own
+`--teal-900/850/800` and `--cyan-rgb` tokens so they match the page's green
+theme rather than introducing new colors. Verified at both desktop and
+mobile (390px) widths — cards stack cleanly in a single column on mobile
+with no overflow.
