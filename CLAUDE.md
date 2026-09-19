@@ -360,3 +360,60 @@ stripes for card 2, dot-grid for card 3), all built from the theme's own
 theme rather than introducing new colors. Verified at both desktop and
 mobile (390px) widths — cards stack cleanly in a single column on mobile
 with no overflow.
+
+## Returns / Product Lifecycle sub-case-study — built out from stub (2026-09-19)
+
+The user shared a large Figma spec export (`Section_1.pdf`, a "Listing"
+frame covering the ERP's Products nav) plus three small reference crops —
+the existing-products lifecycle tab bar (Created/Purchased/In Transit/
+Live/Dead/Not Live), a product-specification header (tabs: Details, Sales
+Channel, Category & Facets, Content, Photography, Vendors, Inventory,
+Variation, CEO), and a family's variant list (color variants + retail/RTL
+variants) — with explicit instructions: *"under product nav we will show
+three items — product ideation (draft product), existing product, and
+product specification... all these designs dont show big big screens...
+make it explain and bring the story in terms of ux... give more
+explanation about the process."* This directly matches
+`case-study-erp-returns.html`'s own title ("Returns / Product Lifecycle"),
+so that's where the new content went.
+
+**Deliberately no screenshots for the new content** — per the explicit
+request, this section is text/diagram-led, reusing existing design-system
+components rather than pasting in dense form screenshots (the PDF's own
+screens are thousands of placeholder fields like "9999" / "Lorem ipsum",
+not presentable as-is; the three crops shared as reference also have
+unusable aspect ratios for the `.shot` component — e.g. 1058×88 and
+266×858 — confirming they were meant as context for me, not final assets).
+Four new sections were added right after the hero:
+1. **Products overview** — `.persona-grid--three` (new CSS modifier, same
+   card look as the existing `.persona-grid` used for Admin's personas,
+   just three columns) introducing the three surfaces, plus a paragraph on
+   the actual design process (shadowing purchasing/warehouse/merchandising
+   teams found nobody thought of "a product" as one object — each team
+   only ever needed one lifecycle-stage slice of it).
+2. **Existing products / lifecycle** — the six lifecycle states as an
+   `.annotation-row--six` (new CSS modifier, extends the existing
+   `.annotation-row`/`--five` pattern) of tag + one-line description.
+3. **Product Ideation** — a `.flow-vertical--pill` diagram (Draft → Content
+   team → Reviewer team → Approved & merged), reusing the same node/arrow
+   components already used for flows in the AI Agents case study.
+4. **Product Specification** — the nine ownership tabs as two
+   `.annotation-row`/`--five` rows, plus a `.solution-card` design-principle
+   callout ("Show what's missing, not just what's there").
+
+**Also un-reserved the Returns Management section** — its `RESERVED
+CONTENT` HTML comment (real screenshots: `erp-returns-flow-logic.png`,
+`erp-returns-before-1/2.png`, `erp-returns-after.png`, all already in
+`assets/`) was uncommented and placed after the new Products content,
+since this page's title already promised Returns content and the assets
+were sitting ready — no reason to leave it stubbed while filling in the
+rest of the page. The "Coming soon" section was removed entirely now that
+the page has real content. Verified full-page render via local server +
+Playwright (forcing `.reveal` elements to `.is-visible` for the
+screenshot, since scroll-triggered IntersectionObserver reveals don't
+always fire reliably in a scripted headless pass) — all sections, the
+pipeline diagram and the un-reserved Returns section render correctly.
+
+`case-study-erp-components.html` and `case-study-erp-modules.html` are
+still stubs — the PDF only covered the Products nav item, not Quick
+Edit/columns or Dashboard/scheduled jobs, so nothing to add there yet.
