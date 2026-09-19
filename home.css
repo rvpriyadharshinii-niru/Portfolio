@@ -668,6 +668,15 @@ body.split-body { overflow-x: hidden; }
     linear-gradient(160deg, #061a11, #103823);
   background-size: 34px 34px, 34px 34px, auto;
 }
+/* Real photo tile — ERP's client, Restaurantware, sells restaurant/
+   hospitality tableware, so a real dining-room shot (rather than a CSS
+   pattern) fits the project directly. Gradient is heaviest at the
+   bottom, where .tile-cover's flex layout puts the title/tag text. */
+.tile-cover--photo-restaurantware {
+  background:
+    linear-gradient(180deg, rgba(4,14,10,0.1) 0%, rgba(4,14,10,0.45) 55%, rgba(3,10,7,0.88) 100%),
+    url('assets/erp-restaurantware-hero.jpg') center/cover no-repeat;
+}
 /* Placeholder approximations of reference photos the user shared
    (a dark abstract purple/blue/pink smoke-wave shot for Summary
    Builder, a dark teal ribbon/circuit swirl for AI Agents). Neither

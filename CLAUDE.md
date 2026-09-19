@@ -257,3 +257,35 @@ reconstructed):
   asset from elsewhere in the repo (see the page's `iter-note` captions),
   which is the preferred move over a placeholder when a reasonable stand-in
   exists.
+
+## ERP tile + Restaurantware client intro (2026-09-19)
+
+The user shared a real photo (a dining-room shot with table settings —
+plates, glassware, place settings) to use as the ERP homepage tile
+background, plus a reference layout (a Behance-style ERP case study hero:
+full-bleed photo, dark gradient, meta row, big overlaid title) as a style
+guide for how to use it — this arrived as a real file this time (a direct
+"[Image: source: ...]" attachment, not a chat-pasted image), so it saved
+correctly and is now `assets/erp-restaurantware-hero.jpg`.
+
+- **Homepage tile**: ERP's `.tile-cover` switched from the CSS pattern
+  (`--green`) to a new `.tile-cover--photo-restaurantware` variant in
+  `home.css` — the real photo as `background-image`, with a bottom-heavy
+  dark gradient overlay so the title/tag text (which `.tile-cover` always
+  puts at the bottom via `flex; justify-content:flex-end`) stays legible.
+  The photo fits because ERP's actual client, **Restaurantware**, sells
+  restaurant/hospitality tableware — the dining photo is directly on-topic,
+  not a generic stock mood shot.
+- **Case study page**: added a `.client-card` component (new CSS in
+  `styles.css` — a bordered card with a `.client-mark` wordmark chip +
+  one paragraph) at the top of the "The Challenge" section in
+  `case-study-erp.html`, introducing Restaurantware as a company (hospitality
+  supplies, thousands of SKUs, growing catalog) before diving into the ERP
+  2.0 pain points — company context now comes before the product problem.
+- **Logo**: `.client-mark` is currently a plain text wordmark chip
+  ("Restaurantware" in a pill), **not their real logo** — no actual logo
+  file was provided or is in the repo, and their real mark shouldn't be
+  guessed/recreated. If the user sends the actual logo file (as a direct
+  attachment, which now works — see the illustration flow above for what
+  a working attachment looks like vs. a chat-pasted one that doesn't save),
+  swap it in as an `<img>` inside `.client-mark` in place of the text.
