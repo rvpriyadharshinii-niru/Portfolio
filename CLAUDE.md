@@ -310,3 +310,38 @@ from their site (that copy also mentions a 98.6% in-stock rate and
 same-day shipping before 3pm CST, which weren't relevant to the
 ERP-scaling narrative here, so were left out) — paraphrased and scoped to
 what's relevant to why their systems needed to scale.
+
+## ERP split into a hub + three sub-case-studies (2026-09-19)
+
+Per the user's explicit restructure request: `case-study-erp.html` is now a
+**hub page**, not the full story. It covers only Hero, The Challenge (incl.
+the Restaurantware client-card), My Role + Discovery, and Design Strategy
+— then a new **"Explore further"** section with three `.subcase-card`
+links (new `.subcase-grid`/`.subcase-card` CSS in `styles.css`) to three
+placeholder pages, then Impact, Constraints & Reflection, and the Closing
+stay as the hub's own wrap-up.
+
+The three new stub pages (all "Coming soon", linking back to
+`case-study-erp.html`, following the hero/section-intro pattern of every
+other case study):
+- **`case-study-erp-returns.html`** — Returns / Product Lifecycle
+- **`case-study-erp-components.html`** — ERP System & Reusable Components
+  (Quick Edit, column components, grid patterns, design-system components)
+- **`case-study-erp-modules.html`** — ERP Modules & Experiences (Dashboard,
+  scheduled jobs, home page, other core ERP experiences)
+
+**Nothing was deleted.** The five sections removed from the main page —
+Quick Edit, Object-Oriented Components, Returns Management, Dashboard +
+Task Center, and the closing "Design System" editorial chapter — were
+moved into the matching stub page above, wrapped in an HTML comment
+(`<!-- RESERVED CONTENT ... -->`) rather than rendered, so all the original
+copy/image references are preserved as raw material. The user plans to
+share a fresh batch of screens and re-sort content into these three pages
+properly later ("will share all screens then you can sort it under each
+sub case study then we can decide on the story") — **when that happens,
+pull from the matching reserved-content comment block first** rather than
+starting from scratch, then delete the comment once real content replaces
+it.
+
+The homepage tile still points at `case-study-erp.html` (the hub) —
+correct, no change needed there.

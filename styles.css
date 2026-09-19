@@ -130,6 +130,45 @@ body.theme-green .shot img { height: auto; }
   .client-card { flex-direction: column; align-items: flex-start; gap: 14px; }
 }
 
+/* Sub-case-study cards — links out to deeper, module-specific case
+   studies from a project's main hub page. Used while those pages are
+   still placeholders, and stays useful once they're built out. */
+.subcase-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+@media (max-width: 900px) { .subcase-grid { grid-template-columns: 1fr; } }
+.subcase-card {
+  display: block;
+  text-decoration: none;
+  border: 1px solid var(--line-light);
+  border-radius: 18px;
+  padding: 26px 24px;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+.subcase-card:hover { border-color: var(--accent-light); transform: translateY(-3px); }
+.subcase-card-tag {
+  display: inline-block;
+  font-size: 11px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--accent-light);
+  border: 1px solid var(--accent-light);
+  border-radius: 100px;
+  padding: 4px 12px;
+  margin-bottom: 16px;
+}
+.subcase-card-title { font-size: 17px; font-weight: 800; margin-bottom: 10px; color: var(--ink); }
+.subcase-card-desc { font-size: 13.5px; line-height: 1.6; color: var(--ink-mute); margin-bottom: 18px; }
+.subcase-card-arrow {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink);
+  border-bottom: 1px solid var(--ink);
+  padding-bottom: 1px;
+}
+.subcase-card:hover .subcase-card-arrow { color: var(--accent-light); border-color: var(--accent-light); }
+
 /* Pain-point cards — a deliberate warm-red accent for "problem" content,
    contrasting with ERP's green "solution" accent elsewhere. */
 .pain-grid {
