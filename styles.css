@@ -670,8 +670,9 @@ a { color: inherit; }
   gap: 14px;
 }
 .annotation-row--five { grid-template-columns: repeat(5, 1fr); }
-@media (max-width: 860px) { .annotation-row, .annotation-row--five { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 480px) { .annotation-row, .annotation-row--five { grid-template-columns: 1fr; } }
+.annotation-row--six { grid-template-columns: repeat(6, 1fr); }
+@media (max-width: 860px) { .annotation-row, .annotation-row--five, .annotation-row--six { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px) { .annotation-row, .annotation-row--five, .annotation-row--six { grid-template-columns: 1fr; } }
 
 .annotation-card {
   border-left: 2px solid var(--cyan);
@@ -1801,6 +1802,11 @@ a { color: inherit; }
   gap: 24px;
 }
 @media (max-width: 760px) { .persona-grid { grid-template-columns: 1fr; } }
+
+/* Three-column variant — e.g. Product Ideation / Existing Products /
+   Product Specification. */
+.persona-grid--three { grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 980px) { .persona-grid--three { grid-template-columns: 1fr; } }
 .persona-card {
   background: rgba(255,255,255,0.04);
   border: 1px solid var(--line-dark);
