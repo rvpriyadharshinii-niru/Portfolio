@@ -144,10 +144,45 @@ body.theme-green .shot img { height: auto; }
   text-decoration: none;
   border: 1px solid var(--line-light);
   border-radius: 18px;
-  padding: 26px 24px;
-  transition: border-color 0.2s ease, transform 0.2s ease;
+  padding: 18px 20px 24px;
+  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
-.subcase-card:hover { border-color: var(--accent-light); transform: translateY(-3px); }
+.subcase-card:hover { border-color: var(--accent-light); transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
+.subcase-card-cover {
+  position: relative;
+  aspect-ratio: 4/3;
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: flex-end;
+  padding: 18px;
+  background:
+    radial-gradient(circle at 20% 15%, rgba(var(--cyan-rgb), 0.35), transparent 55%),
+    repeating-linear-gradient(45deg, rgba(255,255,255,0.035) 0 2px, transparent 2px 22px),
+    linear-gradient(160deg, var(--teal-900), var(--teal-850));
+}
+.subcase-card:nth-child(2) .subcase-card-cover {
+  background:
+    radial-gradient(circle at 80% 20%, rgba(var(--cyan-rgb), 0.32), transparent 55%),
+    repeating-linear-gradient(-45deg, rgba(255,255,255,0.035) 0 2px, transparent 2px 22px),
+    linear-gradient(160deg, var(--teal-850), var(--teal-800));
+}
+.subcase-card:nth-child(3) .subcase-card-cover {
+  background:
+    radial-gradient(circle at 50% 85%, rgba(var(--cyan-rgb), 0.32), transparent 55%),
+    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(160deg, var(--teal-900), var(--teal-800));
+  background-size: auto, 28px 28px, 28px 28px, auto;
+}
+.subcase-card-num {
+  font-size: clamp(34px, 4vw, 48px);
+  font-weight: 800;
+  color: rgba(255,255,255,0.92);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+}
 .subcase-card-tag {
   display: inline-block;
   font-size: 11px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase;
