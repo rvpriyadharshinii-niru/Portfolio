@@ -417,3 +417,26 @@ pipeline diagram and the un-reserved Returns section render correctly.
 `case-study-erp-components.html` and `case-study-erp-modules.html` are
 still stubs — the PDF only covered the Products nav item, not Quick
 Edit/columns or Dashboard/scheduled jobs, so nothing to add there yet.
+
+## ERP Modules page — Dashboard & Task Center un-reserved (2026-09-22)
+
+User said "lets continue erp thing" with no new material attached; asked
+which of the two remaining stub pages to continue and they picked **ERP
+Modules & Experiences**. No new screens came with it, but
+`case-study-erp-modules.html`'s `RESERVED CONTENT` block already held a
+real, complete section — Sales Summary Dashboard & Task Center — with
+working screenshots (`erp-dashboard-builder.png`, `erp-dashboard-kpi.png`,
+`erp-task-center.png`, all already in `assets/`) from before the ERP
+hub/sub-case-study split. Same move as the Returns page: uncommented it,
+removed the "Coming soon" banner, and added one small `.iter-note` at the
+end ("Scheduled jobs, the home page and other core module experiences are
+still being written up — more to come.") since this page's title promises
+more than Dashboard + Task Center alone covers. Verified render via local
+server + Playwright (forcing `.reveal` to `.is-visible`) — screenshots and
+the note display correctly.
+
+`case-study-erp-components.html` is still a bare stub — its reserved
+content (Quick Edit, Object-Oriented Components, the closing Design
+System editorial chapter) is real too and could be un-reserved the same
+way if asked next, but wasn't touched this round since the user only
+picked Modules.
