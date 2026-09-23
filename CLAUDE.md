@@ -558,3 +558,126 @@ end... add spam/bot protection."
   to the correct `mailto:` href after script.js runs, both new pages
   render with no console/asset errors, and the footer/footnote
   placements look correct on both the homepage and resume.html.
+
+## 20-item launch checklist audit (2026-09-23)
+
+User pasted a 20-item pre-launch checklist and asked to "check this
+again" — audit each item against the actual codebase and do whichever
+were applicable. Went through all 20 systematically rather than
+assuming; several were already done from earlier sessions, a few are
+genuinely not applicable to a static site with no forms/backend, and a
+few need the user's own input (can't be decided from inside the repo).
+
+**Already done (earlier sessions), reconfirmed:**
+1. Privacy policy — `privacy-policy.html`.
+2. Terms & conditions — `terms.html`.
+3. Secrets off the frontend — re-grepped the whole repo again, still
+   nothing (no backend, nothing to leak).
+18. Spam/bot protection — email obfuscation via `script.js`, still in place.
+
+**Audited and found already fine, no changes needed:**
+6. Meta titles/descriptions — every one of the 12 pages already had a
+   unique `<title>` and `<meta name="description">`.
+10. Image alt text — checked all 54 `<img>` tags across every page;
+    every one already has real, descriptive alt text (a side effect of
+    how carefully these case studies were written screenshot-by-
+    screenshot over the project). Nothing missing.
+16. Broken links — extracted every internal `href`/`src` across all
+    pages (60 unique targets) and confirmed each resolves to a real
+    file. None broken.
+14. Mobile friendly — already has responsive breakpoints throughout
+    (980/860/760/640/480px). Spot-checked `index.html` and
+    `case-study-erp-returns.html` at a 375px mobile viewport via
+    Playwright — no horizontal overflow on either.
+17. Form validation — N/A, there are no forms anywhere on this site
+    (confirmed by grep) — the only "contact" is a mailto: link, which
+    is the visitor's own email client, not a submission to this site.
+5. Cookie consent banner — N/A, explicitly. The privacy policy
+   (written from an actual audit, not boilerplate) states this site
+   sets zero cookies. Adding a consent banner for cookies that don't
+   exist would be dishonest UI clutter. **This becomes relevant again
+   only if item 19 (analytics) is ever turned on** with a
+   cookie-based tool — revisit then, not before.
+
+**Built this round:**
+7. Social preview image — generated `assets/og-image.jpg` (1200x630,
+   Playwright-rendered from an HTML/CSS card using the site's own
+   colors/monogram, since Google Fonts don't load in this sandboxed
+   environment — used local system fonts as a stand-in for the render).
+8. Favicon — `assets/favicon.svg` (a "PV" monogram matching the
+   existing `.brand-mark`/`.split-mark` circular-monogram style
+   exactly) plus `.ico` and `apple-touch-icon.png` fallbacks, rendered
+   via Playwright since no local SVG rasterizer (rsvg-convert/inkscape/
+   cairosvg) was available.
+   Both #7 and #8, plus the new OG/Twitter meta block, were added to
+   all 12 pages via a script that pulls each page's own existing
+   title/description rather than writing new copy per page — so they
+   can never drift out of sync with each other.
+9. `sitemap.xml` (all 12 pages) and `robots.txt` (allow all, points at
+   the sitemap) — both use a `https://example.com` placeholder domain
+   with an inline TODO comment, since **this site has no real deployed
+   domain yet** and social/sitemap URLs must be absolute. Same
+   placeholder used for `og:url`/`og:image`. Needs a find-and-replace
+   for `example.com` once there's a real domain.
+11. Image compression — see the "Compress images and generate
+    favicon/social-preview assets" commit. Lossless recompression pass
+    across all 74 assets, plus one verified-safe resize
+    (`sb-list-view.png`, oversampled ~4x beyond its 680px display cap).
+    **Learned the hard way first**: an initial attempt resized every
+    image over 2000px on its long edge with LANCZOS resampling, and
+    several actually *grew* in file size and looked slightly blurred —
+    antialiasing on flat-color UI screenshots increases the unique
+    color count, which hurts PNG compression more than fewer pixels
+    helps. Reverted that whole pass from a backup and redid it as
+    lossless-only (safe, ~1MB saved) plus one hand-verified resize
+    (before/after crop comparison) rather than a blanket resize.
+    Net savings are modest (~1MB / 5%) because most screenshots were
+    already close to the right size for their actual `.shot--full`/
+    `.shot--wide` display width at 2x — there wasn't much fat to cut
+    without visibly softening screenshot text, which matters for a
+    design portfolio's credibility.
+13. Color contrast — found and fixed 4 real WCAG AA failures (see the
+    "Fix WCAG AA color-contrast failures" commit): `--ink-mute` and
+    `--accent`/`--accent-light` in both stylesheets (default and
+    theme-green variants) were all just under 4.5:1 against their own
+    backgrounds. Fixed at the CSS-variable level (hue-preserving
+    darkening, ~4.6:1 result) so it cascades everywhere those tokens
+    are used, rather than hunting down individual elements.
+    theme-purple's accent-light was already fine (5.07:1) and wasn't
+    touched.
+15. Custom 404 page — `404.html`, matching the site's existing
+    header/footer shell. **Whether it actually gets served on a real
+    404 depends on the hosting platform** — GitHub Pages and Netlify
+    pick up a root `404.html` automatically; Vercel/S3/others need
+    explicit routing config. Can't guarantee this from the repo alone.
+
+**Needs the user's own input — not something to decide unilaterally
+from inside the repo:**
+4. Force HTTPS — this is a hosting/DNS setting, not something in this
+   static site's own files. Every mainstream static host (GitHub
+   Pages, Netlify, Vercel, Cloudflare Pages) auto-forces HTTPS on their
+   own subdomain; a custom domain usually needs one toggle
+   ("Enforce HTTPS" / "Always use HTTPS") in that host's dashboard.
+   Ask the user where this is actually hosted before doing anything
+   more specific than that.
+19. Analytics — deliberately not added without asking. Turning this on
+    changes the privacy posture this session just wrote into
+    `privacy-policy.html` ("no analytics... no cookies"), so it needs:
+    (a) the user's actual consent to add a third-party tracking script,
+    (b) their choice of tool (a cookie-based one like GA4 would also
+    reactivate item 5's cookie-consent-banner question), and (c) an
+    update to the privacy policy to match whatever gets added. Not a
+    call to make on their behalf.
+12. Page load speed — gave an honest assessment rather than a fabricated
+    Lighthouse number: this is a static site with zero JS frameworks,
+    one small `script.js`, two Google Fonts `@import`s, and now
+    modestly-compressed images — there's no obvious remaining
+    bottleneck to fix from inside the repo. Real confirmation needs an
+    actual Lighthouse/PageSpeed Insights run against the live deployed
+    URL, which doesn't exist yet (see item 4).
+20. Clear CTA — assessed rather than changed. "Email" already appears
+    as the one consistent, repeated call to action (the fixed
+    `.email-pill`, the sidebar's dark Email pill, resume's "SEND A
+    NOTE") — this already reads as one clear primary action rather
+    than several competing ones. Didn't invent a change here without a
+    specific complaint about it.
