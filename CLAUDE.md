@@ -681,3 +681,77 @@ from inside the repo:**
     NOTE") — this already reads as one clear primary action rather
     than several competing ones. Didn't invent a change here without a
     specific complaint about it.
+
+## "About" is now a real bio page, not the resume (2026-09-23)
+
+User: *"under about - lets not give resume - instead of give a soft
+intro about me in non ai manner which explains everything"* — then a
+design brief for a specific look: white background, black serif,
+magazine layout, a large headline ("Streams of Influence"), dense
+multi-column body text, doodles/shapes made interactive with the body
+text, and an instruction to "Install chenglou.me/pretext/editorial-
+engine/ from GitHub and use it to measure and layout all body text."
+
+**Didn't install the referenced tool.** `chenglou.me` is blocked by
+this environment's egress proxy, so it couldn't even be fetched to
+verify what it is — and the URL given is a personal domain, not an
+actual GitHub repo, despite being described as "from GitHub." This site
+has zero build tooling or dependencies (no package.json, no npm, ever)
+across every page built so far, and the actual visual goal — dense,
+measured multi-column body text — is exactly what CSS `column-count`
+already does natively in every modern browser. Used that instead of an
+unverified third-party script from an unreachable domain. If the user
+can confirm what this tool actually is/does later (a real GitHub URL),
+it can be reconsidered, but nothing about the ask required it.
+
+**New `about.html`** ("Streams of Influence") — a one-off editorial
+page, deliberately distinct from the rest of the site's visual system:
+white background throughout (no dark sections), a minimal serif
+top nav (`.ed-header`, "PV" monogram + Work/Résumé/Behance in small
+caps serif — intentionally not the shared `.home-header`/`.home-nav`
+sans-serif treatment, since this page is meant to read like a print
+magazine spread, not another portfolio page) under a large italic
+Playfair Display headline, then a dense 4-column Georgia body
+(`.ed-body`, `column-count:4` collapsing to 3/2/1 at 1100/780/520px)
+with a drop cap on the opening paragraph and small numbered
+"chapter" labels between sections. Three hand-drawn SVG doodles
+(circle, squiggle, arrow) sit in the margins and drift slightly with
+scroll (`transform: translateY/rotate` tied to `window.scrollY`, a
+small vanilla-JS snippet inline on the page, no library) — the
+"interactive with the body text" ask, done as a subtle scroll-parallax
+rather than a gimmick. The circle doodle is hidden below 600px since
+single-column mobile has no margin for it to live in without
+overlapping the text.
+
+**Content is real, not lorem ipsum** — the "fill the page with lorem
+ipsum" instruction directly contradicted "explains everything about
+me," so real content won. Four short first-person chapters, built only
+from facts already verified elsewhere in this repo: the Bachelor of
+Architecture at Thiagarajar College (`resume.html`), the ERP rebuild at
+Hikeon Technologies, the AI Agents work at Uniphore, using Claude Code
+as part of the design process, and the personal illustration practice
+(the existing self-portrait at `assets/illustration-priyadharshini.png`
+in the homepage sidebar is the only evidence for this, so the copy
+stays general — "I draw, loosely" — rather than inventing specifics
+about it). Written warm and narrative rather than resume-bullet style,
+per the "non-AI manner" ask — no invented anecdotes, names, or personal
+details beyond what's already documented in the repo.
+
+**Nav rewiring**: every "About" link across the site now points to
+`about.html` instead of `resume.html`/`index.html` — the homepage's
+`.split-pill` "About", and the `.home-nav` "ABOUT" link in
+`resume.html`, `privacy-policy.html`, `terms.html`, and `404.html`.
+`resume.html` itself is untouched in purpose (still linked as
+"Résumé" everywhere) — it just stopped being what "About" means.
+Added `about.html` to `sitemap.xml`.
+
+**Also renamed** resume.html's download button from "Download PDF" to
+"Download Resume," per explicit request (same file, same link, only
+the visible label changed).
+
+Verified via local server + Playwright: page renders with zero
+console/asset errors, all nav links resolve to the right targets
+(including the new About destination from every page that links to
+it), the email-obfuscation script still resolves correctly on this new
+page's `.js-email` links, and mobile (375px) has no horizontal overflow
+or doodle/text overlap.
