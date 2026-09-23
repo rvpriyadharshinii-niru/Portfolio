@@ -29,7 +29,7 @@
     <p class="hero-sub">Designing Summary Builder and Question Manager to help teams control what AI captures from customer conversations — without requiring them to build the AI themselves.</p>
 
     <div class="reveal mt-lg">
-      <div class="shot shot--full">
+      <div class="shot shot--full" style="max-width:680px;margin:0 auto;">
         <img src="assets/sb-list-view.png" alt="Summary Builder list view showing a published Summary Template">
       </div>
     </div>
@@ -44,8 +44,7 @@
     <div class="section-intro">
       <p class="section-kicker">The real problem</p>
       <h2 class="section-heading">A customer conversation doesn't end when the call ends.</h2>
-      <p class="section-copy">After a customer-service conversation, agents often need to document what happened — why the customer called, what was discussed, what actions were taken and what needs to happen next.</p>
-      <p class="section-copy">GenAI could generate this summary automatically. But there was another problem: different businesses need very different summaries.</p>
+      <p class="section-copy">After a customer-service conversation, agents often need to document what happened. GenAI could generate that summary automatically &mdash; but different businesses need very different summaries.</p>
     </div>
 
     <div class="flow-vertical flow-vertical--pill reveal">
@@ -68,7 +67,7 @@
       <span>Follow-up</span>
       <span>Important customer information</span>
     </div>
-    <p class="placeholder-purpose center mt-md" style="margin-left:auto;margin-right:auto;">Conceptual examples of the kind of information a summary may need — not fixed product fields unless shown in the product screenshots below.</p>
+    <p class="placeholder-purpose center mt-md" style="margin-left:auto;margin-right:auto;">Conceptual examples of the kind of information a summary may need &mdash; not fixed product fields.</p>
   </div>
 </section>
 
@@ -80,8 +79,7 @@
     <div class="section-intro">
       <p class="section-kicker">Why configuration was needed</p>
       <h2 class="section-heading">The AI could generate a summary. The business still needed to define what &ldquo;good&rdquo; looked like.</h2>
-      <p class="section-copy">An insurance company may care about claim details. A telecom company may care about the customer's issue and troubleshooting steps. Another organization may need completely different information.</p>
-      <p class="section-copy">So the product couldn't simply provide one AI-generated summary format. Enterprise teams needed control over what the AI should capture and how the output should be structured.</p>
+      <p class="section-copy">An insurance company cares about claim details; a telecom company cares about troubleshooting steps. One fixed AI-generated format couldn't fit both &mdash; enterprise teams needed control over what the AI captures and how the output is structured.</p>
     </div>
 
     <div class="flow-vertical flow-vertical--pill reveal">
@@ -106,13 +104,7 @@
     <div class="section-intro">
       <p class="section-kicker">Summary Builder</p>
       <h2 class="section-heading">Giving teams a way to configure the summary</h2>
-      <p class="section-copy">Summary Builder gives administrators and business users a structured way to define how an AI-generated conversation summary should work. Instead of changing the underlying AI system, users configure the behaviour through the product.</p>
-    </div>
-
-    <div class="reveal">
-      <div class="shot shot--full">
-        <img src="assets/sb-build-summary.png" alt="Summary Builder configuration screen with summary name, description, LLM model, list of questions, summary style and structure, language, entities, and a live Summary Preview panel">
-      </div>
+      <p class="section-copy">Summary Builder gives administrators and business users a structured way to define how an AI-generated conversation summary should work &mdash; configuring behaviour through the product, not the underlying AI system.</p>
     </div>
 
     <div class="ia-grid ia-grid--four reveal mt-lg">
@@ -152,12 +144,10 @@
     </div>
     <p class="placeholder-purpose center mt-md" style="margin-left:auto;margin-right:auto;">The Summary Builder designs contain configuration for models, questions, language, prompts, entities, summary structure and draft/test/publish actions.</p>
 
-    <div class="reveal mt-lg">
-      <div class="shot shot--wide" style="max-width:760px;margin:0 auto;">
-        <img src="assets/sb-list-status.png" alt="Summary Builder list showing templates in Published, Failed and Draft states">
-      </div>
-      <div class="iter-note" style="text-align:center;border:none;">Every summary template moves through a visible lifecycle &mdash; draft, published, or failed &mdash; so teams always know what's live.</div>
+    <div class="tag-row reveal mt-lg" style="justify-content:center;">
+      <span>Draft</span><span>Published</span><span>Failed</span>
     </div>
+    <div class="iter-note" style="text-align:center;border:none;">Every summary template moves through a visible lifecycle, so teams always know what's live.</div>
   </div>
 </section>
 
@@ -169,7 +159,7 @@
     <div class="section-intro">
       <p class="section-kicker">Simple first, control when needed</p>
       <h2 class="section-heading">Not every user needs to configure the AI at the same depth.</h2>
-      <p class="section-copy">Most users should be able to configure a summary through structured product controls. But advanced users may need more direct control over how the model is instructed. This led to an Advanced Mode.</p>
+      <p class="section-copy">Most users configure a summary through structured product controls. Advanced users needing more direct control over how the model is instructed get an Advanced Mode instead.</p>
     </div>
 
     <div class="comparison reveal">
@@ -192,12 +182,6 @@
     </div>
     <p class="placeholder-purpose center mt-md" style="margin-left:auto;margin-right:auto;">Need more control? &rarr; Advanced Mode</p>
 
-    <div class="reveal mt-lg">
-      <div class="shot shot--full">
-        <img src="assets/sb-advanced-mode.png" alt="Advanced Mode panel opening over the Summary Builder form, with prompt configuration fields for system prompt, user prompt, guidelines and one-shot example">
-      </div>
-    </div>
-
     <p class="big-statement mt-lg reveal" style="font-size:clamp(18px,2.4vw,26px);">Power when needed, <span class="accent">without making every user a prompt engineer.</span></p>
   </div>
 </section>
@@ -210,13 +194,10 @@
     <div class="section-intro">
       <p class="section-kicker">The prompt experience</p>
       <h2 class="section-heading">Making AI configuration feel like product configuration</h2>
-      <p class="section-copy">Advanced Mode exposes more of the instructions given to the model. Instead of expecting users to manually construct everything from scratch, the interface provides separate areas for different kinds of instructions and allows supported variables or information to be inserted into the prompt.</p>
+      <p class="section-copy">Advanced Mode exposes more of the instructions given to the model &mdash; separate areas for different kinds of instructions, with supported variables or information insertable into the prompt.</p>
     </div>
 
     <div class="reveal">
-      <div class="shot shot--tall" style="max-width:520px;margin:0 auto;">
-        <img src="assets/sb-advanced-mode-detail.png" alt="Advanced Mode prompt configuration fields: system prompt, user prompt, guidelines and one-shot example">
-      </div>
       <div class="annotation-row mt-md">
         <div class="annotation-card">
           <div class="a-tag">SYSTEM PROMPT</div>
@@ -270,13 +251,7 @@
     <div class="section-intro">
       <p class="section-kicker">Question Manager</p>
       <h2 class="section-heading">Turning summary requirements into reusable questions</h2>
-      <p class="section-copy">Question Manager gives teams a central place to create and manage the questions used by Summary Builder. Instead of repeatedly defining the same information inside every summary template, questions can be managed as reusable building blocks.</p>
-    </div>
-
-    <div class="reveal">
-      <div class="shot shot--full">
-        <img src="assets/qm-question-bank.png" alt="Question Manager showing 2,000 questions with question label, question text, prompt, sample one-shot answer and a Standard or Custom category tag">
-      </div>
+      <p class="section-copy">Question Manager gives teams a central place to create and manage the questions used by Summary Builder &mdash; reusable building blocks instead of redefining the same information in every template.</p>
     </div>
 
     <div class="tag-row reveal mt-md">
@@ -289,18 +264,14 @@
       <span>Standard &amp; custom questions</span>
     </div>
 
-    <div class="placeholder-group placeholder-group--duo mt-lg reveal">
-      <div>
-        <div class="shot shot--wide">
-          <img src="assets/qm-question-detail.png" alt="Question detail panel for a Custom question, showing label, question text, prompt and a sample one-shot answer">
-        </div>
-        <div class="iter-note" style="color:rgba(255,255,255,0.6);border-color:var(--line-dark);">Every question &mdash; standard or custom &mdash; is defined once, with its own label, text, prompt and sample answer.</div>
+    <div class="annotation-row mt-lg reveal" style="grid-template-columns:repeat(2,1fr);">
+      <div class="annotation-card">
+        <div class="a-tag">QUESTION DETAIL</div>
+        <div class="a-desc">Every question &mdash; standard or custom &mdash; is defined once, with its own label, text, prompt and sample answer.</div>
       </div>
-      <div>
-        <div class="shot shot--wide">
-          <img src="assets/qm-templates-used.png" alt="Question detail panel showing which Summary Templates currently use this question">
-        </div>
-        <div class="iter-note" style="color:rgba(255,255,255,0.6);border-color:var(--line-dark);">A question also shows every template that reuses it &mdash; the reusability the section opened with.</div>
+      <div class="annotation-card">
+        <div class="a-tag">TEMPLATES USING IT</div>
+        <div class="a-desc">A question also shows every template that reuses it &mdash; the reusability the section opened with.</div>
       </div>
     </div>
   </div>
@@ -354,8 +325,7 @@
     <div class="section-intro">
       <p class="section-kicker">Testing</p>
       <h2 class="section-heading">Configuration wasn't enough. Users needed confidence that it worked.</h2>
-      <p class="section-copy">Because the output is generated by AI, simply saving a question or template doesn't guarantee that it will behave as expected. Users need a way to test the configuration using realistic conversation data before publishing it.</p>
-      <p class="section-copy">With AI, the same kind of configuration doesn't always behave like a fixed rule. Testing gives users a way to check the result before putting it into use.</p>
+      <p class="section-copy">Because the output is AI-generated, saving a question or template doesn't guarantee it behaves as expected &mdash; users need to test the configuration against realistic conversation data before publishing it.</p>
     </div>
 
     <div class="flow-vertical flow-vertical--pill reveal">
@@ -456,8 +426,7 @@
     <div class="section-intro">
       <p class="section-kicker">Impact</p>
       <h2 class="section-heading">From manual documentation to configurable AI assistance</h2>
-      <p class="section-copy">The broader product capability was designed to reduce the manual effort involved in documenting customer conversations by generating summaries automatically. The configuration experience allowed enterprise teams to adapt those summaries to their own requirements instead of relying on one fixed output.</p>
-      <p class="section-copy">Question Manager further allowed the information being captured to become reusable, testable and business-specific.</p>
+      <p class="section-copy">Auto-generated summaries reduced the manual effort of documenting conversations; the configuration experience let enterprise teams adapt them to their own requirements instead of one fixed output. Question Manager made the captured information reusable, testable and business-specific.</p>
     </div>
 
     <div class="metric-strip reveal" style="max-width:640px;margin:0 auto;">
