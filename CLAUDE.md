@@ -440,3 +440,65 @@ content (Quick Edit, Object-Oriented Components, the closing Design
 System editorial chapter) is real too and could be un-reserved the same
 way if asked next, but wasn't touched this round since the user only
 picked Modules.
+
+## Design-partner heading renamed; screenshot reduction pass (2026-09-23)
+
+Two separate but related requests, both about how much real product
+detail the site exposes:
+
+**1. "Claude Code Is My Design Partner" → "AI-Native Design Process".**
+The user asked for a professional, generic title instead of the
+personified tagline. Renamed everywhere it appeared: the homepage tile
+(`.tile-cover-name` + alt text) in `index.html`, and the `<title>`/`<h1>`
+in `case-study-ai-native-process.html`. The `proj-tag` header and tile
+tag line already said "AI-Native Design Process" / "Design Process" —
+this just made the main heading match instead of standing out as the
+odd one out. The hero-sub paragraph explaining the Claude Code workflow
+was left as-is; it already read professionally.
+
+**2. Screenshot reduction, explicitly split by sensitivity.** The user's
+framing: *"imagine if you are signed [an] NDA to not share things... for
+admin project reduce the size, it's fine to show the data, but for ai
+agents and summary builder let's not [show the data]."* Two different
+treatments followed from that:
+
+- **Admin (`case-study-admin.html`)** — screenshots stayed, just
+  smaller. All 8 `.shot--full` (full-bleed) screenshot wrappers got
+  `style="max-width:760px;margin:0 auto;"` added via a sitewide sed
+  (every `.shot--full` in this file was a real screenshot worth
+  shrinking — none needed to be excluded). Sibling elements like
+  `.insight-strip`/`.annotation-row` sit outside that wrapper and stayed
+  full width, so the text cards next to each shrunk screenshot are
+  unaffected.
+- **AI Agents (`case-study-ai-agents.html`) and Summary Builder
+  (`case-study-summary-builder.html`)** — actual removal, not just
+  resizing. Both pages already leaned heavily on this design system's
+  diagram components (`flow-vertical`, `annotation-row`, `comparison`,
+  `ia-grid`, `branch-diagram`), so most real screenshots were flat-out
+  redundant with a diagram or tag-row already sitting next to them.
+  Kept exactly **one** screenshot per page (AI Agents: the Agent Studio
+  overview in the Agent Workspace showcase, shrunk to 680px; Summary
+  Builder: the hero list-view shot, shrunk to 680px) and removed every
+  other real product screen — roughly 9 removed from AI Agents, 7 from
+  Summary Builder — replacing each with the annotation-row/tag-row/
+  comparison content that was already describing the same screen in
+  words. Where a caption or note existed only to describe a now-removed
+  image (an orphaned `iter-note`, a "see screenshots below" reference),
+  it was rewritten to stand alone or folded into nearby text rather than
+  left dangling. Competitor-benchmark alt text that named specific
+  competitor products was also made generic while doing this pass.
+  **If the user sends new screenshots for these two case studies going
+  forward, default to this same posture** (diagram/text first, a real
+  screen only as a last resort, at most one per page) unless told
+  otherwise.
+
+Both files also got the same repeated-paragraph trim already applied to
+the ERP Returns page: every multi-sentence section-intro paragraph
+across both case studies was cut to one tight sentence, removing
+repeated "X changed, this meant Y" framing that recurred section to
+section.
+
+Verified all three edited case studies (Admin, AI Agents, Summary
+Builder) via local server + Playwright, forcing `.reveal` to
+`.is-visible` and checking for failed asset requests — none, aside from
+the expected Google Fonts network block in this sandboxed environment.
