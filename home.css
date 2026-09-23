@@ -3,10 +3,10 @@
 :root {
   --ink: #111214;
   --ink-soft: #4a4d52;
-  --ink-mute: #8a8d92;
+  --ink-mute: #72757b;
   --line: #e6e6e6;
   --paper: #ffffff;
-  --accent: #0a8c7d;
+  --accent: #098476;
   --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --serif: 'Playfair Display', Georgia, serif;
   --maxw: 1280px;
