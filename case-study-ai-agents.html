@@ -62,8 +62,7 @@
     <div class="section-intro">
       <p class="section-kicker">Platform background</p>
       <h2 class="section-heading">The work started with a platform problem</h2>
-      <p class="section-copy">Uniphore's contact-center capabilities had grown across multiple products and product environments. Self-service, agent assistance, conversation capture and analytics were all part of the same customer ecosystem, but had evolved through different product experiences.</p>
-      <p class="section-copy">The broader goal was to bring these capabilities onto a common platform foundation.</p>
+      <p class="section-copy">Uniphore's contact-center capabilities &mdash; self-service, agent assist, conversation capture and analytics &mdash; had grown through different products. The goal: bring them onto one common platform foundation.</p>
     </div>
 
     <div class="arch-diagram reveal">
@@ -108,8 +107,7 @@
       <p class="big-statement">The products were connected by purpose,<br><span class="accent">not by experience.</span></p>
     </div>
     <div class="max-prose center mt-lg">
-      <p class="section-copy" style="margin-left:auto;margin-right:auto;">As the ecosystem grew, users had to work across products that had evolved independently. Navigation, terminology, configuration patterns and administrative workflows were not always consistent.</p>
-      <p class="section-copy" style="margin-left:auto;margin-right:auto;">A task that felt related from a customer's perspective could require understanding a different structure, interaction model or configuration approach depending on where it lived.</p>
+      <p class="section-copy" style="margin-left:auto;margin-right:auto;">As the ecosystem grew, users had to work across products that evolved independently &mdash; the same task could mean a different structure, terminology or configuration approach depending on where it lived.</p>
     </div>
   </div>
 
@@ -151,9 +149,7 @@
     <div class="section-intro">
       <p class="section-kicker">Discovery &amp; audit</p>
       <h2 class="section-heading">Before designing the new experience, I needed to understand what already existed.</h2>
-      <p class="section-copy">A platform migration couldn't begin with new screens.</p>
-      <p class="section-copy">I mapped capabilities from the existing products against the new platform to understand what already existed, what needed to move, what required review, where gaps existed, and what should be redesigned.</p>
-      <p class="section-copy">The mapping became a working reference between the existing experience and the evolving platform.</p>
+      <p class="section-copy">A platform migration couldn't begin with new screens. I mapped existing capabilities against the new platform &mdash; what stayed, what moved, what needed review, what became a gap &mdash; as a working reference for the whole migration.</p>
     </div>
 
     <div class="reveal">
@@ -189,22 +185,16 @@
     <div class="section-intro">
       <p class="section-kicker">Competitive research</p>
       <h2 class="section-heading">Looking beyond our own products</h2>
-      <p class="section-copy">The internal audit told me what the platform needed to preserve.</p>
-      <p class="section-copy">I also contributed to competitive research across AI, ML and enterprise platforms to understand how other complex products handled configuration, workflows, administration, data and emerging AI experiences.</p>
-      <p class="section-copy">The goal wasn't to copy individual interfaces. It was to understand recurring patterns — and where complex platforms repeatedly became difficult to use.</p>
+      <p class="section-copy">The internal audit told me what to preserve. Competitive research across AI, ML and enterprise platforms told me how others handled configuration, workflows and administration &mdash; not to copy interfaces, but to find recurring patterns and failure points.</p>
     </div>
 
     <div class="reveal">
-      <div class="shot shot--full">
-        <img src="assets/competitor-research.jpeg" alt="Competitive research board covering Kore.ai, Cognigy, Voiceflow, Bland, Elevenlabs, Retell, OpenAI, Cresta, Lindy.ai, Synthflow, UiPath, n8n, Sierra, Decagon and Parloa">
+      <div class="shot shot--wide" style="max-width:640px;margin:0 auto;">
+        <img src="assets/competitor-research.jpeg" alt="Competitive research board covering conversational AI, workflow and enterprise AI platforms">
       </div>
       <div class="tag-row">
         <span>Navigation</span><span>Configuration</span><span>Workflow builders</span><span>Data &amp; analytics</span><span>Administration</span><span>AI creation patterns</span>
       </div>
-    </div>
-
-    <div class="shot shot--full mt-lg reveal">
-      <img src="assets/competitor-research-2.jpeg" alt="Second competitive research board covering Databricks, Snowflake, Microsoft Fabric, Google BigQuery, Mistral AI, Vertex AI, Azure, C3.AI, DataRobot, Hugging Face, 8 Flow.ai, Druid.ai, ServiceNow, Aisera and Camunda">
     </div>
   </div>
 </section>
@@ -259,22 +249,10 @@
     <div class="section-intro">
       <p class="section-kicker">Rule-based foundation</p>
       <h2 class="section-heading">AI Agent creation wasn't new.</h2>
-      <p class="section-copy">Before the newer generation of AI Agents, Self-Serve already supported conversational automation using a more explicit NLU and rule-based model.</p>
-      <p class="section-copy">Users defined what the system should recognize and how it should respond through intents, training phrases, entities, rules and flows.</p>
-      <p class="section-copy">As these capabilities moved into the newer platform, the experience changed — but many of the underlying concepts initially remained familiar.</p>
+      <p class="section-copy">Before the newer AI Agents, Self-Serve already supported conversational automation through a rule-based model &mdash; intents, training phrases, entities and flows. As it moved to the newer platform, the interface changed, but the underlying concepts stayed familiar at first.</p>
     </div>
 
     <div class="reveal">
-      <div class="placeholder-group placeholder-group--duo">
-        <div class="shot shot--wide">
-          <img src="assets/x-console.png" alt="Legacy X-Console Self-Serve screen showing Intents, Entities, State and Assisted Training">
-        </div>
-        <div class="shot shot--wide">
-          <img src="assets/self-serve-create-task.jpeg" alt="X-Platform Self-Serve Create Task screen showing task type toggle between LLM and Rule">
-        </div>
-      </div>
-      <div class="placeholder-purpose center mt-md" style="margin-left:auto;margin-right:auto;">Purpose: Show continuity of NLU capabilities across the platform migration.</div>
-
       <div class="annotation-row mt-md">
         <div class="annotation-card"><div class="a-desc" style="font-weight:700;color:var(--ink);">INTENTS &harr; INTENTS</div></div>
         <div class="annotation-card"><div class="a-desc" style="font-weight:700;color:var(--ink);">ENTITIES &harr; ENTITIES</div></div>
@@ -295,8 +273,7 @@
     <div class="section-intro">
       <p class="section-kicker">Mechanics</p>
       <h2 class="section-heading">How a rule-based Agent worked</h2>
-      <p class="section-copy">A rule-based Agent relied on explicit definitions.</p>
-      <p class="section-copy">The designer or builder taught the system what a user might say, what information to extract, and what should happen next.</p>
+      <p class="section-copy">A rule-based Agent relied on explicit definitions &mdash; the builder taught it what a user might say, what to extract, and what should happen next.</p>
     </div>
 
     <div class="flow-vertical reveal">
@@ -323,9 +300,7 @@
     <div class="section-intro">
       <p class="section-kicker">Strengths</p>
       <h2 class="section-heading">The advantage was control.</h2>
-      <p class="section-copy">For structured enterprise processes, explicit rules provided something valuable: predictability.</p>
-      <p class="section-copy">Teams could define exactly what should happen, control branching behaviour, validate inputs and design fallbacks for known scenarios.</p>
-      <p class="section-copy">For repeatable or compliance-sensitive workflows, that control mattered.</p>
+      <p class="section-copy">For structured, compliance-sensitive processes, explicit rules gave teams predictability &mdash; exact branching, validated inputs, and fallbacks for known scenarios.</p>
     </div>
 
     <div class="flow-horizontal reveal">
@@ -387,21 +362,7 @@
     <div class="section-intro" style="margin-bottom:32px;">
       <p class="section-kicker">Flow builder</p>
       <h2 class="section-heading" style="font-size:clamp(24px,3vw,34px);">Flow Builder became a design problem of its own.</h2>
-      <p class="section-copy">As workflows grew, the challenge wasn't simply providing nodes and connectors — builders needed to understand where they were in a flow, how branches connected, and how increasingly complex automation could remain understandable.</p>
-      <p class="section-copy">I explored multiple Flow Builder approaches while studying how other workflow and automation products handled similar complexity.</p>
-    </div>
-
-    <div class="reveal">
-      <div class="shot shot--wide">
-        <img src="assets/competitor-research-2.jpeg" alt="Competitor research board including Camunda, Druid.ai and 8 Flow.ai workflow-building patterns">
-      </div>
-    </div>
-
-    <div class="reveal mt-md">
-      <div class="shot shot--wide">
-        <img src="assets/flow-builder-iteration-01.png" alt="Flow Builder design iteration showing multiple flows including Basic Inbound Flow Response, Greeting Subflow, OpenTicket Subflow and RegisteredUser">
-      </div>
-      <div class="iter-note">Design decision represented by this iteration: <em>[to be added]</em></div>
+      <p class="section-copy">As workflows grew, the challenge wasn't just nodes and connectors — builders needed to see where they were in a flow and how branches connected, even as automation got more complex. I explored multiple approaches, studying how other workflow tools handled the same problem, before settling on a canvas that stayed readable as flows branched.</p>
     </div>
   </div>
 </section>
@@ -485,9 +446,7 @@
     <div class="section-intro">
       <p class="section-kicker">Hybrid model</p>
       <h2 class="section-heading">We still needed both.</h2>
-      <p class="section-copy">LLM reasoning didn't eliminate the value of deterministic workflows.</p>
-      <p class="section-copy">Some tasks benefit from flexibility and contextual reasoning. Others require precise sequences, validation and predictable outcomes.</p>
-      <p class="section-copy">That led naturally toward a hybrid model.</p>
+      <p class="section-copy">LLM reasoning didn't eliminate deterministic workflows &mdash; some tasks need flexible reasoning, others need precise, validated sequences. That led to a hybrid model.</p>
     </div>
 
     <div class="branch-diagram reveal">
@@ -529,9 +488,7 @@
     <div class="section-intro">
       <p class="section-kicker">Agent lifecycle</p>
       <h2 class="section-heading">As Agents became more capable, creation was only part of the experience.</h2>
-      <p class="section-copy">Building an Agent was no longer the whole problem.</p>
-      <p class="section-copy">Enterprise teams also needed ways to ground behaviour, evaluate it, manage changes, deploy safely, understand production behaviour and continuously improve it.</p>
-      <p class="section-copy">The Agent experience was becoming a lifecycle.</p>
+      <p class="section-copy">Building an Agent was no longer the whole problem &mdash; teams also needed to ground it, evaluate it, deploy it safely and keep improving it. The Agent experience was becoming a lifecycle.</p>
     </div>
 
     <div class="lifecycle-wrap reveal">
@@ -566,8 +523,7 @@
     <div class="section-intro">
       <p class="section-kicker">Process discovery</p>
       <h2 class="section-heading">Starting from real conversations</h2>
-      <p class="section-copy">One evolution was moving the starting point closer to actual customer behaviour.</p>
-      <p class="section-copy">Instead of always beginning with a blank configuration, existing conversations could help identify recurring work and potential automation opportunities.</p>
+      <p class="section-copy">One evolution was moving the starting point closer to actual customer behaviour &mdash; instead of a blank configuration, existing conversations could surface recurring work and automation opportunities.</p>
     </div>
 
     <div class="flow-horizontal reveal">
@@ -596,15 +552,6 @@
       <div class="annotation-card">
         <div class="a-tag">WITH A FLOW</div>
         <div class="a-desc">Begin from a deterministic workflow.</div>
-      </div>
-    </div>
-
-    <div class="placeholder-group placeholder-group--duo mt-lg reveal">
-      <div class="shot shot--wide">
-        <img src="assets/agent-studio-create-agent-modal.jpeg" alt="Create Agent modal in Agent Studio showing Build with Flow, Build with Instruction, Discover from Conversations and Build with AI Assistant options">
-      </div>
-      <div class="shot shot--wide">
-        <img src="assets/agent-studio-copilot-creation.jpeg" alt="Copilot-style Agent creation conversation capturing agent name and purpose before generating the first message">
       </div>
     </div>
   </div>
@@ -652,8 +599,7 @@
     <div class="section-intro">
       <p class="section-kicker">Versioning</p>
       <h2 class="section-heading">More autonomy also made safe change more important.</h2>
-      <p class="section-copy">When Agent behaviour depends on instructions, knowledge, tools, flows and model behaviour, even small changes can affect outcomes.</p>
-      <p class="section-copy">Version history therefore wasn't simply a technical record. It became part of making AI behaviour manageable.</p>
+      <p class="section-copy">When behaviour depends on instructions, knowledge, tools and flows, even small changes can shift outcomes &mdash; so version history became part of making AI manageable, not just a technical record.</p>
     </div>
 
     <div class="reveal">
@@ -678,9 +624,7 @@
     <div class="section-intro">
       <p class="section-kicker">Administration</p>
       <h2 class="section-heading">AI Agents also needed a strong administrative foundation.</h2>
-      <p class="section-copy">More capable Agents introduced another question: who is allowed to do what?</p>
-      <p class="section-copy">Agent creation, configuration, publishing and platform administration couldn't be treated as unrestricted actions.</p>
-      <p class="section-copy">My platform work also covered users, roles, permissions, account configuration and administrative experiences that supported this broader ecosystem.</p>
+      <p class="section-copy">More capable Agents raised a new question: who's allowed to do what? Creation, configuration and publishing couldn't be unrestricted &mdash; so my platform work also covered users, roles, permissions and account administration.</p>
     </div>
 
     <div class="flow-vertical reveal">
@@ -704,9 +648,7 @@
     <div class="section-intro">
       <p class="section-kicker">Platform context</p>
       <h2 class="section-heading" style="font-size:clamp(24px,3vw,34px);">The architecture was evolving again.</h2>
-      <p class="section-copy">The broader platform continued to evolve toward BAIC / BAIS and more unified, composable AI experiences.</p>
-      <p class="section-copy">That introduced shared foundations around Agents, models, knowledge, data, governance and enterprise administration, while the product experience increasingly moved toward common navigation and reusable platform patterns.</p>
-      <p class="section-copy">For my work, this meant that AI Agents were no longer an isolated builder. They were becoming part of a larger enterprise AI ecosystem.</p>
+      <p class="section-copy">The platform kept evolving toward BAIC/BAIS and unified, composable AI &mdash; shared foundations for Agents, models, knowledge and governance. AI Agents stopped being an isolated builder and became part of a larger ecosystem.</p>
     </div>
 
     <div class="flow-vertical reveal" style="max-width:420px;margin:0 auto;">
@@ -727,40 +669,31 @@
     <div class="section-intro">
       <p class="section-kicker">The current workspace</p>
       <h2 class="section-heading">From an Agent builder to an Agent workspace</h2>
-      <p class="section-copy">The newer experience brought more of the Agent lifecycle into a connected workspace.</p>
-      <p class="section-copy">Users could discover or create Agents, configure behaviour, connect skills and tools, define guardrails, test outcomes, manage versions and move toward deployment and supervision.</p>
+      <p class="section-copy">The newer experience brought more of the Agent lifecycle into one connected workspace — discover, configure, connect tools, test, version and deploy.</p>
     </div>
 
     <div class="showcase-block reveal">
       <div class="showcase-head"><span class="showcase-index">01</span><span class="showcase-title">Agent Studio</span></div>
-      <div class="shot shot--full">
-        <img src="assets/bais-baic-current.jpeg" alt="Latest Agent Studio UI showing configured agents such as Home Loans, Personal Loans, Credit Cards and Fraud & Disputes">
+      <div class="shot shot--full" style="max-width:680px;margin:0 auto;">
+        <img src="assets/bais-baic-current.jpeg" alt="Agent Studio overview showing a list of configured agents">
       </div>
       <div class="tag-row"><span>Agent types</span><span>Templates</span><span>Status</span><span>Model</span><span>Skills</span></div>
     </div>
 
-    <div class="grid-2 reveal">
-      <div class="showcase-block">
-        <div class="showcase-head"><span class="showcase-index">02</span><span class="showcase-title">Agent Configuration</span></div>
-        <div class="shot shot--wide">
-          <img src="assets/agent-studio-copilot-configured.jpeg" alt="Configured Agent instructions tab showing first message and global prompt after Copilot-assisted creation">
-        </div>
+    <div class="annotation-row mt-lg reveal" style="grid-template-columns:repeat(3,1fr);">
+      <div class="annotation-card">
+        <div class="a-tag">02 &middot; CONFIGURATION</div>
+        <div class="a-desc">Instructions, first message and global prompt.</div>
       </div>
-      <div class="showcase-block">
-        <div class="showcase-head"><span class="showcase-index">03</span><span class="showcase-title">Flow / Orchestration</span></div>
-        <div class="shot shot--wide">
-          <img src="assets/agent-studio-flow-orchestration.jpeg" alt="Flow Builder canvas for an Auto Loans agent showing Loan Assessment, Offer Generation, Consent Agent and Human Hand-off nodes">
-        </div>
+      <div class="annotation-card">
+        <div class="a-tag">03 &middot; FLOW / ORCHESTRATION</div>
+        <div class="a-desc">Nodes for assessment, offers, consent and human hand-off.</div>
       </div>
-    </div>
-
-    <div class="showcase-block reveal">
-      <div class="showcase-head"><span class="showcase-index">04</span><span class="showcase-title">Testing</span></div>
-      <div class="shot shot--wide">
-        <img src="assets/agent-studio-evaluation.jpeg" alt="Evaluation screen listing metrics such as Average Latency, Barge In Handling and Expected Outcome">
+      <div class="annotation-card">
+        <div class="a-tag">04 &middot; TESTING</div>
+        <div class="a-desc">Latency, barge-in handling and expected outcome, side by side.</div>
       </div>
     </div>
-
   </div>
 </section>
 
@@ -772,8 +705,7 @@
     <div class="section-intro">
       <p class="section-kicker">Platform &amp; product evolution</p>
       <h2 class="section-heading">From platform change to measurable customer impact</h2>
-      <p class="section-copy">The work evolved across several generations — from migrating existing conversational-AI capabilities into a shared platform, to making self-service increasingly configurable, and finally toward more autonomous, governed AI Agents.</p>
-      <p class="section-copy">The impact wasn't one isolated UI improvement. It was the product becoming easier to configure, scale and operate while the AI itself became more capable.</p>
+      <p class="section-copy">The work evolved across generations &mdash; migrating existing capabilities, making self-service configurable, then moving toward autonomous, governed Agents. The impact wasn't one UI fix; it was the product becoming easier to configure, scale and operate as the AI grew more capable.</p>
     </div>
 
     <div class="comparison comparison--triple reveal">
@@ -883,8 +815,7 @@
     <div class="section-intro">
       <p class="section-kicker">My contribution</p>
       <h2 class="section-heading">My contribution was in making that evolution usable.</h2>
-      <p class="section-copy">As the technology changed, my design work changed with it.</p>
-      <p class="section-copy">I helped preserve existing customer capabilities through platform migration, worked on the configuration and administration foundation around them, designed rule-based and LLM-powered Agent experiences, explored how complex flows could remain manageable, and extended the experience into testing, versioning, permissions and implementation quality.</p>
+      <p class="section-copy">As the technology changed, so did my work &mdash; preserving existing capabilities through migration, designing both rule-based and LLM-powered Agent experiences, and extending into testing, versioning and permissions.</p>
     </div>
 
     <div class="journey reveal">
@@ -929,9 +860,7 @@
     <div class="section-intro">
       <p class="section-kicker">The design problem changed</p>
       <h2 class="section-heading">And the definition of &ldquo;good UX&rdquo; changed with the AI.</h2>
-      <p class="section-copy">Earlier, success meant helping users configure a predictable system correctly.</p>
-      <p class="section-copy">As Agents became more autonomous, the design problem expanded.</p>
-      <p class="section-copy">Users still needed to create AI — but they also needed to understand it, test it, control who could change it, trace what changed, deploy it safely and improve it after launch.</p>
+      <p class="section-copy">Earlier, success meant helping users configure a predictable system correctly. As Agents grew more autonomous, that expanded &mdash; users also needed to understand it, test it, control who could change it, and deploy it safely.</p>
     </div>
   </div>
 </section>
