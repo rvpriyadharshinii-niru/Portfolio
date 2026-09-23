@@ -202,6 +202,16 @@ img { max-width: 100%; display: block; }
 }
 .elsewhere-link:hover { color: var(--accent); border-color: var(--accent); gap: 10px; }
 
+/* Deliberately quiet — legal links belong somewhere a visitor can find
+   them if they look, not somewhere they land on by accident. */
+.legal-footnote {
+  margin-top: 18px;
+  font-size: 11px;
+  color: var(--ink-mute);
+}
+.legal-footnote a { color: var(--ink-mute); text-decoration: none; }
+.legal-footnote a:hover { color: var(--ink-soft); text-decoration: underline; }
+
 /* About detail */
 
 .about-detail {

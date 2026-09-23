@@ -15,3 +15,15 @@
 
   els.forEach(function (el) { io.observe(el); });
 })();
+
+// Assembles mailto: links from base64 fragments at runtime, so plain-text
+// email scrapers reading the served HTML never see a real address.
+(function () {
+  document.querySelectorAll('.js-email[data-user][data-domain]').forEach(function (el) {
+    try {
+      var user = atob(el.getAttribute('data-user'));
+      var domain = atob(el.getAttribute('data-domain'));
+      el.setAttribute('href', 'mailto:' + user + '@' + domain);
+    } catch (e) {}
+  });
+})();
