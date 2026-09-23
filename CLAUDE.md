@@ -502,3 +502,59 @@ Verified all three edited case studies (Admin, AI Agents, Summary
 Builder) via local server + Playwright, forcing `.reveal` to
 `.is-visible` and checking for failed asset requests — none, aside from
 the expected Google Fonts network block in this sandboxed environment.
+
+## Privacy Policy, Terms page, secrets audit, email obfuscation (2026-09-23)
+
+User's framing: "since it will be website made by claude... let's add
+privacy policy, terms and conditions page... keep that somewhere people
+will not immediately go after... please take the secrets off the front
+end... add spam/bot protection."
+
+- **Secrets audit**: grepped the whole repo for API keys, tokens,
+  passwords, `.env`/config files. Found nothing — this is a purely
+  static HTML/CSS/JS site with no backend, so there was never anything
+  to leak. Confirmed and moved on rather than inventing a fix for a
+  problem that didn't exist.
+- **New pages**: `privacy-policy.html` and `terms.html`, built on the
+  same shell as `resume.html` (`.home-header`/`.home-nav`/`.prose`, a
+  new small `.legal-section`/`.legal-title` scoped `<style>` block
+  matching resume.html's pattern of page-local CSS). Content is
+  deliberately honest about what this site actually does — no cookies,
+  no analytics, no forms, no backend, only Google Fonts (which does hit
+  Google's servers) and standard host access logs disclosed plainly.
+  Not invented boilerplate; written to match the real, verified
+  technical footprint of the site.
+- **Tucked away, not in main nav**: neither page was added to
+  `.home-nav` or the homepage's tile stack. They're linked from two
+  places only — `resume.html`'s existing `.footer-links` row (next to
+  LINKEDIN/BEHANCE, same small-caps treatment) and a new tiny
+  `.legal-footnote` ("Privacy · Terms", 11px, `--ink-mute`) at the very
+  bottom of `.split-right-bottom` on the homepage, below the Behance
+  link. Both pages also cross-link to each other and back to
+  `index.html` in a small `.legal-nav-note` line at the bottom of the
+  content.
+- **Email obfuscation (the "spam/bot protection" ask)**: all three
+  plaintext `mailto:rvpriyadharshinii@gmail.com` links (the homepage's
+  `.email-pill` and `.split-pill--dark` Email link, plus resume.html's
+  `.footer-note`) were replaced with `<a class="js-email" href="#"
+  data-user="[base64]" data-domain="[base64]">`. A new snippet appended
+  to `script.js` finds every `.js-email` element on page load, decodes
+  the two base64 attributes with `atob()`, and sets the real `href`.
+  This defeats simple regex/HTML scrapers that harvest visible
+  `mailto:` text from static markup, with zero effect on real visitors
+  (the href is set before any click). **`index.html` and `resume.html`
+  did not load `script.js` before this change** — they only relied on
+  home.css for styling — so a `<script src="script.js">` tag was added
+  to both, right before `</body>`. The new privacy/terms pages load it
+  too, for their own footer email link and any future `.js-email`
+  elements.
+- **If a real contact form is ever added** to this site (there isn't
+  one today — the only contact method is the mailto: link, which is
+  the visitor's own email client, not a submission to this site), it
+  will need actual spam protection (honeypot field, rate limiting, or a
+  CAPTCHA) since email obfuscation alone doesn't address that. Not
+  needed today because there's nothing to submit.
+- Verified via local server + Playwright: the obfuscated links resolve
+  to the correct `mailto:` href after script.js runs, both new pages
+  render with no console/asset errors, and the footer/footnote
+  placements look correct on both the homepage and resume.html.
