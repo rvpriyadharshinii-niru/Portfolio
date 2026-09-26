@@ -1,0 +1,1127 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Paper Plane Journey</title>
+<script>
+  // Runs FIRST, before any CSS/markup below even parses — this is the
+  // earliest possible point in the document. A refresh (or a fresh
+  // click on the link right after one) can otherwise show a visible
+  // flash of whatever scroll position the browser's own history
+  // restoration jumps to — a glimpse of a mid-journey frame, or a
+  // truncated/mid-render one — for the instant before the OTHER
+  // scroll-reset script (further down, after all the content) gets a
+  // chance to run and correct it. Setting scrollRestoration to
+  // 'manual' and forcing scrollY to 0 this early, before the browser
+  // has painted anything, closes that gap: there is nothing to flash.
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+  window.scrollTo(0, 0);
+</script>
+<style>
+  /* ============================================================
+     Single deliberate world: a warm, sunlit sky. This palette is
+     pinned by the user's own moodboard (cream / sage / olive /
+     gold / terracotta / dusty sky-blue) and is meant to carry the
+     whole future illustrated journey, so it stays fixed rather
+     than swapping for a dark theme.
+     ============================================================ */
+  :root {
+    color-scheme: light;
+    --cream:       #F4EEE1;
+    --cream-deep:  #ECE0C7;
+    --sky-top:     #7FA8C4;
+    --sky-mid:     #BBD3D9;
+    --sky-horizon: #F0E2C4;
+    --ink:         #2B2A22;
+    --ink-soft:    #6B6455;
+    --olive:       #5C6B3C;
+    --terracotta:  #B85B34;
+    --gold:        #D69A44;
+    --line:        rgba(43, 42, 34, 0.16);
+    --nav-h: 74px;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  ::selection { background: var(--gold); color: var(--ink); }
+
+  /* ---------------- Top navigation ---------------- */
+  .journey-nav {
+    position: fixed;
+    top: env(safe-area-inset-top, 0px);
+    left: 0; right: 0;
+    z-index: 50;
+    height: var(--nav-h);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 clamp(20px, 5vw, 56px);
+    /* Fully transparent — no frosted/blurred bar, and no text-shadow
+       glow on its labels either (removed — it read as a strange
+       highlight rather than legibility help). Plain ink-coloured
+       text on whatever's behind it. */
+    background: transparent;
+  }
+  .journey-name {
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    font-weight: 600;
+    font-size: clamp(16px, 2vw, 19px);
+    letter-spacing: 0.01em;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .journey-links {
+    display: flex;
+    align-items: center;
+    gap: clamp(18px, 3vw, 34px);
+  }
+  .journey-links a {
+    font-size: 12.5px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    text-decoration: none;
+    padding-bottom: 3px;
+    border-bottom: 1px solid transparent;
+    transition: color 0.2s ease, border-color 0.2s ease;
+  }
+  .journey-links a:hover,
+  .journey-links a:focus-visible {
+    color: var(--ink);
+    border-color: var(--terracotta);
+  }
+  .journey-links a:focus-visible { outline: 2px solid var(--olive); outline-offset: 3px; border-radius: 2px; }
+
+  /* ---------------- Scroll scaffold ----------------
+     Every future full-screen chapter is a sibling `.scene` inside
+     #journey. This keeps scroll-snap, parallax and reveal logic
+     working the same way no matter how many get added later. */
+  #journey {
+    scroll-snap-type: y proximity;
+  }
+  .scene {
+    position: relative;
+    min-height: 100dvh;
+    scroll-snap-align: start;
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 0.9s ease, transform 0.9s ease;
+  }
+  .scene.is-active { opacity: 1; transform: translateY(0); }
+  @media (prefers-reduced-motion: reduce) {
+    .scene { transition: none; opacity: 1; transform: none; }
+  }
+
+  /* ---------------- Opening scene ----------------
+     Reads as one still full-screen frame, but sits inside extra
+     scroll height (`.scene--sky`) so the whole fold-then-fly sequence
+     has room to play out before anything below it exists yet — the
+     frame itself stays pinned via `position: sticky` the entire time,
+     so the "camera" never actually moves; only content inside it does.
+     Grown to 1660dvh to fit fold (State 0→5) + a brief held pause +
+     orientation turn + the takeoff close-pass (which doubles as the
+     landscape wipe) + a hold + the editorial intro copy + a hold +
+     the exit/transition (typography dissolves, structure emerges,
+     plane resumes its climb) + the first-chapter teaser + a closing
+     hold: a 100dvh sticky frame plus 15.6 viewports of scroll room —
+     see the scroll timeline in the script below. The actual ERP
+     section is a separate future build; this scene stops at the
+     teaser. */
+  .scene--sky { min-height: 1660dvh; }
+  .scene-frame {
+    position: sticky;
+    top: 0;
+    height: 100dvh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(
+      to bottom,
+      var(--sky-top) 0%,
+      var(--sky-mid) 52%,
+      var(--sky-horizon) 100%
+    );
+  }
+  /* No vignette/wash on `.scene-frame` on purpose — it sat over the
+     landscape for the rest of the journey too, reading as a permanent
+     white haze once the landscape was the point. Removed rather than
+     tuned down. */
+
+  /* ---------------- Paper — State 0 → State 5, one continuous fold ----------------
+     Still one physical sheet, still cut from its own flat texture
+     (the same asset, clipped into pieces — never a second image)
+     rather than anything crossfading. Every hinge below is a real 3D
+     `rotate3d` around the true crease line, so each piece swings out
+     of the page and back down; every later fold is nested INSIDE the
+     element it acts on, so its rotation compounds on top of the folds
+     already applied to that piece, the way a real sheet of paper
+     accumulates its folds.
+
+     Hierarchy (all coordinates below are percentages of one shared
+     flat-paper box, `.paper-object` — clip-path always reads its own
+     element's pre-transform local space, which stays this same box no
+     matter how many ancestors have already rotated it):
+
+       .plane-rig
+         .wing--left / .wing--right    — State 4: two SIBLINGS of the
+                                          fuselage below, not nested
+                                          inside it — each is a wide
+                                          outer strip that stays put and
+                                          visible through State 3, since
+                                          the centre fold only hides the
+                                          narrow fuselage, never these.
+                                          A modest droop (rotate3d
+                                          around a vertical hinge) is
+                                          the only motion they get.
+         .plane-half--left             — State 3 hinge (vertical, barely
+                                          moves — this is the visible
+                                          "face" of the fuselage)
+           .body-half--left             — static remainder: now a NARROW
+                                          spine, not the whole half, so
+                                          folding it away behind never
+                                          takes a wing with it
+           .flap1--left                 — State 1: corner → nose
+             .flap2--left                — State 2: nose → narrower nose
+         .plane-half--right            — State 3 hinge (vertical, swings
+                                          ~180° to fold its own narrow
+                                          spine directly behind the left
+                                          one, adding real depth)
+           .body-half--right
+           .flap1--right
+             .flap2--right
+
+     One scroll-driven variable per stage (--fold-t, --narrow-t,
+     --center-t, --wing-t, each 0→1, smoothed in JS) drives the whole
+     sequence in order, each in its own scroll window, so scrolling
+     down plays flat → fold 1 → narrower nose → centre fold → wings →
+     finished plane, and scrolling back up reverses it exactly. A
+     "-lift" companion for each stage (sin(t·π), peaking mid-fold)
+     drives that stage's shadow — strongest while a piece is lifted
+     mid-air, soft once it lies flat at either end. `.paper-object`
+     itself never scales, moves or resizes — the camera stays put; only
+     the paper's own pieces move. */
+  .paper-stage {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+  }
+  .paper-object {
+    position: relative;
+    /* ~56vw wide, but never taller than ~70% of the viewport on short
+       screens — the asset's own ~1.14:1 ratio (re-cropped tight to
+       where the paper is actually visible, not the wider canvas its
+       very faint shadow tail technically touched) sets the height-
+       based cap and its `aspect-ratio` below. Sized up from an
+       earlier, smaller cap (52vw/62vh) that read as a small square
+       lost in a lot of empty blue gradient on the very first frame a
+       visitor sees — the rest state is this page's thumbnail/first
+       impression, so it needs to feel intentional, not sparse. Still
+       leaves clear air around the nav at typical viewport heights.
+       This box's own SIZE never changes — the takeoff motion below is
+       a `transform` on top of it, which is a different thing: it
+       moves/shrinks the rendered plane on screen without ever
+       resizing the layout box the fold math is built against. */
+    width: min(56vw, 960px, calc(70vh * 1.14));
+    aspect-ratio: 1009 / 887;
+    perspective: 2200px;
+    perspective-origin: 50% 0%;
+    /* --orient-t (0→1) turns the plane from the nose-up orientation
+       the fold sequence naturally builds it in to a nose-right
+       "flying" orientation — a discrete step, held still before and
+       after, not something smuggled into takeoff.
+
+       --takeoff-t (0→1) then drives the whole close-pass: position is
+       a modest, steady climb up-and-right (quadratic ease on the
+       vertical term against a linear horizontal term bends it into a
+       curve) — deliberately small so the finished small plane never
+       ends up near the nav or the edge of the screen. --pass-bump
+       (JS-computed sin(takeoff-t·π), so it is 0 at both ends and
+       peaks at the midpoint) does the dramatic work instead: added to
+       scale, it swells the plane from life-size up to several times
+       viewport width and back down to small, so it sweeps past close
+       to camera and fills most of the frame at the midpoint, then
+       recedes into a small plane going about its business — the
+       actual position barely has to move for this to read as a close
+       pass, because the scale spike alone dwarfs the viewport. The
+       same --pass-bump adds a touch of extra bank mid-sweep.
+
+       --intro-t (0→1, during the editorial copy reveal) adds a small
+       further drift and shrink on top of all of the above — the
+       plane continuing on its way, very slowly, deeper into the
+       distance while the reader's attention is on the text. */
+      /* --exit-t (0→1, Part 3) resumes the plane's own travel after the
+         intro's hold — a further, larger climb-and-bank than --intro-t's
+         gentle drift, "the plane starts moving again" leading the whole
+         transition out of this scene, continuing to shrink as it goes
+         rather than turning back or changing course. */
+    transform:
+      translate(calc(var(--takeoff-t, 0) * 28vw + var(--intro-t, 0) * 9vw + var(--exit-t, 0) * 17vw), calc(var(--takeoff-t, 0) * var(--takeoff-t, 0) * -22vh + var(--intro-t, 0) * -6vh + var(--exit-t, 0) * -11vh))
+      rotate(calc(var(--orient-t, 0) * 90deg + var(--takeoff-t, 0) * -14deg + var(--pass-bump, 0) * 6deg + var(--exit-t, 0) * 9deg))
+      scale(calc((1 - var(--takeoff-t, 0) * 0.8) + var(--pass-bump, 0) * 3.2 - var(--intro-t, 0) * 0.055 - var(--exit-t, 0) * 0.048));
+    will-change: transform;
+  }
+  @media (max-width: 700px) {
+    .paper-object { width: min(88vw, 540px, calc(52vh * 1.14)); }
+  }
+  .plane-rig {
+    position: absolute;
+    inset: 0;
+    transform-style: preserve-3d;
+    /* Only the narrow fuselage spine folds away behind itself in State
+       3 now (the wings are siblings below and never move with it), so
+       the visible silhouette barely shifts off-centre — a small
+       translateX is still enough to keep it balanced, without the box
+       itself (the "camera") moving at all. The small rotateX during
+       State 4 tilts the finished plane slightly toward the viewer as
+       the wings droop, so their surface still catches visible light. */
+    transform: translateX(calc(var(--center-t, 0) * 6%)) rotateX(calc(var(--wing-t, 0) * -7deg));
+  }
+  .paper-layer {
+    position: absolute;
+    inset: 0;
+    background-image: url('assets/paper-flat.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+  }
+  .plane-half {
+    position: absolute;
+    inset: 0;
+    transform-style: preserve-3d;
+    transform-origin: 50% 50%;
+  }
+  /* State 3 — centre fold: the left half barely turns (just enough to
+     read as no longer perfectly flat); the right half swings ~180°
+     around the same vertical spine to fold directly behind it. Both
+     share one hinge line (the vertical centre, x = 50%), so the axis
+     is pure Y — no aspect-ratio correction needed. */
+  .plane-half--left {
+    transform: rotate3d(0, 1, 0, calc(var(--center-t, 0) * 9deg));
+  }
+  .plane-half--right {
+    /* No shadow filter on this element on purpose — see flap1's own
+       note above: this has a nested 3D-transformed child (wing--right,
+       below), and `filter` would force-flatten the whole subtree,
+       breaking that child's independent rotation. The shadow lives on
+       body-half--right instead. */
+    transform: rotate3d(0, 1, 0, calc(var(--center-t, 0) * -178deg));
+  }
+  /* Static remainder of each half: a NARROW spine (38%–50% / 50%–62%
+     of the full width) running from the nose down to the tail, minus
+     the State 1 corner — PLUS the sliver between that corner's own
+     fold line and the spine, which the narrowing pass that fixed wing
+     visibility accidentally orphaned (its new spine edge, 50%→38%/62%,
+     no longer matched flap1's actual fold line, 50%→0%/100%, leaving a
+     gap neither piece claimed — the "missing paper" at rest). Routing
+     this shape's own upper edge back through 0%/100% first, before
+     cutting in to the spine width, closes that gap exactly: it shares
+     flap1's fold line with no overlap, then meets the wing's own edge
+     with no gap, and is narrow only where the spine actually needs to
+     be (46% down and below). */
+  .body-half--left {
+    clip-path: polygon(50% 0%, 0% 46%, 38% 46%, 38% 100%, 50% 100%);
+  }
+  .body-half--right {
+    clip-path: polygon(50% 0%, 100% 46%, 62% 46%, 62% 100%, 50% 100%);
+  }
+  .crease-svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+  }
+  .crease-svg line {
+    stroke: var(--ink-soft);
+    stroke-width: 0.5;
+    stroke-linecap: round;
+    vector-effect: non-scaling-stroke;
+  }
+  .crease-svg .crease-fold1 { opacity: calc(var(--fold-t, 0) * 0.6); }
+  .crease-svg .crease-fold2 { opacity: calc(var(--narrow-t, 0) * 0.6); }
+
+  /* State 1 — the original corner-to-nose fold. */
+  .flap {
+    transform-style: preserve-3d;
+    will-change: transform, filter;
+  }
+  .flap1 {
+    transform-origin: 50% 0%;
+  }
+  .flap1--left {
+    clip-path: polygon(0% 0%, 50% 0%, 0% 46%);
+    /* Hinge axis = the line from top-centre (50%,0) to the left
+       shoulder (0%,46%), expressed in the box's own pixel space via
+       its known aspect ratio so the axis direction is true regardless
+       of viewport width. No shadow filter here on purpose — this
+       element has a nested 3D-transformed child (flap2, State 2), and
+       `filter` forces a flattened composite of an element's whole
+       subtree, which fights a child's independent 3D transform. The
+       shadow lives one level down on flap2 instead. */
+    transform: rotate3d(-0.5, 0.404, 0, calc(var(--fold-t, 0) * -172deg));
+  }
+  .flap1--right {
+    clip-path: polygon(50% 0%, 100% 0%, 100% 46%);
+    transform: rotate3d(0.5, 0.404, 0, calc(var(--fold-t, 0) * 172deg));
+  }
+
+  /* State 2 — narrows the nose by folding the outer sliver of each
+     State 1 flap again, nested so it inherits State 1's rotation
+     first and adds its own on top. Hinge parallel to State 1's own
+     hinge, offset toward the corner (peak2/shoulder2 sit 45% of the
+     way from the State 1 hinge to the original corner point). */
+  .flap2 {
+    transform-origin: 22.5% 0%;
+  }
+  .flap2--left {
+    clip-path: polygon(0% 0%, 22.5% 0%, 0% 20.7%);
+    transform: rotate3d(-22.5, 18.2, 0, calc(var(--narrow-t, 0) * -165deg));
+    /* Shadow responds to whichever of State 1 or State 2 is currently
+       lifting — this piece is the visible tip through both stages,
+       since flap1 (its parent) carries no shadow of its own. */
+    filter: drop-shadow(0 calc(max(var(--fold-lift, 0), var(--narrow-lift, 0)) * 12px) calc(4px + max(var(--fold-lift, 0), var(--narrow-lift, 0)) * 16px) rgba(43, 42, 34, calc(0.1 + max(var(--fold-lift, 0), var(--narrow-lift, 0)) * 0.32)));
+  }
+  .flap2--right {
+    clip-path: polygon(100% 0%, 77.5% 0%, 100% 20.7%);
+    transform-origin: 77.5% 0%;
+    transform: rotate3d(22.5, 18.2, 0, calc(var(--narrow-t, 0) * 165deg));
+    filter: drop-shadow(0 calc(max(var(--fold-lift, 0), var(--narrow-lift, 0)) * 12px) calc(4px + max(var(--fold-lift, 0), var(--narrow-lift, 0)) * 16px) rgba(43, 42, 34, calc(0.1 + max(var(--fold-lift, 0), var(--narrow-lift, 0)) * 0.32)));
+  }
+
+  /* State 4 — wings: two wide, flat panels either side of the narrow
+     fuselage spine, hinged along a VERTICAL line (38% / 62%, the same
+     line the spine's own edge runs along) rather than a diagonal one.
+     The droop angle is moderate (not the 60°+ tried earlier, which
+     foreshortened a wing to a hairline from this near-top-down
+     camera) — enough to visibly separate each wing from flat with a
+     real crease and shadow, while keeping its full width legible.
+
+     Both wings are siblings of `.plane-half`, not nested inside it —
+     nesting wing--right inside `.plane-half--right` (so it would
+     inherit that half's own ~180° State 3 turn) was tried, but
+     compounding two independent rotate3d transforms around
+     near-opposite huge angles broke rendering rather than producing
+     the expected cancellation, so that approach was abandoned in
+     favour of this simpler, robust one: wing--right stays a plain
+     sibling with its own small droop (matching wing--left's
+     treatment exactly), and a `translateX` shift keyed to --center-t
+     slides it inward by the same distance the fuselage strip's own
+     fold pulls it in, so the two stay visually joined with no gap,
+     without needing the fuselage's own big rotation at all. */
+  .wing {
+    /* Uses the shared `.paper-layer` class in the markup for its
+       position/background — same rules as every other piece. */
+    transform-style: preserve-3d;
+    will-change: transform, filter;
+  }
+  .wing--left {
+    clip-path: polygon(38% 46%, 0% 46%, 0% 100%, 38% 100%);
+    transform-origin: 38% 73%;
+    transform: rotate3d(0, 1, 0, calc(var(--wing-t, 0) * -34deg));
+    filter: drop-shadow(0 calc(var(--wing-lift, 0) * 8px) calc(4px + var(--wing-lift, 0) * 10px) rgba(43, 42, 34, calc(0.1 + var(--wing-lift, 0) * 0.26)));
+  }
+  .wing--right {
+    clip-path: polygon(62% 46%, 100% 46%, 100% 100%, 62% 100%);
+    /* transform-origin's x deliberately mirrors wing--left's (38%),
+       NOT this shape's own 62% edge — this Chromium build fails to
+       paint anything for a `clip-path: polygon()` element whose
+       `transform-origin` x is above 50% once a `rotate3d` is also
+       applied (confirmed empirically: identical setup, only the
+       origin moved, made the whole element disappear/re-appear).
+       Using 38% keeps rendering correct; translateX below still does
+       the real work of closing the gap against the folded fuselage. */
+    transform-origin: 38% 73%;
+    transform: translateX(calc(var(--center-t, 0) * -37%)) rotate3d(0, 1, 0, calc(var(--wing-t, 0) * 34deg));
+    filter: drop-shadow(0 calc(var(--wing-lift, 0) * 8px) calc(4px + var(--wing-lift, 0) * 10px) rgba(43, 42, 34, calc(0.1 + var(--wing-lift, 0) * 0.26)));
+  }
+
+  /* ---------------- Takeoff wipe + landscape ----------------
+     No more scroll-scrubbed reveal — that always had a moment where
+     the frame was legibly split between blue and landscape, which is
+     exactly what was rejected. Instead the landscape's own opacity is
+     a near-instant switch (a 6%-of-takeoff-progress ramp, not a
+     lerped multi-viewport wipe) timed to fire right at the mid-point
+     of the plane's close-pass scale spike above — the moment the
+     plane is several times viewport width and dominates the entire
+     frame. The cut itself is still technically gradual over that 6%,
+     but nothing is visible on screen to reveal a seam with: the plane
+     covers it. This is the "plane acts as its own wipe" effect,
+     approximated without true per-pixel silhouette masking (not
+     practical from four nested clip-path layers).
+
+     Framing (updated for the hero redesign below): `.landscape-layer`
+     is bottom-anchored and centred at a small 112% width — a MODEST
+     zoom, not a full `cover` (which would scale by height on most
+     screens and crop ~40% of the width off this 2.667:1 image,
+     removing the cypress cluster entirely). The wide composition
+     (tree, girl, dandelions, lake, valley, tall trees, open sky)
+     still shows essentially whole. Once visible, a very slow,
+     large-amplitude-free keyframe drift (~1.5% scale, a fraction of a
+     percent of pan) is the "extremely subtle camera drift" — time-
+     based, not scroll-based, so it keeps going at rest too.
+
+     No mist/wash/mask-fade on the crisp image on purpose — an earlier
+     pass added a soft top-edge feather to blend the seam where this
+     image met the plain CSS sky above it, but that read as a permanent
+     haze across the landscape rather than a clean image. What replaced
+     it (below) solves the same seam a different way: not a fade on TOP
+     of the image, but a second, blurred COPY of the very same photo
+     sitting BEHIND it, scaled up to fill the entire frame (a standard
+     "letterbox fill" technique — the same trick a photo app uses for a
+     wide photo in a tall frame). Because it's literally the same pixels,
+     just softened and enlarged, the sky above the crisp image continues
+     in believable, matching cloud/sky colour instead of a flat, separate
+     band — "one continuous illustration" — without ever touching the
+     crisp foreground layer's own crop or clarity. The crisp layer itself
+     also gets a small (not heavy) zoom, `width: 112%`, so less of the
+     blurred fill is ever needed and the real artwork reaches higher up
+     the frame on typical screens; 112% keeps the girl (starts ~9% in
+     from the left edge of the source image) and the cypress cluster
+     (starts ~82% across) both safely inside the crop. */
+  .landscape-stage {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+  .landscape-fill {
+    position: absolute;
+    inset: -10%;
+    background-image: url('assets/landscape.jpg');
+    /* Deliberately NOT `cover` — cover would squeeze the image's full
+       height (sky through foreground) into the frame, so the blur
+       would mix ground/mountain colour into what needs to read as sky.
+       `auto 340%` instead blows the image up so only its top ~1/3 (the
+       open-sky band, before the mountains begin) is ever in frame,
+       anchored to the top — the blur then mixes only sky-and-cloud
+       colour with itself, which is what actually reads as "more sky"
+       rather than a muddy smear. */
+    background-size: auto 340%;
+    background-position: center top;
+    filter: blur(46px);
+    opacity: clamp(0, calc((var(--takeoff-t, 0) - 0.44) / 0.06), 1);
+    will-change: opacity;
+  }
+  .landscape-layer {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 112%;
+    aspect-ratio: 2000 / 750;
+    background-image: url('assets/landscape.jpg');
+    background-size: 100% 100%;
+    opacity: clamp(0, calc((var(--takeoff-t, 0) - 0.44) / 0.06), 1);
+    animation: landscape-drift 55s ease-in-out infinite;
+    will-change: opacity, transform;
+  }
+  /* --exit-t (Part 3, 0→1 during the exit/transition stage) adds a
+     slow extra scale-up on top of the ambient drift below — baked into
+     both keyframe stops so it keeps tracking the live custom property
+     rather than freezing at whatever it was when the animation last
+     restarted. A uniform scale-up alone reads as a loose foreground/
+     distance parallax (the frame edges — foreground — travel outward
+     faster than the visual centre, where the mountains sit) even
+     though it's one flat image with no real depth layers. */
+  @keyframes landscape-drift {
+    0%, 100% { transform: translateX(-50%) scale(calc(1 + var(--exit-t, 0) * 0.05)) translate(0, 0); }
+    50% { transform: translateX(-50%) scale(calc(1.015 + var(--exit-t, 0) * 0.05)) translate(-0.4%, -0.3%); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .landscape-layer { animation: none; }
+  }
+
+  .flight-trail {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+  }
+  .flight-trail path {
+    /* Thin, warm, hand-drawn-feeling and low-opacity on purpose — a
+       trail that whispers rather than a thick grey dashed line. */
+    fill: none;
+    stroke: var(--cream);
+    stroke-width: 0.22;
+    stroke-linecap: round;
+    opacity: calc(var(--takeoff-t, 0) * 0.4);
+  }
+
+  /* ---------------- Exit / transition to first chapter ----------------
+     Organic world -> structure -> enterprise systems, all inside this
+     same scene (no new white section, no hard cut). Everything here
+     reads --exit-t (0→1): a "camera follow" nudge on the landscape
+     itself (a few percent of translate, opposite the plane's own
+     climb, as if attention is tracking it), plus a sparse, tasteful
+     geometric overlay — a few thin grid lines, two corner brackets
+     (echoing a technical/viewfinder frame, not a UI chrome element),
+     and one small coordinate-style label — fading in as the intro
+     typography fades out. Deliberately restrained: this is an
+     editorial transition (the world becoming a little more graphic
+     and considered), not a sci-fi digital-city transformation. */
+  .landscape-stage {
+    transform: translate(calc(var(--exit-t, 0) * -2.4vw), calc(var(--exit-t, 0) * -1.6vh));
+    will-change: transform;
+  }
+  .structure-grid {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: clamp(0, calc((var(--exit-t, 0) - 0.15) / 0.5), 1);
+    will-change: opacity;
+  }
+  .structure-grid line {
+    /* mix-blend-mode: difference — rather than one fixed ink colour —
+       so these marks stay legible whether they cross the pale open
+       sky or the dark cypress/stone-wall corner of the landscape,
+       without needing a shadow/glow behind them (banned for the
+       typography, and would look out of place on a technical mark
+       too). White, differenced against a light ground, reads as a
+       dark line; against a dark ground it reads as a light one. */
+    stroke: #FFFFFF;
+    mix-blend-mode: difference;
+    stroke-width: 0.06;
+    vector-effect: non-scaling-stroke;
+    opacity: 0.55;
+  }
+  .structure-corners {
+    position: absolute;
+    inset: clamp(16px, 4vw, 52px);
+    pointer-events: none;
+    opacity: clamp(0, calc((var(--exit-t, 0) - 0.22) / 0.45), 1);
+    will-change: opacity;
+  }
+  .structure-corner {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    border: 0 solid #FFFFFF;
+    mix-blend-mode: difference;
+  }
+  .structure-corner--tl { top: 0; left: 0; border-top-width: 1.4px; border-left-width: 1.4px; }
+  .structure-corner--br { bottom: 0; right: 0; border-bottom-width: 1.4px; border-right-width: 1.4px; }
+  .structure-coord {
+    position: absolute;
+    bottom: clamp(26px, 5.5vh, 60px);
+    left: clamp(20px, 5vw, 56px);
+    font-family: 'SFMono-Regular', ui-monospace, Consolas, monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: #FFFFFF;
+    mix-blend-mode: difference;
+    opacity: clamp(0, calc((var(--exit-t, 0) - 0.4) / 0.4), 1);
+    will-change: opacity;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .landscape-stage { transform: none; }
+    .structure-grid, .structure-corners, .structure-coord { opacity: 0; }
+  }
+  @media (max-width: 700px) {
+    .structure-coord { font-size: 10px; }
+  }
+
+  .scroll-cue {
+    /* Fades once the plane starts actually leaving — it's already done
+       its job of getting the user through the fold sequence. */
+    opacity: calc(1 - var(--takeoff-t, 0) * 1.6);
+    position: absolute;
+    left: 50%;
+    bottom: clamp(28px, 5vh, 52px);
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    color: var(--ink-soft);
+  }
+  .scroll-cue-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+  .scroll-cue svg { display: block; animation: cue-bob 2.2s ease-in-out infinite; }
+  @keyframes cue-bob {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(6px); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .scroll-cue svg { animation: none; }
+  }
+
+  /* ---------------- Editorial intro copy ----------------
+     Sits inside the same `.scene-frame`, over the now-settled
+     landscape — no new section, no background change. A mixed-type,
+     magazine-cover composition rather than one uniform headline style:
+     three different type voices doing three different jobs —
+
+       DESIGNING           — condensed uppercase sans (Oswald), small,
+                              a caption/kicker, not the star
+       clarity             — the expressive moment: large, high-contrast
+                              italic serif (Playfair Display), the one
+                              thing the eye lands on
+       for complex products. — small, quiet, restrained annotation,
+                              same serif family but far smaller/lighter
+
+     plus three tiny tracked-caps metadata labels scattered around the
+     block rather than one horizontal subtitle row, closer to how a
+     magazine masthead scatters kicker/section/issue info around a
+     cover line. Positioned off-centre (never touches the girl, tree,
+     mountains or the plane's flight path) with the open sky as
+     negative space around it.
+
+     Reveal sequencing: everything reads off the single --intro-t
+     (0→1) via the same local `--p` clamp-window pattern used
+     throughout this file, cascaded DESIGNING -> clarity -> subline ->
+     metadata. `clarity` alone reveals through a clip-path wipe
+     (`inset()`, left-to-right) instead of opacity+rise, so it reads
+     as printed/typeset into the scene rather than fading in like
+     everything else — the one deliberately different reveal, matching
+     its role as the one deliberately different word.
+
+     Exit (Part 3): every element ALSO reads --exit-t (0→1, the next
+     scroll stage after this one's hold) through its own `--out`
+     window, each staggered and drifting a different direction, so the
+     whole composition visibly separates into its individual pieces
+     rather than fading as one block — final opacity is
+     `--p * (1 - --out)` so entrance and exit never fight. */
+  .intro-copy {
+    position: absolute;
+    left: 40%;
+    top: 11%;
+    width: min(56vw, 760px);
+    z-index: 6;
+  }
+  .intro-headline {
+    margin: 0;
+    color: var(--ink);
+    display: flex;
+    flex-direction: column;
+  }
+  .intro-eyebrow-word {
+    --p: clamp(0, calc((var(--intro-t, 0) - 0.0) / 0.22), 1);
+    --out: clamp(0, calc((var(--exit-t, 0) - 0.05) / 0.3), 1);
+    display: block;
+    font-family: 'Oswald', 'Arial Narrow', sans-serif;
+    font-weight: 600;
+    font-stretch: condensed;
+    text-transform: uppercase;
+    font-size: clamp(15px, 1.7vw, 21px);
+    letter-spacing: 0.3em;
+    color: var(--ink);
+    opacity: calc(var(--p) * (1 - var(--out)));
+    transform: translate(calc((1 - var(--p)) * -14px + var(--out) * -30px), calc((1 - var(--p)) * 6px));
+    will-change: opacity, transform;
+  }
+  .intro-hero-word {
+    --p: clamp(0, calc((var(--intro-t, 0) - 0.16) / 0.34), 1);
+    --out: clamp(0, calc((var(--exit-t, 0) - 0.1) / 0.32), 1);
+    display: block;
+    margin: 0.02em 0 0 0.08em;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic;
+    font-weight: 600;
+    font-size: clamp(76px, 10.5vw, 158px);
+    line-height: 0.92;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    /* Printed-into-the-scene reveal: a hard clip-path wipe, no fade. */
+    clip-path: inset(0 calc((1 - var(--p)) * 101%) 0 0);
+    opacity: calc(1 - var(--out));
+    transform: translateY(calc(var(--out) * 26px));
+    will-change: clip-path, opacity, transform;
+  }
+  .intro-sub-line {
+    --p: clamp(0, calc((var(--intro-t, 0) - 0.44) / 0.22), 1);
+    --out: clamp(0, calc((var(--exit-t, 0) - 0.15) / 0.3), 1);
+    display: block;
+    margin: 0.5em 0 0 0.62em;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(17px, 1.5vw, 23px);
+    line-height: 1.3;
+    color: var(--ink-soft);
+    opacity: calc(var(--p) * (1 - var(--out)));
+    transform: translate(calc(var(--out) * 34px), calc((1 - var(--p)) * 10px));
+    will-change: opacity, transform;
+  }
+  .intro-meta {
+    position: absolute;
+    font-family: 'Inter', sans-serif;
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 0.17em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    will-change: opacity, transform;
+  }
+  .intro-meta--1 {
+    --p: clamp(0, calc((var(--intro-t, 0) - 0.58) / 0.18), 1);
+    --out: clamp(0, calc((var(--exit-t, 0) - 0.2) / 0.3), 1);
+    top: -8%;
+    left: 1%;
+    opacity: calc(var(--p) * (1 - var(--out)));
+    transform: translate(calc((1 - var(--p)) * -10px + var(--out) * -22px), calc(var(--out) * -18px));
+  }
+  .intro-meta--2 {
+    --p: clamp(0, calc((var(--intro-t, 0) - 0.68) / 0.18), 1);
+    --out: clamp(0, calc((var(--exit-t, 0) - 0.25) / 0.3), 1);
+    bottom: -18%;
+    left: 63%;
+    opacity: calc(var(--p) * (1 - var(--out)));
+    transform: translate(calc(var(--out) * 24px), calc((1 - var(--p)) * 10px + var(--out) * 20px));
+  }
+  .intro-meta--3 {
+    --p: clamp(0, calc((var(--intro-t, 0) - 0.76) / 0.18), 1);
+    --out: clamp(0, calc((var(--exit-t, 0) - 0.3) / 0.3), 1);
+    bottom: -27%;
+    left: 63%;
+    opacity: calc(var(--p) * (1 - var(--out)));
+    transform: translate(calc(var(--out) * 24px), calc((1 - var(--p)) * 10px + var(--out) * 26px));
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .intro-eyebrow-word, .intro-hero-word, .intro-sub-line, .intro-meta {
+      opacity: 1; transform: none; clip-path: none;
+    }
+  }
+  @media (max-width: 900px) {
+    /* The desktop version scatters the three meta labels around the
+       block using absolute percentage offsets — those percentages are
+       of the block's own (fluid, wrapping) height, which isn't stable
+       enough on a narrow phone width to guarantee a gap between them;
+       an earlier version of this rule had "AI EXPERIENCES" overlapping
+       "ENTERPRISE SYSTEMS" outright. Simpler and safer on mobile: drop
+       out of absolute positioning entirely and let all three sit in
+       normal flow, ordered with flex, so they simply stack with a
+       fixed, guaranteed gap instead of floating at a fragile % offset. */
+    .intro-copy {
+      left: 7%;
+      top: 12%;
+      width: 88vw;
+      display: flex;
+      flex-direction: column;
+    }
+    .intro-hero-word { font-size: clamp(58px, 15vw, 96px); }
+    .intro-meta { position: static; order: 2; margin-top: 6px; }
+    .intro-meta--1 { order: -1; margin-top: 0; margin-bottom: 2px; }
+  }
+  @media (max-width: 480px) {
+    .intro-hero-word { font-size: clamp(46px, 17vw, 68px); }
+  }
+
+  @media (max-width: 480px) {
+    .journey-links { gap: 16px; }
+    .journey-links a { font-size: 11px; letter-spacing: 0.08em; }
+  }
+
+  /* ---------------- First-chapter teaser ----------------
+     Only a tease — numeral, section label, one sentence, one meta
+     line — never the actual ERP section (that's a separate, later
+     build). Reads off --teaser-t (0→1) with the same cascade pattern
+     as everything else in this file. Typographically it reuses the
+     same two voices the intro established (Oswald condensed for the
+     numeral/label, Playfair italic for the sentence) rather than
+     introducing a third, so the "chapter card" still feels like part
+     of the same design system, just a new beat in it. */
+  .teaser-copy {
+    /* Same x/y neighbourhood the intro composition already proved
+       clear of the tree canopy, mountains and cypress (see
+       `.intro-copy` above) — an earlier left:9%/top:40% placement put
+       "01 ENTERPRISE SYSTEMS" directly under the tree branches,
+       unreadable against the leaves. By the time this appears the
+       intro copy has fully dissolved (exit finishes exactly as teaser
+       begins), so reusing its safe zone costs nothing. */
+    position: absolute;
+    left: 40%;
+    top: 9.5%;
+    width: min(48vw, 600px);
+    z-index: 6;
+  }
+  .teaser-num-row {
+    display: flex;
+    align-items: baseline;
+    gap: 18px;
+    --p: clamp(0, calc((var(--teaser-t, 0) - 0.0) / 0.3), 1);
+    opacity: var(--p);
+    transform: translateY(calc((1 - var(--p)) * 14px));
+    will-change: opacity, transform;
+  }
+  .teaser-num {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: clamp(30px, 3.4vw, 46px);
+    color: var(--terracotta);
+    line-height: 1;
+  }
+  .teaser-label {
+    font-family: 'Oswald', 'Arial Narrow', sans-serif;
+    font-weight: 600;
+    font-stretch: condensed;
+    text-transform: uppercase;
+    font-size: clamp(14px, 1.5vw, 18px);
+    letter-spacing: 0.22em;
+    color: var(--ink);
+  }
+  .teaser-headline {
+    margin: 0.5em 0 0;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: clamp(28px, 3.4vw, 46px);
+    line-height: 1.22;
+    color: var(--ink);
+    --p: clamp(0, calc((var(--teaser-t, 0) - 0.26) / 0.32), 1);
+    opacity: var(--p);
+    transform: translateY(calc((1 - var(--p)) * 14px));
+    will-change: opacity, transform;
+  }
+  .teaser-meta {
+    display: block;
+    margin-top: clamp(18px, 2.2vw, 26px);
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    --p: clamp(0, calc((var(--teaser-t, 0) - 0.55) / 0.3), 1);
+    opacity: var(--p);
+    transform: translateY(calc((1 - var(--p)) * 14px));
+    will-change: opacity, transform;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .teaser-num-row, .teaser-headline, .teaser-meta {
+      opacity: 1; transform: none;
+    }
+  }
+  @media (max-width: 900px) {
+    .teaser-copy { left: 7%; top: 13%; width: 88vw; }
+  }
+</style>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,600;1,600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<nav class="journey-nav">
+  <a class="journey-name" href="#top">Priyadharshini V</a>
+  <div class="journey-links">
+    <a href="#work">Work</a>
+    <a href="#about">About</a>
+    <a href="#resume">Resume</a>
+  </div>
+</nav>
+
+<main id="journey">
+  <section class="scene scene--sky" id="top" aria-label="Opening">
+    <div class="scene-frame">
+      <div class="landscape-stage">
+        <div class="landscape-fill" aria-hidden="true"></div>
+        <div class="landscape-layer" role="img" aria-label="An illustrated hillside landscape with a girl sitting beneath a tree overlooking mountains and a lake, revealed as the paper plane sweeps close past the camera"></div>
+      </div>
+      <svg class="flight-trail" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M 50 50 Q 64 40 78 28"></path>
+      </svg>
+      <div class="paper-stage">
+        <div class="paper-object" role="img" aria-label="A single sheet of paper folding, step by step, into a paper plane as the page scrolls">
+          <div class="plane-rig">
+            <div class="paper-layer wing wing--left" aria-hidden="true"></div>
+            <div class="plane-half plane-half--left">
+              <div class="paper-layer body-half--left"></div>
+              <svg class="crease-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                <line class="crease-fold1" x1="50" y1="0" x2="0" y2="46"></line>
+                <line class="crease-fold2" x1="22.5" y1="0" x2="0" y2="20.7"></line>
+              </svg>
+              <div class="paper-layer flap flap1 flap1--left" aria-hidden="true">
+                <div class="paper-layer flap flap2 flap2--left" aria-hidden="true"></div>
+              </div>
+            </div>
+            <div class="plane-half plane-half--right">
+              <div class="paper-layer body-half--right"></div>
+              <svg class="crease-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                <line class="crease-fold1" x1="50" y1="0" x2="100" y2="46"></line>
+                <line class="crease-fold2" x1="77.5" y1="0" x2="100" y2="20.7"></line>
+              </svg>
+              <div class="paper-layer flap flap1 flap1--right" aria-hidden="true">
+                <div class="paper-layer flap flap2 flap2--right" aria-hidden="true"></div>
+              </div>
+            </div>
+            <div class="paper-layer wing wing--right" aria-hidden="true"></div>
+          </div>
+        </div>
+      </div>
+      <div class="scroll-cue">
+        <span class="scroll-cue-label">Scroll</span>
+        <svg width="16" height="24" viewBox="0 0 16 24" fill="none" aria-hidden="true">
+          <path d="M8 1 V20" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          <path d="M2 15 L8 21 L14 15" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+      </div>
+      <div class="intro-copy">
+        <h1 class="intro-headline">
+          <span class="intro-eyebrow-word">Designing</span>
+          <span class="intro-hero-word">clarity</span>
+          <span class="intro-sub-line">for complex products.</span>
+        </h1>
+        <span class="intro-meta intro-meta--1">Product Design</span>
+        <span class="intro-meta intro-meta--2">Enterprise Systems</span>
+        <span class="intro-meta intro-meta--3">AI Experiences</span>
+      </div>
+      <svg class="structure-grid" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+        <line x1="0" y1="32" x2="100" y2="32"></line>
+        <line x1="0" y1="58" x2="100" y2="58"></line>
+        <line x1="24" y1="0" x2="24" y2="100"></line>
+        <line x1="76" y1="0" x2="76" y2="100"></line>
+      </svg>
+      <div class="structure-corners" aria-hidden="true">
+        <span class="structure-corner structure-corner--tl"></span>
+        <span class="structure-corner structure-corner--br"></span>
+      </div>
+      <div class="structure-coord" aria-hidden="true">44.9&deg; N &middot; GRID 01</div>
+      <div class="teaser-copy">
+        <div class="teaser-num-row">
+          <span class="teaser-num">01</span>
+          <span class="teaser-label">Enterprise Systems</span>
+        </div>
+        <p class="teaser-headline">Designing for how<br>businesses actually work.</p>
+        <span class="teaser-meta">16+ Modules &middot; ERP &middot; B2B</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Future chapters land here, each as its own <section class="scene" id="...">:
+       landscape -> work -> ai world -> plane lands -> dandelion transition ->
+       more projects -> creative work -> about/contact. Nothing below this
+       line yet, per instructions. -->
+</main>
+
+<script>
+  (function () {
+    // scrollRestoration + the initial scrollTo(0,0) now happen as early
+    // as possible, in a tiny synchronous script right after <title> at
+    // the very top of the file — see the comment there. Doing it only
+    // here (after all the content, at the very end of body) left a
+    // window for the browser's own restored scroll position to flash
+    // on screen first.
+
+    // Reveal scaffold: any current or future `.scene` fades/rises in once
+    // visible. With one scene today this just shows it; it's the same
+    // mechanism later scenes and their parallax layers will hook into.
+    // Threshold is a small fraction, not 20% — `.scene--sky` is now
+    // several viewports tall (it holds a long pinned scroll sequence),
+    // so only a small slice of its own height is ever on screen at
+    // once, and a 20% threshold could never fire for it at all.
+    var scenes = document.querySelectorAll('.scene');
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) entry.target.classList.add('is-active');
+        });
+      }, { threshold: 0.01 });
+      scenes.forEach(function (s) { io.observe(s); });
+    } else {
+      scenes.forEach(function (s) { s.classList.add('is-active'); });
+    }
+
+    // Parallax scaffold: a live --scroll-y custom property, throttled to
+    // one update per frame, for future illustrated layers to read (e.g.
+    // `transform: translateY(calc(var(--scroll-y) * -0.2px))`).
+    var ticking = false;
+    function updateScrollVar() {
+      document.documentElement.style.setProperty('--scroll-y', window.scrollY.toFixed(1));
+      ticking = false;
+    }
+    window.addEventListener('scroll', function () {
+      if (!ticking) {
+        window.requestAnimationFrame(updateScrollVar);
+        ticking = true;
+      }
+    }, { passive: true });
+    updateScrollVar();
+
+    // The whole sequence — fold, then orient, then the takeoff close-
+    // pass that doubles as the landscape wipe — is driven by custom
+    // properties set on `.scene-frame` itself (not `.paper-object`),
+    // since the landscape and flight trail live outside the paper
+    // object but still need to read --takeoff-t etc. Every stage sits
+    // in its own scroll window, smoothed toward its target every
+    // frame (lerp) rather than snapped straight to scroll position —
+    // cinematic rather than mechanical, but still fully scroll-
+    // reversible and stoppable at any point in between. A "-lift"
+    // value per fold stage (sin(t·π), peaking mid-fold) drives that
+    // stage's shadow; --pass-bump is the same idea applied to
+    // --takeoff-t, driving the close-pass scale spike and the
+    // landscape cut in the CSS above.
+    var sceneFrame = document.querySelector('.scene-frame');
+    var trailPath = document.querySelector('.flight-trail path');
+    var trailLength = trailPath ? trailPath.getTotalLength() : 0;
+    if (trailPath) {
+      trailPath.style.strokeDasharray = '1.4 3';
+    }
+    if (sceneFrame) {
+      var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var stages = ['fold', 'narrow', 'center', 'wing', 'orient', 'takeoff', 'intro', 'exit', 'teaser'];
+      if (reduceMotion) {
+        // Reduced motion: no continuous scroll-driven animation — the
+        // sheet stays flat and still, and the landscape/flight stay at
+        // their starting point.
+        stages.forEach(function (name) {
+          sceneFrame.style.setProperty('--' + name + '-t', 0);
+          sceneFrame.style.setProperty('--' + name + '-lift', 0);
+        });
+        sceneFrame.style.setProperty('--pass-bump', 0);
+        if (trailPath) trailPath.style.strokeDashoffset = trailLength;
+      } else {
+        // Each fold stage gets one viewport of scroll after the
+        // previous one finishes, following a half-viewport settle at
+        // the very start. Only a BRIEF hold (0.4vh) follows State 5
+        // (the finished plane, still nose-up) before anything else
+        // moves — orient then turns it horizontal over the next
+        // 0.6vh, held still on both sides of that turn. Takeoff gets
+        // a full 2 viewports so the close-pass never feels rushed:
+        // the plane climbs gently while --pass-bump (below) swells it
+        // hugely at the midpoint for the wipe, then it recedes small
+        // into the new scene. A one-viewport hold lets that settle
+        // before the editorial intro copy reveals over its own 2
+        // viewports (slow and elegant, per the brief); a final
+        // viewport holds the finished composition.
+        var windowStart = { fold: 0.5, narrow: 1.5, center: 2.5, wing: 3.5, orient: 4.9, takeoff: 5.5, intro: 8.5, exit: 11.3, teaser: 13.3 };
+        var windowSize = { fold: 1, narrow: 1, center: 1, wing: 1, orient: 0.6, takeoff: 2.0, intro: 2.0, exit: 2.0, teaser: 1.7 };
+        var current = { fold: 0, narrow: 0, center: 0, wing: 0, orient: 0, takeoff: 0, intro: 0, exit: 0, teaser: 0 };
+        function targetFor(name) {
+          var vh = window.innerHeight;
+          var raw = (window.scrollY - vh * windowStart[name]) / (vh * windowSize[name]);
+          return Math.min(Math.max(raw, 0), 1);
+        }
+        function tick() {
+          stages.forEach(function (name) {
+            current[name] += (targetFor(name) - current[name]) * 0.09;
+            sceneFrame.style.setProperty('--' + name + '-t', current[name].toFixed(4));
+            sceneFrame.style.setProperty('--' + name + '-lift', Math.sin(current[name] * Math.PI).toFixed(4));
+          });
+          sceneFrame.style.setProperty('--pass-bump', Math.sin(current.takeoff * Math.PI).toFixed(4));
+          if (trailPath && trailLength) {
+            trailPath.style.strokeDashoffset = (trailLength * (1 - current.takeoff)).toFixed(2);
+          }
+          requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+      }
+    }
+  })();
+</script>
+
+</body></html>
