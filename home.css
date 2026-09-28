@@ -871,28 +871,70 @@ body.split-body { overflow-x: hidden; }
 }
 
 /* ============================================================
-   HOMEPAGE V2 — sidebar navigation + floating content card,
-   modeled on a reference dashboard-style portfolio the user shared
-   (dark-themed original), rebuilt here in the site's own light
-   palette. Replaces the split-layout above as index.html's actual
-   markup; .split-* rules are left in place (unused) rather than
-   deleted, matching this file's existing pattern for superseded
-   layouts.
+   HOMEPAGE — responsive app-shell (rebuilt 2026-09-28)
+
+   Three deliberate layouts instead of one desktop layout being
+   flex-wrapped into a squeezed header at medium widths:
+     - Desktop      (>=1200px): persistent left sidebar
+     - Tablet/Laptop (768-1199px): compact top app bar, nav + actions inline
+     - Mobile       (<768px): top app bar + slide-down menu sheet
+
+   .hp-sidebar and .hp-topbar are two separate components that are
+   never both visible at once — .hp-sidebar is desktop-only,
+   .hp-topbar (shared by tablet/laptop and mobile) takes over below
+   1200px. This replaces the old approach of flex-direction:row-ing
+   the sidebar into a header, which produced a huge, awkwardly
+   centered strip with the content pushed far below the fold.
    ============================================================ */
 
 body.hp-body {
   background: #EFEEEA;
   overflow-x: hidden;
+  --r-shell: 22px;
+  --r-surface: 18px;
+  --r-card: 16px;
+  --r-control: 10px;
+  --r-icon: 9px;
+  --fs-display: clamp(36px, 4vw, 64px);
+  --fs-heading: clamp(30px, 3.4vw, 48px);
+  --fs-section: clamp(22px, 2.2vw, 30px);
+  --fs-card-heading: clamp(17px, 1.6vw, 21px);
+  --fs-body: clamp(15px, 1.1vw, 17px);
+  --fs-meta: clamp(11px, 1vw, 13px);
+  --fs-nav: clamp(13px, 1vw, 15px);
+  /* one fluid horizontal padding for the whole shell: ~20px on a
+     phone, ~48px on a desktop, no breakpoint-specific overrides needed */
+  --hp-pad: clamp(20px, 4vw, 48px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hp-body *, .hp-body *::before, .hp-body *::after {
+    transition-duration: 0.001ms !important;
+    animation-duration: 0.001ms !important;
+  }
+}
+
+.hp-body :focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
 }
 
 .hp-shell {
   display: flex;
-  align-items: flex-start;
+  align-items: stretch;
   gap: 0;
   min-height: 100vh;
 }
 
-/* ---------------- Sidebar ---------------- */
+.hp-content-col {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------------- Sidebar (desktop, >=1200px) ---------------- */
 
 .hp-sidebar {
   flex: 0 0 300px;
@@ -948,15 +990,16 @@ body.hp-body {
   display: flex;
   align-items: center;
   gap: 12px;
-  font-size: 14px;
+  font-size: var(--fs-nav);
   font-weight: 600;
   color: var(--ink-soft);
   padding: 10px 12px;
-  border-radius: 10px;
-  transition: background 0.15s ease, color 0.15s ease;
+  border-radius: var(--r-control);
+  transition: background 0.2s ease, color 0.2s ease;
 }
 .hp-nav-item svg { width: 18px; height: 18px; stroke: currentColor; flex: 0 0 auto; }
 .hp-nav-item:hover { background: #F5F5F3; color: var(--ink); }
+.hp-nav-item:active { background: #ECECE8; }
 .hp-nav-item.is-active { background: #F0F0EC; color: var(--ink); }
 
 .hp-sidebar-spacer { flex: 1; }
@@ -972,14 +1015,15 @@ body.hp-body {
   justify-content: center;
   height: 42px;
   border: 1px solid var(--line);
-  border-radius: 10px;
+  border-radius: var(--r-control);
   font-size: 13px;
   font-weight: 700;
   color: var(--ink-soft);
-  transition: border-color 0.2s ease, color 0.2s ease;
+  transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
 }
 .hp-social svg { width: 17px; height: 17px; stroke: currentColor; }
-.hp-social:hover { border-color: var(--ink); color: var(--ink); }
+.hp-social:hover { border-color: var(--ink); color: var(--ink); background: #F8F8F6; }
+.hp-social:active { background: #EFEFEB; }
 
 .hp-coords {
   font-family: 'Courier New', ui-monospace, monospace;
@@ -987,28 +1031,40 @@ body.hp-body {
   color: var(--ink-mute);
 }
 
-/* ---------------- Main column ---------------- */
+/* Topbar + mobile menu live in the DOM at every width but are only
+   ever shown below 1200px — see the two breakpoint blocks below. */
+.hp-topbar, .hp-mobile-menu, .hp-menu-btn { display: none; }
+
+/* ---------------- Main content ---------------- */
 
 .hp-main {
   flex: 1 1 auto;
   min-width: 0;
   max-width: 100%;
-  padding: clamp(24px, 3vw, 40px);
+  padding: var(--hp-pad);
+}
+
+/* Caps the content column on very large displays (1728/1920px) so
+   the workspace doesn't stretch edge-to-edge; centers it in the
+   remaining space next to the fixed-width sidebar. */
+.hp-content {
+  max-width: 1240px;
+  margin: 0 auto;
 }
 
 .hp-card {
   background: var(--paper);
   border: 1px solid var(--line);
-  border-radius: 24px;
-  padding: clamp(28px, 4vw, 56px);
-  box-shadow: 0 30px 70px rgba(20, 20, 16, 0.05);
+  border-radius: var(--r-shell);
+  padding: clamp(24px, 3vw, 40px);
+  box-shadow: 0 24px 60px rgba(20, 20, 16, 0.05);
 }
 
 .hp-kicker-row {
   display: flex;
   align-items: center;
   gap: 12px;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 .hp-kicker-accent {
   font-size: 12px;
@@ -1027,28 +1083,29 @@ body.hp-body {
 }
 
 .hp-hello {
-  font-size: clamp(32px, 4.4vw, 48px);
+  font-size: var(--fs-heading);
   font-weight: 800;
   letter-spacing: -0.01em;
-  margin: 0 0 18px;
+  margin: 0 0 14px;
+  text-wrap: balance;
 }
 
 .hp-intro-copy {
-  font-size: clamp(15px, 1.5vw, 17px);
+  font-size: var(--fs-body);
   line-height: 1.65;
   color: var(--ink-soft);
   max-width: 62ch;
-  margin: 0 0 36px;
+  margin: 0 0 26px;
 }
 
 .hp-companies-row {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: clamp(20px, 3vw, 40px);
+  gap: clamp(16px, 2.4vw, 32px);
 }
 .hp-company-word {
-  font-size: clamp(16px, 1.8vw, 20px);
+  font-size: clamp(14px, 1.4vw, 17px);
   font-weight: 700;
   color: var(--ink-mute);
   letter-spacing: -0.01em;
@@ -1058,80 +1115,79 @@ body.hp-body {
   display: flex;
   align-items: center;
   gap: 16px;
-  margin-top: 44px;
+  margin-top: 32px;
 }
 .hp-work-icon {
-  width: 46px;
-  height: 46px;
-  border-radius: 12px;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--r-control);
   background: #F0F0EC;
   display: flex;
   align-items: center;
   justify-content: center;
   flex: 0 0 auto;
 }
-.hp-work-icon svg { width: 20px; height: 20px; stroke: var(--ink); }
+.hp-work-icon svg { width: 19px; height: 19px; stroke: var(--ink); }
 .hp-work-title {
-  font-size: 19px;
+  font-size: var(--fs-card-heading);
   font-weight: 800;
 }
 .hp-work-sub {
-  font-size: 13.5px;
+  font-size: 13px;
   color: var(--ink-mute);
   margin-top: 2px;
 }
 .hp-work-arrow {
   margin-left: auto;
-  width: 40px;
-  height: 40px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
   border: 1px solid var(--line);
   display: flex;
   align-items: center;
   justify-content: center;
   flex: 0 0 auto;
-  transition: border-color 0.2s ease, background 0.2s ease;
+  transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
 }
 .hp-work-arrow svg { width: 16px; height: 16px; stroke: var(--ink); }
-.hp-work-arrow:hover { border-color: var(--ink); background: #F5F5F3; }
+.hp-work-arrow:hover { border-color: var(--ink); background: #F5F5F3; transform: translateX(2px); }
+.hp-work-arrow:active { transform: translateX(0); }
 
-.hp-work-scroll {
-  display: flex;
-  gap: 20px;
-  overflow-x: auto;
-  scroll-snap-type: x proximity;
-  padding: 28px 4px 10px;
-  margin: 0 -4px;
-  -webkit-overflow-scrolling: touch;
+/* ---------------- Work grid ----------------
+   A real responsive grid (not a horizontal scroller): 1 column on
+   mobile, 2 on tablet/small laptop, 2-3 between 1024-1439 depending
+   on available width, a fixed 3 from 1440px up. */
+
+.hp-work-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+  margin-top: 24px;
 }
-.hp-work-scroll::-webkit-scrollbar { height: 6px; }
-.hp-work-scroll::-webkit-scrollbar-thumb { background: var(--line); border-radius: 100px; }
 
 .hp-work-card {
   position: relative;
-  flex: 0 0 auto;
-  width: min(78vw, 300px);
-  aspect-ratio: 4/5;
-  border-radius: 20px;
+  border-radius: var(--r-card);
   overflow: hidden;
-  scroll-snap-align: start;
-  padding: clamp(18px, 2vw, 24px);
+  aspect-ratio: 4 / 5;
+  padding: clamp(18px, 2vw, 22px);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   gap: 8px;
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 .hp-work-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 24px 50px rgba(20,20,16,0.22);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 44px rgba(20,20,16,0.2);
 }
+.hp-work-card:active { transform: translateY(-1px); }
 .hp-work-card-year {
   position: absolute;
   top: 16px;
   right: 16px;
   font-family: 'Courier New', ui-monospace, monospace;
-  font-size: 11.5px;
+  font-size: var(--fs-meta);
   font-weight: 700;
   color: rgba(255,255,255,0.85);
   background: rgba(0,0,0,0.28);
@@ -1150,36 +1206,147 @@ body.hp-body {
   color: rgba(255,255,255,0.7);
 }
 .hp-work-card-title {
-  font-size: clamp(17px, 1.9vw, 21px);
+  font-size: var(--fs-card-heading);
   font-weight: 800;
   line-height: 1.22;
   color: #fff;
 }
 
-@media (max-width: 980px) {
-  .hp-shell { flex-direction: column; align-items: stretch; }
-  .hp-main { min-width: 0; }
-  .hp-sidebar {
-    position: static;
-    height: auto;
-    width: 100%;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-    border-right: none;
-    border-bottom: 1px solid var(--line);
-    padding: 18px var(--pad);
-    overflow-x: auto;
-  }
-  .hp-nav { flex-direction: row; }
-  .hp-nav-item span { display: none; }
-  .hp-sidebar-spacer { display: none; }
-  .hp-socials-grid { display: flex; }
-  .hp-coords { display: none; }
-  .hp-main { padding: 20px var(--pad) 40px; }
+@media (min-width: 768px) {
+  .hp-work-grid { grid-template-columns: repeat(2, 1fr); }
 }
-@media (max-width: 560px) {
-  .hp-sidebar { flex-wrap: wrap; }
-  .hp-profile-role { display: none; }
+@media (min-width: 1024px) and (max-width: 1439px) {
+  .hp-work-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+}
+@media (min-width: 1440px) {
+  .hp-work-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* ============================================================
+   Tablet / Laptop — 768-1199px: compact top app bar
+   Sidebar is fully hidden; a shared .hp-topbar component (also
+   used, in a reduced state, on mobile) takes over.
+   ============================================================ */
+@media (max-width: 1199px) {
+  .hp-sidebar { display: none; }
+
+  .hp-topbar {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    height: 76px;
+    padding: 0 var(--hp-pad);
+    background: var(--paper);
+    border-bottom: 1px solid var(--line);
+    position: sticky;
+    top: 0;
+    z-index: 20;
+  }
+  .hp-topbar-profile { display: flex; align-items: center; gap: 10px; flex: 0 0 auto; }
+  .hp-topbar-avatar { width: 34px; height: 34px; border-radius: 50%; object-fit: cover; border: 1px solid var(--line); flex: 0 0 auto; }
+  .hp-topbar-name { font-size: 14px; font-weight: 800; line-height: 1.2; }
+  .hp-topbar-role { font-size: 11.5px; color: var(--ink-mute); }
+
+  .hp-topbar-nav { display: flex; align-items: center; gap: clamp(14px, 2vw, 24px); margin-left: 8px; }
+  .hp-topbar-nav a {
+    font-size: var(--fs-nav);
+    font-weight: 600;
+    color: var(--ink-soft);
+    padding: 8px 2px;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s ease, border-color 0.2s ease;
+    white-space: nowrap;
+  }
+  .hp-topbar-nav a:hover { color: var(--ink); }
+  .hp-topbar-nav a.is-active { color: var(--ink); border-bottom-color: var(--accent); }
+
+  .hp-topbar-actions { display: flex; align-items: center; gap: 8px; margin-left: auto; flex: 0 0 auto; }
+  .hp-topbar-action {
+    width: 36px;
+    height: 36px;
+    border-radius: var(--r-icon);
+    border: 1px solid var(--line);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--ink-soft);
+    transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+  }
+  .hp-topbar-action svg { width: 16px; height: 16px; stroke: currentColor; }
+  .hp-topbar-action:hover { border-color: var(--ink); color: var(--ink); background: #F8F8F6; }
+
+  .hp-main { padding-top: clamp(24px, 3vw, 32px); }
+}
+
+/* ============================================================
+   Mobile — <768px: top app bar + slide-down menu sheet
+   ============================================================ */
+@media (max-width: 767px) {
+  .hp-topbar { height: 68px; gap: 12px; }
+  .hp-topbar-role { display: none; }
+  .hp-topbar-nav, .hp-topbar-actions { display: none; }
+
+  .hp-menu-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: var(--r-icon);
+    border: 1px solid var(--line);
+    background: var(--paper);
+    margin-left: auto;
+    flex: 0 0 auto;
+    transition: border-color 0.2s ease, background 0.2s ease;
+  }
+  .hp-menu-btn svg { width: 18px; height: 18px; stroke: var(--ink); }
+  .hp-menu-btn[aria-expanded="true"] { background: #F0F0EC; border-color: var(--ink); }
+
+  .hp-mobile-menu {
+    display: block;
+    position: fixed;
+    inset: 68px 0 0 0;
+    z-index: 30;
+    background: rgba(17,18,20,0.28);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+  }
+  .hp-mobile-menu.is-open { opacity: 1; pointer-events: auto; }
+  .hp-mobile-menu-sheet {
+    background: var(--paper);
+    border-bottom: 1px solid var(--line);
+    padding: 8px var(--hp-pad) 20px;
+    transform: translateY(-8px);
+    opacity: 0;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+  .hp-mobile-menu.is-open .hp-mobile-menu-sheet { transform: translateY(0); opacity: 1; }
+
+  .hp-mobile-nav { display: flex; flex-direction: column; }
+  .hp-mobile-nav a {
+    font-size: 16px;
+    font-weight: 700;
+    padding: 13px 4px;
+    color: var(--ink);
+    border-bottom: 1px solid var(--line);
+  }
+  .hp-mobile-nav a.is-active { color: var(--accent); }
+
+  .hp-mobile-actions { display: flex; flex-direction: column; padding-top: 6px; }
+  .hp-mobile-actions a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink-soft);
+    padding: 11px 4px;
+  }
+  .hp-mobile-actions a svg { width: 17px; height: 17px; stroke: currentColor; flex: 0 0 auto; }
+
+  .hp-main { padding-top: 20px; padding-bottom: 40px; }
+  .hp-companies-row { gap: 14px; }
 }

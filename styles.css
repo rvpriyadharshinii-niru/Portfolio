@@ -669,10 +669,12 @@ a { color: inherit; }
   grid-template-columns: repeat(4, 1fr);
   gap: 14px;
 }
+.annotation-row--two { grid-template-columns: repeat(2, 1fr); }
+.annotation-row--three { grid-template-columns: repeat(3, 1fr); }
 .annotation-row--five { grid-template-columns: repeat(5, 1fr); }
 .annotation-row--six { grid-template-columns: repeat(6, 1fr); }
-@media (max-width: 860px) { .annotation-row, .annotation-row--five, .annotation-row--six { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 480px) { .annotation-row, .annotation-row--five, .annotation-row--six { grid-template-columns: 1fr; } }
+@media (max-width: 860px) { .annotation-row, .annotation-row--two, .annotation-row--three, .annotation-row--five, .annotation-row--six { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px) { .annotation-row, .annotation-row--two, .annotation-row--three, .annotation-row--five, .annotation-row--six { grid-template-columns: 1fr; } }
 
 .annotation-card {
   border-left: 2px solid var(--cyan);
@@ -933,10 +935,13 @@ a { color: inherit; }
 .arch-diagram .node { width: 100%; }
 .arch-diagram .arch-arrow-cell { display: flex; align-items: center; justify-content: center; grid-column: span 2; }
 .arch-merge-arrow { grid-column: span 2; display:flex; justify-content:center; }
+.arch-node--wide { grid-column: span 2; width: 100%; }
+.arch-node--platform { min-width: 280px; }
 
 @media (max-width: 600px) {
   .arch-diagram { grid-template-columns: 1fr; }
-  .arch-diagram .arch-arrow-cell, .arch-merge-arrow { grid-column: span 1; }
+  .arch-diagram .arch-arrow-cell, .arch-merge-arrow, .arch-node--wide { grid-column: span 1; }
+  .arch-node--platform { min-width: 0; }
 }
 
 /* Lifecycle */
