@@ -702,6 +702,14 @@ body.split-body { overflow-x: hidden; }
     linear-gradient(180deg, rgba(4,14,10,0.1) 0%, rgba(4,14,10,0.45) 55%, rgba(3,10,7,0.88) 100%),
     url('assets/erp-restaurantware-hero.jpg') center/cover no-repeat;
 }
+/* Real photo tile for Admin — a generated dashboard/laptop hero shot,
+   dark purple to match the case study's own theme-purple. Same
+   bottom-heavy gradient treatment as the ERP photo tile above. */
+.tile-cover--photo-admin {
+  background:
+    linear-gradient(180deg, rgba(10,4,20,0.1) 0%, rgba(10,4,20,0.5) 55%, rgba(8,3,16,0.9) 100%),
+    url('assets/admin-tile-hero.webp') center/cover no-repeat;
+}
 /* Placeholder approximations of reference photos the user shared
    (a dark abstract purple/blue/pink smoke-wave shot for Summary
    Builder, a dark teal ribbon/circuit swirl for AI Agents). Neither
