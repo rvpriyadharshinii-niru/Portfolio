@@ -182,24 +182,42 @@
 
 <script src="script.js"></script>
 <script>
-  // Doodles drift very slightly with scroll — a small editorial touch, not a gimmick.
+  // Doodles drift with scroll, and also react to the cursor while you're
+  // reading the body text — moving slightly with the mouse inside
+  // .ed-body-wrap so they feel tied to the text, not just decoration.
   (function () {
+    var wrap = document.querySelector('.ed-body-wrap');
     var doodles = document.querySelectorAll('.ed-doodle');
-    if (!doodles.length) return;
-    var ticking = false;
-    function onScroll() {
+    if (!wrap || !doodles.length) return;
+    var scrollY = 0, mouseX = 0.5, mouseY = 0.5, ticking = false;
+
+    function apply() {
+      doodles.forEach(function (el, i) {
+        var speed = 0.02 + i * 0.015;
+        var driftY = scrollY * speed;
+        var driftRot = scrollY * 0.015;
+        var reach = 12 + i * 6;
+        var mx = (mouseX - 0.5) * reach;
+        var my = (mouseY - 0.5) * reach;
+        el.style.transform = 'translate(' + mx.toFixed(1) + 'px,' + (driftY + my).toFixed(1) + 'px) rotate(' + driftRot.toFixed(2) + 'deg)';
+      });
+      ticking = false;
+    }
+    function request() {
       if (ticking) return;
       ticking = true;
-      requestAnimationFrame(function () {
-        var y = window.scrollY;
-        doodles.forEach(function (el, i) {
-          var speed = 0.02 + i * 0.015;
-          el.style.transform = 'translateY(' + (y * speed) + 'px) rotate(' + (y * 0.015) + 'deg)';
-        });
-        ticking = false;
-      });
+      requestAnimationFrame(apply);
     }
-    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('scroll', function () { scrollY = window.scrollY; request(); }, { passive: true });
+    wrap.addEventListener('mousemove', function (e) {
+      var r = wrap.getBoundingClientRect();
+      mouseX = (e.clientX - r.left) / r.width;
+      mouseY = (e.clientY - r.top) / r.height;
+      request();
+    });
+    wrap.addEventListener('mouseleave', function () {
+      mouseX = 0.5; mouseY = 0.5; request();
+    });
   })();
 </script>
 </body>
