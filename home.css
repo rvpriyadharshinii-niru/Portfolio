@@ -698,11 +698,13 @@ body.split-body { overflow-x: hidden; }
 /* Real photo tile — ERP's client, Restaurantware, sells restaurant/
    hospitality tableware, so a real dining-room shot (rather than a CSS
    pattern) fits the project directly. Gradient is heaviest at the
-   bottom, where .tile-cover's flex layout puts the title/tag text. */
-.tile-cover--photo-restaurantware {
+   bottom, where .tile-cover's flex layout puts the title/tag text.
+   Updated to a designed "ERP 3.0 for modern restaurants" cover shot
+   the user shared, replacing the plain dining-room photo. */
+.tile-cover--photo-erp {
   background:
     linear-gradient(180deg, rgba(4,14,10,0.1) 0%, rgba(4,14,10,0.45) 55%, rgba(3,10,7,0.88) 100%),
-    url('assets/erp-restaurantware-hero.jpg') center/cover no-repeat;
+    url('assets/erp-tile-hero.webp') center/cover no-repeat;
 }
 /* Real photo tile for Admin — a generated dashboard/laptop hero shot,
    dark purple to match the case study's own theme-purple. Same
