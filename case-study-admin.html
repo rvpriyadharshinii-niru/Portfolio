@@ -666,6 +666,128 @@
 </section>
 
 <!-- ============================================================
+     PLATFORM EVOLUTION
+     ============================================================ -->
+<section class="section section--light">
+  <div class="wrap">
+    <div class="section-intro">
+      <p class="section-kicker">Platform evolution</p>
+      <h2 class="section-heading">From fragmented admin to one platform.</h2>
+      <p class="section-copy">Every product had built its own administration screens, in its own vocabulary. The mental model above became a real architecture layer &mdash; a shared platform every application's admin experience now sits on top of.</p>
+    </div>
+
+    <div class="flow-vertical flow-vertical--pill reveal">
+      <div class="node">Product-specific Admin</div>
+      <div class="arrow-v"></div>
+      <div class="node">X-Platform</div>
+      <div class="arrow-v"></div>
+      <div class="node node--accent">BAIS / BAIC</div>
+    </div>
+
+    <div class="reveal mt-lg">
+      <div class="shot shot--full">
+        <img src="assets/admin-baic-evolution.png" alt="BAIC diagram: today's fragmented per-product admin versus tomorrow's one shared mental model with the right scope at every level">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     LATEST ADMIN MODEL
+     ============================================================ -->
+<section class="section section--dark">
+  <div class="wrap">
+    <div class="section-intro">
+      <p class="section-kicker">Latest admin model</p>
+      <h2 class="section-heading">Two levels of control. One shared structure.</h2>
+      <p class="section-copy">That platform layer resolved into two clear roles: a Platform Admin who manages the tenant, and an App Admin who runs one application inside it &mdash; each with the same three core jobs, at a different altitude.</p>
+    </div>
+
+    <div class="reveal">
+      <div class="shot shot--full">
+        <img src="assets/admin-baic-platform-vs-app.png" alt="BAIC comparison table: Platform Admin manages the platform and owns identity, security and tenant-wide governance, while App Admin runs one application and is designated by the Platform Admin">
+      </div>
+    </div>
+
+    <div class="reveal mt-lg" style="max-width:520px;margin-left:auto;margin-right:auto;text-align:center;">
+      <div class="shot shot--wide">
+        <img src="assets/admin-baic-setup-once.png" alt="BAIC principle: set up once, configure per app — platform connects identity and approves integrations, each app configures how it uses what platform enabled">
+      </div>
+      <p class="section-copy center mt-md">Credentials live once, at the platform. Behavior is configured per app.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     RESPONSIBILITY-BASED IA
+     ============================================================ -->
+<section class="section section--light">
+  <div class="wrap">
+    <div class="section-intro">
+      <p class="section-kicker">Responsibility-based IA</p>
+      <h2 class="section-heading">Six sections. Five mirror to apps.</h2>
+      <p class="section-copy">Structure &rarr; access &rarr; connections &rarr; consumption &rarr; operations &rarr; configuration. Where a section exists at both altitudes, it keeps the same name and the same purpose &mdash; just at the right scope.</p>
+    </div>
+
+    <div class="reveal">
+      <div class="shot shot--full">
+        <img src="assets/admin-baic-ia-structure.png" alt="BAIC's six administration sections — Organization, Users & Access, Integrations, Credit & Usage, Observability, Settings — mapped across Platform Admin and App Admin scope">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SAME MODEL, DIFFERENT SCOPE
+     ============================================================ -->
+<section class="section section--dark">
+  <div class="wrap">
+    <div class="section-intro">
+      <p class="section-kicker">Same model, different scope</p>
+      <h2 class="section-heading">From user-level scope to platform-level scope.</h2>
+      <p class="section-copy">I initially worked through administrative scope at the level of individual users, roles and permissions &mdash; who can enter the platform, and what they're allowed to do. As the platform architecture evolved, that same question became larger: which responsibilities belong to the platform, and which belong to the application?</p>
+    </div>
+
+    <div class="diagram reveal" style="gap:18px;">
+      <div class="shot shot--full" style="max-width:460px;">
+        <img src="assets/admin-users.jpeg" alt="Earlier X-Platform Users work: identity, role, status, workspace access, auth method and last login">
+      </div>
+      <div class="arrow-v"></div>
+      <div style="font-size:13px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;color:var(--cyan);text-align:center;">From user-level scope &rarr; to platform-level scope</div>
+      <div class="arrow-v"></div>
+    </div>
+
+    <div class="reveal">
+      <div class="shot shot--full">
+        <img src="assets/admin-baic-users-access.png" alt="BAIC Users & Access, side by side: BAIC shows every user across the tenant, CSAI shows only the users with access to that application — same page name, same vocabulary, different scope">
+      </div>
+      <p class="section-copy center mt-md">Same page name, same vocabulary &mdash; different scope. Platform sees every user across the tenant; the app sees only the users who have access to it.</p>
+    </div>
+
+    <div class="persona-grid persona-grid--three reveal mt-lg">
+      <div>
+        <div class="shot shot--wide">
+          <img src="assets/admin-baic-integrations.png" alt="BAIC Integrations: platform approves the catalog and credentials, the app configures how it uses what's approved">
+        </div>
+        <p class="section-copy" style="font-size:13.5px;margin-top:10px;">Platform approves the catalog. App configures how it's used.</p>
+      </div>
+      <div>
+        <div class="shot shot--wide">
+          <img src="assets/admin-baic-credit-usage.png" alt="BAIC Credit & Usage: platform sees the full bill across every app, the app sees only its own consumption and budgets">
+        </div>
+        <p class="section-copy" style="font-size:13.5px;margin-top:10px;">Platform sees the full bill. App sees its own consumption.</p>
+      </div>
+      <div>
+        <div class="shot shot--wide">
+          <img src="assets/admin-baic-observability.png" alt="BAIC Observability: platform audit log shows tenant-wide activity, the app's audit log shows only its own scoped activity">
+        </div>
+        <p class="section-copy" style="font-size:13.5px;margin-top:10px;">Same underlying data. Different filter.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
      MY CONTRIBUTION
      ============================================================ -->
 <section class="section section--dark">
