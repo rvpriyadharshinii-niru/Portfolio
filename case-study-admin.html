@@ -32,157 +32,161 @@
 </header>
 
 <!-- ============================================================
-     HERO
+     HERO — asymmetric, one visual, plain metadata
      ============================================================ -->
-<section class="hero">
+<section class="adm-hero">
   <div class="wrap">
-    <div class="hero-meta">
-      <span>Uniphore</span>
-      <span>Enterprise AI / Administration</span>
-      <span>Product Designer</span>
-      <span class="accent">2025–2026</span>
-    </div>
-    <h1>Designing Administration for an Enterprise AI Platform</h1>
-    <p class="hero-sub">Structuring organization, access, integrations, usage and platform operations into one manageable administration experience.</p>
-  </div>
-</section>
-
-<!-- ============================================================
-     BACKGROUND
-     ============================================================ -->
-<section class="section section--dark">
-  <div class="wrap">
-    <div class="mega-wrap reveal">
-      <p class="mega-kicker">Background</p>
-      <h2 class="mega-statement">As the platform grew,<br>administration became <span class="accent">a product of its own.</span></h2>
-      <p class="mega-sub">An enterprise AI platform isn't only about building AI experiences. Someone also has to manage the organization behind them — users, permissions, workspaces, integrations, usage, security and system health.</p>
-      <p class="mega-sub">The Administration experience needed to bring these responsibilities into a structure that could scale without becoming one large settings menu.</p>
-    </div>
-
-    <div class="flow-vertical reveal mt-lg">
-      <div class="node">AI Platform</div>
-      <div class="arrow-v"></div>
-      <div class="node node--accent">Administration</div>
-      <div class="arrow-v"></div>
-      <div class="node" style="font-size:13px;max-width:640px;">Organization &middot; Access &middot; Integrations &middot; Usage &middot; Observability &middot; Settings</div>
-    </div>
-
-    <div class="persona-grid reveal mt-lg">
-      <div class="persona-card">
-        <span class="persona-card-tag persona-card-tag--muted">Today</span>
-        <div class="persona-card-title">Each team builds its own admin.</div>
-        <p class="persona-card-desc">BAIC and every app invent separate admin patterns — different vocabulary, different layouts, different mental models. The fragmentation compounds with every new app.</p>
+    <div class="adm-hero-grid">
+      <div>
+        <div class="adm-hero-meta">
+          <span>Uniphore</span>
+          <span>Enterprise AI</span>
+          <span>2025&ndash;2026</span>
+          <span class="accent">Product Design</span>
+        </div>
+        <h1 class="adm-hero-title">Designing Administration for an Enterprise AI Platform</h1>
+        <p class="adm-hero-sub">From fragmented product controls to a shared administrative model for organization, access, integrations and platform operations.</p>
       </div>
-      <div class="persona-card">
-        <span class="persona-card-tag">Tomorrow</span>
-        <div class="persona-card-title">One mental model. Right scope at every level.</div>
-        <p class="persona-card-desc">A shared vocabulary across platform and app. The platform surfaces tenant-wide concerns, each app surfaces its own — and a customer learns the structure once and reuses it everywhere.</p>
+      <div class="adm-hero-visual reveal">
+        <div class="shot shot--wide">
+          <img src="assets/admin-credits.jpeg" alt="Credits dashboard showing total inferences, daily burn, credit usage by skill and inference calls by model">
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ============================================================
-     INFORMATION ARCHITECTURE
+     THE STORY, AT A GLANCE — scannable without reading a word
+     ============================================================ -->
+<section class="section section--light adm-chapter-wrap" style="padding-top:clamp(32px,4vw,56px);padding-bottom:clamp(32px,4vw,56px);">
+  <div class="wrap">
+    <div class="adm-narrative">
+      <span class="adm-narrative-item">Fragmented</span><span class="adm-narrative-arrow">&rarr;</span>
+      <span class="adm-narrative-item">Mapped</span><span class="adm-narrative-arrow">&rarr;</span>
+      <span class="adm-narrative-item is-strong">X-Platform</span><span class="adm-narrative-arrow">&rarr;</span>
+      <span class="adm-narrative-item is-strong">Users</span><span class="adm-narrative-arrow">&rarr;</span>
+      <span class="adm-narrative-item">Architecture evolved</span><span class="adm-narrative-arrow">&rarr;</span>
+      <span class="adm-narrative-item is-strong">Platform / App</span><span class="adm-narrative-arrow">&rarr;</span>
+      <span class="adm-narrative-item">One mental model</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     01 / CONTEXT — the problem, shown before it's explained
+     ============================================================ -->
+<section class="section section--dark adm-chapter-wrap">
+  <div class="wrap">
+    <span class="adm-chapter-num">01</span>
+    <div class="adm-chapter-label">Context</div>
+
+    <div class="mega-wrap reveal" style="text-align:left;margin:0;">
+      <h2 class="mega-statement" style="text-align:left;max-width:820px;">As the platform grew,<br>administration became <span class="accent">a product of its own.</span></h2>
+      <p class="mega-sub" style="text-align:left;margin-left:0;max-width:640px;">Self-Serve and Assist were managed through X-Console while other capabilities lived in separate product environments — each with its own vocabulary.</p>
+    </div>
+
+    <div class="adm-converge reveal mt-lg">
+      <div class="adm-converge-scattered">
+        <span class="adm-converge-chip" style="--r:-5deg;">Self-Serve / Assist<small>X-Console</small></span>
+        <span class="adm-converge-chip" style="--r:4deg;">Capture<small>Product Admin</small></span>
+        <span class="adm-converge-chip" style="--r:-3deg;">Analytics<small>Product Admin</small></span>
+        <span class="adm-converge-chip" style="--r:5deg;">Other capabilities<small>Separate contexts</small></span>
+      </div>
+      <div class="adm-converge-line"></div>
+      <div class="adm-converge-target">Unified Administration</div>
+    </div>
+
+    <div class="adm-compare-lean reveal mt-lg">
+      <div>
+        <div class="adm-compare-lean-tag">Today</div>
+        <div class="adm-compare-lean-title">Each team builds its own admin.</div>
+        <ul>
+          <li>Different vocabulary, different layouts</li>
+          <li>Fragmentation compounds with every new app</li>
+        </ul>
+      </div>
+      <div>
+        <div class="adm-compare-lean-tag">Tomorrow</div>
+        <div class="adm-compare-lean-title">One mental model. Right scope at every level.</div>
+        <ul>
+          <li>Platform surfaces tenant-wide concerns</li>
+          <li>Each app surfaces its own, in the same vocabulary</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     MAPPING ADMINISTRATIVE SCOPE
      ============================================================ -->
 <section class="section section--light">
   <div class="wrap">
-    <div class="section-intro">
-      <p class="section-kicker">Information architecture</p>
-      <h2 class="section-heading">The first problem was deciding where everything belongs.</h2>
-      <p class="section-copy">Administration contains very different kinds of tasks. The navigation needed to represent clear administrative responsibilities — not expose a long flat list of technical configuration pages.</p>
-    </div>
-
-    <div class="reveal">
-      <div class="shot" style="max-width:280px;margin:0 auto;">
-        <img src="assets/admin-sidebar-nav.png" alt="Administration side navigation showing Organization, Users & Access, Integrations, Credits & Usage, Observability and Settings">
+    <div class="adm-split adm-split--5-7">
+      <div class="adm-split-sticky">
+        <p class="section-kicker">Mapping administrative scope</p>
+        <h2 class="section-heading" style="font-size:clamp(26px,3vw,40px);">Group by responsibility, not by system.</h2>
+        <p class="section-copy">Administration held very different kinds of tasks. The navigation needed to represent clear responsibilities — not a flat list of configuration pages.</p>
+      </div>
+      <div class="reveal">
+        <div class="shot" style="max-width:280px;">
+          <img src="assets/admin-sidebar-nav.png" alt="Administration side navigation showing Organization, Users & Access, Integrations, Credits & Usage, Observability and Settings">
+        </div>
       </div>
     </div>
 
     <div class="ia-grid reveal mt-lg">
       <div class="ia-col">
         <div class="ia-col-title"><span class="cat-dot cat-dot--org"></span>Organization</div>
-        <ul>
-          <li>Organizational hierarchy</li>
-          <li>Sub-organizations</li>
-          <li>Workspaces</li>
-          <li>Governance</li>
-        </ul>
+        <ul><li>Hierarchy</li><li>Sub-organizations</li><li>Workspaces</li><li>Governance</li></ul>
       </div>
       <div class="ia-col">
         <div class="ia-col-title"><span class="cat-dot cat-dot--access"></span>Users &amp; Access</div>
-        <ul>
-          <li>Users</li>
-          <li>Roles</li>
-          <li>Permissions / access</li>
-        </ul>
+        <ul><li>Users</li><li>Roles</li><li>Permissions</li></ul>
       </div>
       <div class="ia-col">
         <div class="ia-col-title"><span class="cat-dot cat-dot--integrations"></span>Integrations</div>
-        <ul>
-          <li>Connectors</li>
-          <li>API tokens</li>
-        </ul>
+        <ul><li>Connectors</li><li>API tokens</li></ul>
       </div>
       <div class="ia-col">
         <div class="ia-col-title"><span class="cat-dot cat-dot--usage"></span>Credits &amp; Usage</div>
-        <ul>
-          <li>Allocation</li>
-          <li>Consumption</li>
-          <li>Model / skill usage</li>
-        </ul>
+        <ul><li>Allocation</li><li>Consumption</li><li>Model usage</li></ul>
       </div>
       <div class="ia-col">
         <div class="ia-col-title"><span class="cat-dot cat-dot--observability"></span>Observability</div>
-        <ul>
-          <li>Audit logs</li>
-          <li>Sign-ins</li>
-          <li>System events</li>
-          <li>Health</li>
-        </ul>
+        <ul><li>Audit logs</li><li>Sign-ins</li><li>Events</li><li>Health</li></ul>
       </div>
       <div class="ia-col">
         <div class="ia-col-title"><span class="cat-dot cat-dot--settings"></span>Settings</div>
-        <ul>
-          <li>Account</li>
-          <li>Provisioning</li>
-          <li>Applications</li>
-          <li>Data &amp; security</li>
-        </ul>
+        <ul><li>Account</li><li>Provisioning</li><li>Applications</li><li>Security</li></ul>
       </div>
     </div>
-
-    <div class="solution-card mt-lg reveal">
-      <div>
-        <div class="solution-card-label">Design principle</div>
-        <div class="solution-card-statement">Group by the administrator's <span class="accent">responsibility</span> — not by the underlying system.</div>
-      </div>
-      <p class="solution-card-support">A flat list of settings pages mirrors how the system is built. Grouping by responsibility mirrors how an administrator actually thinks about their job — which is what the navigation needed to match.</p>
-    </div>
+    <p class="adm-principle mt-lg">Group by the administrator's <span class="accent">responsibility</span> — not by the underlying system.</p>
   </div>
 </section>
 
 <!-- ============================================================
-     PERSONAS
+     TWO ADMINISTRATORS
      ============================================================ -->
 <section class="section section--light">
   <div class="wrap">
     <div class="section-intro">
       <p class="section-kicker">Who this is for</p>
-      <h2 class="section-heading">Before the screens: two people share this experience, at two different altitudes.</h2>
-      <p class="section-copy">Every section that follows belongs to one of two administrators. Designing for both meant giving each the right scope — not the same screen with fewer options switched off.</p>
+      <h2 class="section-heading">Two people share this experience, at two different altitudes.</h2>
+      <p class="section-copy">Designing for both meant giving each the right scope — not the same screen with fewer options switched off.</p>
     </div>
 
     <div class="persona-grid reveal">
       <div class="persona-card">
         <span class="persona-card-tag">Platform Admin</span>
         <div class="persona-card-title">Manages the platform.</div>
-        <p class="persona-card-desc">Owns identity, security and tenant-wide governance. Connects SSO, defines the org hierarchy, and designates who administers each application.</p>
+        <p class="persona-card-desc">Owns identity, security and tenant-wide governance. Connects SSO and designates who administers each application.</p>
       </div>
       <div class="persona-card">
         <span class="persona-card-tag">App Admin</span>
         <div class="persona-card-title">Runs an application.</div>
-        <p class="persona-card-desc">Designated by the Platform Admin. Configures how one application uses what the platform has already approved and enabled — nothing more, nothing less.</p>
+        <p class="persona-card-desc">Designated by the Platform Admin. Configures how one application uses what's already approved and enabled.</p>
       </div>
     </div>
 
@@ -194,7 +198,7 @@
       </div>
       <div class="compare-row">
         <div>Set up the organization</div>
-        <div><span class="compare-tag">Platform Admin</span>Connect SSO, define org hierarchy, designate app admins</div>
+        <div><span class="compare-tag">Platform Admin</span>Connect SSO, define hierarchy, designate app admins</div>
         <div class="compare-cell--muted"><span class="compare-tag">App Admin</span>Not at app level</div>
       </div>
       <div class="compare-row">
@@ -204,32 +208,13 @@
       </div>
       <div class="compare-row">
         <div>Configure tools and apps</div>
-        <div><span class="compare-tag">Platform Admin</span>Approve integrations &amp; apps, manage integration credentials</div>
-        <div><span class="compare-tag">App Admin</span>Configure this app and how it uses approved integrations</div>
+        <div><span class="compare-tag">Platform Admin</span>Approve integrations, manage credentials</div>
+        <div><span class="compare-tag">App Admin</span>Configure this app's use of approved integrations</div>
       </div>
     </div>
 
-    <div class="flow-horizontal reveal mt-lg">
-      <div class="node">
-        <span class="node-label">Platform</span>
-        Identity &amp; Governance
-      </div>
-      <div class="arrow-h"></div>
-      <div class="node node--accent">
-        <span class="node-label">App</span>
-        Configuration &amp; Behavior
-      </div>
-    </div>
-
-    <div class="solution-card mt-lg reveal">
-      <div>
-        <div class="solution-card-label">Design principle</div>
-        <div class="solution-card-statement">Set up <span class="accent">once.</span> Configure <span class="accent">per app.</span></div>
-      </div>
-      <p class="solution-card-support">The platform connects identity, approves integrations and apps, and sets tenant-wide policy. Each app then configures how it uses what the platform has already enabled — credentials live once, behavior is per app. Two apps can share the same Salesforce connection and still do completely different things with it: one reading customer-support cases, the other reading sales-pipeline data, off the same credential.</p>
-    </div>
-
-    <p class="section-copy center mt-lg" style="max-width:680px;margin-left:auto;margin-right:auto;">The sections below follow this same split. Where a section exists at both altitudes, it keeps the same name and the same vocabulary — only the scope changes.</p>
+    <p class="adm-principle adm-principle--huge mt-lg" style="margin-left:auto;margin-right:auto;text-align:center;">Set up <span class="accent">once.</span> Configure <span class="accent">per app.</span></p>
+    <p class="section-copy center" style="max-width:680px;margin:0 auto;">Two apps can share the same Salesforce connection and still do completely different things with it — one reading support cases, the other reading sales data, off the same credential.</p>
   </div>
 </section>
 
@@ -241,39 +226,23 @@
     <div class="section-intro">
       <p class="section-kicker">Organization</p>
       <h2 class="section-heading">Understanding the organization before managing the system</h2>
-      <p class="section-copy">For enterprise customers, administration can exist across organizational levels. The Organization area gives administrators a starting point for understanding the sub-organizations they can manage and moving into the relevant context.</p>
+      <p class="section-copy">The Organization area gives administrators a starting point for understanding the sub-organizations they can manage, before moving into that context.</p>
     </div>
 
     <div class="reveal">
       <div class="shot shot--full" style="max-width:760px;margin:0 auto;">
         <img src="assets/admin-suborgs.jpeg" alt="Sub-organizations list showing Claims Management, Sales and IT with workspace count, user count, status and created date">
       </div>
-      <div class="insight-strip">
-        <div class="insight-card">
-          <div class="insight-card-label">Search &amp; discovery</div>
-          <div class="insight-card-text">Find the right sub-organization by name instead of scrolling a flat list.</div>
-        </div>
-        <div class="insight-card">
-          <div class="insight-card-label">Workspace count</div>
-          <div class="insight-card-text">See how many workspaces exist here before opening it.</div>
-        </div>
-        <div class="insight-card">
-          <div class="insight-card-label">User count &amp; status</div>
-          <div class="insight-card-text">Gauge how active a sub-organization is at a glance.</div>
-        </div>
-        <div class="insight-card">
-          <div class="insight-card-label">Org switching / context</div>
-          <div class="insight-card-text">Move between sub-organizations without losing your place.</div>
-        </div>
+      <div class="adm-figure-caption" style="max-width:760px;margin:12px auto 0;">
+        <span>FIG. 01 &middot; SUB-ORGANIZATIONS</span><span>PLATFORM ADMIN ONLY</span>
       </div>
     </div>
 
     <div class="reveal mt-lg">
-      <p class="section-copy" style="max-width:720px;">Once inside a sub-organization, the experience surfaces the most important context first — workspaces, administrators, credits used, utilization, users and sub-organization details. A workspace selector in the header keeps that context as administrators move across areas.</p>
-      <div class="shot shot--full mt-md" style="max-width:760px;margin:0 auto;">
+      <div class="shot shot--full" style="max-width:760px;margin:0 auto;">
         <img src="assets/admin-org-structure.jpeg" alt="Org Structure screen for Claims Management showing workspaces, admins, credits used and utilization">
       </div>
-      <div class="persona-note"><strong>Platform Admin only.</strong> Organization is platform-scoped — apps inherit the tenant structure but don't define it themselves.</div>
+      <div class="persona-note"><strong>Platform Admin only.</strong> Organization is platform-scoped — apps inherit the tenant structure but don't define it.</div>
     </div>
 
     <div class="flow-horizontal reveal mt-lg">
@@ -293,63 +262,89 @@
      ============================================================ -->
 <section class="section section--light">
   <div class="wrap">
-    <div class="section-intro">
-      <p class="section-kicker">Governance</p>
-      <h2 class="section-heading">Administration also means governing what AI is allowed to do.</h2>
-      <p class="section-copy">As AI systems take actions, some may require human review. Governance sits within the organizational context rather than as a separate experience — the Human-in-the-Loop queue surfaces high-risk actions that require administrator approval or rejection.</p>
-    </div>
-
-    <div class="reveal">
-      <div class="shot shot--full" style="max-width:760px;margin:0 auto;">
-        <img src="assets/admin-governance-hitl.jpeg" alt="HITL Queue showing pending approvals with agent, risk level, reason and approve/reject actions">
+    <div class="adm-split adm-split--4-8">
+      <div>
+        <p class="section-kicker">Governance</p>
+        <h2 class="section-heading" style="font-size:clamp(24px,2.8vw,36px);">Governing what AI is allowed to do.</h2>
+        <p class="section-copy">As AI systems take actions, some require human review. The HITL queue surfaces high-risk actions that need approval or rejection.</p>
       </div>
-      <div class="insight-strip">
-        <div class="insight-card">
-          <div class="insight-card-label">Pending approvals</div>
-          <div class="insight-card-text">Every action waiting on a human decision, in one queue.</div>
+      <div class="reveal">
+        <div class="shot shot--full">
+          <img src="assets/admin-governance-hitl.jpeg" alt="HITL Queue showing pending approvals with agent, risk level, reason and approve/reject actions">
         </div>
-        <div class="insight-card">
-          <div class="insight-card-label">Risk level</div>
-          <div class="insight-card-text">Not every action carries the same stakes — risk is surfaced up front.</div>
+        <div class="annotation-row annotation-row--five mt-md">
+          <div class="annotation-card"><div class="a-tag">PENDING</div></div>
+          <div class="annotation-card"><div class="a-tag">RISK LEVEL</div></div>
+          <div class="annotation-card"><div class="a-tag">AGENT</div></div>
+          <div class="annotation-card"><div class="a-tag">REASON</div></div>
+          <div class="annotation-card"><div class="a-tag">APPROVE / REJECT</div></div>
         </div>
-        <div class="insight-card">
-          <div class="insight-card-label">Agent responsible</div>
-          <div class="insight-card-text">Know which Agent is asking, not just what it's asking for.</div>
-        </div>
-        <div class="insight-card">
-          <div class="insight-card-label">Reason / context</div>
-          <div class="insight-card-text">The context behind the request, not just the request itself.</div>
-        </div>
-        <div class="insight-card">
-          <div class="insight-card-label">Approve / reject</div>
-          <div class="insight-card-text">A decision an administrator can make with confidence, in place.</div>
-        </div>
+        <div class="persona-note"><strong>Platform Admin only.</strong> Governance policy is set once, tenant-wide.</div>
       </div>
-      <div class="persona-note"><strong>Platform Admin only.</strong> Governance policy is set once, tenant-wide — apps don't maintain their own separate approval queues.</div>
     </div>
   </div>
 </section>
 
 <!-- ============================================================
-     USERS & ACCESS
+     02 / USERS — the major chapter
      ============================================================ -->
-<section class="section section--dark">
+<section class="section section--dark adm-chapter-wrap">
   <div class="wrap">
+    <span class="adm-chapter-num">02</span>
+    <div class="adm-chapter-label">X-Platform / Users</div>
+
     <div class="section-intro">
-      <p class="section-kicker">Users &amp; access</p>
-      <h2 class="section-heading">Who can enter the platform — and what can they do?</h2>
-      <p class="section-copy">Users answers &ldquo;who has access?&rdquo; Roles answers &ldquo;what are they allowed to do?&rdquo; Keeping identity and authorization as separate, related surfaces makes access easier to understand as organizations grow.</p>
+      <h2 class="section-heading" style="font-size:clamp(34px,4.6vw,58px);">One user.<br>Multiple scopes.</h2>
+      <p class="section-copy">The challenge wasn't displaying users. A person could be connected to partners, accounts, groups, roles and attributes — while the administrator managing them operated at a different level of authority.</p>
     </div>
 
-    <div class="reveal">
-      <div class="shot shot--full" style="max-width:760px;margin:0 auto;">
-        <img src="assets/admin-users.jpeg" alt="Users table with identity, assigned role, status, workspace access, authentication method, MFA and last login">
+    <div class="adm-question-set reveal">
+      <span>Who am I <span class="mute">managing?</span></span>
+      <span>Where do they <span class="mute">have access?</span></span>
+      <span>What are they allowed <span class="mute">to do there?</span></span>
+    </div>
+
+    <div class="annotation-row annotation-row--five reveal mt-lg">
+      <div class="annotation-card"><div class="a-tag">01 &middot; ADMIN CONTEXT</div><div class="a-desc">Super / Partner / Account</div></div>
+      <div class="annotation-card"><div class="a-tag">02 &middot; SCOPE</div><div class="a-desc">Where they operate</div></div>
+      <div class="annotation-card"><div class="a-tag">03 &middot; VISIBILITY</div><div class="a-desc">Who they can see</div></div>
+      <div class="annotation-card"><div class="a-tag">04 &middot; ASSIGNMENT</div><div class="a-desc">What they can assign</div></div>
+      <div class="annotation-card"><div class="a-tag">05 &middot; AUTHORITY</div><div class="a-desc">What they can change</div></div>
+    </div>
+
+    <p class="adm-quote reveal mt-lg">Access wasn't binary. What administrators could see and change depended on where they were operating in the organization.</p>
+
+    <div class="reveal mt-lg">
+      <div class="shot shot--full">
+        <img src="assets/admin-users.jpeg" alt="X-Platform Users table with identity, role, status, workspace access, authentication method, MFA and last login">
       </div>
       <div class="annotation-row mt-md">
         <div class="annotation-card"><div class="a-tag">IDENTITY &amp; ROLE</div></div>
         <div class="annotation-card"><div class="a-tag">STATUS &amp; WORKSPACE ACCESS</div></div>
         <div class="annotation-card"><div class="a-tag">AUTH METHOD &amp; MFA</div></div>
         <div class="annotation-card"><div class="a-tag">LAST LOGIN</div></div>
+      </div>
+    </div>
+
+    <div class="adm-split adm-split--5-7 mt-lg">
+      <div class="reveal">
+        <p class="section-kicker">Preserve relationships</p>
+        <h3 style="font-size:clamp(20px,2.2vw,28px);font-weight:800;margin:0 0 12px;">Preserve relationships instead of flattening them.</h3>
+        <p class="section-copy">Partners could contain accounts. Roles could expose attributes. Expandable patterns kept these relationships without turning user management into one enormous form.</p>
+      </div>
+      <div class="adm-tree reveal">
+        <div>
+          <div class="adm-tree-root">Partner</div>
+          <div class="adm-tree-children"><span>Account</span><span>Account</span><span>Account</span></div>
+        </div>
+        <div>
+          <div class="adm-tree-root">Role</div>
+          <div class="adm-tree-children"><span>Attribute</span><span>Attribute</span></div>
+        </div>
+        <div>
+          <div class="adm-tree-root">Organization</div>
+          <div class="adm-tree-children"><span>Group</span><span>Group</span></div>
+        </div>
       </div>
     </div>
 
@@ -366,16 +361,45 @@
       <div class="persona-note"><strong>Both altitudes, same vocabulary.</strong> Platform Admin sees every user across the tenant; App Admin sees only the users who have access to this application.</div>
     </div>
 
-    <div class="flow-horizontal reveal mt-lg">
-      <div class="node">User</div>
-      <div class="arrow-h"></div>
-      <div class="node">Role</div>
-      <div class="arrow-h"></div>
-      <div class="node">Permissions</div>
-      <div class="arrow-h"></div>
-      <div class="node node--accent">Platform Capabilities</div>
+    <div class="reveal mt-lg">
+      <p class="section-kicker">Keep the working context</p>
+      <h3 style="font-size:clamp(22px,2.4vw,30px);font-weight:800;margin:0 0 14px;">Table &rarr; side panel, not table &rarr; new page.</h3>
+      <p class="section-copy">Selecting a user reveals deeper relationships in a side panel instead of navigating the administrator away from the list.</p>
+      <div class="adm-workflow mt-lg">
+        <div class="adm-workflow-step"><span class="adm-workflow-num">01</span><div class="adm-workflow-title">Scan</div><p>Enterprise table &mdash; search, filter, hierarchy.</p></div>
+        <div class="adm-workflow-arrow">&rarr;</div>
+        <div class="adm-workflow-step"><span class="adm-workflow-num">02</span><div class="adm-workflow-title">Inspect</div><p>Side panel &mdash; relationships at a glance.</p></div>
+        <div class="adm-workflow-arrow">&rarr;</div>
+        <div class="adm-workflow-step"><span class="adm-workflow-num">03</span><div class="adm-workflow-title">Assign</div><p>Partner, account, group and role.</p></div>
+        <div class="adm-workflow-arrow">&rarr;</div>
+        <div class="adm-workflow-step"><span class="adm-workflow-num">04</span><div class="adm-workflow-title">Modify</div><p>Inline editing, bulk operations.</p></div>
+      </div>
+      <p class="adm-principle mt-lg">Edit <span class="accent">locally.</span> Preserve <span class="accent">global context.</span></p>
     </div>
-    <p class="section-copy center mt-md" style="margin-left:auto;margin-right:auto;">Separating identity from authorization makes access easier to understand and manage as organizations grow.</p>
+
+    <div class="reveal mt-lg">
+      <p class="mega-statement" style="text-align:left;max-width:820px;font-size:clamp(26px,3.4vw,44px);">The same experience had to work for a few users <span class="accent">&mdash; and thousands.</span></p>
+      <div class="annotation-row annotation-row--six mt-md">
+        <div class="annotation-card"><div class="a-tag">SEARCH</div></div>
+        <div class="annotation-card"><div class="a-tag">FILTER</div></div>
+        <div class="annotation-card"><div class="a-tag">IMPORT</div></div>
+        <div class="annotation-card"><div class="a-tag">SELECTION</div></div>
+        <div class="annotation-card"><div class="a-tag">BULK ACTIONS</div></div>
+        <div class="annotation-card"><div class="a-tag">LIST / HIERARCHY</div></div>
+      </div>
+    </div>
+
+    <div class="reveal mt-lg">
+      <h3 class="section-heading" style="font-size:clamp(22px,2.6vw,34px);">Repeated problems became reusable patterns.</h3>
+      <p class="section-copy">As Users expanded, recurring problems became reusable administration patterns &mdash; extending the platform's existing design-system foundations, not a new system built from scratch.</p>
+      <div class="annotation-row mt-md">
+        <div class="annotation-card"><div class="a-tag">ENTERPRISE TABLE</div></div>
+        <div class="annotation-card"><div class="a-tag">HIERARCHICAL GROUPING</div></div>
+        <div class="annotation-card"><div class="a-tag">ASSIGNMENT PATTERN</div></div>
+        <div class="annotation-card"><div class="a-tag">ROLE-AWARE FORM</div></div>
+        <div class="annotation-card"><div class="a-tag">BULK / INLINE EDIT</div></div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -384,21 +408,22 @@
      ============================================================ -->
 <section class="section section--light">
   <div class="wrap">
-    <div class="section-intro">
-      <p class="section-kicker">Integrations</p>
-      <h2 class="section-heading">Connecting the platform to the enterprise ecosystem</h2>
-      <p class="section-copy">AI systems rarely operate independently. Administrators need visibility into the external systems the platform depends on. Connectors organizes integrations by operational state — In Use, Available, Requested, Catalog — and each active integration surfaces its health and the actions administrators are most likely to need.</p>
-    </div>
-
-    <div class="reveal">
-      <div class="shot shot--full" style="max-width:760px;margin:0 auto;">
-        <img src="assets/admin-connectors.jpeg" alt="Connectors screen showing In Use, Available and Requested integrations with Salesforce configuration, test and re-sync actions">
+    <div class="adm-split adm-split--7-5">
+      <div class="reveal">
+        <div class="shot shot--full">
+          <img src="assets/admin-connectors.jpeg" alt="Connectors screen showing In Use, Available and Requested integrations with Salesforce configuration, test and re-sync actions">
+        </div>
+      </div>
+      <div class="adm-split-sticky">
+        <p class="section-kicker">Integrations</p>
+        <h2 class="section-heading" style="font-size:clamp(24px,2.8vw,36px);">Connecting the platform to the enterprise ecosystem.</h2>
+        <p class="section-copy">Connectors organizes integrations by operational state, and surfaces the actions administrators need most.</p>
+        <p class="section-copy">API Tokens manage programmatic access to the platform itself &mdash; a related but distinct concern.</p>
       </div>
     </div>
 
     <div class="reveal mt-lg">
-      <p class="section-copy" style="max-width:720px;">Connectors manage integrations as products or services. API Tokens manage programmatic access to the platform itself — a related but distinct concern.</p>
-      <div class="shot shot--full mt-md" style="max-width:760px;margin:0 auto;">
+      <div class="shot shot--full" style="max-width:760px;margin:0 auto;">
         <img src="assets/admin-api-tokens.jpeg" alt="API Tokens table showing name, owner, creation date, last used and status">
       </div>
       <div class="annotation-row mt-md">
@@ -407,7 +432,7 @@
         <div class="annotation-card"><div class="a-tag">STATUS</div></div>
         <div class="annotation-card"><div class="a-tag">GENERATE / REVOKE</div></div>
       </div>
-      <div class="persona-note"><strong>Platform approves, app configures.</strong> The Platform Admin curates and connects the integration catalog; each App Admin decides how their application uses what's already approved.</div>
+      <div class="persona-note"><strong>Platform approves, app configures.</strong> The Platform Admin curates the integration catalog; each App Admin decides how their application uses what's approved.</div>
     </div>
   </div>
 </section>
@@ -420,22 +445,14 @@
     <div class="section-intro">
       <p class="section-kicker">Credits &amp; usage</p>
       <h2 class="section-heading">Making AI consumption visible</h2>
-      <p class="section-copy">AI introduces a new administrative concern: consumption. Administrators need to understand not only whether the system is working, but how platform capacity is being consumed — total inferences, daily burn, allocation, usage by skill, usage trend and model-level consumption, all in one place.</p>
+      <p class="section-copy">AI introduces a new administrative concern: consumption. Total inferences and daily burn answer &ldquo;is this normal?&rdquo; first &mdash; usage by skill and model are one level down.</p>
     </div>
 
     <div class="reveal">
       <div class="shot shot--full" style="max-width:760px;margin:0 auto;">
         <img src="assets/admin-credits.jpeg" alt="Credits dashboard showing total inferences, average daily burn, total credits, credits used, credit usage by skill, usage trend and inference calls by model type">
       </div>
-      <div class="persona-note"><strong>Both altitudes, different scope.</strong> Platform Admin sees the full account bill across every app; App Admin sees only this app's consumption and manages its own budget.</div>
-    </div>
-
-    <div class="solution-card mt-lg reveal">
-      <div>
-        <div class="solution-card-label">Design principle</div>
-        <div class="solution-card-statement">Start with the <span class="accent">health of the account</span> — then let administrators investigate.</div>
-      </div>
-      <p class="solution-card-support">Total inferences and daily burn answer "is this normal?" first. Usage by skill and model-level detail are one level down, for administrators who need to know why.</p>
+      <div class="persona-note"><strong>Both altitudes, different scope.</strong> Platform Admin sees the full account bill across every app; App Admin sees only this app's consumption.</div>
     </div>
   </div>
 </section>
@@ -448,7 +465,7 @@
     <div class="section-intro">
       <p class="section-kicker">Observability</p>
       <h2 class="section-heading">From configuration to operational awareness</h2>
-      <p class="section-copy">Audit Logs, Sign-ins, System Events and Health look similar at first glance, but they answer four different administrator questions.</p>
+      <p class="section-copy">Audit Logs, Sign-ins, System Events and Health look similar at first glance, but answer four different administrator questions.</p>
     </div>
 
     <div class="branch-diagram reveal">
@@ -462,42 +479,22 @@
         </svg>
       </div>
       <div class="branch-split branch-split--four">
-        <div class="branch-col">
-          <div class="node" style="width:100%;margin-bottom:12px;">Audit Logs</div>
-          <div class="node-sub" style="text-align:center;">&ldquo;What changed, and who did it?&rdquo;</div>
-        </div>
-        <div class="branch-col">
-          <div class="node" style="width:100%;margin-bottom:12px;">Sign-ins</div>
-          <div class="node-sub" style="text-align:center;">&ldquo;Who is accessing the platform?&rdquo;</div>
-        </div>
-        <div class="branch-col">
-          <div class="node" style="width:100%;margin-bottom:12px;">System Events</div>
-          <div class="node-sub" style="text-align:center;">&ldquo;What is happening across services?&rdquo;</div>
-        </div>
-        <div class="branch-col">
-          <div class="node" style="width:100%;margin-bottom:12px;">Health</div>
-          <div class="node-sub" style="text-align:center;">&ldquo;Are dependencies operating correctly?&rdquo;</div>
-        </div>
+        <div class="branch-col"><div class="node" style="width:100%;margin-bottom:12px;">Audit Logs</div><div class="node-sub" style="text-align:center;">&ldquo;What changed, and who did it?&rdquo;</div></div>
+        <div class="branch-col"><div class="node" style="width:100%;margin-bottom:12px;">Sign-ins</div><div class="node-sub" style="text-align:center;">&ldquo;Who is accessing the platform?&rdquo;</div></div>
+        <div class="branch-col"><div class="node" style="width:100%;margin-bottom:12px;">System Events</div><div class="node-sub" style="text-align:center;">&ldquo;What is happening across services?&rdquo;</div></div>
+        <div class="branch-col"><div class="node" style="width:100%;margin-bottom:12px;">Health</div><div class="node-sub" style="text-align:center;">&ldquo;Are dependencies operating correctly?&rdquo;</div></div>
       </div>
     </div>
 
     <div class="placeholder-group placeholder-group--duo mt-lg reveal">
-      <div class="shot shot--wide">
-        <img src="assets/admin-audit-logs.jpeg" alt="Audit Logs showing timestamp, operation, summary, status, latency and user">
-      </div>
-      <div class="shot shot--wide">
-        <img src="assets/admin-signins.jpeg" alt="Sign-ins showing successful, failed and risky authentication events with provider, location and device">
-      </div>
+      <div class="shot shot--wide"><img src="assets/admin-audit-logs.jpeg" alt="Audit Logs showing timestamp, operation, summary, status, latency and user"></div>
+      <div class="shot shot--wide"><img src="assets/admin-signins.jpeg" alt="Sign-ins showing successful, failed and risky authentication events with provider, location and device"></div>
     </div>
     <div class="placeholder-group placeholder-group--duo mt-md reveal">
-      <div class="shot shot--wide">
-        <img src="assets/admin-system-events.jpeg" alt="System Events showing source, event, and severity across platform services">
-      </div>
-      <div class="shot shot--wide">
-        <img src="assets/admin-health.jpeg" alt="Health screen showing identity providers, provisioning, connectors and model providers as healthy, degraded or down">
-      </div>
+      <div class="shot shot--wide"><img src="assets/admin-system-events.jpeg" alt="System Events showing source, event, and severity across platform services"></div>
+      <div class="shot shot--wide"><img src="assets/admin-health.jpeg" alt="Health screen showing identity providers, provisioning, connectors and model providers as healthy, degraded or down"></div>
     </div>
-    <div class="persona-note mt-md"><strong>Same data, different filter.</strong> Audit logs, sign-ins, system events and health all exist at both altitudes — tenant-wide for the Platform Admin, scoped to one app for the App Admin.</div>
+    <div class="persona-note mt-md"><strong>Same data, different filter.</strong> All four exist at both altitudes &mdash; tenant-wide for the Platform Admin, scoped to one app for the App Admin.</div>
   </div>
 </section>
 
@@ -508,45 +505,36 @@
   <div class="wrap">
     <div class="section-intro">
       <p class="section-kicker">Settings</p>
-      <h2 class="section-heading">Keeping cross-cutting configuration separate from daily administration</h2>
-      <p class="section-copy">Settings contains platform-level configuration that affects multiple areas rather than everyday operational management — grouped into Account, Provisioning, Applications, and Data &amp; Security.</p>
+      <h2 class="section-heading">Cross-cutting configuration, kept separate from daily administration</h2>
+      <p class="section-copy">Grouped into Account, Provisioning, Applications, and Data &amp; Security &mdash; platform-level configuration that affects multiple areas at once.</p>
     </div>
 
     <div class="placeholder-group placeholder-group--duo reveal">
       <div>
-        <div class="shot shot--wide">
-          <img src="assets/admin-settings-account.jpeg" alt="Settings Account tab showing sub-organization profile">
-        </div>
-        <div class="iter-note" style="color:rgba(255,255,255,0.6);border-color:var(--line-dark);">Account &mdash; organization profile, workspaces and account-level information.</div>
+        <div class="shot shot--wide"><img src="assets/admin-settings-account.jpeg" alt="Settings Account tab showing sub-organization profile"></div>
+        <div class="iter-note" style="color:rgba(255,255,255,0.6);border-color:var(--line-dark);">Account &mdash; organization profile and account-level information.</div>
       </div>
       <div>
-        <div class="shot shot--wide">
-          <img src="assets/admin-provisioning-top.png" alt="Provisioning tab showing SCIM, AD Sync and Manual Provisioning identity source options">
-        </div>
-        <div class="iter-note" style="color:rgba(255,255,255,0.6);border-color:var(--line-dark);">Provisioning &mdash; how users and organizational structure sync with the platform, via SCIM, AD Sync or manual invites. SCIM: automated user and group provisioning from an identity provider.</div>
+        <div class="shot shot--wide"><img src="assets/admin-provisioning-top.png" alt="Provisioning tab showing SCIM, AD Sync and Manual Provisioning identity source options"></div>
+        <div class="iter-note" style="color:rgba(255,255,255,0.6);border-color:var(--line-dark);">Provisioning &mdash; how users sync with the platform, via SCIM, AD Sync or manual invites.</div>
       </div>
     </div>
-
     <div class="placeholder-group placeholder-group--duo mt-md reveal">
       <div>
-        <div class="shot shot--wide">
-          <img src="assets/admin-settings-applications.jpeg" alt="Settings Applications tab showing enabled AI applications">
-        </div>
-        <div class="iter-note" style="color:rgba(255,255,255,0.6);border-color:var(--line-dark);">Applications &mdash; which AI applications are enabled and configured for the organization.</div>
+        <div class="shot shot--wide"><img src="assets/admin-settings-applications.jpeg" alt="Settings Applications tab showing enabled AI applications"></div>
+        <div class="iter-note" style="color:rgba(255,255,255,0.6);border-color:var(--line-dark);">Applications &mdash; which AI applications are enabled for the organization.</div>
       </div>
       <div>
-        <div class="shot shot--wide">
-          <img src="assets/admin-settings-data-security.jpeg" alt="Settings Data & Security tab showing data residency, retention and encryption">
-        </div>
-        <div class="iter-note" style="color:rgba(255,255,255,0.6);border-color:var(--line-dark);">Data &amp; Security &mdash; data residency, retention, encryption and compliance-related configuration.</div>
+        <div class="shot shot--wide"><img src="assets/admin-settings-data-security.jpeg" alt="Settings Data & Security tab showing data residency, retention and encryption"></div>
+        <div class="iter-note" style="color:rgba(255,255,255,0.6);border-color:var(--line-dark);">Data &amp; Security &mdash; residency, retention and encryption configuration.</div>
       </div>
     </div>
-    <div class="persona-note mt-lg"><strong>Platform shapes the tenant, app shapes itself.</strong> Account, Provisioning and Data &amp; Security apply tenant-wide; an App Admin's settings — credit limits, security overrides — apply only to their own application.</div>
+    <div class="persona-note mt-lg"><strong>Platform shapes the tenant, app shapes itself.</strong> An App Admin's settings apply only to their own application.</div>
   </div>
 </section>
 
 <!-- ============================================================
-     THE SYSTEM BEHIND THE SCREENS
+     THE SYSTEM, AS A STRUCTURE
      ============================================================ -->
 <section class="section section--light">
   <div class="wrap">
@@ -555,133 +543,74 @@
       <h2 class="section-heading">Different tasks. One administrative mental model.</h2>
     </div>
 
-    <div class="reveal">
-      <div class="system-row" style="border-bottom:1px solid var(--line-light);">
-        <div class="system-row-label">
-          <span class="num"><span class="cat-dot cat-dot--org"></span>01</span>
-          <span class="name" style="color:var(--ink);">Organization</span>
-          <div class="purpose" style="color:var(--ink-mute);">Structure the enterprise</div>
-        </div>
-        <div class="system-row-chain">
-          <span class="chip" style="border-color:var(--line-light);">Sub-orgs</span><span class="sep" style="color:#0A8C7D;">&rarr;</span>
-          <span class="chip" style="border-color:var(--line-light);">Workspaces</span><span class="sep" style="color:#0A8C7D;">&rarr;</span>
-          <span class="chip" style="border-color:var(--line-light);">Governance</span>
-        </div>
+    <div class="adm-arch-grid reveal">
+      <div class="adm-arch-cell" tabindex="0">
+        <span class="adm-arch-num">01</span>
+        <div class="adm-arch-title">Organization</div>
+        <div class="adm-arch-sub">Structure</div>
+        <p class="adm-arch-desc">Sub-orgs, workspaces, governance.</p>
       </div>
-      <div class="system-row" style="border-bottom:1px solid var(--line-light);">
-        <div class="system-row-label">
-          <span class="num"><span class="cat-dot cat-dot--access"></span>02</span>
-          <span class="name" style="color:var(--ink);">Users &amp; Access</span>
-          <div class="purpose" style="color:var(--ink-mute);">Control participation</div>
-        </div>
-        <div class="system-row-chain">
-          <span class="chip" style="border-color:var(--line-light);">Users</span><span class="sep" style="color:#0A8C7D;">&rarr;</span>
-          <span class="chip" style="border-color:var(--line-light);">Roles</span><span class="sep" style="color:#0A8C7D;">&rarr;</span>
-          <span class="chip" style="border-color:var(--line-light);">Permissions</span>
-        </div>
+      <div class="adm-arch-cell" tabindex="0">
+        <span class="adm-arch-num">02</span>
+        <div class="adm-arch-title">Users &amp; Access</div>
+        <div class="adm-arch-sub">Participation</div>
+        <p class="adm-arch-desc">Users, roles, permissions.</p>
       </div>
-      <div class="system-row" style="border-bottom:1px solid var(--line-light);">
-        <div class="system-row-label">
-          <span class="num"><span class="cat-dot cat-dot--integrations"></span>03</span>
-          <span class="name" style="color:var(--ink);">Integrations</span>
-          <div class="purpose" style="color:var(--ink-mute);">Connect the ecosystem</div>
-        </div>
-        <div class="system-row-chain">
-          <span class="chip" style="border-color:var(--line-light);">Connectors</span><span class="sep" style="color:#0A8C7D;">&rarr;</span>
-          <span class="chip" style="border-color:var(--line-light);">API Tokens</span>
-        </div>
+      <div class="adm-arch-cell" tabindex="0">
+        <span class="adm-arch-num">03</span>
+        <div class="adm-arch-title">Integrations</div>
+        <div class="adm-arch-sub">Connections</div>
+        <p class="adm-arch-desc">Connectors, API tokens.</p>
       </div>
-      <div class="system-row" style="border-bottom:1px solid var(--line-light);">
-        <div class="system-row-label">
-          <span class="num"><span class="cat-dot cat-dot--usage"></span>04</span>
-          <span class="name" style="color:var(--ink);">Credits &amp; Usage</span>
-          <div class="purpose" style="color:var(--ink-mute);">Understand consumption</div>
-        </div>
-        <div class="system-row-chain">
-          <span class="chip" style="border-color:var(--line-light);">Allocation</span><span class="sep" style="color:#0A8C7D;">&rarr;</span>
-          <span class="chip" style="border-color:var(--line-light);">Usage</span><span class="sep" style="color:#0A8C7D;">&rarr;</span>
-          <span class="chip" style="border-color:var(--line-light);">Models</span>
-        </div>
+      <div class="adm-arch-cell" tabindex="0">
+        <span class="adm-arch-num">04</span>
+        <div class="adm-arch-title">Credit &amp; Usage</div>
+        <div class="adm-arch-sub">Consumption</div>
+        <p class="adm-arch-desc">Allocation, usage, models.</p>
       </div>
-      <div class="system-row" style="border-bottom:1px solid var(--line-light);">
-        <div class="system-row-label">
-          <span class="num"><span class="cat-dot cat-dot--observability"></span>05</span>
-          <span class="name" style="color:var(--ink);">Observability</span>
-          <div class="purpose" style="color:var(--ink-mute);">Understand system behaviour</div>
-        </div>
-        <div class="system-row-chain">
-          <span class="chip" style="border-color:var(--line-light);">Audit</span><span class="sep" style="color:#0A8C7D;">&rarr;</span>
-          <span class="chip" style="border-color:var(--line-light);">Access</span><span class="sep" style="color:#0A8C7D;">&rarr;</span>
-          <span class="chip" style="border-color:var(--line-light);">Events</span><span class="sep" style="color:#0A8C7D;">&rarr;</span>
-          <span class="chip" style="border-color:var(--line-light);">Health</span>
-        </div>
+      <div class="adm-arch-cell" tabindex="0">
+        <span class="adm-arch-num">05</span>
+        <div class="adm-arch-title">Observability</div>
+        <div class="adm-arch-sub">Operations</div>
+        <p class="adm-arch-desc">Audit, access, events, health.</p>
       </div>
-      <div class="system-row">
-        <div class="system-row-label">
-          <span class="num"><span class="cat-dot cat-dot--settings"></span>06</span>
-          <span class="name" style="color:var(--ink);">Settings</span>
-          <div class="purpose" style="color:var(--ink-mute);">Configure the foundation</div>
-        </div>
-        <div class="system-row-chain">
-          <span class="chip" style="border-color:var(--line-light);">Account</span><span class="sep" style="color:#0A8C7D;">&rarr;</span>
-          <span class="chip" style="border-color:var(--line-light);">Provisioning</span><span class="sep" style="color:#0A8C7D;">&rarr;</span>
-          <span class="chip" style="border-color:var(--line-light);">Applications</span><span class="sep" style="color:#0A8C7D;">&rarr;</span>
-          <span class="chip" style="border-color:var(--line-light);">Security</span>
-        </div>
+      <div class="adm-arch-cell" tabindex="0">
+        <span class="adm-arch-num">06</span>
+        <div class="adm-arch-title">Settings</div>
+        <div class="adm-arch-sub">Configuration</div>
+        <p class="adm-arch-desc">Account, provisioning, security.</p>
       </div>
     </div>
 
-    <p class="section-copy center mt-lg" style="max-width:680px;margin-left:auto;margin-right:auto;">The goal wasn't simply to place configuration screens under an &ldquo;Admin&rdquo; label. It was to give administrators a predictable way to understand where different responsibilities belong.</p>
+    <p class="section-copy center mt-lg" style="max-width:680px;margin-left:auto;margin-right:auto;">Not simply configuration screens under an &ldquo;Admin&rdquo; label &mdash; a predictable way to know where a responsibility belongs.</p>
   </div>
 </section>
 
 <!-- ============================================================
-     THE PROMISE
+     03 / EVOLUTION — the major architectural break
      ============================================================ -->
-<section class="section section--dark">
+<section class="section section--dark adm-chapter-wrap" style="padding-top:clamp(100px,12vw,170px);padding-bottom:clamp(80px,10vw,140px);">
   <div class="wrap">
-    <div class="section-intro">
-      <p class="section-kicker">The promise</p>
-      <h2 class="section-heading">What one mental model gives customers</h2>
+    <span class="adm-chapter-num">03</span>
+    <div class="adm-chapter-label">Platform evolution</div>
+
+    <h2 class="mega-statement reveal" style="text-align:left;max-width:820px;">X-Platform wasn't the <span class="accent">end state.</span></h2>
+
+    <div class="adm-narrative reveal mt-lg">
+      <span class="adm-narrative-item">Product-specific Admin</span><span class="adm-narrative-arrow">&rarr;</span>
+      <span class="adm-narrative-item is-strong">X-Platform</span><span class="adm-narrative-arrow">&rarr;</span>
+      <span class="adm-narrative-item is-strong">BAIS / BAIC</span>
     </div>
 
-    <div class="promise-grid reveal">
-      <div class="promise-card">
-        <span class="promise-card-num">01</span>
-        <div class="promise-card-title">One mental model</div>
-        <p class="promise-card-desc">Learn the structure once. Every app on the platform reinforces it instead of introducing a new one.</p>
+    <div class="adm-split adm-split--eq reveal mt-lg">
+      <div>
+        <div class="adm-versus-label">X-Platform asked</div>
+        <p class="section-copy" style="font-size:19px;">&ldquo;How do we bring administration into one place?&rdquo;</p>
       </div>
-      <div class="promise-card">
-        <span class="promise-card-num">02</span>
-        <div class="promise-card-title">The right tool for the right person</div>
-        <p class="promise-card-desc">IT does IT work. Business owners do business work. Neither persona carries the other's complexity.</p>
+      <div>
+        <div class="adm-versus-label">BAIS / BAIC asks</div>
+        <p class="section-copy" style="font-size:19px;">&ldquo;How should administration work across a platform and its applications?&rdquo;</p>
       </div>
-      <div class="promise-card">
-        <span class="promise-card-num">03</span>
-        <div class="promise-card-title">Coherent as it scales</div>
-        <p class="promise-card-desc">The fifth app feels like the first. Customers don't pay a growing cognitive cost for the platform's success.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     PLATFORM EVOLUTION
-     ============================================================ -->
-<section class="section section--light">
-  <div class="wrap">
-    <div class="section-intro">
-      <p class="section-kicker">Platform evolution</p>
-      <h2 class="section-heading">From fragmented admin to one platform.</h2>
-      <p class="section-copy">Every product had built its own administration screens, in its own vocabulary. The mental model above became a real architecture layer &mdash; a shared platform every application's admin experience now sits on top of.</p>
-    </div>
-
-    <div class="flow-vertical flow-vertical--pill reveal">
-      <div class="node">Product-specific Admin</div>
-      <div class="arrow-v"></div>
-      <div class="node">X-Platform</div>
-      <div class="arrow-v"></div>
-      <div class="node node--accent">BAIS / BAIC</div>
     </div>
 
     <div class="reveal mt-lg">
@@ -693,43 +622,84 @@
 </section>
 
 <!-- ============================================================
-     LATEST ADMIN MODEL
+     CONNECTING USERS TO BAIC — the strongest bridge
      ============================================================ -->
 <section class="section section--dark">
   <div class="wrap">
     <div class="section-intro">
-      <p class="section-kicker">Latest admin model</p>
-      <h2 class="section-heading">Two levels of control. One shared structure.</h2>
-      <p class="section-copy">That platform layer resolved into two clear roles: a Platform Admin who manages the tenant, and an App Admin who runs one application inside it &mdash; each with the same three core jobs, at a different altitude.</p>
+      <p class="section-kicker">Same model, different scope</p>
+      <h2 class="section-heading">From user-level scope to platform-level scope.</h2>
+      <p class="section-copy">I initially worked through administrative scope at the level of individual users, roles and permissions. As the architecture evolved, that same question became larger: which responsibilities belong to the platform, and which belong to the application?</p>
     </div>
 
+    <div class="diagram reveal" style="gap:16px;">
+      <div class="shot shot--full" style="max-width:440px;">
+        <img src="assets/admin-users.jpeg" alt="Earlier X-Platform Users work: identity, role, status, workspace access, auth method and last login">
+      </div>
+      <div class="arrow-v"></div>
+      <div style="font-size:12.5px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;color:var(--cyan);text-align:center;">User-level scope &rarr; platform-level scope</div>
+      <div class="arrow-v"></div>
+    </div>
+
+    <div class="reveal">
+      <div class="shot shot--full">
+        <img src="assets/admin-baic-users-access.png" alt="BAIC Users & Access, side by side: BAIC shows every user across the tenant, CSAI shows only the users with access to that application — same page name, same vocabulary, different scope">
+      </div>
+      <p class="adm-principle mt-md" style="margin-left:auto;margin-right:auto;text-align:center;">Same concept. <span class="accent">Different scope.</span></p>
+    </div>
+
+    <div class="persona-grid persona-grid--three reveal mt-lg">
+      <div>
+        <div class="shot shot--wide"><img src="assets/admin-baic-integrations.png" alt="BAIC Integrations: platform approves the catalog and credentials, the app configures how it uses what's approved"></div>
+        <p class="section-copy" style="font-size:13.5px;margin-top:10px;">Platform approves the catalog. App configures how it's used.</p>
+      </div>
+      <div>
+        <div class="shot shot--wide"><img src="assets/admin-baic-credit-usage.png" alt="BAIC Credit & Usage: platform sees the full bill across every app, the app sees only its own consumption and budgets"></div>
+        <p class="section-copy" style="font-size:13.5px;margin-top:10px;">Platform sees the full bill. App sees its own consumption.</p>
+      </div>
+      <div>
+        <div class="shot shot--wide"><img src="assets/admin-baic-observability.png" alt="BAIC Observability: platform audit log shows tenant-wide activity, the app's audit log shows only its own scoped activity"></div>
+        <p class="section-copy" style="font-size:13.5px;margin-top:10px;">Same underlying data. Different filter.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     LATEST ADMIN MODEL
+     ============================================================ -->
+<section class="section section--light">
+  <div class="wrap">
+    <div class="section-intro">
+      <p class="section-kicker">Latest admin model</p>
+      <h2 class="section-heading">Two levels of control. One shared structure.</h2>
+      <p class="section-copy">A Platform Admin who manages the tenant, and an App Admin who runs one application inside it &mdash; each with the same core jobs, at a different altitude.</p>
+    </div>
     <div class="reveal">
       <div class="shot shot--full">
         <img src="assets/admin-baic-platform-vs-app.png" alt="BAIC comparison table: Platform Admin manages the platform and owns identity, security and tenant-wide governance, while App Admin runs one application and is designated by the Platform Admin">
       </div>
     </div>
-
-    <div class="reveal mt-lg" style="max-width:520px;margin-left:auto;margin-right:auto;text-align:center;">
-      <div class="shot shot--wide">
-        <img src="assets/admin-baic-setup-once.png" alt="BAIC principle: set up once, configure per app — platform connects identity and approves integrations, each app configures how it uses what platform enabled">
-      </div>
-      <p class="section-copy center mt-md">Credentials live once, at the platform. Behavior is configured per app.</p>
-    </div>
+    <p class="adm-principle adm-principle--huge mt-lg" style="margin-left:auto;margin-right:auto;text-align:center;">Set up <span class="accent">once.</span> Configure <span class="accent">per app.</span></p>
   </div>
 </section>
 
 <!-- ============================================================
      RESPONSIBILITY-BASED IA
      ============================================================ -->
-<section class="section section--light">
+<section class="section section--dark">
   <div class="wrap">
-    <div class="section-intro">
-      <p class="section-kicker">Responsibility-based IA</p>
-      <h2 class="section-heading">Six sections. Five mirror to apps.</h2>
-      <p class="section-copy">Structure &rarr; access &rarr; connections &rarr; consumption &rarr; operations &rarr; configuration. Where a section exists at both altitudes, it keeps the same name and the same purpose &mdash; just at the right scope.</p>
+    <p class="section-kicker">Responsibility-based IA</p>
+    <p class="adm-principle adm-principle--huge">&ldquo;Group by the administrator's responsibility &mdash; <span class="accent">not by the underlying system.</span>&rdquo;</p>
+    <div class="adm-narrative reveal mt-md">
+      <span class="adm-narrative-item">Structure</span><span class="adm-narrative-arrow">&rarr;</span>
+      <span class="adm-narrative-item">Access</span><span class="adm-narrative-arrow">&rarr;</span>
+      <span class="adm-narrative-item">Connections</span><span class="adm-narrative-arrow">&rarr;</span>
+      <span class="adm-narrative-item">Consumption</span><span class="adm-narrative-arrow">&rarr;</span>
+      <span class="adm-narrative-item">Operations</span><span class="adm-narrative-arrow">&rarr;</span>
+      <span class="adm-narrative-item">Configuration</span>
     </div>
-
-    <div class="reveal">
+    <div class="reveal mt-lg">
       <div class="shot shot--full">
         <img src="assets/admin-baic-ia-structure.png" alt="BAIC's six administration sections — Organization, Users & Access, Integrations, Credit & Usage, Observability, Settings — mapped across Platform Admin and App Admin scope">
       </div>
@@ -738,89 +708,46 @@
 </section>
 
 <!-- ============================================================
-     SAME MODEL, DIFFERENT SCOPE
+     08 / CONTRIBUTION
      ============================================================ -->
-<section class="section section--dark">
+<section class="section section--dark adm-chapter-wrap">
   <div class="wrap">
+    <span class="adm-chapter-num">08</span>
+    <div class="adm-chapter-label">Contribution</div>
     <div class="section-intro">
-      <p class="section-kicker">Same model, different scope</p>
-      <h2 class="section-heading">From user-level scope to platform-level scope.</h2>
-      <p class="section-copy">I initially worked through administrative scope at the level of individual users, roles and permissions &mdash; who can enter the platform, and what they're allowed to do. As the platform architecture evolved, that same question became larger: which responsibilities belong to the platform, and which belong to the application?</p>
+      <h2 class="section-heading">My work moved across three layers.</h2>
+      <p class="section-copy">I worked hands-on across detailed interaction design while contributing to the broader administration model as the platform architecture evolved.</p>
     </div>
 
-    <div class="diagram reveal" style="gap:18px;">
-      <div class="shot shot--full" style="max-width:460px;">
-        <img src="assets/admin-users.jpeg" alt="Earlier X-Platform Users work: identity, role, status, workspace access, auth method and last login">
-      </div>
-      <div class="arrow-v"></div>
-      <div style="font-size:13px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;color:var(--cyan);text-align:center;">From user-level scope &rarr; to platform-level scope</div>
-      <div class="arrow-v"></div>
-    </div>
-
-    <div class="reveal">
-      <div class="shot shot--full">
-        <img src="assets/admin-baic-users-access.png" alt="BAIC Users & Access, side by side: BAIC shows every user across the tenant, CSAI shows only the users with access to that application — same page name, same vocabulary, different scope">
-      </div>
-      <p class="section-copy center mt-md">Same page name, same vocabulary &mdash; different scope. Platform sees every user across the tenant; the app sees only the users who have access to it.</p>
-    </div>
-
-    <div class="persona-grid persona-grid--three reveal mt-lg">
+    <div class="adm-layers reveal">
       <div>
-        <div class="shot shot--wide">
-          <img src="assets/admin-baic-integrations.png" alt="BAIC Integrations: platform approves the catalog and credentials, the app configures how it uses what's approved">
-        </div>
-        <p class="section-copy" style="font-size:13.5px;margin-top:10px;">Platform approves the catalog. App configures how it's used.</p>
+        <div class="adm-layer-label">System</div>
+        <ul class="adm-layer-list">
+          <li>Information architecture</li>
+          <li>Capability mapping</li>
+          <li>Platform / application model</li>
+        </ul>
       </div>
       <div>
-        <div class="shot shot--wide">
-          <img src="assets/admin-baic-credit-usage.png" alt="BAIC Credit & Usage: platform sees the full bill across every app, the app sees only its own consumption and budgets">
-        </div>
-        <p class="section-copy" style="font-size:13.5px;margin-top:10px;">Platform sees the full bill. App sees its own consumption.</p>
+        <div class="adm-layer-label">Experience</div>
+        <ul class="adm-layer-list">
+          <li>Users &amp; Access</li>
+          <li>Administration workflows</li>
+          <li>Permissions / relationships</li>
+          <li>Configuration</li>
+        </ul>
       </div>
       <div>
-        <div class="shot shot--wide">
-          <img src="assets/admin-baic-observability.png" alt="BAIC Observability: platform audit log shows tenant-wide activity, the app's audit log shows only its own scoped activity">
-        </div>
-        <p class="section-copy" style="font-size:13.5px;margin-top:10px;">Same underlying data. Different filter.</p>
+        <div class="adm-layer-label">Foundation</div>
+        <ul class="adm-layer-list">
+          <li>Tables &amp; side panels</li>
+          <li>Assignment patterns</li>
+          <li>Hierarchy</li>
+          <li>Bulk workflows</li>
+          <li>Reusable components</li>
+        </ul>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     MY CONTRIBUTION
-     ============================================================ -->
-<section class="section section--dark">
-  <div class="wrap">
-    <div class="section-intro">
-      <p class="section-kicker">My contribution</p>
-      <h2 class="section-heading">My contribution</h2>
-      <p class="section-copy">I contributed to structuring and designing the latest Administration experience, working within the broader platform and design-system direction.</p>
-    </div>
-
-    <ul style="list-style:none;padding:0;margin:0;max-width:720px;display:flex;flex-direction:column;gap:14px;" class="reveal">
-      <li style="font-size:15px;color:rgba(255,255,255,0.75);padding-left:20px;position:relative;">
-        <span style="position:absolute;left:0;color:var(--cyan);">&rarr;</span>Organizing the Administration information architecture and side navigation
-      </li>
-      <li style="font-size:15px;color:rgba(255,255,255,0.75);padding-left:20px;position:relative;">
-        <span style="position:absolute;left:0;color:var(--cyan);">&rarr;</span>Categorizing platform capabilities into clear administrative responsibilities
-      </li>
-      <li style="font-size:15px;color:rgba(255,255,255,0.75);padding-left:20px;position:relative;">
-        <span style="position:absolute;left:0;color:var(--cyan);">&rarr;</span>Designing enterprise management experiences across organization, users, roles and access
-      </li>
-      <li style="font-size:15px;color:rgba(255,255,255,0.75);padding-left:20px;position:relative;">
-        <span style="position:absolute;left:0;color:var(--cyan);">&rarr;</span>Designing integration and API-management experiences
-      </li>
-      <li style="font-size:15px;color:rgba(255,255,255,0.75);padding-left:20px;position:relative;">
-        <span style="position:absolute;left:0;color:var(--cyan);">&rarr;</span>Designing usage and operational monitoring experiences
-      </li>
-      <li style="font-size:15px;color:rgba(255,255,255,0.75);padding-left:20px;position:relative;">
-        <span style="position:absolute;left:0;color:var(--cyan);">&rarr;</span>Structuring complex platform settings such as provisioning and data/security
-      </li>
-      <li style="font-size:15px;color:rgba(255,255,255,0.75);padding-left:20px;position:relative;">
-        <span style="position:absolute;left:0;color:var(--cyan);">&rarr;</span>Applying consistent enterprise patterns across tables, filters, statuses, navigation and configuration
-      </li>
-    </ul>
   </div>
 </section>
 
@@ -829,8 +756,8 @@
      ============================================================ -->
 <div class="closing closing--manifest reveal">
   <div class="closing-manifest-inner">
-    <div class="closing-eyebrow">Enterprise administration is mostly invisible &mdash; when it works well</div>
-    <div class="closing-manifest-statement">A technically complex platform, made to feel <span class="accent">understandable.</span></div>
+    <div class="closing-eyebrow">The architecture changed. The need for clarity didn't.</div>
+    <div class="closing-manifest-statement">A technically complex platform, made <span class="accent">understandable.</span></div>
     <div class="closing-manifest-chips">
       <span>Organization</span>
       <span>Access</span>
@@ -838,7 +765,7 @@
       <span>Usage</span>
       <span>Observability</span>
     </div>
-    <p class="closing-final">Where organizations are structured, where access is controlled, where systems connect, where consumption is monitored, and where administrators go when something goes wrong.</p>
+    <p class="closing-final">Across each generation, the challenge wasn't removing complexity &mdash; it was deciding where that complexity should live, when it should appear, and how much context an administrator needed to understand it.</p>
   </div>
 </div>
 

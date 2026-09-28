@@ -2010,6 +2010,318 @@ a { color: inherit; }
   .editorial-tint-grid { grid-template-columns: 1fr; }
 }
 
+/* ============================================================
+   ADMIN CASE STUDY — EDITORIAL SYSTEM (scoped: "adm-" prefix)
+   Built for a single major visual/composition refinement pass on
+   case-study-admin.html only. Every class here is new and additive —
+   nothing existing was redefined — so no other page is affected.
+   Reuses the page's theme-purple tokens (--cyan/--teal-*) rather than
+   introducing new colors.
+   ============================================================ */
+
+/* ---- Editorial hero: asymmetric grid, plain metadata, one visual ---- */
+.adm-hero {
+  min-height: 92vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  background:
+    radial-gradient(ellipse 900px 500px at 10% -10%, rgba(var(--cyan-rgb), 0.10), transparent 60%),
+    linear-gradient(180deg, var(--teal-950) 0%, var(--teal-900) 55%, var(--teal-850) 100%);
+  color: var(--white);
+  padding: 140px 0 80px;
+}
+.adm-hero-grid {
+  display: grid;
+  grid-template-columns: 7fr 5fr;
+  gap: clamp(32px, 5vw, 72px);
+  align-items: center;
+  width: 100%;
+}
+.adm-hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 32px;
+}
+.adm-hero-meta span.accent { color: var(--cyan); }
+.adm-hero-meta span:not(:last-child)::after { content: '/'; margin: 0 14px; color: rgba(255,255,255,0.2); }
+.adm-hero-title {
+  font-size: clamp(44px, 6vw, 96px);
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  margin: 0 0 28px;
+}
+.adm-hero-title em { font-style: normal; color: var(--cyan); }
+.adm-hero-sub {
+  font-size: clamp(16px, 1.6vw, 19px);
+  line-height: 1.6;
+  color: rgba(255,255,255,0.68);
+  max-width: 50ch;
+  margin: 0;
+}
+.adm-hero-visual { position: relative; }
+.adm-hero-visual::before {
+  content: '';
+  position: absolute;
+  inset: -28px;
+  background-image:
+    linear-gradient(rgba(var(--cyan-rgb),0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(var(--cyan-rgb),0.07) 1px, transparent 1px);
+  background-size: 26px 26px;
+  border-radius: 26px;
+  z-index: 0;
+}
+.adm-hero-visual > * { position: relative; z-index: 1; margin: 0; }
+
+@media (max-width: 900px) {
+  .adm-hero { min-height: 0; padding-top: 108px; }
+  .adm-hero-grid { grid-template-columns: 1fr; }
+  .adm-hero-visual { order: -1; max-width: 420px; }
+}
+
+/* ---- Compact narrative motif: the whole story as one scannable line ---- */
+.adm-narrative {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  row-gap: 10px;
+}
+.adm-narrative-item {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  white-space: nowrap;
+}
+.adm-narrative-item.is-strong { color: var(--cyan); }
+.adm-narrative-arrow { color: rgba(255,255,255,0.22); margin: 0 12px; font-size: 12px; }
+.section--light .adm-narrative-item { color: var(--ink-mute); }
+.section--light .adm-narrative-item.is-strong { color: var(--accent-light); }
+.section--light .adm-narrative-arrow { color: var(--line-light); }
+@media (max-width: 720px) {
+  .adm-narrative { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .adm-narrative-arrow { display: none; }
+  .adm-narrative-item::after { content: '↓'; display: block; margin-top: 10px; opacity: 0.35; }
+  .adm-narrative-item:last-child::after { display: none; }
+}
+
+/* ---- Asymmetric split grid ---- */
+.adm-split { display: grid; gap: clamp(28px, 4vw, 64px); align-items: start; }
+.adm-split--7-5 { grid-template-columns: 7fr 5fr; }
+.adm-split--5-7 { grid-template-columns: 5fr 7fr; }
+.adm-split--8-4 { grid-template-columns: 8fr 4fr; }
+.adm-split--4-8 { grid-template-columns: 4fr 8fr; }
+.adm-split--9-3 { grid-template-columns: 9fr 3fr; }
+.adm-split--eq { grid-template-columns: 1fr 1fr; }
+@media (max-width: 860px) {
+  .adm-split--7-5, .adm-split--5-7, .adm-split--8-4, .adm-split--4-8, .adm-split--9-3, .adm-split--eq {
+    grid-template-columns: 1fr;
+  }
+}
+.adm-split-sticky { position: sticky; top: 110px; }
+@media (max-width: 860px) { .adm-split-sticky { position: static; } }
+
+/* ---- Chapter numbering: large, faint, decorative only ---- */
+.adm-chapter-wrap { position: relative; }
+.adm-chapter-num {
+  font-size: clamp(70px, 9vw, 160px);
+  font-weight: 800;
+  line-height: 1;
+  color: rgba(255,255,255,0.045);
+  position: absolute;
+  top: -0.15em; right: 0;
+  pointer-events: none;
+  user-select: none;
+}
+.section--light .adm-chapter-num { color: rgba(8,25,28,0.035); }
+
+/* ---- Large typographic question set (replaces 3-card grids) ---- */
+.adm-question-set {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(8px, 1.6vw, 14px);
+  margin: clamp(28px, 4vw, 44px) 0;
+}
+.adm-question-set span {
+  font-size: clamp(20px, 2.8vw, 34px);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+}
+.adm-question-set .mute { opacity: 0.38; font-weight: 600; }
+
+/* ---- Standalone principle statement (no card) ---- */
+.adm-principle {
+  font-size: clamp(26px, 3.4vw, 44px);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  margin: clamp(24px, 3.5vw, 36px) 0;
+  max-width: 780px;
+}
+.adm-principle--huge { font-size: clamp(30px, 4.6vw, 58px); max-width: 900px; }
+.adm-principle .accent { color: var(--cyan); }
+.section--light .adm-principle .accent { color: var(--accent-light); }
+
+/* ---- Pull quote ---- */
+.adm-quote {
+  font-size: clamp(21px, 2.4vw, 30px);
+  font-weight: 600;
+  font-style: italic;
+  line-height: 1.35;
+  border-left: 3px solid var(--cyan);
+  padding-left: 24px;
+  max-width: 600px;
+  margin: clamp(20px, 3vw, 32px) 0;
+}
+.section--light .adm-quote { border-color: var(--accent-light); }
+
+/* ---- Fragmentation → convergence diagram ---- */
+.adm-converge { display: flex; flex-direction: column; align-items: center; gap: 26px; padding: 12px 0; }
+.adm-converge-scattered { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px 20px; max-width: 760px; }
+.adm-converge-chip {
+  transform: rotate(var(--r, 0deg));
+  border: 1px solid var(--line-dark);
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-size: 12px;
+  font-weight: 700;
+  text-align: center;
+  color: rgba(255,255,255,0.75);
+  background: rgba(255,255,255,0.03);
+}
+.adm-converge-chip small { display: block; font-weight: 600; opacity: 0.55; font-size: 10px; letter-spacing: 0.04em; text-transform: uppercase; margin-top: 4px; }
+.section--light .adm-converge-chip { border-color: var(--line-light); color: var(--ink-soft); background: rgba(8,25,28,0.02); }
+.adm-converge-line { width: 2px; height: 32px; background: linear-gradient(180deg, rgba(var(--cyan-rgb),0.55), rgba(var(--cyan-rgb),0.05)); }
+.adm-converge-target {
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  padding: 15px 30px;
+  border-radius: 100px;
+  background: var(--cyan);
+  color: var(--teal-950);
+}
+
+/* ---- Hierarchical relationship tree ---- */
+.adm-tree { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+.adm-tree-root {
+  font-weight: 800;
+  font-size: 15px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid var(--line-dark);
+}
+.section--light .adm-tree-root { border-color: var(--line-light); }
+.adm-tree-children { display: flex; flex-direction: column; gap: 8px; padding-left: 4px; }
+.adm-tree-children span { font-size: 13px; color: rgba(255,255,255,0.6); position: relative; padding-left: 18px; }
+.adm-tree-children span::before { content: '\2514'; position: absolute; left: 0; opacity: 0.45; }
+.section--light .adm-tree-children span { color: var(--ink-mute); }
+@media (max-width: 760px) { .adm-tree { grid-template-columns: 1fr; gap: 22px; } }
+
+/* ---- Workflow sequence (Scan / Inspect / Assign / Modify) ---- */
+.adm-workflow { display: flex; align-items: flex-start; flex-wrap: wrap; }
+.adm-workflow-step { flex: 1 1 180px; min-width: 160px; }
+.adm-workflow-num { font-family: 'Courier New', monospace; font-size: 12px; font-weight: 700; color: var(--cyan); }
+.section--light .adm-workflow-num { color: var(--accent-light); }
+.adm-workflow-title { font-size: 19px; font-weight: 800; margin: 8px 0 6px; }
+.adm-workflow-step p { font-size: 13.5px; color: rgba(255,255,255,0.6); line-height: 1.5; margin: 0; max-width: 26ch; }
+.section--light .adm-workflow-step p { color: var(--ink-mute); }
+.adm-workflow-arrow { align-self: center; font-size: 20px; color: rgba(255,255,255,0.2); padding: 0 16px; }
+.section--light .adm-workflow-arrow { color: var(--line-light); }
+@media (max-width: 760px) {
+  .adm-workflow { flex-direction: column; gap: 18px; }
+  .adm-workflow-arrow { display: none; }
+}
+
+/* ---- Six-responsibility architecture grid (replaces card grid) ---- */
+.adm-arch-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid var(--line-light);
+  border-left: 1px solid var(--line-light);
+}
+.section--dark .adm-arch-grid { border-color: var(--line-dark); }
+.adm-arch-cell {
+  border-right: 1px solid var(--line-light);
+  border-bottom: 1px solid var(--line-light);
+  padding: clamp(22px, 3vw, 34px);
+  transition: background 0.2s ease;
+}
+.section--dark .adm-arch-cell { border-color: var(--line-dark); }
+.adm-arch-cell:hover, .adm-arch-cell:focus-within { background: rgba(var(--cyan-rgb), 0.05); }
+.adm-arch-num { font-family: 'Courier New', monospace; font-size: 13px; color: var(--ink-mute); }
+.section--dark .adm-arch-num { color: rgba(255,255,255,0.4); }
+.adm-arch-title { font-size: 19px; font-weight: 800; margin: 12px 0 4px; }
+.adm-arch-sub { font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700; color: var(--accent-light); margin-bottom: 10px; }
+.section--dark .adm-arch-sub { color: var(--cyan); }
+.adm-arch-desc {
+  font-size: 13px; line-height: 1.5; color: var(--ink-mute); margin: 0; max-width: 24ch;
+  max-height: 0; opacity: 0; overflow: hidden; transition: max-height 0.25s ease, opacity 0.2s ease;
+}
+.section--dark .adm-arch-desc { color: rgba(255,255,255,0.6); }
+.adm-arch-cell:hover .adm-arch-desc, .adm-arch-cell:focus-within .adm-arch-desc { max-height: 60px; opacity: 1; margin-top: 4px; }
+@media (max-width: 760px) {
+  .adm-arch-grid { grid-template-columns: 1fr; }
+  .adm-arch-desc { max-height: 60px; opacity: 1; margin-top: 4px; }
+}
+
+/* ---- Figure caption: small metadata line under a screenshot ---- */
+.adm-figure-caption {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  font-family: 'Courier New', monospace;
+  font-size: 11px;
+  letter-spacing: 0.02em;
+  color: var(--ink-mute);
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid var(--line-light);
+}
+.section--dark .adm-figure-caption { color: rgba(255,255,255,0.4); border-color: var(--line-dark); }
+
+/* ---- Platform/App "enables" relationship (vertical, not two cards) ---- */
+.adm-versus { max-width: 480px; margin: 0 auto; text-align: center; }
+.adm-versus-label { font-size: 12px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--cyan); margin-bottom: 14px; }
+.section--light .adm-versus-label { color: var(--accent-light); }
+.adm-versus-list { list-style: none; margin: 0 0 18px; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.adm-versus-list li { font-size: 15px; font-weight: 600; }
+.adm-versus-connector { font-size: 11px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin: 18px 0; }
+.section--light .adm-versus-connector { color: var(--ink-mute); }
+
+/* ---- Contribution: three layers instead of a bullet list ---- */
+.adm-layers { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(24px, 3vw, 40px); }
+.adm-layer-label { font-size: 12px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--cyan); margin-bottom: 14px; }
+.adm-layer-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+.adm-layer-list li { font-size: 14.5px; color: rgba(255,255,255,0.75); padding-left: 16px; position: relative; }
+.adm-layer-list li::before { content: ''; position: absolute; left: 0; top: 9px; width: 6px; height: 1.5px; background: var(--cyan); }
+@media (max-width: 760px) { .adm-layers { grid-template-columns: 1fr; } }
+
+/* ---- Lean comparison pair (Today/Tomorrow) — typography, not cards ---- */
+.adm-compare-lean { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px,4vw,56px); }
+.adm-compare-lean > div:first-child { border-right: 1px solid var(--line-dark); padding-right: clamp(28px,4vw,56px); }
+.section--light .adm-compare-lean > div:first-child { border-color: var(--line-light); }
+.adm-compare-lean-tag { font-size: 11px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 10px; }
+.section--light .adm-compare-lean-tag { color: var(--ink-mute); }
+.adm-compare-lean-title { font-size: clamp(19px,2vw,24px); font-weight: 800; margin: 0 0 12px; }
+.adm-compare-lean ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 7px; }
+.adm-compare-lean li { font-size: 13.5px; color: rgba(255,255,255,0.6); }
+.section--light .adm-compare-lean li { color: var(--ink-mute); }
+@media (max-width: 760px) {
+  .adm-compare-lean { grid-template-columns: 1fr; }
+  .adm-compare-lean > div:first-child { border-right: none; padding-right: 0; border-bottom: 1px solid var(--line-dark); padding-bottom: 24px; margin-bottom: 4px; }
+  .section--light .adm-compare-lean > div:first-child { border-color: var(--line-light); }
+}
+
 /* Print — case studies were built for endless-scroll viewports, so
    .hero/.closing's min-height:100vh/90vh and scroll-triggered .reveal
    (invisible until an IntersectionObserver fires) would otherwise print
