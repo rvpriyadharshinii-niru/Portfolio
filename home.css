@@ -719,17 +719,13 @@ body.split-body { overflow-x: hidden; }
     linear-gradient(180deg, rgba(8,4,2,0.1) 0%, rgba(8,4,2,0.5) 55%, rgba(6,3,1,0.9) 100%),
     url('assets/summary-tile-hero.png') left center/cover no-repeat;
 }
-/* Placeholder approximation of a reference photo the user shared (a
-   dark teal ribbon/circuit swirl for AI Agents). That reference image
-   isn't saved anywhere this session can read, so this is a CSS
-   stand-in matching its mood/palette until the real file is attached
-   as a proper upload — see CLAUDE.md. */
-.tile-cover--circuit {
+/* Real photo tile for AI Agents — a generated "AI Agents / Plan. Act.
+   Adapt." mountain-peak hero shot the user shared, already ~4:5 so no
+   cropping needed. Same bottom-gradient treatment as the other tiles. */
+.tile-cover--photo-agents {
   background:
-    radial-gradient(70% 90% at 78% 15%, rgba(53,239,221,0.35), transparent 60%),
-    repeating-linear-gradient(115deg, rgba(53,239,221,0.08) 0 3px, transparent 3px 14px),
-    radial-gradient(60% 60% at 15% 85%, rgba(53,239,221,0.14), transparent 65%),
-    linear-gradient(200deg, #010504, #001b18 60%, #010504);
+    linear-gradient(180deg, rgba(3,8,12,0.1) 0%, rgba(3,8,12,0.5) 55%, rgba(2,6,9,0.9) 100%),
+    url('assets/ai-agents-tile-hero.webp') center/cover no-repeat;
 }
 
 .project-tile:hover .tile-cover-name { text-decoration: underline; text-underline-offset: 6px; }
