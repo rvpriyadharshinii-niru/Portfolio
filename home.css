@@ -1632,6 +1632,15 @@ body.eh-body {
   font-weight: 600;
   margin: 0;
 }
+.eh-work-heading-num {
+  font-family: var(--eh-mono);
+  font-size: 0.4em;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--eh-ink-mute);
+  vertical-align: middle;
+  margin-right: 4px;
+}
 .eh-work-count {
   font-family: var(--eh-mono);
   font-size: 12px;
@@ -1642,11 +1651,15 @@ body.eh-body {
 
 .eh-work-grid {
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: clamp(24px, 3vw, 40px) clamp(20px, 3vw, 32px);
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(28px, 3vw, 44px) clamp(20px, 3vw, 32px);
 }
 
-.eh-work-item { grid-column: 1 / -1; }
+.eh-work-item:nth-child(3n+2) { margin-top: clamp(32px, 4vw, 56px); }
+
+/* Superseded asymmetric 2-col spans from the first V3 pass — no longer
+   referenced by index.html's markup (items are plain .eh-work-item now),
+   left in place rather than deleted per this file's usual convention. */
 .eh-work-item--a { grid-column: 1 / 8; }
 .eh-work-item--b { grid-column: 8 / 13; margin-top: clamp(64px, 8vw, 128px); }
 .eh-work-item--c { grid-column: 1 / 6; }
@@ -1661,7 +1674,7 @@ body.eh-body {
   overflow: hidden;
   transition: transform 0.45s cubic-bezier(.16,.8,.2,1);
 }
-.eh-thumb:hover, .eh-thumb:focus-visible { transform: scale(1.015); }
+.eh-thumb:hover, .eh-thumb:focus-visible { transform: scale(1.03); }
 
 .eh-thumb-corner {
   position: absolute;
@@ -1844,3 +1857,129 @@ body.eh-body {
 @media (max-width: 560px) {
   .eh-footer-specimen { display: none; }
 }
+
+/* ============================================================
+   HOMEPAGE V3.1 — real illustrated-asset layers, flower
+   disintegration, cursor parallax, 3-col work grid + copy pass
+   (2026-09-28, follow-up)
+
+   Only 5 of the 15 delivered PNGs (assets/parallax/) are used below —
+   flower_main, flower_petals, root_system, flower_fragment, mesh_wave.
+   The other 10 (particle_cloud, circle_diagram, botanical_overlay,
+   texture_blocks, data_lines, smoke_ink, halftone_grid, leaf_structure,
+   nodes_stars, grid_overlay) each have a mislabeled filename caption
+   baked directly into the image pixels (file N shows file N-5's name —
+   an export-pipeline bug, confirmed by inspecting the raw PNGs) and are
+   NOT referenced anywhere in index.html/home.css. The hero's technical-
+   diagram group reverts to its original inline SVG rather than using
+   the contaminated circle_diagram/data_lines/nodes_stars files; About's
+   botanical accents and the footer texture accent were dropped rather
+   than shipped with visible garbled text. Swap the 10 back in (and
+   restore the corner accents / About leaves / footer texture rules from
+   git history) once clean re-exports arrive.
+
+   Source images are ~307x280px — deliberately displayed at modest,
+   non-stretched sizes (rather than blown up) so nothing reads as
+   soft/blurry on retina screens.
+   ============================================================ */
+
+/* ---------------- Hero flower scene ---------------- */
+
+.eh-flower-scene {
+  position: absolute;
+  top: 8%;
+  right: -3%;
+  width: min(34vw, 400px);
+  height: min(30vw, 360px);
+  pointer-events: none;
+  will-change: transform;
+}
+.eh-flower-scene img {
+  position: absolute;
+  display: block;
+  max-width: none;
+}
+.eh-fl-root { width: 68%; left: -8%; top: 52%; opacity: 0.5; z-index: 1; }
+.eh-fl-mesh { width: 92%; left: 4%; top: -16%; opacity: 0.3; z-index: 1; }
+.eh-fl-fragment {
+  width: 36%; left: 54%; top: 4%;
+  opacity: 0;
+  transform: translate(0, 0);
+  z-index: 3;
+  animation: eh-fl-fragment-detach 8s ease-in-out infinite;
+}
+.eh-fl-petals {
+  width: 54%; left: 6%; top: 0;
+  opacity: 1;
+  transform: translate(0, 0) rotate(0deg);
+  z-index: 3;
+  animation: eh-fl-petals-drift 8s ease-in-out infinite;
+}
+.eh-fl-main {
+  width: 62%; left: 16%; top: 2%;
+  z-index: 4;
+  mask-image: radial-gradient(circle at 50% 45%, #000 68%, transparent 78%);
+  -webkit-mask-image: radial-gradient(circle at 50% 45%, #000 68%, transparent 78%);
+  animation: eh-fl-edge-erode 8s ease-in-out infinite;
+}
+
+/* Elegant, partial-only disintegration/reconstruction — confined to
+   this one specimen. Only the flower's outer rim erodes (the mask's
+   inner stop barely moves); the core never disappears. No colour
+   separation, no full fade-out — just a slow breathing of edge, loose
+   petals and one detached fragment, ~8s, mostly at rest. */
+@keyframes eh-fl-edge-erode {
+  0%, 55%, 100% {
+    mask-image: radial-gradient(circle at 50% 45%, #000 68%, transparent 78%);
+    -webkit-mask-image: radial-gradient(circle at 50% 45%, #000 68%, transparent 78%);
+  }
+  72%, 85% {
+    mask-image: radial-gradient(circle at 50% 45%, #000 54%, transparent 70%);
+    -webkit-mask-image: radial-gradient(circle at 50% 45%, #000 54%, transparent 70%);
+  }
+}
+@keyframes eh-fl-petals-drift {
+  0%, 55%, 100% { opacity: 1; transform: translate(0, 0) rotate(0deg); }
+  72%, 85% { opacity: 0.4; transform: translate(9px, -7px) rotate(-3.5deg); }
+}
+@keyframes eh-fl-fragment-detach {
+  0%, 55%, 100% { opacity: 0; transform: translate(0, 0); }
+  72%, 85% { opacity: 0.8; transform: translate(13px, 9px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .eh-flower-scene, .eh-hero-technical { transform: none !important; }
+  .eh-fl-main, .eh-fl-petals, .eh-fl-fragment { animation: none !important; }
+  .eh-fl-fragment { opacity: 0 !important; }
+  .eh-fl-petals { opacity: 1 !important; transform: none !important; }
+  .eh-fl-main {
+    mask-image: radial-gradient(circle at 50% 45%, #000 68%, transparent 78%) !important;
+    -webkit-mask-image: radial-gradient(circle at 50% 45%, #000 68%, transparent 78%) !important;
+  }
+}
+
+@media (max-width: 900px) {
+  .eh-flower-scene { width: 46vw; height: 42vw; top: 4%; right: -10%; opacity: 0.85; }
+}
+@media (max-width: 560px) {
+  .eh-flower-scene { width: 62vw; height: 56vw; opacity: 0.7; }
+}
+
+/* ---------------- Extended bridge motif (work→about, about→contact) ---------------- */
+
+.eh-bridge--to-about, .eh-bridge--to-contact {
+  height: clamp(70px, 9vw, 120px);
+  margin-top: clamp(-30px, -3vw, -10px);
+}
+.eh-footer-bridge-in {
+  position: relative;
+  height: clamp(50px, 6vw, 80px);
+  margin-bottom: clamp(10px, 2vw, 24px);
+  pointer-events: none;
+}
+.eh-footer-bridge-in svg { width: 100%; height: 100%; display: block; }
+
+/* ---------------- Footer arrow links ---------------- */
+
+.eh-arrow-link span { display: inline-block; transition: transform 0.2s ease; margin-left: 2px; }
+.eh-arrow-link:hover span, .eh-arrow-link:focus-visible span { transform: translateX(4px); }
