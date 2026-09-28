@@ -710,19 +710,20 @@ body.split-body { overflow-x: hidden; }
     linear-gradient(180deg, rgba(10,4,20,0.1) 0%, rgba(10,4,20,0.5) 55%, rgba(8,3,16,0.9) 100%),
     url('assets/admin-tile-hero.webp') center/cover no-repeat;
 }
-/* Placeholder approximations of reference photos the user shared
-   (a dark abstract purple/blue/pink smoke-wave shot for Summary
-   Builder, a dark teal ribbon/circuit swirl for AI Agents). Neither
-   reference image is saved anywhere this session can read, so these
-   are CSS stand-ins matching each one's mood/palette until the real
-   files are attached as proper uploads — see CLAUDE.md. */
-.tile-cover--indigo {
+/* Real photo tile for Summary Builder — cropped from a real thumbnail
+   comp the user shared (orange/black "Making GENAI SUMMARIES" panel).
+   Positioned left so the headline text stays in frame; the laptop
+   trails off the right edge under the crop instead of the text. */
+.tile-cover--photo-summary {
   background:
-    radial-gradient(120% 60% at 88% -8%, rgba(199,120,255,0.4), transparent 60%),
-    radial-gradient(90% 70% at 55% 25%, rgba(96,70,255,0.32), transparent 65%),
-    radial-gradient(85% 55% at 8% 95%, rgba(219,80,190,0.28), transparent 62%),
-    linear-gradient(200deg, #050308, #0d0714 55%, #050308);
+    linear-gradient(180deg, rgba(8,4,2,0.1) 0%, rgba(8,4,2,0.5) 55%, rgba(6,3,1,0.9) 100%),
+    url('assets/summary-tile-hero.png') left center/cover no-repeat;
 }
+/* Placeholder approximation of a reference photo the user shared (a
+   dark teal ribbon/circuit swirl for AI Agents). That reference image
+   isn't saved anywhere this session can read, so this is a CSS
+   stand-in matching its mood/palette until the real file is attached
+   as a proper upload — see CLAUDE.md. */
 .tile-cover--circuit {
   background:
     radial-gradient(70% 90% at 78% 15%, rgba(53,239,221,0.35), transparent 60%),
