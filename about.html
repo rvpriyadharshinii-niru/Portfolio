@@ -25,14 +25,21 @@
   .ed-header {
     display: flex; align-items: center; justify-content: space-between;
     padding: 28px var(--pad) 0;
-    font-family: var(--serif);
+    font-family: var(--font);
   }
+  .ed-left { display: flex; align-items: center; gap: 18px; }
+  .ed-back {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 13px; font-weight: 600; letter-spacing: 0.04em;
+    color: #111; border-bottom: 1px solid transparent;
+  }
+  .ed-back:hover { border-bottom-color: #111; }
   .ed-mark {
     width: 44px; height: 44px; border-radius: 50%;
     border: 1.5px solid #111; display: flex; align-items: center; justify-content: center;
-    font-style: italic; font-size: 17px;
+    font-family: var(--serif); font-style: italic; font-size: 17px;
   }
-  .ed-nav { display: flex; gap: 28px; font-size: 13px; letter-spacing: 0.06em; }
+  .ed-nav { display: flex; gap: 28px; font-size: 13px; letter-spacing: 0.02em; font-weight: 500; }
   .ed-nav a { color: #111; border-bottom: 1px solid transparent; }
   .ed-nav a:hover { border-bottom-color: #111; }
 
@@ -70,8 +77,8 @@
     float: left; font-size: 74px; line-height: 0.78; padding: 4px 8px 0 0; color: #111;
   }
   .ed-chapter-num {
-    display: block; font-family: var(--font); font-size: 10.5px; font-weight: 800;
-    letter-spacing: 0.14em; color: #b3b3b3; margin: 26px 0 6px;
+    display: block; font-family: var(--font); font-size: 11.5px; font-weight: 800;
+    letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin: 26px 0 8px;
   }
   .ed-body p:first-of-type + .ed-chapter-num { margin-top: 0; }
 
@@ -103,7 +110,10 @@
 <body>
 
 <header class="ed-header">
-  <span class="ed-mark">PV</span>
+  <div class="ed-left">
+    <a class="ed-back" href="index.html">&larr; Back</a>
+    <span class="ed-mark">PV</span>
+  </div>
   <nav class="ed-nav">
     <a href="index.html">Work</a>
     <a href="resume.html">Résumé</a>
@@ -129,19 +139,19 @@
   </span>
 
   <div class="ed-body">
-    <p>Before wireframes, there were floor plans. I trained as an architect &mdash; five years in Thiagarajar College's studios in Madurai, learning to think in load, light and circulation before I'd ever opened a design tool. It's an odd training ground for a product designer, and also, I've come to think, exactly the right one. A building and a piece of software have more in common than either discipline likes to admit: both are systems people have to move through, both fail quietly when the structure underneath is wrong, and both succeed by disappearing &mdash; by feeling obvious in hindsight.</p>
+    <p>Before wireframes, there were floor plans. I trained as an architect &mdash; five years in Thiagarajar College's studios in Madurai, learning to think in load, light and circulation before I'd ever opened a design tool. It turns out to be the right training for this work: a building and a piece of software both fail quietly when the structure underneath is wrong, and both succeed by disappearing &mdash; by feeling obvious in hindsight.</p>
 
     <span class="ed-chapter-num">01 &middot; ERP</span>
-    <p>That instinct followed me straight into enterprise software, which turns out to be its own kind of architecture problem. My first real design job was rebuilding an ERP system at Hikeon Technologies that had outgrown its own foundations &mdash; an MVP built for a couple hundred products, buckling under fifteen thousand. The fix was never a prettier interface. It was the same discipline as a renovation: find the load-bearing parts, keep those, and rebuild everything else around them so the whole structure could hold more weight without collapsing.</p>
+    <p>That instinct followed me into enterprise software. My first real design job was rebuilding an ERP system at Hikeon Technologies that had outgrown its own foundations &mdash; built for a couple hundred products, buckling under fifteen thousand. The fix was never a prettier interface; it was the same discipline as a renovation: find the load-bearing parts, keep those, rebuild the rest around them.</p>
 
     <span class="ed-chapter-num">02 &middot; AI Agents</span>
-    <p>Most of the four years since have lived at Uniphore, inside a harder version of the same problem: designing for AI systems that keep changing shape underneath the interface. Agents that used to follow fixed rules started reasoning on their own. Configuration stopped being the whole job &mdash; trust, testing and governance became part of the design brief too. None of it made the work simpler. It made me more careful about what I was actually promising a user whenever I called something &ldquo;automatic.&rdquo;</p>
+    <p>Most of the years since have lived at Uniphore, on a harder version of the same problem: designing for AI systems that keep changing shape underneath the interface. Agents that once followed fixed rules started reasoning on their own, and configuration stopped being the whole job &mdash; trust, testing and governance joined it. It made me far more careful about what I was actually promising whenever I called something &ldquo;automatic.&rdquo;</p>
 
     <span class="ed-chapter-num">03 &middot; Claude Code</span>
-    <p>Somewhere in there, I started using Claude Code and GitHub as part of the design process itself &mdash; not handing a finished Figma file over a wall, but building working prototypes alongside engineers, in the same repository, off the same requirements. It's changed how quickly an idea can be tested for real, and it's the part of the job I'm currently most curious about.</p>
+    <p>Somewhere in there, I started using Claude Code and GitHub as part of the design process itself &mdash; not handing a finished Figma file over a wall, but building working prototypes alongside engineers, off the same requirements. It's changed how quickly an idea can be tested for real.</p>
 
     <span class="ed-chapter-num">04 &middot; Off the clock</span>
-    <p>Outside of enterprise software, I draw &mdash; loosely, often of myself, in a scrappier and more colorful style than anything I'd ever ship at work. It's the same impulse in a different register: trying to make something legible out of a mess of lines. If you want the fuller, more official version of all this, my r&eacute;sum&eacute; is one click away. This page is the version with the throughlines left in.</p>
+    <p>Outside of enterprise software, I draw &mdash; loosely, often of myself, in a scrappier, more colorful style than anything I'd ship at work. Same impulse, different register: making something legible out of a mess of lines. For the fuller, more official version, my r&eacute;sum&eacute; is one click away &mdash; this page is the one with the throughlines left in.</p>
   </div>
 </div>
 
