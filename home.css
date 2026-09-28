@@ -674,11 +674,13 @@ body.split-body { overflow-x: hidden; }
     repeating-linear-gradient(45deg, rgba(255,255,255,0.045) 0 2px, transparent 2px 22px),
     linear-gradient(160deg, #001217, #003b3f);
 }
-.tile-cover--teal-alt {
+/* Real photo tile for AI-Native Design Process — the "AI-Native Design
+   Process / Research. Iterate. Scale." editorial collage hero the user
+   shared, already ~4:5 so no cropping needed. */
+.tile-cover--photo-process {
   background:
-    radial-gradient(circle at 82% 24%, rgba(53,239,221,0.2), transparent 55%),
-    repeating-linear-gradient(-45deg, rgba(255,255,255,0.045) 0 2px, transparent 2px 22px),
-    linear-gradient(160deg, #00181c, #012e33);
+    linear-gradient(180deg, rgba(10,10,8,0.08) 0%, rgba(10,10,8,0.42) 55%, rgba(8,8,6,0.86) 100%),
+    url('assets/ai-native-process-tile-hero.webp') center/cover no-repeat;
 }
 .tile-cover--purple {
   background:
