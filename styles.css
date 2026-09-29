@@ -2,7 +2,7 @@
    DESIGN SYSTEM — Uniphore-inspired editorial case study
    ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:ital@1&display=swap');
 
 :root {
   --teal-950: #001217;
@@ -1623,23 +1623,85 @@ a { color: inherit; }
   .closing-scale-text { text-align: center; }
 }
 
-/* Footer */
+/* Footer — same dark-photo/italic-serif treatment used sitewide
+   (home.css's .home-footer / .eh-footer). Case studies load styles.css
+   only, so it's reimplemented here rather than shared, with the same
+   class names for easy upkeep. PORTFOLIO is added to the link row since
+   these pages carry no top nav — it's the only way back otherwise. */
 
 .site-footer {
-  background: var(--teal-950);
-  color: rgba(255,255,255,0.55);
-  padding: 56px var(--pad) 40px;
+  position: relative;
+  min-height: 360px;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 24px;
-  align-items: center;
-  border-top: 1px solid var(--line-dark-soft);
-  font-size: 13.5px;
+  align-items: flex-end;
+  background:
+    linear-gradient(180deg, rgba(0,8,10,0.15) 0%, rgba(0,8,10,0.6) 65%, rgba(0,8,10,0.9) 100%),
+    url('assets/footer-botanical.webp');
+  background-size: cover;
+  background-position: center 45%;
+  color: #fff;
+  overflow: hidden;
 }
-.site-footer a { text-decoration: none; color: var(--cyan-soft); font-weight: 600; }
-.footer-next { text-align: right; }
-.footer-next .label { display:block; font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 6px; }
+
+.footer-content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 28px var(--pad) 32px;
+}
+
+.footer-row { display: flex; align-items: center; justify-content: space-between; }
+.footer-row--bottom { padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.15); }
+
+.footer-mark {
+  width: 46px; height: 46px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255,255,255,0.7);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-size: 18px;
+}
+
+.footer-note {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: #fff;
+}
+
+.footer-links { display: flex; flex-wrap: wrap; gap: 20px 28px; }
+.footer-links a {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  color: rgba(255,255,255,0.7);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.footer-links a:hover { color: #fff; }
+
+.footer-copy {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-size: 13px;
+  color: rgba(255,255,255,0.5);
+  letter-spacing: 0.01em;
+}
+
+@media (max-width: 480px) {
+  .footer-row--bottom { flex-direction: column; align-items: flex-start; gap: 12px; }
+}
 
 /* Reveal animation */
 
