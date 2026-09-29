@@ -73,9 +73,11 @@ img { max-width: 100%; display: block; }
 }
 
 .brand-name {
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 0.14em;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 0.03em;
 }
 
 .home-nav {
@@ -84,9 +86,11 @@ img { max-width: 100%; display: block; }
 }
 
 .home-nav a {
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 0.01em;
   color: var(--ink-mute);
   transition: color 0.2s ease;
 }
@@ -1414,7 +1418,8 @@ body.eh-body {
     transition-duration: 0.001ms !important;
     animation-duration: 0.001ms !important;
   }
-  .eh-hero-grid-bg, .eh-hero-specimen, .eh-hero-technical { transform: none !important; }
+  .eh-hero-grid-bg, .eh-hero-right, .eh-art-technical, .eh-art-mesh, .eh-art-root,
+  .eh-art-main, .eh-art-petals, .eh-art-fragment, .eh-art-halftone { transform: none !important; }
 }
 
 /* ---------------- Nav ---------------- */
@@ -1426,7 +1431,7 @@ body.eh-body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 26px var(--eh-pad);
+  padding: 30px var(--eh-pad);
   border-bottom: 1px solid transparent;
   transition: background 0.3s ease, border-color 0.3s ease, padding 0.3s ease;
 }
@@ -1435,21 +1440,24 @@ body.eh-body {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-bottom-color: var(--eh-line);
-  padding-top: 16px;
-  padding-bottom: 16px;
+  padding-top: 18px;
+  padding-bottom: 18px;
 }
 .eh-nav-name {
   font-family: var(--eh-display);
-  font-size: 15px;
-  font-weight: 600;
+  font-style: italic;
+  font-size: 17px;
+  font-weight: 500;
   letter-spacing: 0.01em;
 }
 .eh-nav-links { display: flex; align-items: center; gap: 36px; }
 .eh-nav-links a {
-  font-size: 12.5px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  font-family: var(--eh-display);
+  font-style: italic;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  text-transform: none;
   color: var(--eh-ink-soft);
   position: relative;
   padding-bottom: 3px;
@@ -1483,7 +1491,7 @@ body.eh-body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 130px var(--eh-pad) 90px;
+  padding: 116px var(--eh-pad) 76px;
   overflow: hidden;
 }
 
@@ -1495,50 +1503,55 @@ body.eh-body {
   opacity: 0.7;
   will-change: transform;
   pointer-events: none;
+  z-index: 0;
 }
 
-.eh-hero-specimen {
+/* Single system line tying the text block to the botanical composition —
+   3-5 nodes, one burgundy, one teal, the rest neutral. Two coordinate
+   labels sit near two of the nodes as an easter-egg-scale detail, rather
+   than being scattered around the hero the way the old per-diagram
+   coordinates were. */
+.eh-hero-connector {
   position: absolute;
-  top: 6%;
-  right: -8%;
-  width: min(58vw, 780px);
-  opacity: 0.55;
-  will-change: transform;
+  inset: 0;
+  z-index: 1;
   pointer-events: none;
 }
-.eh-hero-specimen svg { width: 100%; height: auto; display: block; }
 
-.eh-hero-technical {
-  position: absolute;
-  left: 54%;
-  bottom: 8%;
-  width: min(30vw, 340px);
-  will-change: transform;
-  pointer-events: none;
+.eh-hero-grid {
+  position: relative;
+  z-index: 2;
+  max-width: 1360px;
+  margin: 0 auto;
+  width: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 58%) minmax(0, 42%);
+  column-gap: clamp(28px, 4vw, 64px);
+  align-items: center;
 }
-.eh-hero-technical svg { width: 100%; height: auto; display: block; }
 
-.eh-hero-inner { position: relative; z-index: 2; max-width: 1280px; margin: 0 auto; width: 100%; }
+/* One grid cell for the whole text block (rather than each line being
+   its own row-spanning grid item) — this keeps the text's own vertical
+   rhythm entirely up to its children's margins, so the art column's
+   height can never stretch out gaps between the name/role/intro lines. */
+.eh-hero-text { display: flex; flex-direction: column; min-width: 0; }
 
-.eh-hero-meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px 20px;
+.eh-hero-eyebrow {
   font-family: var(--eh-mono);
-  font-size: 11.5px;
-  letter-spacing: 0.06em;
+  font-size: 13px;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--eh-ink-mute);
-  margin-bottom: clamp(28px, 4vw, 44px);
+  margin-bottom: 18px;
 }
-.eh-hero-meta span:not(:last-child)::after { content: '\2014'; margin-left: 20px; opacity: 0.4; }
+.eh-hero-eyebrow span { opacity: 0.5; margin: 0 2px; }
 
 .eh-hero-name {
   font-family: var(--eh-display);
   font-weight: 600;
-  font-size: clamp(58px, 10.5vw, 156px);
-  line-height: 0.93;
-  letter-spacing: -0.01em;
+  font-size: clamp(60px, 6vw, 96px);
+  line-height: 1.05;
+  letter-spacing: -0.008em;
   margin: 0;
 }
 
@@ -1546,30 +1559,27 @@ body.eh-body {
   font-family: var(--eh-display);
   font-style: italic;
   font-weight: 500;
-  font-size: clamp(22px, 2.6vw, 32px);
+  font-size: clamp(26px, 2.2vw, 34px);
   color: var(--eh-burgundy);
-  margin: 14px 0 26px;
+  margin: 14px 0 20px;
 }
 
 .eh-hero-copy {
-  font-size: clamp(16px, 1.4vw, 19px);
-  line-height: 1.6;
-  max-width: 44ch;
+  font-size: clamp(19px, 1.5vw, 23px);
+  line-height: 1.45;
+  max-width: 580px;
   color: var(--eh-ink-soft);
+  margin: 0 0 28px;
 }
 
-.eh-hero-stats {
-  margin-top: clamp(28px, 4vw, 40px);
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px 0;
+.eh-hero-meta-row {
   font-family: var(--eh-mono);
-  font-size: 12px;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  font-size: 16px;
+  letter-spacing: 0.02em;
   color: var(--eh-ink-mute);
 }
-.eh-hero-stats span:not(:last-child)::after { content: '\00B7'; margin: 0 14px; opacity: 0.5; }
+
+.eh-hero-right { position: relative; height: clamp(440px, 40vw, 600px); }
 
 .eh-scroll-cue {
   position: absolute;
@@ -1591,14 +1601,46 @@ body.eh-body {
   background: linear-gradient(180deg, var(--eh-ink-mute), transparent);
 }
 
-@media (max-width: 900px) {
-  .eh-hero { padding-top: 110px; }
-  .eh-hero-specimen { width: 70vw; top: 2%; right: -18%; opacity: 0.4; }
-  .eh-hero-technical { display: none; }
+/* Tablet: collapse to one text column; the botanical composition drops
+   behind it as a full-bleed, low-opacity wash rather than competing for
+   width. The connector line only makes sense in the two-zone layout. */
+@media (max-width: 980px) {
+  .eh-hero { padding-top: 104px; }
+  .eh-hero-connector { display: none; }
+  .eh-hero-grid { grid-template-columns: 1fr; }
+  .eh-hero-right {
+    position: absolute;
+    inset: 0;
+    height: auto;
+    z-index: 0;
+    opacity: 0.28;
+    pointer-events: none;
+  }
+  .eh-hero-text { position: relative; z-index: 1; }
   .eh-scroll-cue { display: none; }
 }
-@media (max-width: 560px) {
-  .eh-hero-specimen { width: 88vw; opacity: 0.3; }
+
+/* Mobile: text pieces become flat flex children (.eh-hero-text collapses
+   via display:contents) so `order` can drop the botanical artwork back
+   in as its own visible block between the intro and the metadata line —
+   no DOM reordering or JS needed. */
+@media (max-width: 640px) {
+  .eh-hero { padding-top: 96px; padding-bottom: 56px; }
+  .eh-hero-grid { row-gap: 14px; }
+  .eh-hero-text { display: contents; }
+  .eh-hero-eyebrow { order: 1; }
+  .eh-hero-name { order: 2; font-size: clamp(48px, 13vw, 64px); }
+  .eh-hero-role { order: 3; }
+  .eh-hero-copy { order: 4; }
+  .eh-hero-right {
+    order: 5;
+    position: relative;
+    opacity: 1;
+    height: clamp(260px, 68vw, 340px);
+    margin: 6px 0 2px;
+  }
+  .eh-hero-meta-row { order: 6; }
+  .eh-hero-art .eh-art-technical, .eh-hero-art .eh-art-mesh { display: none; }
 }
 
 /* ---------------- Bridge: root/network line into Selected Work ---------------- */
@@ -1878,91 +1920,142 @@ body.eh-body {
    restore the corner accents / About leaves / footer texture rules from
    git history) once clean re-exports arrive.
 
-   Source images are ~307x280px — deliberately displayed at modest,
-   non-stretched sizes (rather than blown up) so nothing reads as
-   soft/blurry on retina screens.
+   Source images are ~307x280px — displayed larger than that here per an
+   explicit follow-up request (500-650px visual diameter), which trades
+   some retina sharpness for the composition the brief asked for; expect
+   a slightly softer flower than a native higher-res export would give.
+
+   ---- Hero rebalance (2026-09-28, second follow-up) ----
+   The first pass read as an oversized-name "editorial poster" with the
+   flower pasted into a corner and everything else microscopic. Rebuilt
+   as a two-zone grid (.eh-hero-grid, ~55/45 text/art via named grid-
+   areas so the mobile order — eyebrow, name, role, intro, ART, meta —
+   comes from redefining grid-template-areas, no DOM reordering or JS)
+   with a capped name size, a single eyebrow line, readable intro copy,
+   one connector line tying the text block to the art, and the art
+   composition itself widened past its column (.eh-hero-art) with one
+   shared radial mask so the flower can bleed off the right edge with a
+   soft fade instead of a visible bounding box.
    ============================================================ */
 
-/* ---------------- Hero flower scene ---------------- */
+/* ---------------- Hero botanical × computational composition ----------------
+   Four depth groups (see JS data-parallax-* attributes on each element):
+   depth 0 = paper grid (near-stationary), depth 1 = technical diagram /
+   mesh / root (background layer), depth 2 = the main flower, depth 3 =
+   petals + fragment (breaking its silhouette). One shared radial mask on
+   the whole composition fades every layer's outer edge into the page —
+   no visible rectangle — and the box itself is wider than its grid column
+   so the flower can bleed past the right viewport edge instead of being
+   cropped to an arbitrary rectangle. */
 
-.eh-flower-scene {
+.eh-hero-art {
   position: absolute;
-  top: 8%;
-  right: -3%;
-  width: min(34vw, 400px);
-  height: min(30vw, 360px);
-  pointer-events: none;
-  will-change: transform;
+  top: 0;
+  left: -8%;
+  width: 148%;
+  height: 100%;
+  mask-image: radial-gradient(ellipse 62% 60% at 56% 46%, #000 55%, transparent 88%);
+  -webkit-mask-image: radial-gradient(ellipse 62% 60% at 56% 46%, #000 55%, transparent 88%);
 }
-.eh-flower-scene img {
+.eh-hero-art > img, .eh-hero-art > div {
   position: absolute;
   display: block;
   max-width: none;
 }
-.eh-fl-root { width: 68%; left: -8%; top: 52%; opacity: 0.5; z-index: 1; }
-.eh-fl-mesh { width: 92%; left: 4%; top: -16%; opacity: 0.3; z-index: 1; }
-.eh-fl-fragment {
-  width: 36%; left: 54%; top: 4%;
-  opacity: 0;
-  transform: translate(0, 0);
-  z-index: 3;
-  animation: eh-fl-fragment-detach 8s ease-in-out infinite;
-}
-.eh-fl-petals {
-  width: 54%; left: 6%; top: 0;
+
+.eh-art-technical { width: 26%; left: 2%; bottom: 10%; opacity: 0.6; }
+.eh-art-technical svg { width: 100%; height: auto; display: block; }
+.eh-art-mesh { width: 58%; left: 6%; top: -2%; opacity: 0.22; }
+.eh-art-root { width: 40%; left: 24%; top: 58%; opacity: 0.5; z-index: 1; }
+
+.eh-art-petals {
+  width: 22%; left: 30%; top: 10%;
   opacity: 1;
   transform: translate(0, 0) rotate(0deg);
-  z-index: 3;
-  animation: eh-fl-petals-drift 8s ease-in-out infinite;
+  z-index: 5;
+  animation: eh-fl-petals-drift 10s ease-in-out infinite;
 }
-.eh-fl-main {
-  width: 62%; left: 16%; top: 2%;
+.eh-art-fragment {
+  width: 15%; left: 60%; top: 16%;
+  opacity: 0;
+  transform: translate(0, 0);
+  z-index: 5;
+  animation: eh-fl-fragment-detach 10s ease-in-out infinite;
+}
+.eh-art-halftone {
+  width: clamp(440px, 38vw, 620px);
+  aspect-ratio: 307 / 279;
+  left: 38%; top: 8%;
+  background-image: radial-gradient(var(--eh-burgundy) 1px, transparent 1.3px);
+  background-size: 7px 7px;
+  opacity: 0;
+  z-index: 3;
+  mask-image: radial-gradient(circle at 50% 46%, transparent 48%, #000 58%, #000 72%, transparent 80%);
+  -webkit-mask-image: radial-gradient(circle at 50% 46%, transparent 48%, #000 58%, #000 72%, transparent 80%);
+  animation: eh-fl-dissolve-dust 10s ease-in-out infinite;
+}
+.eh-art-main {
+  width: clamp(440px, 38vw, 620px);
+  left: 38%; top: 8%;
   z-index: 4;
-  mask-image: radial-gradient(circle at 50% 45%, #000 68%, transparent 78%);
-  -webkit-mask-image: radial-gradient(circle at 50% 45%, #000 68%, transparent 78%);
-  animation: eh-fl-edge-erode 8s ease-in-out infinite;
+  mask-image: radial-gradient(circle at 50% 46%, #000 66%, transparent 78%);
+  -webkit-mask-image: radial-gradient(circle at 50% 46%, #000 66%, transparent 78%);
+  animation: eh-fl-edge-erode 10s ease-in-out infinite;
 }
 
-/* Elegant, partial-only disintegration/reconstruction — confined to
-   this one specimen. Only the flower's outer rim erodes (the mask's
-   inner stop barely moves); the core never disappears. No colour
-   separation, no full fade-out — just a slow breathing of edge, loose
-   petals and one detached fragment, ~8s, mostly at rest. */
+/* Elegant, partial-only disintegration/reconstruction — confined to this
+   one specimen, roughly 10-15% of it at the deepest point. Only the outer
+   rim erodes (the mask's inner stop barely moves) while a faint halftone
+   dust ring appears exactly at that eroding edge; loose petals drift and
+   one fragment briefly detaches. No colour separation, no shaking, no
+   flicker — organic matter read as data, then reassembling. ~10s cycle,
+   mostly at rest. */
 @keyframes eh-fl-edge-erode {
-  0%, 55%, 100% {
-    mask-image: radial-gradient(circle at 50% 45%, #000 68%, transparent 78%);
-    -webkit-mask-image: radial-gradient(circle at 50% 45%, #000 68%, transparent 78%);
+  0%, 58%, 100% {
+    mask-image: radial-gradient(circle at 50% 46%, #000 66%, transparent 78%);
+    -webkit-mask-image: radial-gradient(circle at 50% 46%, #000 66%, transparent 78%);
   }
-  72%, 85% {
-    mask-image: radial-gradient(circle at 50% 45%, #000 54%, transparent 70%);
-    -webkit-mask-image: radial-gradient(circle at 50% 45%, #000 54%, transparent 70%);
+  70%, 82% {
+    mask-image: radial-gradient(circle at 50% 46%, #000 52%, transparent 68%);
+    -webkit-mask-image: radial-gradient(circle at 50% 46%, #000 52%, transparent 68%);
   }
+}
+@keyframes eh-fl-dissolve-dust {
+  0%, 58%, 100% { opacity: 0; }
+  70%, 82% { opacity: 0.55; }
 }
 @keyframes eh-fl-petals-drift {
-  0%, 55%, 100% { opacity: 1; transform: translate(0, 0) rotate(0deg); }
-  72%, 85% { opacity: 0.4; transform: translate(9px, -7px) rotate(-3.5deg); }
+  0%, 58%, 100% { opacity: 1; transform: translate(0, 0) rotate(0deg); }
+  70%, 82% { opacity: 0.4; transform: translate(16px, -13px) rotate(-5deg); }
 }
 @keyframes eh-fl-fragment-detach {
-  0%, 55%, 100% { opacity: 0; transform: translate(0, 0); }
-  72%, 85% { opacity: 0.8; transform: translate(13px, 9px); }
+  0%, 58%, 100% { opacity: 0; transform: translate(0, 0); }
+  70%, 82% { opacity: 0.8; transform: translate(20px, 15px); }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .eh-flower-scene, .eh-hero-technical { transform: none !important; }
-  .eh-fl-main, .eh-fl-petals, .eh-fl-fragment { animation: none !important; }
-  .eh-fl-fragment { opacity: 0 !important; }
-  .eh-fl-petals { opacity: 1 !important; transform: none !important; }
-  .eh-fl-main {
-    mask-image: radial-gradient(circle at 50% 45%, #000 68%, transparent 78%) !important;
-    -webkit-mask-image: radial-gradient(circle at 50% 45%, #000 68%, transparent 78%) !important;
+  .eh-art-main, .eh-art-petals, .eh-art-fragment, .eh-art-halftone { animation: none !important; }
+  .eh-art-fragment, .eh-art-halftone { opacity: 0 !important; }
+  .eh-art-petals { opacity: 1 !important; transform: none !important; }
+  .eh-art-main {
+    mask-image: radial-gradient(circle at 50% 46%, #000 66%, transparent 78%) !important;
+    -webkit-mask-image: radial-gradient(circle at 50% 46%, #000 66%, transparent 78%) !important;
   }
 }
 
-@media (max-width: 900px) {
-  .eh-flower-scene { width: 46vw; height: 42vw; top: 4%; right: -10%; opacity: 0.85; }
+@media (max-width: 1280px) {
+  .eh-art-main, .eh-art-halftone { width: clamp(380px, 36vw, 480px); }
 }
-@media (max-width: 560px) {
-  .eh-flower-scene { width: 62vw; height: 56vw; opacity: 0.7; }
+@media (max-width: 980px) {
+  .eh-hero-art { mask-image: radial-gradient(ellipse 70% 70% at 60% 50%, #000 50%, transparent 90%); -webkit-mask-image: radial-gradient(ellipse 70% 70% at 60% 50%, #000 50%, transparent 90%); }
+  .eh-art-main, .eh-art-halftone { width: clamp(340px, 44vw, 460px); }
+}
+@media (max-width: 640px) {
+  .eh-hero-art { left: -4%; width: 120%; mask-image: radial-gradient(ellipse 75% 78% at 54% 48%, #000 48%, transparent 90%); -webkit-mask-image: radial-gradient(ellipse 75% 78% at 54% 48%, #000 48%, transparent 90%); }
+  .eh-art-main, .eh-art-halftone { width: clamp(220px, 62vw, 300px); left: 30%; top: 10%; }
+  .eh-art-petals { left: 20%; }
+  .eh-art-fragment { left: 52%; }
+  .eh-art-root { left: 18%; }
 }
 
 /* ---------------- Extended bridge motif (work→about, about→contact) ---------------- */
