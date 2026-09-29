@@ -98,6 +98,34 @@ body.theme-green .shot--square {
 }
 body.theme-green .shot img { height: auto; }
 
+/* Every Admin screenshot: same treatment as ERP above — no border/fill
+   box, natural aspect ratio (no forced-crop letterboxing), shadow only.
+   Product screens are the evidence; the frame around them should
+   disappear, not compete with a purple border + rounded container. */
+body.theme-purple .shot {
+  border: none;
+  background: transparent;
+  box-shadow: 0 24px 60px rgba(10, 4, 26, 0.35);
+}
+body.theme-purple .shot--full,
+body.theme-purple .shot--wide,
+body.theme-purple .shot--crop,
+body.theme-purple .shot--panorama,
+body.theme-purple .shot--tall,
+body.theme-purple .shot--square {
+  aspect-ratio: auto;
+}
+body.theme-purple .shot img { height: auto; }
+
+/* Contrast + decoration cleanup, scoped to this one case study —
+   removes the little decorative rule before every section kicker
+   (repeated dozens of times down the page for no relational meaning),
+   and lifts a couple of text colors that sat below a readable floor
+   on the dark purple background. */
+body.theme-purple .section-kicker::before { display: none; }
+body.theme-purple .section--dark .section-copy { color: rgba(255,255,255,0.82); }
+body.theme-purple .compare-cell--muted { opacity: 0.62; }
+
 /* Client intro — a real client logo + one paragraph introducing the
    actual client company, for case studies where the reader needs company
    context (who they are, how big their catalog is) before the product
@@ -886,12 +914,13 @@ a { color: inherit; }
 .section--light .ia-col li::before { color: var(--accent-light); }
 
 .ia-grid--four { grid-template-columns: repeat(4, 1fr); }
+.ia-grid--three { grid-template-columns: repeat(3, 1fr); }
 
 @media (max-width: 900px) {
   .ia-grid, .ia-grid--four { grid-template-columns: repeat(3, 1fr); }
 }
 @media (max-width: 560px) {
-  .ia-grid, .ia-grid--four { grid-template-columns: repeat(2, 1fr); }
+  .ia-grid, .ia-grid--four, .ia-grid--three { grid-template-columns: repeat(2, 1fr); }
 }
 
 /* System summary rows (final architecture recap) */
@@ -2034,46 +2063,33 @@ a { color: inherit; }
 /* Simplified UI comparison — Type 02: a small two-panel mockup (not a
    production screenshot) showing a Platform-level admin surface next
    to its App-level equivalent, for concepts an app simply doesn't
-   have (e.g. Organization). Each panel reads like a miniature browser/
-   app window so it's legible as "UI", not an abstract box. */
+   have (e.g. Organization). A plain label sits above each panel; the
+   panel itself is a faint tonal surface, not a bordered "browser
+   window" — the content should read as UI without theatrical chrome. */
 .ui-compare {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  gap: 28px;
 }
-@media (max-width: 760px) { .ui-compare { grid-template-columns: 1fr; } }
+@media (max-width: 760px) { .ui-compare { grid-template-columns: 1fr; gap: 32px; } }
+
+.ui-panel-label {
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+  margin-bottom: 12px;
+}
+.section--light .ui-panel-label { color: var(--ink-mute); }
 
 .ui-panel {
-  border: 1px solid var(--line-dark);
   border-radius: 12px;
-  overflow: hidden;
-  background: rgba(255,255,255,0.02);
+  background: rgba(255,255,255,0.025);
 }
-.section--light .ui-panel { border-color: var(--line-light); background: #fff; }
+.section--light .ui-panel { background: rgba(8,25,28,0.02); }
 
-.ui-panel-bar {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: 10px 14px;
-  border-bottom: 1px solid var(--line-dark);
-  background: rgba(255,255,255,0.03);
-}
-.section--light .ui-panel-bar { border-color: var(--line-light); background: rgba(8,25,28,0.03); }
-
-.ui-panel-dot { width: 7px; height: 7px; border-radius: 50%; background: rgba(255,255,255,0.15); flex: 0 0 auto; }
-.section--light .ui-panel-dot { background: rgba(8,25,28,0.15); }
-
-.ui-panel-title {
-  margin-left: 8px;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  color: rgba(255,255,255,0.5);
-}
-.section--light .ui-panel-title { color: var(--ink-mute); }
-
-.ui-panel-body { padding: 22px 20px; min-height: 170px; }
+.ui-panel-body { padding: 20px 22px; min-height: 160px; }
 
 .ui-hierarchy-root {
   display: flex; align-items: center; gap: 10px;
@@ -2240,7 +2256,6 @@ a { color: inherit; }
 
 /* ---- Editorial hero: asymmetric grid, plain metadata, one visual ---- */
 .adm-hero {
-  min-height: 92vh;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -2248,12 +2263,12 @@ a { color: inherit; }
     radial-gradient(ellipse 900px 500px at 10% -10%, rgba(var(--cyan-rgb), 0.10), transparent 60%),
     linear-gradient(180deg, var(--teal-950) 0%, var(--teal-900) 55%, var(--teal-850) 100%);
   color: var(--white);
-  padding: 140px 0 80px;
+  padding: 120px 0 90px;
 }
 .adm-hero-grid {
   display: grid;
-  grid-template-columns: 7fr 5fr;
-  gap: clamp(32px, 5vw, 72px);
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(32px, 5vw, 64px);
   align-items: center;
   width: 100%;
 }
@@ -2264,42 +2279,31 @@ a { color: inherit; }
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.5);
-  margin-bottom: 32px;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 28px;
 }
 .adm-hero-meta span.accent { color: var(--cyan); }
-.adm-hero-meta span:not(:last-child)::after { content: '/'; margin: 0 14px; color: rgba(255,255,255,0.2); }
+.adm-hero-meta span:not(:last-child)::after { content: '/'; margin: 0 14px; color: rgba(255,255,255,0.25); }
 .adm-hero-title {
-  font-size: clamp(44px, 6vw, 96px);
+  font-size: clamp(44px, 4.8vw, 80px);
   font-weight: 800;
-  line-height: 1.02;
+  line-height: 1.08;
   letter-spacing: -0.02em;
-  margin: 0 0 28px;
+  margin: 0 0 22px;
 }
 .adm-hero-title em { font-style: normal; color: var(--cyan); }
 .adm-hero-sub {
   font-size: clamp(16px, 1.6vw, 19px);
   line-height: 1.6;
-  color: rgba(255,255,255,0.68);
-  max-width: 50ch;
+  color: rgba(255,255,255,0.75);
+  max-width: 46ch;
   margin: 0;
 }
 .adm-hero-visual { position: relative; }
-.adm-hero-visual::before {
-  content: '';
-  position: absolute;
-  inset: -28px;
-  background-image:
-    linear-gradient(rgba(var(--cyan-rgb),0.07) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(var(--cyan-rgb),0.07) 1px, transparent 1px);
-  background-size: 26px 26px;
-  border-radius: 26px;
-  z-index: 0;
-}
 .adm-hero-visual > * { position: relative; z-index: 1; margin: 0; }
 
 @media (max-width: 900px) {
-  .adm-hero { min-height: 0; padding-top: 108px; }
+  .adm-hero { padding-top: 108px; }
   .adm-hero-grid { grid-template-columns: 1fr; }
   .adm-hero-visual { order: -1; max-width: 420px; }
 }
@@ -2378,14 +2382,14 @@ a { color: inherit; }
 
 /* ---- Standalone principle statement (no card) ---- */
 .adm-principle {
-  font-size: clamp(26px, 3.4vw, 44px);
+  font-size: clamp(24px, 2.6vw, 34px);
   font-weight: 800;
-  line-height: 1.2;
+  line-height: 1.25;
   letter-spacing: -0.01em;
-  margin: clamp(24px, 3.5vw, 36px) 0;
-  max-width: 780px;
+  margin: clamp(20px, 3vw, 32px) 0;
+  max-width: 720px;
 }
-.adm-principle--huge { font-size: clamp(30px, 4.6vw, 58px); max-width: 900px; }
+.adm-principle--huge { font-size: clamp(26px, 3vw, 40px); max-width: 800px; }
 .adm-principle .accent { color: var(--cyan); }
 .section--light .adm-principle .accent { color: var(--accent-light); }
 
@@ -2402,32 +2406,53 @@ a { color: inherit; }
 }
 .section--light .adm-quote { border-color: var(--accent-light); }
 
-/* ---- Fragmentation → convergence diagram ---- */
-.adm-converge { display: flex; flex-direction: column; align-items: center; gap: 26px; padding: 12px 0; }
-.adm-converge-scattered { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px 20px; max-width: 760px; }
-.adm-converge-chip {
-  transform: rotate(var(--r, 0deg));
-  border: 1px solid var(--line-dark);
-  border-radius: 10px;
-  padding: 12px 16px;
-  font-size: 12px;
-  font-weight: 700;
-  text-align: center;
-  color: rgba(255,255,255,0.75);
-  background: rgba(255,255,255,0.03);
+/* ---- Fragmentation → convergence diagram ----
+   A spine with tick marks converging into one target box — enterprise-
+   architecture-diagram alignment, not floating rotated stickers. */
+.adm-converge { display: flex; align-items: center; gap: clamp(24px, 4vw, 48px); max-width: 880px; margin: 0 auto; }
+.adm-converge-sources {
+  position: relative;
+  flex: 1;
+  padding-left: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
 }
-.adm-converge-chip small { display: block; font-weight: 600; opacity: 0.55; font-size: 10px; letter-spacing: 0.04em; text-transform: uppercase; margin-top: 4px; }
-.section--light .adm-converge-chip { border-color: var(--line-light); color: var(--ink-soft); background: rgba(8,25,28,0.02); }
-.adm-converge-line { width: 2px; height: 32px; background: linear-gradient(180deg, rgba(var(--cyan-rgb),0.55), rgba(var(--cyan-rgb),0.05)); }
+.adm-converge-sources::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 6px; bottom: 6px;
+  width: 1px;
+  background: rgba(var(--cyan-rgb), 0.3);
+}
+.adm-converge-source { position: relative; }
+.adm-converge-source::before {
+  content: '';
+  position: absolute;
+  left: -22px; top: 50%;
+  width: 22px; height: 1px;
+  background: rgba(var(--cyan-rgb), 0.3);
+}
+.adm-converge-source-name { display: block; font-size: 14px; font-weight: 700; color: rgba(255,255,255,0.85); }
+.adm-converge-source-context { display: block; font-size: 10.5px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: rgba(255,255,255,0.45); margin-top: 2px; }
+.adm-converge-arrow { flex: 0 0 auto; font-size: 18px; color: rgba(var(--cyan-rgb), 0.5); }
 .adm-converge-target {
-  font-size: 14px;
+  flex: 0 0 auto;
+  font-size: 13.5px;
   font-weight: 800;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.03em;
   text-transform: uppercase;
-  padding: 15px 30px;
-  border-radius: 100px;
-  background: var(--cyan);
-  color: var(--teal-950);
+  padding: 20px 24px;
+  border-radius: 10px;
+  border: 1px solid var(--cyan);
+  color: var(--cyan);
+  text-align: center;
+  max-width: 170px;
+}
+@media (max-width: 700px) {
+  .adm-converge { flex-direction: column; align-items: stretch; gap: 20px; }
+  .adm-converge-arrow { align-self: center; transform: rotate(90deg); }
+  .adm-converge-target { align-self: center; max-width: none; }
 }
 
 /* ---- Hierarchical relationship tree ---- */
@@ -2493,20 +2518,33 @@ a { color: inherit; }
   .adm-arch-desc { max-height: 60px; opacity: 1; margin-top: 4px; }
 }
 
-/* ---- Figure caption: small metadata line under a screenshot ---- */
-.adm-figure-caption {
-  display: flex;
-  justify-content: space-between;
-  gap: 16px;
-  font-family: 'Courier New', monospace;
-  font-size: 11px;
-  letter-spacing: 0.02em;
-  color: var(--ink-mute);
-  margin-top: 12px;
-  padding-top: 10px;
-  border-top: 1px solid var(--line-light);
+/* ---- Callout row: one small label + a short list of what it covers,
+   replacing a row of separate bordered one-word annotation cards when
+   the words form a single idea rather than distinct table columns. */
+.adm-callout-label {
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+  margin-bottom: 10px;
 }
-.section--dark .adm-figure-caption { color: rgba(255,255,255,0.4); border-color: var(--line-dark); }
+.section--light .adm-callout-label { color: var(--ink-mute); }
+.adm-callout-list { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px 28px; }
+.adm-callout-list li { font-size: 14.5px; font-weight: 600; color: rgba(255,255,255,0.85); }
+.section--light .adm-callout-list li { color: var(--ink); }
+
+/* ---- Figure caption: one small line directly under a screenshot,
+   kept close to the visual it describes — no rule, no opposite-ends
+   layout, no separate "FIG. 01" presentation numbering. ---- */
+.adm-figure-caption {
+  font-family: 'Courier New', monospace;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  color: rgba(255,255,255,0.5);
+  margin-top: 10px;
+}
+.section--light .adm-figure-caption { color: var(--ink-mute); }
 
 /* ---- Platform/App "enables" relationship (vertical, not two cards) ---- */
 .adm-versus { max-width: 480px; margin: 0 auto; text-align: center; }

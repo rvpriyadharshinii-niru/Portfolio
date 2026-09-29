@@ -87,13 +87,13 @@
     </div>
 
     <div class="adm-converge reveal mt-lg">
-      <div class="adm-converge-scattered">
-        <span class="adm-converge-chip" style="--r:-5deg;">Self-Serve / Assist<small>X-Console</small></span>
-        <span class="adm-converge-chip" style="--r:4deg;">Capture<small>Product Admin</small></span>
-        <span class="adm-converge-chip" style="--r:-3deg;">Analytics<small>Product Admin</small></span>
-        <span class="adm-converge-chip" style="--r:5deg;">Other capabilities<small>Separate contexts</small></span>
+      <div class="adm-converge-sources">
+        <div class="adm-converge-source"><span class="adm-converge-source-name">Self-Serve / Assist</span><span class="adm-converge-source-context">X-Console</span></div>
+        <div class="adm-converge-source"><span class="adm-converge-source-name">Capture</span><span class="adm-converge-source-context">Product Admin</span></div>
+        <div class="adm-converge-source"><span class="adm-converge-source-name">Analytics</span><span class="adm-converge-source-context">Product Admin</span></div>
+        <div class="adm-converge-source"><span class="adm-converge-source-name">Other capabilities</span><span class="adm-converge-source-context">Separate contexts</span></div>
       </div>
-      <div class="adm-converge-line"></div>
+      <span class="adm-converge-arrow" aria-hidden="true">&rarr;</span>
       <div class="adm-converge-target">Unified Administration</div>
     </div>
 
@@ -230,16 +230,14 @@
     </div>
 
     <div class="reveal">
-      <div class="shot shot--full" style="max-width:760px;margin:0 auto;">
+      <div class="shot shot--full" style="max-width:1040px;margin:0 auto;">
         <img src="assets/admin-suborgs.jpeg" alt="Sub-organizations list showing Claims Management, Sales and IT with workspace count, user count, status and created date">
       </div>
-      <div class="adm-figure-caption" style="max-width:760px;margin:12px auto 0;">
-        <span>FIG. 01 &middot; SUB-ORGANIZATIONS</span><span>PLATFORM ADMIN ONLY</span>
-      </div>
+      <div class="adm-figure-caption" style="max-width:1040px;margin:10px auto 0;">Sub-organizations &middot; Platform Admin</div>
     </div>
 
     <div class="reveal mt-lg">
-      <div class="shot shot--full" style="max-width:760px;margin:0 auto;">
+      <div class="shot shot--full" style="max-width:1040px;margin:0 auto;">
         <img src="assets/admin-org-structure.jpeg" alt="Org Structure screen for Claims Management showing workspaces, admins, credits used and utilization">
       </div>
     </div>
@@ -260,29 +258,27 @@
     </div>
 
     <div class="ui-compare reveal">
-      <div class="ui-panel">
-        <div class="ui-panel-bar">
-          <span class="ui-panel-dot"></span><span class="ui-panel-dot"></span><span class="ui-panel-dot"></span>
-          <span class="ui-panel-title">ORGANIZATION &middot; PLATFORM ADMIN</span>
-        </div>
-        <div class="ui-panel-body">
-          <div class="ui-hierarchy-root">Acme Corp <span class="ui-hierarchy-badge">Organization</span></div>
-          <div class="ui-hierarchy-children">
-            <div class="ui-hierarchy-node">Claims Management &middot; 3 workspaces</div>
-            <div class="ui-hierarchy-node">Sales &middot; 2 workspaces</div>
-            <div class="ui-hierarchy-node">IT &middot; 4 workspaces</div>
+      <div>
+        <div class="ui-panel-label">Platform Admin</div>
+        <div class="ui-panel">
+          <div class="ui-panel-body">
+            <div class="ui-hierarchy-root">Acme Corp <span class="ui-hierarchy-badge">Organization</span></div>
+            <div class="ui-hierarchy-children">
+              <div class="ui-hierarchy-node">Claims Management &middot; 3 workspaces</div>
+              <div class="ui-hierarchy-node">Sales &middot; 2 workspaces</div>
+              <div class="ui-hierarchy-node">IT &middot; 4 workspaces</div>
+            </div>
           </div>
         </div>
       </div>
-      <div class="ui-panel ui-panel--empty">
-        <div class="ui-panel-bar">
-          <span class="ui-panel-dot"></span><span class="ui-panel-dot"></span><span class="ui-panel-dot"></span>
-          <span class="ui-panel-title">ORGANIZATION &middot; APP ADMIN</span>
-        </div>
-        <div class="ui-panel-body ui-panel-body--empty">
-          <div class="ui-empty-mark">&oslash;</div>
-          <div class="ui-empty-title">Not at app level</div>
-          <p class="ui-empty-desc">An app doesn't define how the customer organizes itself.</p>
+      <div>
+        <div class="ui-panel-label">App Admin</div>
+        <div class="ui-panel ui-panel--empty">
+          <div class="ui-panel-body ui-panel-body--empty">
+            <div class="ui-empty-mark">&oslash;</div>
+            <div class="ui-empty-title">Not at app level</div>
+            <p class="ui-empty-desc">An app doesn't define how the customer organizes itself.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -395,7 +391,7 @@
     </div>
 
     <div class="reveal mt-lg">
-      <div class="shot shot--full" style="max-width:760px;margin:0 auto;">
+      <div class="shot shot--full" style="max-width:1040px;margin:0 auto;">
         <img src="assets/admin-roles.jpeg" alt="Roles table showing system vs custom roles, purpose, member count and last updated">
       </div>
       <div class="annotation-row mt-md">
@@ -424,26 +420,33 @@
     </div>
 
     <div class="reveal mt-lg">
-      <p class="mega-statement" style="text-align:left;max-width:820px;font-size:clamp(26px,3.4vw,44px);">The same experience had to work for a few users <span class="accent">&mdash; and thousands.</span></p>
-      <div class="annotation-row annotation-row--six mt-md">
-        <div class="annotation-card"><div class="a-tag">SEARCH</div></div>
-        <div class="annotation-card"><div class="a-tag">FILTER</div></div>
-        <div class="annotation-card"><div class="a-tag">IMPORT</div></div>
-        <div class="annotation-card"><div class="a-tag">SELECTION</div></div>
-        <div class="annotation-card"><div class="a-tag">BULK ACTIONS</div></div>
-        <div class="annotation-card"><div class="a-tag">LIST / HIERARCHY</div></div>
+      <h3 class="section-heading" style="font-size:clamp(26px,3vw,38px);">Designed to scale from a few users to thousands.</h3>
+      <p class="section-copy">The same table had to stay usable whether an administrator was managing five people or five thousand.</p>
+      <div class="ia-grid ia-grid--three mt-md">
+        <div class="ia-col">
+          <div class="ia-col-title">Find</div>
+          <ul><li>Search</li><li>Filter</li></ul>
+        </div>
+        <div class="ia-col">
+          <div class="ia-col-title">Manage</div>
+          <ul><li>Selection</li><li>Bulk actions</li><li>Import</li></ul>
+        </div>
+        <div class="ia-col">
+          <div class="ia-col-title">Understand</div>
+          <ul><li>List view</li><li>Hierarchy view</li></ul>
+        </div>
       </div>
     </div>
 
     <div class="reveal mt-lg">
       <h3 class="section-heading" style="font-size:clamp(22px,2.6vw,34px);">Repeated problems became reusable patterns.</h3>
       <p class="section-copy">As Users expanded, recurring problems became reusable administration patterns &mdash; extending the platform's existing design-system foundations, not a new system built from scratch.</p>
-      <div class="annotation-row mt-md">
-        <div class="annotation-card"><div class="a-tag">ENTERPRISE TABLE</div></div>
-        <div class="annotation-card"><div class="a-tag">HIERARCHICAL GROUPING</div></div>
-        <div class="annotation-card"><div class="a-tag">ASSIGNMENT PATTERN</div></div>
-        <div class="annotation-card"><div class="a-tag">ROLE-AWARE FORM</div></div>
-        <div class="annotation-card"><div class="a-tag">BULK / INLINE EDIT</div></div>
+      <div class="annotation-row annotation-row--five mt-md">
+        <div class="annotation-card"><div class="a-tag">ENTERPRISE TABLE</div><div class="a-desc">Search, filter and sort at scale.</div></div>
+        <div class="annotation-card"><div class="a-tag">HIERARCHICAL GROUPING</div><div class="a-desc">Partner &rarr; account &rarr; user, preserved.</div></div>
+        <div class="annotation-card"><div class="a-tag">ASSIGNMENT PATTERN</div><div class="a-desc">Consistent across roles and groups.</div></div>
+        <div class="annotation-card"><div class="a-tag">ROLE-AWARE FORM</div><div class="a-desc">Fields adapt to what a role can do.</div></div>
+        <div class="annotation-card"><div class="a-tag">BULK / INLINE EDIT</div><div class="a-desc">Change one row or many, in place.</div></div>
       </div>
     </div>
   </div>
@@ -469,16 +472,20 @@
     </div>
 
     <div class="reveal mt-lg">
-      <div class="shot shot--full" style="max-width:760px;margin:0 auto;">
+      <div class="shot shot--full">
         <img src="assets/admin-api-tokens.jpeg" alt="API Tokens table showing name, owner, creation date, last used and status">
       </div>
-      <div class="annotation-row mt-md">
-        <div class="annotation-card"><div class="a-tag">NAME &amp; OWNER</div></div>
-        <div class="annotation-card"><div class="a-tag">CREATED / LAST USED</div></div>
-        <div class="annotation-card"><div class="a-tag">STATUS</div></div>
-        <div class="annotation-card"><div class="a-tag">GENERATE / REVOKE</div></div>
+      <div class="adm-figure-caption">API Tokens &middot; Platform Admin</div>
+      <div class="mt-md">
+        <div class="adm-callout-label">What the platform controls</div>
+        <ul class="adm-callout-list">
+          <li>Credential ownership</li>
+          <li>Lifecycle &amp; status</li>
+          <li>Generate / revoke access</li>
+        </ul>
       </div>
-      <div class="persona-note"><strong>Platform approves, app configures.</strong> The Platform Admin curates the integration catalog; each App Admin decides how their application uses what's approved.</div>
+      <p class="adm-principle mt-md">Platform <span class="accent">approves.</span> App <span class="accent">configures.</span></p>
+      <p class="section-copy">Each App Admin decides how their application uses what's already been approved.</p>
     </div>
   </div>
 </section>
@@ -495,7 +502,7 @@
     </div>
 
     <div class="reveal">
-      <div class="shot shot--full" style="max-width:760px;margin:0 auto;">
+      <div class="shot shot--full" style="max-width:1040px;margin:0 auto;">
         <img src="assets/admin-credits.jpeg" alt="Credits dashboard showing total inferences, average daily burn, total credits, credits used, credit usage by skill, usage trend and inference calls by model type">
       </div>
       <div class="persona-note"><strong>Both altitudes, different scope.</strong> Platform Admin sees the full account bill across every app; App Admin sees only this app's consumption.</div>
@@ -663,6 +670,7 @@
       <div class="shot shot--full">
         <img src="assets/admin-baic-evolution.png" alt="BAIC diagram: today's fragmented per-product admin versus tomorrow's one shared mental model with the right scope at every level">
       </div>
+      <div class="adm-figure-caption">Today vs. tomorrow &middot; BAIC</div>
     </div>
   </div>
 </section>
@@ -691,6 +699,7 @@
       <div class="shot shot--full">
         <img src="assets/admin-baic-users-access.png" alt="BAIC Users & Access, side by side: BAIC shows every user across the tenant, CSAI shows only the users with access to that application — same page name, same vocabulary, different scope">
       </div>
+      <div class="adm-figure-caption">Users &amp; Access &middot; Platform vs. App</div>
       <p class="adm-principle mt-md" style="margin-left:auto;margin-right:auto;text-align:center;">Same concept. <span class="accent">Different scope.</span></p>
     </div>
 
@@ -725,6 +734,7 @@
       <div class="shot shot--full">
         <img src="assets/admin-baic-platform-vs-app.png" alt="BAIC comparison table: Platform Admin manages the platform and owns identity, security and tenant-wide governance, while App Admin runs one application and is designated by the Platform Admin">
       </div>
+      <div class="adm-figure-caption">Platform Admin vs. App Admin &middot; BAIC</div>
     </div>
     <p class="adm-principle adm-principle--huge mt-lg" style="margin-left:auto;margin-right:auto;text-align:center;">Set up <span class="accent">once.</span> Configure <span class="accent">per app.</span></p>
   </div>
@@ -749,6 +759,7 @@
       <div class="shot shot--full">
         <img src="assets/admin-baic-ia-structure.png" alt="BAIC's six administration sections — Organization, Users & Access, Integrations, Credit & Usage, Observability, Settings — mapped across Platform Admin and App Admin scope">
       </div>
+      <div class="adm-figure-caption">Six sections &middot; mapped across both altitudes</div>
     </div>
   </div>
 </section>
