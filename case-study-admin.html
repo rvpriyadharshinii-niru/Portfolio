@@ -242,7 +242,6 @@
       <div class="shot shot--full" style="max-width:760px;margin:0 auto;">
         <img src="assets/admin-org-structure.jpeg" alt="Org Structure screen for Claims Management showing workspaces, admins, credits used and utilization">
       </div>
-      <div class="persona-note"><strong>Platform Admin only.</strong> Organization is platform-scoped — apps inherit the tenant structure but don't define it.</div>
     </div>
 
     <div class="flow-horizontal reveal mt-lg">
@@ -254,6 +253,40 @@
       <div class="arrow-h"></div>
       <div class="node node--accent">Users / Resources</div>
     </div>
+
+    <div class="section-intro mt-lg" style="margin-top:clamp(48px,6vw,72px);">
+      <p class="section-kicker">Platform vs. app</p>
+      <h3 style="font-size:clamp(20px,2.2vw,26px);font-weight:800;margin:0 0 10px;color:inherit;">Does this exist at the app level too? No &mdash; and that's the point.</h3>
+    </div>
+
+    <div class="ui-compare reveal">
+      <div class="ui-panel">
+        <div class="ui-panel-bar">
+          <span class="ui-panel-dot"></span><span class="ui-panel-dot"></span><span class="ui-panel-dot"></span>
+          <span class="ui-panel-title">ORGANIZATION &middot; PLATFORM ADMIN</span>
+        </div>
+        <div class="ui-panel-body">
+          <div class="ui-hierarchy-root">Acme Corp <span class="ui-hierarchy-badge">Organization</span></div>
+          <div class="ui-hierarchy-children">
+            <div class="ui-hierarchy-node">Claims Management &middot; 3 workspaces</div>
+            <div class="ui-hierarchy-node">Sales &middot; 2 workspaces</div>
+            <div class="ui-hierarchy-node">IT &middot; 4 workspaces</div>
+          </div>
+        </div>
+      </div>
+      <div class="ui-panel ui-panel--empty">
+        <div class="ui-panel-bar">
+          <span class="ui-panel-dot"></span><span class="ui-panel-dot"></span><span class="ui-panel-dot"></span>
+          <span class="ui-panel-title">ORGANIZATION &middot; APP ADMIN</span>
+        </div>
+        <div class="ui-panel-body ui-panel-body--empty">
+          <div class="ui-empty-mark">&oslash;</div>
+          <div class="ui-empty-title">Not at app level</div>
+          <p class="ui-empty-desc">An app doesn't define how the customer organizes itself.</p>
+        </div>
+      </div>
+    </div>
+    <p class="adm-principle mt-md" style="text-align:center;">Organization is <span class="accent">platform-only.</span> Apps inherit the tenant structure but don&rsquo;t define it.</p>
   </div>
 </section>
 
@@ -304,12 +337,25 @@
       <span>What are they allowed <span class="mute">to do there?</span></span>
     </div>
 
-    <div class="annotation-row annotation-row--five reveal mt-lg">
-      <div class="annotation-card"><div class="a-tag">01 &middot; ADMIN CONTEXT</div><div class="a-desc">Super / Partner / Account</div></div>
-      <div class="annotation-card"><div class="a-tag">02 &middot; SCOPE</div><div class="a-desc">Where they operate</div></div>
-      <div class="annotation-card"><div class="a-tag">03 &middot; VISIBILITY</div><div class="a-desc">Who they can see</div></div>
-      <div class="annotation-card"><div class="a-tag">04 &middot; ASSIGNMENT</div><div class="a-desc">What they can assign</div></div>
-      <div class="annotation-card"><div class="a-tag">05 &middot; AUTHORITY</div><div class="a-desc">What they can change</div></div>
+    <div class="scope-diagram reveal mt-lg">
+      <div class="scope-col">
+        <div class="scope-col-title">Super Admin</div>
+        <div class="scope-level"><span class="scope-level-name">Partners</span><span class="scope-tag scope-tag--see">Can see</span></div>
+        <div class="scope-level"><span class="scope-level-name">Accounts</span><span class="scope-tag scope-tag--assign">Can assign</span></div>
+        <div class="scope-level"><span class="scope-level-name">Users</span><span class="scope-tag scope-tag--modify">Can modify</span></div>
+      </div>
+      <div class="scope-col">
+        <div class="scope-col-title">Partner Admin</div>
+        <div class="scope-level scope-level--outside"><span class="scope-level-name">Other partners</span><span class="scope-tag scope-tag--outside">Outside scope</span></div>
+        <div class="scope-level"><span class="scope-level-name">Accounts</span><span class="scope-tag scope-tag--assign">Can assign</span></div>
+        <div class="scope-level"><span class="scope-level-name">Users</span><span class="scope-tag scope-tag--modify">Can modify</span></div>
+      </div>
+      <div class="scope-col">
+        <div class="scope-col-title">Account Admin</div>
+        <div class="scope-level scope-level--outside"><span class="scope-level-name">Other accounts</span><span class="scope-tag scope-tag--outside">Outside scope</span></div>
+        <div class="scope-level"><span class="scope-level-name">Users</span><span class="scope-tag scope-tag--modify">Can modify</span></div>
+        <div class="scope-level"><span class="scope-level-name">Roles / Groups / Attributes</span><span class="scope-tag scope-tag--assign">Can assign</span></div>
+      </div>
     </div>
 
     <p class="adm-quote reveal mt-lg">Access wasn't binary. What administrators could see and change depended on where they were operating in the organization.</p>
