@@ -1556,7 +1556,7 @@ body.eh-body {
 .eh-hero-name {
   font-family: var(--eh-display);
   font-weight: 600;
-  font-size: clamp(60px, 6vw, 96px);
+  font-size: clamp(52px, 4.8vw, 84px);
   line-height: 1.05;
   letter-spacing: -0.008em;
   margin: 0;
