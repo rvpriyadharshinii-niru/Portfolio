@@ -1636,7 +1636,7 @@ body.eh-body {
   .eh-hero-grid { row-gap: 14px; }
   .eh-hero-text { display: contents; }
   .eh-hero-eyebrow { order: 1; }
-  .eh-hero-name { order: 2; font-size: clamp(48px, 13vw, 64px); }
+  .eh-hero-name { order: 2; font-size: clamp(34px, 10.5vw, 46px); white-space: nowrap; }
   .eh-hero-role { order: 3; }
   .eh-hero-copy { order: 4; }
   .eh-hero-right {
