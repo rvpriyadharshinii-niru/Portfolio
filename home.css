@@ -1425,7 +1425,8 @@ body.eh-body {
     animation-duration: 0.001ms !important;
   }
   .eh-hero-grid-bg, .eh-hero-right, .eh-art-technical, .eh-art-mesh, .eh-art-root,
-  .eh-art-main, .eh-art-petals, .eh-art-fragment, .eh-art-halftone { transform: none !important; }
+  .eh-art-main, .eh-art-petals, .eh-art-fragment, .eh-art-halftone,
+  .eh-art-xray, .eh-art-pixelfield, .eh-art-pointcloud { transform: none !important; }
 }
 
 /* ---------------- Nav ---------------- */
@@ -1544,10 +1545,10 @@ body.eh-body {
 
 .eh-hero-eyebrow {
   font-family: var(--eh-mono);
-  font-size: 13px;
+  font-size: 14px;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: var(--eh-ink-mute);
+  color: var(--eh-ink-soft);
   margin-bottom: 18px;
 }
 .eh-hero-eyebrow span { opacity: 0.5; margin: 0 2px; }
@@ -1572,7 +1573,7 @@ body.eh-body {
 
 .eh-hero-copy {
   font-size: clamp(19px, 1.5vw, 23px);
-  line-height: 1.45;
+  line-height: 1.55;
   max-width: 580px;
   color: var(--eh-ink-soft);
   margin: 0 0 28px;
@@ -1582,7 +1583,7 @@ body.eh-body {
   font-family: var(--eh-mono);
   font-size: 16px;
   letter-spacing: 0.02em;
-  color: var(--eh-ink-mute);
+  color: var(--eh-ink-soft);
 }
 
 .eh-hero-right { position: relative; height: clamp(440px, 40vw, 600px); }
@@ -1642,11 +1643,14 @@ body.eh-body {
     order: 5;
     position: relative;
     opacity: 1;
-    height: clamp(260px, 68vw, 340px);
+    height: clamp(32vh, 40vh, 45vh);
     margin: 6px 0 2px;
   }
   .eh-hero-meta-row { order: 6; }
-  .eh-hero-art .eh-art-technical, .eh-hero-art .eh-art-mesh { display: none; }
+  .eh-hero-art .eh-art-technical, .eh-hero-art .eh-art-mesh,
+  .eh-hero-art .eh-art-xray, .eh-hero-art .eh-art-pixelfield, .eh-hero-art .eh-art-pointcloud {
+    display: none;
+  }
 }
 
 /* ---------------- Bridge: root/network line into Selected Work ---------------- */
@@ -1956,7 +1960,7 @@ body.eh-body {
   mask-image: radial-gradient(ellipse 62% 60% at 56% 46%, #000 55%, transparent 88%);
   -webkit-mask-image: radial-gradient(ellipse 62% 60% at 56% 46%, #000 55%, transparent 88%);
 }
-.eh-hero-art > img, .eh-hero-art > div {
+.eh-hero-art > img, .eh-hero-art > div, .eh-hero-art > svg {
   position: absolute;
   display: block;
   max-width: none;
@@ -2002,6 +2006,41 @@ body.eh-body {
   animation: eh-fl-edge-erode 10s ease-in-out infinite;
 }
 
+/* Static (non-animated) radial decomposition around the flower's own
+   edge — organic core -> x-ray band -> pixel-grid band -> point-cloud,
+   fading to nothing. This is the permanent compositional character (the
+   NATURE x SYSTEMS x COMPUTATION concept); the disintegration keyframes
+   above are a separate, occasional animated detail layered on top of it. */
+.eh-art-xray {
+  width: clamp(440px, 38vw, 620px);
+  left: 38%; top: 8%;
+  z-index: 5;
+  filter: grayscale(1) contrast(1.7) brightness(1.6);
+  mix-blend-mode: luminosity;
+  opacity: 0.45;
+  mask-image: radial-gradient(circle at 50% 46%, transparent 56%, #000 66%, #000 76%, transparent 85%);
+  -webkit-mask-image: radial-gradient(circle at 50% 46%, transparent 56%, #000 66%, #000 76%, transparent 85%);
+}
+.eh-art-pixelfield {
+  width: clamp(440px, 38vw, 620px);
+  aspect-ratio: 307 / 279;
+  left: 38%; top: 8%;
+  z-index: 6;
+  background-image:
+    linear-gradient(var(--eh-ink) 1px, transparent 1px),
+    linear-gradient(90deg, var(--eh-ink) 1px, transparent 1px);
+  background-size: 9px 9px;
+  opacity: 0.14;
+  mask-image: radial-gradient(circle at 50% 46%, transparent 68%, #000 77%, #000 88%, transparent 97%);
+  -webkit-mask-image: radial-gradient(circle at 50% 46%, transparent 68%, #000 77%, #000 88%, transparent 97%);
+}
+.eh-art-pointcloud {
+  width: clamp(440px, 38vw, 620px);
+  height: auto;
+  left: 38%; top: 8%;
+  z-index: 7;
+}
+
 /* Elegant, partial-only disintegration/reconstruction — confined to this
    one specimen, roughly 10-15% of it at the deepest point. Only the outer
    rim erodes (the mask's inner stop barely moves) while a faint halftone
@@ -2043,11 +2082,11 @@ body.eh-body {
 }
 
 @media (max-width: 1280px) {
-  .eh-art-main, .eh-art-halftone { width: clamp(380px, 36vw, 480px); }
+  .eh-art-main, .eh-art-halftone, .eh-art-xray, .eh-art-pixelfield, .eh-art-pointcloud { width: clamp(380px, 36vw, 480px); }
 }
 @media (max-width: 980px) {
   .eh-hero-art { mask-image: radial-gradient(ellipse 70% 70% at 60% 50%, #000 50%, transparent 90%); -webkit-mask-image: radial-gradient(ellipse 70% 70% at 60% 50%, #000 50%, transparent 90%); }
-  .eh-art-main, .eh-art-halftone { width: clamp(340px, 44vw, 460px); }
+  .eh-art-main, .eh-art-halftone, .eh-art-xray, .eh-art-pixelfield, .eh-art-pointcloud { width: clamp(340px, 44vw, 460px); }
 }
 @media (max-width: 640px) {
   .eh-hero-art { left: -4%; width: 120%; mask-image: radial-gradient(ellipse 75% 78% at 54% 48%, #000 48%, transparent 90%); -webkit-mask-image: radial-gradient(ellipse 75% 78% at 54% 48%, #000 48%, transparent 90%); }
