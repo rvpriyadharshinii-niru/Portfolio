@@ -306,10 +306,24 @@
     </div>
 
     <div class="reveal">
-      <div class="placeholder placeholder--full">
-        <span class="placeholder-tag">ATS Reimagining &middot; screenshot pending</span>
-        <span class="placeholder-name">[ADD REAL ATS SCREENSHOT]</span>
-        <p class="placeholder-desc" style="margin:0 auto;text-align:center;">Replace with a large, readable capture of the reimagined ATS interface &mdash; the single clearest artifact of the working experience.</p>
+      <div class="shot shot--full">
+        <img src="assets/ats-attention-home.png" alt="HireFlow, the reimagined ATS home screen — an attention-first summary of candidates needing review, interviews waiting on feedback and a pipeline snapshot">
+      </div>
+      <div class="adm-figure-caption" style="text-align:center;">HireFlow &middot; home</div>
+    </div>
+
+    <div class="placeholder-group placeholder-group--duo reveal mt-md">
+      <div>
+        <div class="shot shot--wide">
+          <img src="assets/ats-candidate-evidence.png" alt="A candidate's evidence workspace — AI assessment, strongest supporting evidence and what still needs validation, next to the candidate's details">
+        </div>
+        <div class="adm-figure-caption" style="text-align:center;">Candidate evidence &middot; AI assessment</div>
+      </div>
+      <div>
+        <div class="shot shot--wide">
+          <img src="assets/ats-assistant-rules.png" alt="Six rules governing how the hiring assistant handles ambiguity, missing evidence, conflicting evidence and broad questions">
+        </div>
+        <div class="adm-figure-caption" style="text-align:center;">Assistant behaviour rules</div>
       </div>
     </div>
 
@@ -366,49 +380,35 @@
     </div>
 
     <div class="anp-iter reveal">
-      <span class="anp-iter-tag">Iteration example 1</span>
-      <div class="placeholder-group placeholder-group--duo">
-        <div class="placeholder placeholder--wide">
-          <span class="placeholder-tag">Initial state</span>
-          <span class="placeholder-name">[ATS ITERATION EXAMPLE &mdash; ADD REAL BEFORE/AFTER]</span>
-        </div>
-        <div class="placeholder placeholder--wide">
-          <span class="placeholder-tag">Updated state</span>
-          <span class="placeholder-name">[ATS ITERATION EXAMPLE &mdash; ADD REAL BEFORE/AFTER]</span>
-        </div>
+      <span class="anp-iter-tag">Iteration example 1 &middot; Confirming before changing anything</span>
+      <div class="shot shot--wide">
+        <img src="assets/ats-human-control.png" alt="A four-step control model: request, preview, confirm, execute — Copilot never updates shared candidate data without an explicit confirmation">
       </div>
       <div class="annotation-row annotation-row--two mt-md">
         <div class="annotation-card">
           <div class="a-tag">What I noticed</div>
-          <div class="a-desc">[Add the specific UX problem you noticed once this screen was usable.]</div>
+          <div class="a-desc">Letting the assistant move a candidate to a new stage directly felt risky &mdash; a hiring manager had no way to see exactly what would change before it happened.</div>
         </div>
         <div class="annotation-card">
           <div class="a-tag">Design decision</div>
-          <div class="a-desc">[Add what you changed, and the reasoning behind it.]</div>
+          <div class="a-desc">Built a four-step model &mdash; request, preview, confirm, execute &mdash; so the assistant never updates shared data without an explicit confirmation.</div>
         </div>
       </div>
     </div>
 
     <div class="anp-iter reveal">
-      <span class="anp-iter-tag">Iteration example 2</span>
-      <div class="placeholder-group placeholder-group--duo">
-        <div class="placeholder placeholder--wide">
-          <span class="placeholder-tag">Initial state</span>
-          <span class="placeholder-name">[ATS ITERATION EXAMPLE &mdash; ADD REAL BEFORE/AFTER]</span>
-        </div>
-        <div class="placeholder placeholder--wide">
-          <span class="placeholder-tag">Updated state</span>
-          <span class="placeholder-name">[ATS ITERATION EXAMPLE &mdash; ADD REAL BEFORE/AFTER]</span>
-        </div>
+      <span class="anp-iter-tag">Iteration example 2 &middot; Keeping AI filtering visible, not silent</span>
+      <div class="shot shot--wide">
+        <img src="assets/ats-conversation-filters.png" alt="Priya asks Copilot to show candidates strong in design systems; the UI responds with visible, removable filter chips rather than silently narrowing the list">
       </div>
       <div class="annotation-row annotation-row--two mt-md">
         <div class="annotation-card">
           <div class="a-tag">What I noticed</div>
-          <div class="a-desc">[Add the specific UX problem you noticed once this screen was usable.]</div>
+          <div class="a-desc">A natural-language filter like &ldquo;show candidates strong in design systems&rdquo; could easily read as the assistant quietly narrowing the candidate pool.</div>
         </div>
         <div class="annotation-card">
           <div class="a-tag">Design decision</div>
-          <div class="a-desc">[Add what you changed, and the reasoning behind it.]</div>
+          <div class="a-desc">Copilot applies the filter as a visible, removable chip. Temporary exploration never rewrites the official hiring criteria.</div>
         </div>
       </div>
     </div>
