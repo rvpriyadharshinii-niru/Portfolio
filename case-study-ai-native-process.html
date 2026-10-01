@@ -36,30 +36,57 @@
      ============================================================ -->
 <section class="hero">
   <div class="wrap">
-    <div class="hero-meta">
-      <span>Uniphore</span>
-      <span>Design Process</span>
-      <span>Product Designer</span>
-      <span class="accent">2025–2026</span>
+    <div class="hero-split">
+      <div>
+        <div class="hero-meta">
+          <span>Uniphore</span>
+          <span>Design Process</span>
+          <span>Product Designer</span>
+          <span class="accent">2025–2026</span>
+        </div>
+        <h1>Designing beyond the<br>Figma handoff</h1>
+        <p class="hero-sub">How I used Claude Code, our design system and GitHub to move from requirements to working product experiences.</p>
+        <p class="hero-sub" style="font-size:15px;opacity:0.6;max-width:500px;margin-bottom:0;">While working on newer BAIS experiences — including a candidate-facing ATS rebuild — our design process moved beyond static screens. Instead of designing the full experience in Figma and handing it over, AI-assisted coding became part of the design process itself.</p>
+      </div>
+      <div class="hero-evidence reveal">
+        <div class="hero-shot-subtle">
+          <img src="assets/pack-early-claude-ui.png" alt="" aria-hidden="true" style="object-fit:cover;object-position:top;">
+        </div>
+        <div class="shot shot--round hero-shot-primary">
+          <img src="assets/ats-attention-home.png" alt="HireFlow ATS — attention-first home screen, showing what needs the hiring manager today">
+        </div>
+        <div class="hero-shot-detail">
+          <img src="assets/ats-candidate-evidence.png" alt="HireFlow ATS — candidate evidence workspace detail" style="object-fit:cover;object-position:22% 18%;">
+        </div>
+      </div>
     </div>
-    <h1>AI-Native Design Process</h1>
-    <p class="hero-sub">How I used Claude Code, our design system and GitHub to move from requirements to working product experiences.</p>
-    <p class="hero-sub" style="font-size:15px;opacity:0.6;max-width:640px;margin-bottom:56px;">While working on newer BAIS experiences such as AI Agents and Administration, our design process increasingly moved beyond static screens. Instead of designing the entire experience in Figma and handing it over, we started using AI-assisted coding as part of the design process itself.</p>
+  </div>
+</section>
 
-    <div class="collage-grid reveal">
-      <div class="shot shot--wide shot--round">
-        <img src="assets/admin-org-structure.jpeg" alt="BAIS Administration — Org Structure screen">
+<!-- ============================================================
+     SECTION 1B — THE SHIFT
+     ============================================================ -->
+<section class="section section--light">
+  <div class="wrap">
+    <div class="section-intro">
+      <p class="section-kicker">The shift</p>
+      <h2 class="section-heading">Static prototypes weren't always enough.</h2>
+    </div>
+
+    <div class="shift-compare reveal">
+      <div class="shot shot--wide">
+        <img src="assets/pack-agents-overview.png" alt="BAIS AI Agents — a reviewed, Figma-designed product screen">
       </div>
-      <div class="shot shot--wide shot--round">
-        <img src="assets/admin-credits.jpeg" alt="BAIS Administration — Credits dashboard">
+      <div class="shift-cue">
+        <span>Static<br>design</span>
+        <span class="arrow">&rarr;</span>
+        <span>Working<br>experience</span>
       </div>
-      <div class="shot shot--wide shot--round">
-        <img src="assets/bais-baic-current.jpeg" alt="BAIS AI Agents — Agents dashboard">
-      </div>
-      <div class="shot shot--wide shot--round">
-        <img src="assets/agent-studio-flow-orchestration.jpeg" alt="BAIS AI Agents — Flow Builder canvas">
+      <div class="shot shot--wide">
+        <img src="assets/ats-attention-home.png" alt="HireFlow ATS — the same kind of screen, running and interactive">
       </div>
     </div>
+    <p class="iter-note center mt-md">Moving from reviewing an intended experience to interacting with a functioning one — not Agents becoming the ATS, a shift in design medium.</p>
   </div>
 </section>
 
@@ -68,39 +95,37 @@
      ============================================================ -->
 <section class="section section--dark">
   <div class="wrap">
-    <div class="section-intro">
-      <p class="section-kicker">Where it started</p>
-      <h2 class="section-heading">Claude wasn't the starting point.<br>The product problem was.</h2>
-      <p class="section-copy">Before starting a new experience, we first structured the product and UX requirements. For larger projects, this included a tailored UX requirements document — a UXRD — describing the experience we were trying to create.</p>
-      <p class="section-copy">A UXRD could include things such as product context, users and personas, the jobs they need to accomplish, key journeys, product requirements, UX requirements, important states, constraints and expected behaviour.</p>
+    <div class="reveal" style="display:grid;grid-template-columns:0.72fr 1fr;gap:clamp(28px,4vw,56px);align-items:start;">
+      <div class="section-intro" style="margin-bottom:0;">
+        <p class="section-kicker">Where it started</p>
+        <h2 class="section-heading">Claude wasn't the starting point.<br>The product problem was.</h2>
+        <p class="section-copy">Before starting a new experience, we first structured the product and UX requirements — for larger projects, a tailored UX requirements document (a UXRD) describing the experience we were trying to create.</p>
+        <p class="section-copy">A UXRD could include product context, users and personas, the jobs they need to accomplish, key journeys, requirements, important states, constraints and expected behaviour.</p>
+      </div>
+      <div>
+        <div class="shot shot--natural">
+          <img src="assets/pack-uxrd.png" alt="UX requirements document cover — Customer Service AI, describing audience, reference use case and version">
+        </div>
+        <div class="annotation-row mt-md">
+          <div class="annotation-card"><div class="a-tag">Context</div><div class="a-desc">What the product is and who it's for</div></div>
+          <div class="annotation-card"><div class="a-tag">Journeys</div><div class="a-desc">The jobs it needs to accomplish</div></div>
+          <div class="annotation-card"><div class="a-tag">Behaviour</div><div class="a-desc">Important and edge-case states</div></div>
+          <div class="annotation-card"><div class="a-tag">Constraints</div><div class="a-desc">What the experience can't do</div></div>
+        </div>
+      </div>
     </div>
 
-    <div class="flow-vertical reveal">
+    <div class="flow-vertical reveal mt-lg">
       <div class="flow-horizontal" style="gap:14px;flex-wrap:wrap;justify-content:center;">
-        <div class="node">Product Requirements</div>
-        <div style="color:var(--cyan);font-size:20px;opacity:0.6;">+</div>
-        <div class="node">UX Requirements</div>
-        <div style="color:var(--cyan);font-size:20px;opacity:0.6;">+</div>
-        <div class="node">Existing Product Context</div>
-        <div style="color:var(--cyan);font-size:20px;opacity:0.6;">+</div>
-        <div class="node">Design System</div>
+        <div class="node">Product Problem</div>
+        <div style="color:var(--cyan);font-size:18px;opacity:0.6;">&rarr;</div>
+        <div class="node">Structured Requirements</div>
+        <div style="color:var(--cyan);font-size:18px;opacity:0.6;">&rarr;</div>
+        <div class="node">UX Decisions</div>
       </div>
       <div class="arrow-v"></div>
-      <div class="node node--accent">Claude Code</div>
+      <div class="node node--accent">AI-Assisted Build</div>
     </div>
-
-    <div class="tag-row reveal mt-lg">
-      <span>Product context</span>
-      <span>Users / personas</span>
-      <span>Jobs to be done</span>
-      <span>Key journeys</span>
-      <span>Product requirements</span>
-      <span>UX requirements</span>
-      <span>Important states</span>
-      <span>Constraints</span>
-      <span>Expected behaviour</span>
-    </div>
-    <p class="placeholder-purpose center mt-md" style="margin-left:auto;margin-right:auto;">What a UXRD could cover — the point was giving Claude structured product context rather than asking it to invent the UX.</p>
 
     <p class="big-statement mt-lg reveal" style="font-size:clamp(20px,2.8vw,30px);">&ldquo;AI accelerated the execution.<br><span class="accent">It didn't replace the product thinking.&rdquo;</span></p>
   </div>
@@ -114,23 +139,10 @@
     <div class="section-intro">
       <p class="section-kicker">Design system as context</p>
       <h2 class="section-heading">The next challenge was consistency.</h2>
-      <p class="section-copy">Generating an interface with AI is easy. Generating something that actually belongs inside an existing enterprise product is much harder.</p>
-      <p class="section-copy">We already had an established design system with reusable components documented in Storybook, connected to our codebase and GitHub workflow — so Claude could work with the components and patterns that already existed, instead of inventing new ones.</p>
+      <p class="section-copy">Generating an interface with AI is easy. Generating something that actually belongs inside an existing enterprise product is much harder. We already had an established design system with reusable components in Storybook, connected to our codebase — so Claude could work with the patterns that already existed instead of inventing new ones.</p>
     </div>
 
-    <div class="flow-vertical reveal">
-      <div class="node">Design System</div>
-      <div class="arrow-v"></div>
-      <div class="node">Storybook</div>
-      <div class="arrow-v"></div>
-      <div class="node">Code / Components</div>
-      <div class="arrow-v"></div>
-      <div class="node">GitHub</div>
-      <div class="arrow-v"></div>
-      <div class="node node--accent">Claude Code</div>
-    </div>
-
-    <div class="comparison comparison--compact reveal mt-lg" style="max-width:640px;margin-left:auto;margin-right:auto;">
+    <div class="comparison comparison--compact reveal" style="max-width:640px;margin-left:auto;margin-right:auto;">
       <div class="comparison-col muted">
         <div class="comparison-row" style="display:block;padding:14px 0;">&ldquo;Create a blue button.&rdquo;</div>
         <div class="comparison-row" style="display:block;padding:14px 0;">&ldquo;Design a table.&rdquo;</div>
@@ -141,141 +153,223 @@
       </div>
     </div>
 
-    <div class="flow-vertical reveal mt-lg">
-      <div class="node" style="opacity:0.5;">Claude doesn't invent a new UI language</div>
-      <div class="arrow-v"></div>
-      <div class="node node--accent">Claude builds using existing product components</div>
+    <div class="asym-grid reveal mt-lg">
+      <div class="shot shot--full">
+        <img src="assets/pack-users-admin.png" alt="BAIS Administration — Users table, access, roles and auth status for every tenant member">
+      </div>
+      <div class="asym-stack">
+        <div class="shot shot--wide">
+          <img src="assets/pack-roles-admin.png" alt="BAIS Administration — Roles, defining what each role can do across the tenant">
+        </div>
+        <div class="shot shot--wide">
+          <img src="assets/pack-flow-builder.png" alt="BAIS AI Agents — Flow Builder canvas, a completely different workflow">
+        </div>
+      </div>
+    </div>
+    <p class="iter-note center mt-md" style="max-width:560px;margin-left:auto;margin-right:auto;">Three different workflows — user access, role governance, conversational flow logic. Same tables, same cards, same navigation language.</p>
+
+    <div class="flow-horizontal reveal mt-lg" style="gap:10px;flex-wrap:wrap;justify-content:center;">
+      <div class="node" style="padding:10px 16px;font-size:12.5px;">Requirements + Product Patterns + Design System</div>
+      <div style="color:var(--accent-light);font-size:16px;opacity:0.7;">&rarr;</div>
+      <div class="node node--accent" style="padding:10px 16px;font-size:12.5px;">Claude Code</div>
+      <div style="color:var(--accent-light);font-size:16px;opacity:0.7;">&rarr;</div>
+      <div class="node" style="padding:10px 16px;font-size:12.5px;">Working Experience</div>
     </div>
 
     <p class="big-statement mt-lg reveal" style="font-size:clamp(20px,2.8vw,30px);">&ldquo;The design system <span class="accent">became context for the AI.</span>&rdquo;</p>
+  </div>
+</section>
 
-    <div class="reveal mt-lg">
-      <div class="shot" style="max-width:280px;margin:0 auto;">
-        <img src="assets/admin-sidebar-nav.png" alt="Administration side navigation, built from the same set of design-system components across every area">
-      </div>
-      <div class="iter-note" style="text-align:center;">Illustrative — the same design-system components, consistently applied, rather than the Storybook library itself.</div>
+<!-- ============================================================
+     SECTION 4 — REAL PROJECT / ATS
+     ============================================================ -->
+<section class="editorial">
+  <div class="wrap">
+    <p class="editorial-label">Real project</p>
+    <h2 class="editorial-heading">Reimagining an ATS with Claude</h2>
+    <p class="editorial-copy">Most applicant tracking systems treat every new candidate as inventory to clear. For a hiring manager running several open roles at once, that queue hides the one decision that actually needs them today. I rebuilt the experience around attention instead of inventory — designed, built and used end to end with Claude Code.</p>
+
+    <div class="editorial-shot reveal" style="max-width:1120px;margin-left:auto;margin-right:auto;">
+      <img src="assets/ats-attention-home.png" alt="HireFlow ATS home — what needs the hiring manager's attention today, with reasons and a path to act">
+    </div>
+
+    <div class="system-row-chain reveal mt-lg" style="justify-content:center;max-width:980px;margin-left:auto;margin-right:auto;">
+      <span class="chip">Understand</span><span class="sep">&rarr;</span>
+      <span class="chip">Structure</span><span class="sep">&rarr;</span>
+      <span class="chip">Design</span><span class="sep">&rarr;</span>
+      <span class="chip">Build</span><span class="sep">&rarr;</span>
+      <span class="chip">Use</span><span class="sep">&rarr;</span>
+      <span class="chip">Critique</span><span class="sep">&rarr;</span>
+      <span class="chip">Iterate</span>
     </div>
   </div>
 </section>
 
 <!-- ============================================================
-     SECTION 4 — FROM REQUIREMENT TO WORKING EXPERIENCE
+     SECTION 5 — FROM REQUIREMENTS TO WORKING SOFTWARE
      ============================================================ -->
 <section class="section section--dark">
   <div class="wrap">
     <div class="section-intro">
-      <p class="section-kicker">Building the experience</p>
-      <h2 class="section-heading">Then we started designing in the product itself.</h2>
-      <p class="section-copy">Once the requirements and design-system context were available, I used Claude Code inside our development environment — tools like VS Code / Antigravity, with the project environment already set up — to start building the experience directly, rather than creating an isolated visual prototype.</p>
-      <p class="section-copy">I could describe the experience, build it, run it, interact with it, and immediately continue designing.</p>
+      <p class="section-kicker">The transformation</p>
+      <h2 class="section-heading">Requirements became something I could click through.</h2>
+      <p class="section-copy">The destination was never a generated screen. It was a working experience I could actually open, use and evaluate like a real product.</p>
     </div>
 
-    <div class="flow-vertical reveal">
-      <div class="node">UXRD</div>
-      <div class="arrow-v"></div>
-      <div class="node">Claude Code</div>
-      <div class="arrow-v"></div>
-      <div class="node">Existing Design-System Components</div>
-      <div class="arrow-v"></div>
-      <div class="node">Working Frontend</div>
-      <div class="arrow-v"></div>
-      <div class="node node--accent">Run + Interact</div>
-    </div>
-
-    <div class="reveal mt-lg">
-      <div class="shot shot--full">
-        <img src="assets/admin-connectors.jpeg" alt="A working BAIS Administration prototype screen, built and run directly during the design process">
+    <div class="trio-progress reveal">
+      <div>
+        <div class="trio-step-label"><span class="trio-step-num">01</span><span class="trio-step-name">Structure</span></div>
+        <div class="shot shot--natural">
+          <img src="assets/pack-uxrd.png" alt="UX requirements document — the structured brief Claude was given">
+        </div>
+      </div>
+      <div>
+        <div class="trio-step-label"><span class="trio-step-num">02</span><span class="trio-step-name">Build</span></div>
+        <div class="shot" style="aspect-ratio:4/3;">
+          <img src="assets/pack-early-claude-ui.png" alt="An early-stage AI-generated screen, before it was refined" style="object-fit:cover;object-position:top;">
+        </div>
+      </div>
+      <div>
+        <div class="trio-step-label"><span class="trio-step-num">03</span><span class="trio-step-name">Use</span></div>
+        <div class="shot shot--wide">
+          <img src="assets/ats-attention-home.png" alt="HireFlow ATS — the working experience, ready to use and evaluate">
+        </div>
       </div>
     </div>
-
-    <p class="big-statement mt-lg reveal" style="font-size:clamp(20px,2.8vw,30px);">&ldquo;The prototype became <span class="accent">part of the design process</span> — not just the final deliverable.&rdquo;</p>
+    <p class="iter-note center mt-md" style="max-width:520px;margin-left:auto;margin-right:auto;">The functional experience became another design surface.</p>
   </div>
 </section>
 
 <!-- ============================================================
-     SECTION 5 — THE FIRST OUTPUT WAS NEVER THE FINAL DESIGN
+     SECTION 6 — WHERE AI HELPED / WHERE IT NEEDED ME
      ============================================================ -->
 <section class="section section--light">
   <div class="wrap">
     <div class="section-intro">
-      <p class="section-kicker">Iteration loop</p>
-      <h2 class="section-heading">Build &rarr; use &rarr; notice &rarr; change.</h2>
-      <p class="section-copy">The biggest advantage wasn't simply generating screens faster. Once the experience was functional, I could actually use it — and that exposed problems that are sometimes difficult to notice in static screens.</p>
+      <p class="section-kicker">Division of labour</p>
+      <h2 class="section-heading">What Claude carried, and what stayed mine.</h2>
     </div>
 
-    <div class="tag-row reveal">
-      <span>Interaction behaviour</span>
-      <span>Missing states</span>
-      <span>Information hierarchy</span>
-      <span>Navigation</span>
-      <span>Responsive behaviour</span>
-      <span>Component behaviour</span>
-      <span>Longer end-to-end flows</span>
-    </div>
-
-    <p class="section-copy center mt-lg" style="max-width:680px;margin-left:auto;margin-right:auto;">Claude could quickly make many of those changes. But not every design problem was solved through prompting. Sometimes I went back into Figma. Sometimes I manually adjusted the design. Sometimes I changed the implementation directly. Sometimes Claude handled the iteration.</p>
-
-    <div class="flow-vertical reveal mt-lg">
-      <div class="node">Design</div>
-      <div class="arrow-v"></div>
-      <div class="node">Build</div>
-      <div class="arrow-v"></div>
-      <div class="node">Use</div>
-    </div>
-
-    <div class="branch-diagram reveal mt-md">
-      <div class="node node--accent" style="margin-bottom:10px;">Something Feels Wrong</div>
-      <div class="branch-connector">
-        <svg viewBox="0 0 400 40" preserveAspectRatio="none">
-          <path d="M200,0 L200,14 L100,14 L100,40" stroke="currentColor" stroke-width="1.5" fill="none"/>
-          <path d="M200,0 L200,14 L300,14 L300,40" stroke="currentColor" stroke-width="1.5" fill="none"/>
-        </svg>
-      </div>
-      <div class="branch-split">
-        <div class="branch-col">
-          <div class="node" style="width:100%;">Claude Iteration</div>
+    <div class="comparison reveal">
+      <div class="comparison-col">
+        <div class="insight-crop">
+          <img src="assets/pack-early-claude-ui.png" alt="Early Claude-generated interface detail" style="object-fit:cover;object-position:95% 15%;">
         </div>
-        <div class="branch-col">
-          <div class="node" style="width:100%;">Manual Design</div>
+        <div class="insight-heading">Where AI helped</div>
+        <p class="insight-copy">From idea to something I could use. Claude turned a structured brief into a running interface fast enough that I was interacting with it the same day, not reviewing it a sprint later.</p>
+      </div>
+      <div class="comparison-col highlight">
+        <div class="insight-crop">
+          <img src="assets/ats-candidate-evidence.png" alt="ATS candidate evidence workspace detail — details and criteria panel" style="object-fit:cover;object-position:78% 35%;">
         </div>
+        <div class="insight-heading">Where it still needed me</div>
+        <p class="insight-copy">Working software isn't necessarily good UX. Whether a recommendation felt trustworthy, where control had to stay explicit, what counted as enough evidence — those calls stayed mine.</p>
       </div>
-      <div class="branch-connector">
-        <svg viewBox="0 0 400 40" preserveAspectRatio="none">
-          <path d="M100,0 L100,26 L200,26 L200,40" stroke="currentColor" stroke-width="1.5" fill="none"/>
-          <path d="M300,0 L300,26 L200,26 L200,40" stroke="currentColor" stroke-width="1.5" fill="none"/>
-        </svg>
-      </div>
-      <div class="node node--accent">Test Again</div>
     </div>
-
-    <p class="big-statement mt-lg reveal" style="font-size:clamp(20px,2.8vw,30px);">&ldquo;AI increased the speed of iteration.<br><span class="accent">Design judgement still decided what changed.&rdquo;</span></p>
   </div>
 </section>
 
 <!-- ============================================================
-     SECTION 6 — FIGMA STILL HAD A ROLE
+     SECTION 7 — BUILD → USE → NOTICE → CHANGE
      ============================================================ -->
 <section class="section section--dark">
   <div class="wrap">
     <div class="section-intro">
-      <p class="section-kicker">Figma's role</p>
-      <h2 class="section-heading">Code didn't replace Figma.</h2>
-      <p class="section-copy">The workflow wasn't &ldquo;Figma vs. Claude.&rdquo; We used whichever surface helped us make the next design decision fastest. For certain explorations, Figma was still faster. For interaction-heavy experiences, Claude Code let us work directly with a functioning interface. For reviews, prototype screens could be brought back into Figma so PMs, designers and other stakeholders could review the experience in a familiar, collaborative environment.</p>
+      <p class="section-kicker">Design moments</p>
+      <h2 class="section-heading">Build &rarr; use &rarr; notice &rarr; change.</h2>
+      <p class="section-copy">Using the working experience surfaced product decisions that are hard to see in a static screen. Five of them, below.</p>
     </div>
 
-    <div class="comparison reveal" style="position:relative;">
+    <div class="moment-block reveal">
+      <div class="moment-head"><span class="moment-num">01</span><span class="moment-title">Notification &rarr; prioritization</span></div>
+      <p class="moment-reasoning">Instead of treating new applicants as inventory, the experience surfaces what deserves attention today and explains why — three candidates with strong evidence, three interviews blocking the next step, one decision waiting on a finalist.</p>
+      <div class="shot shot--full">
+        <img src="assets/ats-attention-home.png" alt="Design moment one — the attention-first home screen, explaining why each item surfaced">
+      </div>
+      <div class="annotation-row annotation-row--three mt-md">
+        <div class="annotation-card"><div class="a-tag">Attention first</div><div class="a-desc">Ranked by what needs a decision, not recency</div></div>
+        <div class="annotation-card"><div class="a-tag">Why it surfaced</div><div class="a-desc">The reason sits next to the item, not hidden behind it</div></div>
+        <div class="annotation-card"><div class="a-tag">Role context</div><div class="a-desc">Every card is scoped to the role it belongs to</div></div>
+      </div>
+    </div>
+
+    <div class="moment-block reveal">
+      <div class="moment-head"><span class="moment-num">02</span><span class="moment-title">Candidate profile &rarr; evidence workspace</span></div>
+      <p class="moment-reasoning">AI recommendations needed to stay inspectable and challengeable rather than becoming an unexplained score — so a &ldquo;strong match&rdquo; verdict is backed by per-criterion evidence, sourced and ready to validate.</p>
+      <div class="shot shot--full">
+        <img src="assets/ats-candidate-evidence.png" alt="Design moment two — a candidate's AI assessment broken down into sourced, per-criterion evidence">
+      </div>
+      <div class="annotation-row mt-md">
+        <div class="annotation-card"><div class="a-tag">Evidence</div><div class="a-desc">Strongest signals named, not just scored</div></div>
+        <div class="annotation-card"><div class="a-tag">Needs validation</div><div class="a-desc">What the model is unsure about, stated plainly</div></div>
+        <div class="annotation-card"><div class="a-tag">Source access</div><div class="a-desc">Every claim links back to where it came from</div></div>
+        <div class="annotation-card"><div class="a-tag">Explicit action</div><div class="a-desc">Advance, hold or reject — never automatic</div></div>
+      </div>
+    </div>
+
+    <div class="moment-mini-row">
+      <div class="moment-block reveal" style="margin-bottom:0;">
+        <span class="moment-mini-num">03</span>
+        <div class="moment-mini-head">Conversation and filters operate the same query.</div>
+        <div class="shot shot--natural">
+          <img src="assets/ats-conversation-filters.png" alt="Design moment three — a natural-language ask becomes a visible, removable filter">
+        </div>
+        <p class="moment-mini-copy mt-md">Natural-language exploration shouldn't silently change the system. The UI exposes the resulting filters so the person stays in control of what changed.</p>
+      </div>
+      <div class="moment-block reveal" style="margin-bottom:0;">
+        <span class="moment-mini-num">04</span>
+        <div class="moment-mini-head">Human control doesn't mean manual execution.</div>
+        <div class="shot shot--natural">
+          <img src="assets/ats-human-control.png" alt="Design moment four — request, preview, confirm, execute">
+        </div>
+        <p class="moment-mini-copy mt-md">Claude can interpret and prepare an action, but a consequential one stays visible and deliberate — previewed, then explicitly confirmed.</p>
+      </div>
+      <div class="moment-block reveal" style="margin-bottom:0;">
+        <span class="moment-mini-num">05</span>
+        <div class="moment-mini-head">The assistant needed rules, not just prompts.</div>
+        <div class="shot shot--natural">
+          <img src="assets/ats-assistant-rules.png" alt="Design moment five — how the assistant handles ambiguity, missing evidence and conflicting signals">
+        </div>
+        <p class="moment-mini-copy mt-md">Scope, confidence and grounding had to be designed explicitly — what to do with ambiguity, missing evidence, or a disagreement with Priya's own read.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 8 — FIGMA + CODE
+     ============================================================ -->
+<section class="section section--light">
+  <div class="wrap">
+    <div class="section-intro">
+      <p class="section-kicker">Figma's role</p>
+      <h2 class="section-heading">Figma and code became two surfaces of the same design process.</h2>
+      <p class="section-copy">The workflow wasn't &ldquo;Figma vs. Claude.&rdquo; We used whichever surface helped us make the next design decision fastest.</p>
+    </div>
+
+    <div class="placeholder-group placeholder-group--duo reveal">
+      <div class="shot" style="aspect-ratio:4/3;">
+        <img src="assets/pack-early-claude-ui.png" alt="An early Claude-generated build, before refinement" style="object-fit:cover;object-position:top;">
+      </div>
+      <div class="shot shot--wide">
+        <img src="assets/ats-candidate-evidence.png" alt="A polished, working ATS product screen">
+      </div>
+    </div>
+
+    <div class="comparison reveal mt-lg" style="position:relative;">
       <div class="comparison-col">
         <div class="comparison-head">Figma</div>
-        <div class="comparison-row">Fast visual exploration</div>
-        <div class="comparison-row">Annotations</div>
-        <div class="comparison-row">Team review</div>
+        <div class="comparison-row">Explore</div>
+        <div class="comparison-row">Compare</div>
+        <div class="comparison-row">Annotate</div>
+        <div class="comparison-row">Review</div>
       </div>
       <div class="comparison-col highlight">
-        <div class="comparison-head">Claude Code</div>
-        <div class="comparison-row">Functional behaviour</div>
-        <div class="comparison-row">Real components</div>
-        <div class="comparison-row">Interaction</div>
-        <div class="comparison-row">Responsive experience</div>
+        <div class="comparison-head">Working Product</div>
+        <div class="comparison-row">Interact</div>
+        <div class="comparison-row">Test behaviour</div>
+        <div class="comparison-row">Test states</div>
+        <div class="comparison-row">Test flows</div>
       </div>
       <div class="comparison-arrow-badge" style="left:50%;">&harr;</div>
     </div>
@@ -285,7 +379,7 @@
 </section>
 
 <!-- ============================================================
-     SECTION 7 — FEEDBACK BECAME PART OF THE LOOP
+     SECTION 9 — FEEDBACK BECAME PART OF THE LOOP
      ============================================================ -->
 <section class="section section--light">
   <div class="wrap">
@@ -293,6 +387,10 @@
       <p class="section-kicker">Feedback loop</p>
       <h2 class="section-heading">Then we connected feedback back into the build.</h2>
       <p class="section-copy">Once prototype screens were brought into Figma, the team could review them normally and leave comments. We created a workflow that allowed Claude to read the relevant Figma feedback — so feedback could move back into the implementation loop without manually translating every small comment into another long instruction.</p>
+    </div>
+
+    <div class="shot shot--round reveal" style="max-width:220px;aspect-ratio:1/1;margin:0 auto 28px;">
+      <img src="assets/ats-candidate-evidence.png" alt="The working ATS experience that review and feedback kept circling back to" style="object-fit:cover;object-position:30% 10%;">
     </div>
 
     <div class="flow-vertical flow-vertical--pill reveal">
@@ -316,7 +414,7 @@
 </section>
 
 <!-- ============================================================
-     SECTION 8 — GITHUB MADE THE WORK COLLABORATIVE
+     SECTION 10 — GITHUB MADE THE WORK COLLABORATIVE
      ============================================================ -->
 <section class="section section--dark">
   <div class="wrap">
@@ -352,80 +450,7 @@
 </section>
 
 <!-- ============================================================
-     SECTION 9 — SHOW THE REAL EXAMPLE
-     ============================================================ -->
-<section class="section section--light">
-  <div class="wrap">
-    <div class="section-intro">
-      <p class="section-kicker">The real example</p>
-      <h2 class="section-heading">What this looked like on BAIS</h2>
-      <p class="section-copy">Administration is the clearest example of this workflow end to end.</p>
-    </div>
-
-    <div class="showcase-block reveal">
-      <div class="showcase-head"><span class="showcase-index">01</span><span class="showcase-title">UX Requirements / Initial Structure</span></div>
-      <div class="placeholder-group placeholder-group--duo">
-        <div class="shot shot--crop">
-          <img src="assets/prd-cover.png" alt="Product requirements document cover — Customer Service AI">
-        </div>
-        <div class="shot shot--crop">
-          <img src="assets/prd-structure.png" alt="Product requirements document showing personas and goals — the structure Claude was given">
-        </div>
-      </div>
-      <div class="iter-note" style="text-align:center;">A representative requirements document, in the same structure used to brief Claude — not the literal Administration UXRD.</div>
-    </div>
-
-    <div class="showcase-block reveal">
-      <div class="showcase-head"><span class="showcase-index">02</span><span class="showcase-title">Design-System Components / Storybook</span></div>
-      <div class="shot" style="max-width:280px;margin:0 auto;">
-        <img src="assets/admin-sidebar-nav.png" alt="Administration side navigation, built from shared design-system components">
-      </div>
-      <div class="iter-note" style="text-align:center;">Illustrative — shared components in the shipped product, not the Storybook library itself.</div>
-    </div>
-
-    <div class="showcase-block reveal">
-      <div class="showcase-head"><span class="showcase-index">03</span><span class="showcase-title">Early Claude-Generated Implementation</span></div>
-      <div class="shot shot--wide">
-        <img src="assets/sb-build-summary.png" alt="An earlier-stage AI-generated interface, before it was refined into the final experience">
-      </div>
-      <div class="iter-note" style="text-align:center;">Illustrative — a different project's early-stage screen, standing in for what a first-pass build looks like before iteration.</div>
-    </div>
-
-    <div class="showcase-block reveal">
-      <div class="showcase-head"><span class="showcase-index">04</span><span class="showcase-title">Iteration</span></div>
-      <div class="placeholder-group placeholder-group--duo">
-        <div class="shot shot--wide">
-          <img src="assets/admin-users.jpeg" alt="Administration Users table, an earlier point in the experience">
-        </div>
-        <div class="shot shot--wide">
-          <img src="assets/admin-roles.jpeg" alt="Administration Roles table, refined after using the working prototype">
-        </div>
-      </div>
-      <div class="iter-note" style="text-align:center;">Illustrative — representative Administration screens, not the literal before/after pair for one change.</div>
-    </div>
-
-    <div class="showcase-block reveal">
-      <div class="showcase-head"><span class="showcase-index">05</span><span class="showcase-title">Updated Working Admin Experience</span></div>
-      <div class="shot shot--full">
-        <img src="assets/admin-health.jpeg" alt="Updated, working BAIS Administration experience — Health screen">
-      </div>
-    </div>
-
-    <div class="section-intro mt-lg" style="margin-bottom:24px;">
-      <p class="section-kicker">A second example</p>
-      <h2 class="section-heading" style="font-size:clamp(20px,2.6vw,28px);">The same workflow scaled to AI Agents.</h2>
-    </div>
-    <div class="showcase-block reveal">
-      <div class="showcase-head"><span class="showcase-index">+</span><span class="showcase-title">AI Agents — Flow / Orchestration</span></div>
-      <div class="shot shot--wide">
-        <img src="assets/agent-studio-evaluation.jpeg" alt="AI Agents — Evaluation screen built with the same AI-native workflow">
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     SECTION 10 — THE FULL WORKFLOW
+     SECTION 11 — THE FULL WORKFLOW
      ============================================================ -->
 <section class="section section--dark">
   <div class="wrap">
@@ -471,37 +496,39 @@
 </section>
 
 <!-- ============================================================
-     SECTION 11 — WHAT ACTUALLY CHANGED FOR ME AS A DESIGNER
+     SECTION 12 — WHAT ACTUALLY CHANGED FOR ME AS A DESIGNER
      ============================================================ -->
 <section class="section section--light">
   <div class="wrap">
-    <div class="section-intro">
-      <p class="section-kicker">What changed for me</p>
-      <h2 class="section-heading">The output changed.<br>My responsibility didn't.</h2>
-    </div>
-
-    <div class="comparison reveal">
-      <div class="comparison-col muted">
-        <div class="comparison-head">Before</div>
-        <div class="comparison-row">Understand the problem</div>
-        <div class="comparison-row">Design</div>
-        <div class="comparison-row">Prototype</div>
-        <div class="comparison-row">Handoff</div>
+    <div class="outcome-split reveal">
+      <div>
+        <div class="section-intro" style="margin-bottom:28px;">
+          <p class="section-kicker">What changed for me</p>
+          <h2 class="section-heading">The output changed.<br>My responsibility didn't.</h2>
+        </div>
+        <div class="comparison comparison--compact">
+          <div class="comparison-col muted">
+            <div class="comparison-head">Before</div>
+            <div class="comparison-row">Understand</div>
+            <div class="comparison-row">Design</div>
+            <div class="comparison-row">Prototype</div>
+            <div class="comparison-row">Handoff</div>
+          </div>
+          <div class="comparison-col highlight">
+            <div class="comparison-head">AI-Native</div>
+            <div class="comparison-row">Understand</div>
+            <div class="comparison-row">Structure</div>
+            <div class="comparison-row">Design</div>
+            <div class="comparison-row">Build, Use, Review, Change</div>
+            <div class="comparison-row">Ship-ready prototype &#8635;</div>
+          </div>
+        </div>
+        <p class="section-copy mt-lg">Claude reduced the distance between an idea and something I could actually use. But deciding what to build, how the experience should behave, whether an AI-generated solution made sense, and when something needed manual design judgement still remained my responsibility.</p>
       </div>
-      <div class="comparison-col highlight">
-        <div class="comparison-head">AI-Native Workflow</div>
-        <div class="comparison-row">Understand the problem</div>
-        <div class="comparison-row">Structure requirements</div>
-        <div class="comparison-row">Design</div>
-        <div class="comparison-row">Build</div>
-        <div class="comparison-row">Use</div>
-        <div class="comparison-row">Review</div>
-        <div class="comparison-row">Change</div>
-        <div class="comparison-row">Ship-ready prototype &#8635;</div>
+      <div class="shot shot--round" style="aspect-ratio:4/3;">
+        <img src="assets/ats-candidate-evidence.png" alt="HireFlow ATS — a candidate's profile, ready to advance, hold or reject" style="object-fit:cover;object-position:8% 8%;">
       </div>
     </div>
-
-    <p class="section-copy center mt-lg" style="max-width:680px;margin-left:auto;margin-right:auto;">Claude reduced the distance between an idea and something I could actually use. But deciding what to build, how the experience should behave, whether an AI-generated solution made sense, and when something needed manual design judgement still remained my responsibility.</p>
   </div>
 </section>
 

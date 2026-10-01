@@ -755,3 +755,119 @@ console/asset errors, all nav links resolve to the right targets
 it), the email-obfuscation script still resolves correctly on this new
 page's `.js-email` links, and mobile (375px) has no horizontal overflow
 or doodle/text overlap.
+
+## AI-Native Process case study — real ATS evidence pass (2026-10-01)
+
+The user sent a 14-image pack (`README_PLACEMENT.txt` included) with
+real evidence for `case-study-ai-native-process.html`: 9 refreshed
+Uniphore screens (Agents overview, Admin Users/Roles/Flow Builder/
+Health/Credits, a PRD cover, and the dense early-Claude-generated
+Summary Builder screen already used once in this file) plus 5 brand
+new screens from a previously-undocumented real project — **HireFlow**,
+a candidate-facing ATS rebuild — covering its attention-first home, a
+candidate evidence workspace, and three already-designed purple
+process-explainer panels (conversation→filter logic, a 4-step human-
+control model, a 6-rule assistant-behavior grid). The brief was
+explicit: this is a visual-completion pass on top of an already-agreed
+content direction, not a rewrite — fix sections that read as
+empty/abstract/under-evidenced by using real screenshots at real size
+instead of diagrams or small crops, following a reference case study's
+editorial density (content+visual paired almost everywhere, screenshots
+treated as evidence not thumbnails, varied rhythm per section) without
+copying its branding.
+
+**New assets** (`assets/`): `pack-agents-overview.png`,
+`pack-roles-admin.png`, `pack-users-admin.png`, `pack-flow-builder.png`,
+`pack-uxrd.png`, `pack-early-claude-ui.png` (Uniphore side, refreshed
+versions of screens already live on this page — `pack-connections-
+overview.png`, `pack-credits-usage.png`, `pack-health-admin.png` were
+also in the pack but ended up unused, not added); `ats-attention-
+home.png`, `ats-candidate-evidence.png`, `ats-conversation-filters.png`,
+`ats-human-control.png`, `ats-assistant-rules.png` (the new HireFlow
+evidence).
+
+**Structure changes** (see the file's own section-numbered HTML
+comments, renumbered to match): inserted a new **Section 1B — The
+Shift** right after the hero (a static Agents screen vs. the working
+ATS home, with an explicit caption that this is a shift in design
+medium, not Agents becoming the ATS — the brief was specific that this
+distinction had to be stated, not implied). Replaced the old Sections
+4–6 (generic "building the experience" / abstract iteration-loop
+diagram / Figma comparison) with five new ATS-evidence sections:
+**04 Real Project** (editorial-white, the ATS home screen at ~90%
+width, no card/border — reused the `.editorial`/`.editorial-shot`
+system this file hadn't used before, piloted elsewhere in ERP's closing
+chapter), **05 Requirements→Software** (a 3-up progression, UXRD →
+early build → working ATS, last one dominant), **06 Where AI Helped /
+Needed Me** (two `.comparison` panels with a small evidence crop
+each), **07 Build→Use→Notice→Change** (the centrepiece — 5 "design
+moments," the first two full-width with an annotation row of 3–4 tiny
+editorial labels each, the remaining three as a compact 3-up row using
+the pack's own pre-designed purple panels at their natural aspect
+ratio so their text stays legible), **08 Figma + Code** (a real duo —
+early build beside a polished ATS screen — above the Figma/Working-
+Product comparison that already existed). Deleted the old **Section 9
+— Show The Real Example** entirely (its Administration/UXRD/AI-Agents
+showcase blocks were now redundant with the richer Section 3 and the
+new ATS sections) and renumbered Sections 7–11 to 9–12 accordingly.
+Section 2 (UXRD) gained the actual PRD cover image at real size with 4
+`.annotation-card` labels replacing a 9-item tag-row. Section 3
+(design-system-as-context) gained a new `.asym-grid` composition —
+Admin Users large, Roles/Flow Builder stacked smaller beside it — in
+place of one small 280px sidebar-nav crop, and its two separate
+flow-vertical diagrams were folded into one compact chip-chain. Section
+9 (feedback loop, kept diagram-first per the brief) and Section 12
+(outcome) each gained one modestly-sized real ATS crop, different from
+every other crop of the same source image used elsewhere on the page.
+
+**New CSS** (`styles.css`, appended after `.editorial-tint-grid`'s
+media query): `.shot--natural` (lets a shot keep its own aspect ratio —
+needed for the wide pre-designed panels and the UXRD cover, where a
+forced crop would clip text); `.hero-split`/`.hero-evidence`/
+`.hero-shot-primary`/`.hero-shot-detail`/`.hero-shot-subtle` (the
+layered hero — primary screen, an overlapping detail crop, a faint
+grayscale early-build layer tucked behind, max 3 layers, no browser
+chrome); `.shift-compare`/`.shift-cue` (the Section 1B comparison with
+a small vertical "static → working" label between two shots);
+`.asym-grid`/`.asym-stack` (one large shot beside two stacked smaller
+ones); `.trio-progress`/`.trio-step-*` (the 3-up where the last column
+is widest); `.moment-block`/`.moment-head`/`.moment-num`/`.moment-
+title`/`.moment-reasoning`/`.moment-mini-row`/`.moment-mini-*` (the
+design-moment centrepiece); `.editorial .system-row-chain .chip`/`.sep`
+and `.section--light .system-row-chain .chip`/`.sep` (the existing
+dark-only chip-chain component had no light-background variant before
+this — needed for the process strip on `.editorial`'s white bg);
+`.insight-crop`/`.insight-heading`/`.insight-copy` (the two-panel
+"where AI helped / needed me" cards — a cropped evidence image over a
+heading and a paragraph, built on the existing `.comparison` wrapper
+rather than a new grid); `.outcome-split` (the closing section's 40/60
+text-beside-evidence pairing). Also widened `.annotation-row`'s preset
+family with `.annotation-row--three` (3 columns → 2 at 860px → 1 at
+480px) since the brief called for 3-label rows in places alongside the
+existing 4/5/6-column variants.
+
+**Crop mechanics**: every "detail crop" of a reused image needed an
+explicit `aspect-ratio` on its container tighter than the source image's
+own ratio, plus `object-fit:cover` on the `<img>` itself — the base
+`.shot img` rule is `object-fit:contain`, which only repositions a
+fully-visible image in letterboxed space and never actually crops
+anything; this was caught and fixed for every `object-position`-bearing
+image added in this pass (`.hero-shot-detail`'s aspect-ratio was
+originally left matching the source image's own ratio 1:1, which also
+silently defeated the crop — changed to 6/5).
+
+**Repetition is intentional, not accidental**: `ats-attention-home.png`
+and `ats-candidate-evidence.png` each appear multiple times across the
+page (hero, Section 1B, Section 4, Section 7 moment 1/2, Section 9
+anchor, Section 12) — this matches the pack's own `README_PLACEMENT.txt`
+suggested placement, and every repeat uses a different crop/scale
+paired with a different argument, never the same framing twice in a
+row.
+
+Verified via local server + Playwright at 1600/1440/1280/1024/768/390px
+widths with `.reveal` forced visible for full-page screenshots, plus a
+per-section screenshot pass (`scrollIntoViewIfNeeded` + element
+screenshot) at 1440px and 390px: zero console/pageerror output, zero
+failed `/assets/` requests, zero horizontal overflow at 390px, and the
+3-column annotation row (moment 1) confirmed collapsing to 1 column on
+mobile after the `.annotation-row--three` fix.
